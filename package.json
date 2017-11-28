@@ -1,0 +1,28 @@
+{
+  "name": "medicalrecords-contracts",
+  "version": "0.0.0",
+  "description": "smart contracts for Medical Records",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcWafik/MedicalRecords-Contracts.git"
+  },
+  "author": "Marc.Wafik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcWafik/MedicalRecords-Contracts/issues"
+  },
+  "homepage": "https://github.com/MarcWafik/MedicalRecords-Contracts#readme",
+  "dependencies": {
+    "zeppelin-solidity": "^1.4.0"
+  },
+  "devDependencies": {
+    "truffle": "^4.0.1"
+  }
+}
