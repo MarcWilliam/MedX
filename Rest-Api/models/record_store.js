@@ -1,6 +1,6 @@
 "use strict";
 
-let database = require('../database');
+let database = require('../database/database');
 
 const table = 'records';
 
