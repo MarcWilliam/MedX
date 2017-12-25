@@ -2,24 +2,27 @@
 
 var server = require('./server');
 
-var control = require('./controllers/control');
+var control = require('./controllers/request_handler');
 
 
 server.get(`/api/record`, async (request, response)=>{
-    response.send(await control.findRecords());
+    (await control.findRecords(request, response));
     
 });
 
 server.post(`/api/record`, async (request, response)=>{
-    (await control.addRecord(request.body));
+    (await control.addRecord(request, response));
+
 })
 
 server.put(``, async (request, response)=>{
-    //editRecord
+    (await control.editRecord(request, response));
+
 })
 
 server.delete(`/api/record`, async (request, response)=>{
-    (await control.removeRecord(request.body));
+    (await control.removeRecord(request, response));
+    
 })
 
 

@@ -2,9 +2,13 @@
 
 var express = require('express');
 
+var cors = require('cors');
+
 var bodyParser = require('body-parser');
 
 var server = express();
+
+server.use(cors());
 
 server.use(bodyParser.json());
 
