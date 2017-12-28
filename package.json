@@ -1,0 +1,23 @@
+{
+  "name": "medical-recordsapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcWafik/MedicalRecords.js.git"
+  },
+  "author": "Mohammed Magdy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcWafik/MedicalRecords.js/issues"
+  },
+  "homepage": "https://github.com/MarcWafik/MedicalRecords.js#readme",
+  "dependencies": {
+    "aes-js": "^3.1.0",
+    "jshashes": "^1.0.7"
+  }
+}
