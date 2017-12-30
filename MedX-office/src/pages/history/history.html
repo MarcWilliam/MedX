@@ -1,0 +1,628 @@
+<ion-header>
+</ion-header>
+
+<ion-content padding class="ion-content">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+
+      </ion-col>
+      <ion-col col-9>
+        <ion-toolbar no-border-top>
+          <ion-segment [(ngModel)]="page" color="dark">
+            <ion-segment-button value="info">
+              Demographics
+            </ion-segment-button>
+            <ion-segment-button value="summary">
+              Summary
+            </ion-segment-button>
+            <ion-segment-button value="record">
+              Office visits
+            </ion-segment-button>
+            <ion-segment-button value="laboratory">
+              Laboratory
+            </ion-segment-button>
+            <ion-segment-button value="surgeries">
+              Surgeries
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+        <div [ngSwitch]="page">
+          <ion-list *ngSwitchCase="'info'">
+            <ion-card>
+              <ion-card-header>
+                Contact information
+              </ion-card-header>
+              <hr>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-4>
+                    Name:
+                  </ion-col>
+                  <ion-col col-8>
+                    Full name
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-4>
+                    Address:
+                  </ion-col>
+                  <ion-col col-8>
+                    Apt, block, st, state, country
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-4>
+                    Phone number:
+                  </ion-col>
+                  <ion-col col-8>
+
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-4>
+                    E-mail:
+                  </ion-col>
+                  <ion-col col-8>
+
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-4>
+                    Emergency contact:
+                  </ion-col>
+                  <ion-col col-8>
+
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-4>
+                    Emergency contact phone:
+                  </ion-col>
+                  <ion-col col-8>
+
+                  </ion-col>
+                </ion-row>
+                <br>
+
+              </ion-grid>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                Employment
+              </ion-card-header>
+              <hr>
+
+              <ion-row>
+                <ion-col col-4>
+                  Employer:
+                </ion-col>
+                <ion-col col-8>
+
+                </ion-col>
+              </ion-row>
+              <br>
+              <ion-row>
+                <ion-col col-4>
+                  Occupation:
+                </ion-col>
+                <ion-col col-8>
+
+                </ion-col>
+              </ion-row>
+              <br>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                Vitals
+              </ion-card-header>
+              <hr>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-4>
+                    Date of Birth:
+                  </ion-col>
+                  <ion-col col-8>
+                    MM/DD/YYYY (age)
+                  </ion-col>
+                </ion-row>
+                <br>
+                <ion-row>
+                  <ion-col col-4>
+                    Blood Type:
+                  </ion-col>
+                  <ion-col col-8>
+                    A+/A-/...
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-4>
+                    Height:
+                  </ion-col>
+                  <ion-col col-8>
+                    XXX
+                  </ion-col>
+                </ion-row>
+                <br>
+                <ion-row>
+                  <ion-col col-4>
+                    Weight:
+                  </ion-col>
+                  <ion-col col-8>
+                    XX
+                  </ion-col>
+                </ion-row>
+                <br>
+                <ion-row>
+                  <ion-col col-4>
+                    Body Mass Index:
+                  </ion-col>
+                  <ion-col col-8>
+                    XX
+                  </ion-col>
+                </ion-row>
+                <br>
+                <ion-row>
+                  <ion-col col-4>
+                    Gender:
+                  </ion-col>
+                  <ion-col col-8>
+                    Male/Female
+                  </ion-col>
+                </ion-row>
+                <br>
+                <ion-row>
+                  <ion-col col-4>
+                    Social state:
+                  </ion-col>
+                  <ion-col col-8>
+                    Single/Married
+                  </ion-col>
+                </ion-row>
+                <br>
+              </ion-grid>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                Medication Record
+                <!--<button ion-button icon-only clear float-right>
+                  <ion-icon name="add"></ion-icon>
+                </button>-->
+              </ion-card-header>
+              <hr>
+              <ion-grid>
+                <ion-row>
+
+                  <ion-col>
+                    <ion-note>Start date</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Drug</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Dosage</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Frequency</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Duration</ion-note>
+                  </ion-col>
+
+                </ion-row>
+
+
+                <ion-row>
+                  <ion-col>
+                    MM/DD/YYYY
+                  </ion-col>
+
+                  <ion-col>
+                    name
+                  </ion-col>
+
+                  <ion-col>
+                    XX mg tab
+                  </ion-col>
+
+                  <ion-col>
+                    As needed
+                  </ion-col>
+
+                  <ion-col>
+                    w/m
+                  </ion-col>
+
+                </ion-row>
+                <br>
+
+              </ion-grid>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                Allergies
+              </ion-card-header>
+              <hr>
+
+              <ion-list>
+                <ion-item>item 1</ion-item>
+                <ion-item>item 2</ion-item>
+              </ion-list>
+
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                Immunization
+              </ion-card-header>
+              <hr>
+
+              <ion-list>
+                <ion-item>item 1</ion-item>
+                <ion-item>item 2</ion-item>
+              </ion-list>
+            </ion-card>
+
+          </ion-list>
+
+          <ion-list *ngSwitchCase="'summary'">
+
+            <ion-card>
+              <ion-card-header>
+                Family history
+              </ion-card-header>
+              <hr>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-3>
+                    <ion-note>Relative</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Gender</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Age</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Disease</ion-note>
+                  </ion-col>
+
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                  <ion-col>
+                    male/female
+                  </ion-col>
+
+                  <ion-col>
+                    XX
+                  </ion-col>
+
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                  <ion-col>
+                    male/female
+                  </ion-col>
+
+                  <ion-col>
+                    XX
+                  </ion-col>
+
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                </ion-row>
+                <br>
+
+              </ion-grid>
+            </ion-card>
+
+            <ion-card>
+              <ion-card-header>
+                Childhood history
+              </ion-card-header>
+              <hr>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-note>Age</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Disease</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Treatment</ion-note>
+                  </ion-col>
+
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col>
+                    XX
+                  </ion-col>
+
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                </ion-row>
+                <br>
+
+              </ion-grid>
+            </ion-card>
+
+          </ion-list>
+
+          <ion-list *ngSwitchCase="'record'">
+            <ion-searchbar></ion-searchbar>
+            <ion-buttons end>
+              <button ion-button clear icon-only>
+                <ion-icon name="add"></ion-icon>
+              </button>
+            </ion-buttons>
+            <ion-card>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-note>Date</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Diagnosis</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Medication</ion-note>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-note>Result</ion-note>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                  <ion-col>
+                    ....
+                  </ion-col>
+
+                  <ion-col>
+                    ....
+                  </ion-col>
+                </ion-row>
+                <br>
+
+              </ion-grid>
+            </ion-card>
+          </ion-list>
+          <ion-list *ngSwitchCase="'laboratory'">
+            <ion-searchbar></ion-searchbar>
+            <ion-buttons end>
+              <button ion-button clear icon-only>
+                <ion-icon name="add"></ion-icon>
+              </button>
+            </ion-buttons>
+            <ion-card>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-3>
+                    Date:
+                  </ion-col>
+                  <ion-col col-9>
+                    date
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-3>
+                    Result:
+                  </ion-col>
+                  <ion-col col-9>
+                    date
+                  </ion-col>
+                </ion-row>
+                <br>
+                <ion-row>
+                  <ion-col col-3>
+                    Location:
+                  </ion-col>
+                  <ion-col col-9>
+                    leg
+                  </ion-col>
+                </ion-row>
+                <br>
+
+
+                <ion-row>
+                  <ion-col col-3>
+                    Note:
+                  </ion-col>
+                  <ion-col col-9>
+                    additional
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col>
+                    <img src="">
+                  </ion-col>
+                  <ion-col>
+                    <img src="">
+                  </ion-col>
+                  <ion-col>
+                    <img src="">
+                  </ion-col>
+                </ion-row>
+                <br>
+
+              </ion-grid>
+            </ion-card>
+          </ion-list>
+          <ion-list *ngSwitchCase="'surgeries'">
+            <ion-searchbar></ion-searchbar>
+            <ion-buttons end>
+              <button ion-button clear icon-only>
+                <ion-icon name="add"></ion-icon>
+              </button>
+            </ion-buttons>
+            <ion-card>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-3>
+                    Surgery:
+                  </ion-col>
+                  <ion-col col-9>
+                    name
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-3>
+                    Onset:
+                  </ion-col>
+                  <ion-col col-9>
+                    date
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-3>
+                    ....:
+                  </ion-col>
+                  <ion-col col-9>
+                    condition after surgery/ success percentage
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-3>
+                    Note:
+                  </ion-col>
+                  <ion-col col-9>
+                    additional
+                  </ion-col>
+                </ion-row>
+                <br>
+
+              </ion-grid>
+            </ion-card>
+
+
+            <ion-card>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-3>
+                    Surgery:
+                  </ion-col>
+                  <ion-col col-9>
+                    name
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-3>
+                    Onset:
+                  </ion-col>
+                  <ion-col col-9>
+                    date
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-3>
+                    ....:
+                  </ion-col>
+                  <ion-col col-9>
+                    condition after surgery/ success percentage
+                  </ion-col>
+                </ion-row>
+                <br>
+
+                <ion-row>
+                  <ion-col col-3>
+                    Note:
+                  </ion-col>
+                  <ion-col col-9>
+                    additional
+                  </ion-col>
+                </ion-row>
+                <br>
+
+              </ion-grid>
+            </ion-card>
+          </ion-list>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+</ion-content>
+
+
+
+
+
+<!--
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+            <ion-list>
+              <ion-item *ngFor="let item of items">
+                {{ item }}
+              </ion-item>
+            </ion-list>
+          -->
