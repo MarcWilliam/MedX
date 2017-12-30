@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { TemplatePage} from '../template/template';
 /**
  * Generated class for the ListTemplatesPage page.
  *
@@ -59,7 +59,8 @@ export class ListTemplatesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListTemplatesPage');
   }
-  openPage(){
+  openPage(testName){
+    this.navCtrl.push(TemplatePage ,{name : testName});
     console.log("Opened");
   }
 }

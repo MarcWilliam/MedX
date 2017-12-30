@@ -7,12 +7,67 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>template</ion-title>
+    <ion-title>{{name}} Test Request Form</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <form #requestForm='ngForm'>
+        <ion-list no-lines>
+            <ion-item>
+              <ion-label stacked color="primary">Patient Name</ion-label>
+              <ion-input [(ngModel)]="form.patientName" name="patientName" type="text" #patientName="ngModel" required>
+              </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="patientName.valid || submitted == false" color="danger" padding-left>
+                patient Name is required
+              </p>
+
+            <ion-item>
+              <ion-label stacked color="primary">Patient DOB</ion-label>
+              <ion-input [(ngModel)]="form.patientDOB" name="patientDOB" type="text" #patientDOB="ngModel" required>
+              </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="patientDOB.valid || submitted == false" color="danger" padding-left>
+                patient DOB is required
+              </p>
+
+            <ion-item>
+                <ion-label stacked color="primary">Patient Gender</ion-label>
+                <ion-select [(ngModel)]="form.patienGender" name="patienGender"  #patienGender="ngModel" required>
+                    <ion-option value="male" selected>Male</ion-option>
+                    <ion-option value="female">Female</ion-option>
+                </ion-select>
+            </ion-item>
+            <p ion-text [hidden]="patienGender.valid || submitted == false" color="danger" padding-left>
+                patien Gender is required
+              </p>
+
+            <ion-item>
+                <ion-label stacked color="primary">physcian Name</ion-label>
+                <ion-input [(ngModel)]="form.physcian" name="physcian" type="text" #physcian="ngModel" required>
+                </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="physcian.valid || submitted == false" color="danger" padding-left>
+                physcian name is required
+              </p>
+
+            <ion-item>
+                <ion-label stacked color="primary">Diagnousis</ion-label>
+                <ion-input [(ngModel)]="form.diagnousis" name="diagnousis" type="text" #diagnousis="ngModel" required>
+                </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="diagnousis.valid || submitted == false" color="danger" padding-left>
+                diagnousis is required
+              </p>
+
+
+
+
+            <button ion-button (click)="submitRequest(requestForm)" type="submit">Request Test</button>
+          </ion-list>
+  </form>
 
 </ion-content>

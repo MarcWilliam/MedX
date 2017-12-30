@@ -31,7 +31,7 @@
                   </ion-col>
           </ion-row>
         </ion-item-divider>
-        <ion-item *ngFor="let item of templateTests" (click)="openPage()">
+        <ion-item *ngFor="let item of templateTests" (click)="openPage(item.name)">
             <ion-row>
                 <ion-col col-2>
                   {{item.name}}

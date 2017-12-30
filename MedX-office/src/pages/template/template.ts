@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,12 +16,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'template.html',
 })
 export class TemplatePage {
+  public form = {
+    patientName: '' ,
+    patientDOB: '' ,
+    patienGender: '',
+    physcian: '',
+    diagnousis: ''
+  }
+  public name = "";
 
+  public submitted = false;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.name = this.navParams.get('name');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TemplatePage');
+  }
+
+  submitRequest(requestForm: NgForm){
+    this.submitted = true;
+    if(requestForm.valid){
+      console.log('submited');
+    }
+    
   }
 
 }
