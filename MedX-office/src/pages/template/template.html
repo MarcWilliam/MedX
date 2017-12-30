@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{name}} Test Request Form</ion-title>
+    <ion-title>{{name}} Test Form</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,55 +16,105 @@
 <ion-content padding>
   <form #requestForm='ngForm'>
         <ion-list no-lines>
-            <ion-item>
-              <ion-label stacked color="primary">Patient Name</ion-label>
-              <ion-input [(ngModel)]="form.patientName" name="patientName" type="text" #patientName="ngModel" required>
-              </ion-input>
+            <ion-item >
+              <ion-row>
+              <ion-col color="primary">Component</ion-col>
+              <ion-col color="primary">Patient Results</ion-col>
+              <ion-col color="primary">standerd Range</ion-col>
+              <ion-col color="primary">Units</ion-col>
+            </ion-row>
             </ion-item>
-            <p ion-text [hidden]="patientName.valid || submitted == false" color="danger" padding-left>
-                patient Name is required
-              </p>
 
-            <ion-item>
-              <ion-label stacked color="primary">Patient DOB</ion-label>
-              <ion-input [(ngModel)]="form.patientDOB" name="patientDOB" type="text" #patientDOB="ngModel" required>
-              </ion-input>
-            </ion-item>
-            <p ion-text [hidden]="patientDOB.valid || submitted == false" color="danger" padding-left>
-                patient DOB is required
-              </p>
 
             <ion-item>
-                <ion-label stacked color="primary">Patient Gender</ion-label>
-                <ion-select [(ngModel)]="form.patienGender" name="patienGender"  #patienGender="ngModel" required>
-                    <ion-option value="male" selected>Male</ion-option>
-                    <ion-option value="female">Female</ion-option>
-                </ion-select>
+                <ion-row>
+                <ion-col >WBC Count</ion-col>
+                <ion-col ><input [(ngModel)]="form.WBC" name="WBC" type="number" #WBC="ngModel" required></ion-col>
+                <ion-col >4.5-11.0</ion-col>
+                <ion-col >K/UL</ion-col>
+              </ion-row>
             </ion-item>
-            <p ion-text [hidden]="patienGender.valid || submitted == false" color="danger" padding-left>
-                patien Gender is required
-              </p>
 
             <ion-item>
-                <ion-label stacked color="primary">physcian Name</ion-label>
-                <ion-input [(ngModel)]="form.physcian" name="physcian" type="text" #physcian="ngModel" required>
-                </ion-input>
+                <ion-row>
+                <ion-col >RBC Count</ion-col>
+                <ion-col ><input [(ngModel)]="form.RBC" name="RBC" type="number" #RBC="ngModel" required></ion-col>
+                <ion-col >3.5-5.5</ion-col>
+                <ion-col >MIL/UL</ion-col>
+              </ion-row>
             </ion-item>
-            <p ion-text [hidden]="physcian.valid || submitted == false" color="danger" padding-left>
-                physcian name is required
-              </p>
 
             <ion-item>
-                <ion-label stacked color="primary">Diagnousis</ion-label>
-                <ion-input [(ngModel)]="form.diagnousis" name="diagnousis" type="text" #diagnousis="ngModel" required>
-                </ion-input>
+                <ion-row>
+                <ion-col >HEMOGLOBIN</ion-col>
+                <ion-col ><input [(ngModel)]="form.hemoglobin" name="hemoglobin" type="number" #hemoglobin="ngModel" required></ion-col>
+                <ion-col >12.0-15.0</ion-col>
+                <ion-col >G/DL</ion-col>
+              </ion-row>
             </ion-item>
-            <p ion-text [hidden]="diagnousis.valid || submitted == false" color="danger" padding-left>
-                diagnousis is required
-              </p>
 
+            <ion-item>
+                <ion-row>
+                <ion-col >HEMATOCRIT</ion-col>
+                <ion-col ><input [(ngModel)]="form.hematocrit" name="hematocrit" type="number" #hematocrit="ngModel" required></ion-col>
+                <ion-col >36.0-48.0</ion-col>
+                <ion-col >%</ion-col>
+              </ion-row>
+            </ion-item>
 
+            <ion-item>
+                <ion-row>
+                <ion-col >MCV</ion-col>
+                <ion-col ><input [(ngModel)]="form.MCV" name="MCV" type="number" #MCV="ngModel" required></ion-col>
+                <ion-col >79.0-101.0</ion-col>
+                <ion-col >FL</ion-col>
+              </ion-row>
+            </ion-item>
 
+            <ion-item>
+                <ion-row>
+                <ion-col >MCH</ion-col>
+                <ion-col ><input [(ngModel)]="form.MCH" name="MCH" type="number" #MCH="ngModel" required></ion-col>
+                <ion-col >25.0-35.0</ion-col>
+                <ion-col >PG</ion-col>
+              </ion-row>
+            </ion-item>
+
+            <ion-item>
+                <ion-row>
+                <ion-col >MCHC</ion-col>
+                <ion-col ><input [(ngModel)]="form.MCHC" name="MCHC" type="number" #MCHC="ngModel" required></ion-col>
+                <ion-col >31.0-37.0</ion-col>
+                <ion-col >%</ion-col>
+              </ion-row>
+            </ion-item>
+
+            <ion-item>
+                <ion-row>
+                <ion-col >RDW-CV</ion-col>
+                <ion-col ><input [(ngModel)]="form.RDW" name="RDW" type="number" #RDW="ngModel" required></ion-col>
+                <ion-col >11.0-16.0</ion-col>
+                <ion-col >FL</ion-col>
+              </ion-row>
+            </ion-item>
+
+            <ion-item>
+                <ion-row>
+                <ion-col >PLATELET COUNT</ion-col>
+                <ion-col ><input [(ngModel)]="form.PC" name="PC" type="number" #PC="ngModel" required></ion-col>
+                <ion-col >150.0-420.0</ion-col>
+                <ion-col >K/UL</ion-col>
+              </ion-row>
+            </ion-item>
+
+            <ion-item>
+                <ion-row>
+                <ion-col >MPV</ion-col>
+                <ion-col ><input [(ngModel)]="form.MPV" name="MPV" type="number" #MPV="ngModel" required></ion-col>
+                <ion-col >7.0-10.0</ion-col>
+                <ion-col >FL</ion-col>
+              </ion-row>
+            </ion-item>
 
             <button ion-button (click)="submitRequest(requestForm)" type="submit">Request Test</button>
           </ion-list>

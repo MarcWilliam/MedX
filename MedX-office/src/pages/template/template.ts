@@ -17,11 +17,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TemplatePage {
   public form = {
-    patientName: '' ,
-    patientDOB: '' ,
-    patienGender: '',
-    physcian: '',
-    diagnousis: ''
+    WBC: 0 ,
+    RBC: 0 ,
+    hemoglobin: 0,
+    hematocrit: 0,
+    MCV: 0,
+    MCH: 0,
+    MCHC: 0,
+    RDW: 0,
+    PC: 0,
+    MPV: 0
   }
   public name = "";
 

@@ -14,35 +14,37 @@
 
 
 <ion-content padding>
+    <ion-searchbar [(ngModel)]="searchterm" (ionInput)="search()" placeholder="Search" ></ion-searchbar>
     <ion-item-group>
         <ion-item-divider sticky>
           <ion-row>
             <ion-col col-2>
               Name
             </ion-col>
-            <ion-col col-6>
+            <ion-col col-7>
                 Discription
               </ion-col>
               <ion-col col-2>
                   users
                 </ion-col>
-                <ion-col col-2>
-                    favorite
+                <ion-col col-1>
+                    <ion-icon name="star" class="golden"></ion-icon>
                   </ion-col>
           </ion-row>
         </ion-item-divider>
-        <ion-item *ngFor="let item of templateTests" (click)="openPage(item.name)">
+        
+        <ion-item *ngFor="let item of viewList" (click)="openPage(item.name)">
             <ion-row>
                 <ion-col col-2>
                   {{item.name}}
                 </ion-col>
-                <ion-col class="descr" col-6>
+                <ion-col class="descr" col-7>
                     {{item.descr}}
                   </ion-col>
                   <ion-col col-2>
                      {{item.users}} 
                     </ion-col>
-                    <ion-col col-2>
+                    <ion-col col-1>
                         <ion-icon name="star" class="golden" *ngIf="item.fav"></ion-icon>
                         <ion-icon name="star-outline" *ngIf="!item.fav"></ion-icon>
                       </ion-col>
