@@ -15,8 +15,9 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { SupportPage } from '../pages/support/support';
-
 import {ChooseTemplatePage} from '../pages/choose-template/choose-template';
+import {ProfilePage} from '../pages/profile/profile';
+
 
 
 import { ConferenceData } from '../providers/conference-data';
@@ -49,7 +50,8 @@ export class ConferenceApp {
     { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
     { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
     { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' },
-    { title: 'Choose Template', name: 'ChooseTemplatePage', component: ChooseTemplatePage , icon: 'information-circle' }
+    { title: 'Choose Template', name: 'ChooseTemplatePage', component: ChooseTemplatePage , icon: 'information-circle' },
+    { title: 'peofile', name: 'ProfilePage', component: ProfilePage , icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
     { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
