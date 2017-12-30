@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { TemplatePage} from '../template/template';
 /**
  * Generated class for the ListTemplatesPage page.
  *
@@ -21,6 +21,9 @@ export class ListTemplatesPage {
     users : number,
     fav : boolean,
   }>; 
+
+  public viewList : any;
+  public searchterm :any ="";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.templateTests = [{
       name :  "CBC",
@@ -53,13 +56,30 @@ export class ListTemplatesPage {
       fav :    false
     },
   ]
+  this.viewList = this.templateTests;
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListTemplatesPage');
   }
-  openPage(){
+  openPage(testName){
+    this.navCtrl.push(TemplatePage ,{name : testName});
     console.log("Opened");
   }
+
+  search(){
+    this.viewList = this.filter(this.templateTests,this.searchterm);
+  }
+
+  
+  public filter(arr : Array<any>,searchTerm :string =""){
+    if(searchTerm ==""){
+      return arr;
+    }else{
+    return arr.filter((item) => {
+        return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+    });     
+    }
+}
 }
