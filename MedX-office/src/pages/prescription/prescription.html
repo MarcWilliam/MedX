@@ -1,0 +1,55 @@
+<!--
+  Generated template for the PrescriptionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>prescription</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label stacked color="primary">prescribed medication</ion-label>
+        <ion-input [(ngModel)]="form.medicine" name="medicine" type="text" #medicine="ngModel" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label stacked color="primary">Num. Of Required Tests</ion-label>
+          <ion-input [(ngModel)]="form.testsCount" (input)="expand()"  name="testsCount" type="number" #testsCount="ngModel" ></ion-input>
+        </ion-item>
+    
+      <ion-item>
+          <ion-label stacked color="primary">Num. Of Required Scans</ion-label>
+          <ion-input [(ngModel)]="form.scansCount" (input)="expand()" name="scanssCount" type="number" #scansCount="ngModel" ></ion-input>
+          
+        </ion-item>
+
+
+
+        <div *ngIf="form.tests.length>0">
+            <ion-item *ngFor="let item of form.tests ; let i = index">
+                <ion-label stacked color="primary">Required Test</ion-label>
+                <ion-input [(ngModel)]="form.tests[i]" name="tests{{i}}" type="text" #tests[i]="ngModel" required></ion-input>
+                
+            </ion-item>
+            </div>
+      <div *ngIf="form.scans.length>0">
+      <ion-item *ngFor="let item of form.scans ; let i = index">
+          <ion-label stacked color="primary">Required Scan</ion-label>
+          <ion-input [(ngModel)]="form.scans[i]"  name="scans{{i}}" type="text" #scans[i]="ngModel" required></ion-input>
+      </ion-item>
+      </div>
+
+      <button ion-button (click)="submit()">Submit</button>
+
+
+
+    </ion-list>
+</ion-content>
