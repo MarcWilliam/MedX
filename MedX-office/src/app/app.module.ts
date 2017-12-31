@@ -30,7 +30,7 @@ import { ChooseTemplatePage} from '../pages/choose-template/choose-template';
 import {TemplatePage } from '../pages/template/template';
 import {ProfilePage} from '../pages/profile/profile'
 import { PrescriptionPage } from '../pages/prescription/prescription';
-
+import {HistoryPage} from '../pages/history/history';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
@@ -56,7 +56,8 @@ import { UserData } from '../providers/user-data';
     ChooseTemplatePage,
     TemplatePage,
     ProfilePage,
-    PrescriptionPage
+    PrescriptionPage,
+    HistoryPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +81,8 @@ import { UserData } from '../providers/user-data';
         { component: ChooseTemplatePage , name: 'ChooseTemplatePage' , segment: 'ChooseTemplatePage'},
         { component: TemplatePage , name: 'TemplatePage' ,segment: 'TemplatePage'},
         { component: ProfilePage , name: 'ProfilePage' , segment: 'ProfilePage'},
-        { component: PrescriptionPage ,name: 'PrescriptionPage' ,segment:'PrescriptionPage'}
+        { component: PrescriptionPage ,name: 'PrescriptionPage' ,segment:'PrescriptionPage'},
+        { component: HistoryPage ,name: 'HistoryPage' , segment:'HistoryPage'}
       ]
     }),
     IonicStorageModule.forRoot()
@@ -106,7 +108,8 @@ import { UserData } from '../providers/user-data';
     ChooseTemplatePage,
     TemplatePage,
     ProfilePage,
-    PrescriptionPage
+    PrescriptionPage,
+    HistoryPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

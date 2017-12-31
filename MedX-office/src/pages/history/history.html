@@ -1,16 +1,10 @@
 <ion-header>
 </ion-header>
 
-<ion-content padding class="ion-content">
-  <ion-grid>
-    <ion-row>
-      <ion-col col-3>
-
-      </ion-col>
-      <ion-col col-9>
+<ion-content  class="ion-content">
         <ion-toolbar no-border-top>
           <ion-segment [(ngModel)]="page" color="dark">
-            <ion-segment-button value="info">
+            <ion-segment-button value="info" >
               Demographics
             </ion-segment-button>
             <ion-segment-button value="summary">
@@ -396,7 +390,7 @@
 
           <ion-list *ngSwitchCase="'record'">
             <ion-searchbar></ion-searchbar>
-            <ion-buttons end>
+            <ion-buttons end (click)="openPrescription()">
               <button ion-button clear icon-only>
                 <ion-icon name="add"></ion-icon>
               </button>
@@ -445,7 +439,7 @@
           </ion-list>
           <ion-list *ngSwitchCase="'laboratory'">
             <ion-searchbar></ion-searchbar>
-            <ion-buttons end>
+            <ion-buttons (click)="openTemplate()" end>
               <button ion-button clear icon-only>
                 <ion-icon name="add"></ion-icon>
               </button>
@@ -491,7 +485,7 @@
                   </ion-col>
                 </ion-row>
                 <br>
-
+<!--
                 <ion-row>
                   <ion-col>
                     <img src="">
@@ -503,6 +497,7 @@
                     <img src="">
                   </ion-col>
                 </ion-row>
+                !-->
                 <br>
 
               </ion-grid>
@@ -607,11 +602,7 @@
             </ion-card>
           </ion-list>
         </div>
-      </ion-col>
-    </ion-row>
 
-
-  </ion-grid>
 </ion-content>
 
 
