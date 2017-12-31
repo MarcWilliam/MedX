@@ -8,8 +8,7 @@ import { Storage } from '@ionic/storage';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import {ProfilePage} from '../pages/profile/profile';
 import {HistoryPage} from '../pages/history/history';
-
-
+import {DrugsListPage} from '../pages/drugs-list/drugs-list';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
@@ -38,7 +37,8 @@ export class ConferenceApp {
   appPages: PageInterface[] = [
     
     { title: 'profile', name: 'ProfilePage', component: ProfilePage , icon: 'information-circle' },
-    { title: 'History Page', name: 'HistoryPage', component: HistoryPage , icon: 'information-circle' }
+    { title: 'History Page', name: 'HistoryPage', component: HistoryPage , icon: 'information-circle' },
+    { title: 'Drugs List' , name: 'DrugsListPage',component: DrugsListPage , icon: 'information-circle'}
   ];
   loggedInPages: PageInterface[] = [
   ];

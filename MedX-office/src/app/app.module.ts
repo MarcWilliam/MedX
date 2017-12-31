@@ -31,6 +31,10 @@ import {TemplatePage } from '../pages/template/template';
 import {ProfilePage} from '../pages/profile/profile'
 import { PrescriptionPage } from '../pages/prescription/prescription';
 import {HistoryPage} from '../pages/history/history';
+import {DrugsListPage} from '../pages/drugs-list/drugs-list';
+import {DrugsListDetalsPage} from '../pages/drugs-list-detals/drugs-list-detals';
+import {AddDrugPage} from '../pages/add-drug/add-drug';
+
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
@@ -57,7 +61,10 @@ import { UserData } from '../providers/user-data';
     TemplatePage,
     ProfilePage,
     PrescriptionPage,
-    HistoryPage
+    HistoryPage,
+    DrugsListPage,
+    DrugsListDetalsPage,
+    AddDrugPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +89,10 @@ import { UserData } from '../providers/user-data';
         { component: TemplatePage , name: 'TemplatePage' ,segment: 'TemplatePage'},
         { component: ProfilePage , name: 'ProfilePage' , segment: 'ProfilePage'},
         { component: PrescriptionPage ,name: 'PrescriptionPage' ,segment:'PrescriptionPage'},
-        { component: HistoryPage ,name: 'HistoryPage' , segment:'HistoryPage'}
+        { component: HistoryPage ,name: 'HistoryPage' , segment:'HistoryPage'},
+        { component:DrugsListPage ,name:'DrugsListPage',segment: 'DrugsListPage'},
+        { component:DrugsListDetalsPage ,name:'Drugs Detals',segment:'DrugsListDetalsPage'},
+        { component:AddDrugPage , name:'AddDrugPage',segment:'AddDrugPage'}
       ]
     }),
     IonicStorageModule.forRoot()
@@ -109,7 +119,10 @@ import { UserData } from '../providers/user-data';
     TemplatePage,
     ProfilePage,
     PrescriptionPage,
-    HistoryPage
+    HistoryPage,
+    DrugsListPage,
+    DrugsListDetalsPage,
+    AddDrugPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
