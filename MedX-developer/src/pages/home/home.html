@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (ngSubmit)="logForm()" text-center>
+      <form (ngSubmit)="calcCost()">
+        <ion-item>
+          <ion-label>Query:</ion-label>
+          <ion-input type="text" [(ngModel)]="query" name="query"></ion-input>
+        </ion-item>
+      </form><br>
+
+      <div padding id="submit" hidden="true" text-center>
+
+        <button ion-button end>Submit</button>
+        <br><br>
+      
+        <h4>Cost: {{ queryCost }}</h4>    
+      </div>
+      <br>
+        
+  </form>
+  
+  <form (ngSubmit)="preQueries()">
+    <br>
+    <button ion-button >See previous queries</button>        
+  </form>
+</ion-content>
