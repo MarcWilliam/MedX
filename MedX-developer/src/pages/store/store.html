@@ -1,0 +1,68 @@
+<!--
+  Generated template for the StorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Store</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+
+  <ion-list>
+
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-note>Query</ion-note>
+          </ion-col>
+
+          <ion-col>
+            <ion-note>By</ion-note>
+          </ion-col>
+
+          <ion-col>
+            <ion-note>Cost</ion-note>
+          </ion-col>
+
+          <ion-col>
+            <ion-note></ion-note>
+          </ion-col>
+        </ion-row>
+
+        <ion-item *ngFor="let item of arr" >
+          <ion-row>
+            <ion-col text-wrap>
+              {{ item.query }}
+            </ion-col>
+
+            <ion-col>
+              {{ item.by }}
+            </ion-col>
+
+            <ion-col>
+              {{ item.cost }}
+            </ion-col>
+
+            <ion-col>
+              <button ion-button clear (click)='buy(item)'>
+                buy
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-grid>
+    </ion-card>
+
+
+  </ion-list>
+
+
+</ion-content>
