@@ -26,13 +26,8 @@ export class HomePage {
 
   logForm(){
 
-<<<<<<< HEAD
     HistoryPage.queries.push(new Query(this.query, this.queryCost));
     this.navCtrl.push(this.statisticsPage);
-=======
-    this.queries.push(new Query(this.query, this.queryCost));
-    this.navCtrl.push(this.statisticsPage, this.queries);
->>>>>>> master
 
     this.query = '';
 
@@ -53,11 +48,4 @@ export class HomePage {
     this.submit.hidden = false;
   }
 
-<<<<<<< HEAD
-
-=======
-  preQueries(){
-    this.navCtrl.push(this.historyPage, this.queries);
-  }
->>>>>>> master
 }
