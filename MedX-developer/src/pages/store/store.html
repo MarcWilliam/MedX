@@ -5,15 +5,18 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+    
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <ion-title>Store</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
 
-  <ion-navbar>
-    <ion-title>Store</ion-title>
-  </ion-navbar>
 
-</ion-header>
-
-
-<ion-content padding >
+<ion-content padding>
 
   <ion-list>
 
@@ -37,7 +40,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-item *ngFor="let item of arr" >
+        <ion-item *ngFor="let item of arr">
           <ion-row>
             <ion-col text-wrap>
               {{ item.query }}

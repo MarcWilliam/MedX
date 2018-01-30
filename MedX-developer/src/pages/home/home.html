@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Home
     </ion-title>
@@ -8,31 +11,17 @@
 
 <ion-content padding>
 
-  <form (ngSubmit)="logForm()" text-center>
-      <form (ngSubmit)="calcCost()">
-        <ion-item>
-          <ion-label>Query:</ion-label>
-          <ion-input type="text" [(ngModel)]="query" name="query"></ion-input>
-        </ion-item>
-      </form><br>
-
-      <div padding id="submit" hidden="true" text-center>
-
-        <button ion-button end>Submit</button>
-        <br><br>
-      
-        <h4>Cost: {{ queryCost }}</h4>    
-      </div>
+  <form text-center>
+    <div text-center>
+      <ion-item>
+        <ion-label>Query:</ion-label>
+        <ion-input type="text" [(ngModel)]="query" name="query"></ion-input>
+      </ion-item>
       <br>
-        
-  </form>
-<<<<<<< HEAD
-
-=======
-  
-  <form (ngSubmit)="preQueries()">
+      <br>
+      <button (click)='showConfirm()' ion-button end>Execute</button>
+    </div>
     <br>
-    <button ion-button >See previous queries</button>        
+
   </form>
->>>>>>> master
 </ion-content>

@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 import { Component, ViewChild } from '@angular/core';
-import { Events, MenuController, Nav, Platform } from 'ionic-angular';
-=======
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
->>>>>>> master
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-<<<<<<< HEAD
 import { ProfilePage } from '../pages/profile/profile';
 import { StorePage } from '../pages/store/store';
 import { HistoryPage } from '../pages/history/history';
@@ -55,28 +49,9 @@ export class ConferenceApp {
     confData: ConferenceData,
   ) {
 
-    this.rootPage =HomePage;
+    this.rootPage = HomePage;
 
-    confData.load();
-
-    platform.ready().then(() => {
-=======
-@Component({
-  templateUrl: 'app.html'
-})
-export class MyApp {
-  rootPage:any = HomePage;
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
->>>>>>> master
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
   }
-<<<<<<< HEAD
 
   openPage(page: PageInterface) {
     let params = {};
@@ -96,7 +71,6 @@ export class MyApp {
 
   isActive(page: PageInterface) {
     let childNav = this.nav.getActiveChildNavs()[0];
-    // Tabs are a special case because they have their own navigation
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
         return 'primary';
@@ -110,7 +84,5 @@ export class MyApp {
   }
 
 
-=======
->>>>>>> master
 }
 

@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-<<<<<<< HEAD
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 
 import { Chart } from 'chart.js';
@@ -8,12 +7,6 @@ import { HistoryPage } from '../history/history';
 
 import { StorePage } from '../store/store';
 
-=======
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { Chart } from 'chart.js';
-import { Query } from './../home/query';
->>>>>>> master
 /**
  * Generated class for the StatisticsPage page.
  *
@@ -33,7 +26,6 @@ export class StatisticsPage {
 
   obj:Query;
 
-<<<<<<< HEAD
   isAdded:boolean;
   
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
@@ -44,17 +36,6 @@ export class StatisticsPage {
     }
     HistoryPage.queries.push(this.obj);
     this.isAdded = false;
-=======
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    let queries = navParams.data;
-
-    this.obj = queries.pop();
-    for(let i = 0; i < 5; i ++){ //from db
-      this.obj.result.push(Math.floor(Math.random() * 100) + 0  );
-    }
-    queries.push(this.obj);
-
->>>>>>> master
   }
 
   ionViewDidLoad() {
@@ -85,7 +66,6 @@ export class StatisticsPage {
                 }]
             }
         }
-<<<<<<< HEAD
     });
   }
 
@@ -115,12 +95,6 @@ export class StatisticsPage {
         ]
       });
       confirm.present();
-=======
-
-    });
-
-
->>>>>>> master
   }
 
 }
