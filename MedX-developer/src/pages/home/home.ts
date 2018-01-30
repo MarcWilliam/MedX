@@ -13,7 +13,6 @@ export class HomePage {
 
   private query: string;
   private queryCost: number;
-  private submit: any;
 
   public queries: Query[] = new Array();
   private statisticsPage: any;
@@ -37,7 +36,7 @@ export class HomePage {
 
   showConfirm() {
 
-    if (this.query.length <= 0) {
+    if (this.query.length == 0) {
       return;
     }
     else if (this.query.length < 20) {
@@ -48,7 +47,7 @@ export class HomePage {
 
     let confirm = this.alertCtrl.create({
       title: `Are you sure you want to execute this query?`,
-      message: `This service will cost you ${this.queryCost} LE`,
+      message: `This service will cost you <span calss="costText">${this.queryCost} LE</span>`,
       buttons: [
         {
           text: 'Ok',

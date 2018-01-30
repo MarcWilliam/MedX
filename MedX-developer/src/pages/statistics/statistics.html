@@ -8,7 +8,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>statistics</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Statistics</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -28,7 +31,8 @@
           <ion-row>
             {{ obj.query }}
           </ion-row>
-          <br><br>
+          <br>
+          <br>
           <ion-row>
             <ion-col col-3>
               Cost: {{ obj.cost }}
@@ -36,7 +40,7 @@
             <ion-col col-9>
 
               <canvas #lineCanvas></canvas>
-              
+
             </ion-col>
           </ion-row>
         </ion-grid>

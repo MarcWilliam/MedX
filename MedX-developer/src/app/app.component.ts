@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Events, MenuController, Nav, Platform } from 'ionic-angular';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -49,14 +49,8 @@ export class ConferenceApp {
     confData: ConferenceData,
   ) {
 
-    this.rootPage =HomePage;
+    this.rootPage = HomePage;
 
-    confData.load();
-
-    platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
   }
 
   openPage(page: PageInterface) {
@@ -77,7 +71,6 @@ export class ConferenceApp {
 
   isActive(page: PageInterface) {
     let childNav = this.nav.getActiveChildNavs()[0];
-    // Tabs are a special case because they have their own navigation
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
         return 'primary';
