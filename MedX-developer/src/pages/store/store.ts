@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { Item } from './item';
 
@@ -21,7 +21,7 @@ export class StorePage {
 
   arr:Item[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.arr = StorePage.items;
   }
 
@@ -35,6 +35,34 @@ export class StorePage {
 
   public static get(){
     console.log(StorePage.items.slice(-1).pop().query);
+  }
+
+  buy(){
+    console.log("You bought this query");
+  }
+
+  showConfirm(item:Item) {
+
+    let confirm = this.alertCtrl.create({
+      title: `Buy this query?`,
+      message: `This service will cost you <span calss="costText">${item.cost} LE</span>`,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            console.log('OK clicked');
+            this.buy();
+          }
+        },
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }

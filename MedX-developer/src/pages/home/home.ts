@@ -36,7 +36,7 @@ export class HomePage {
 
   showConfirm() {
 
-    if (this.query.length == 0) {
+    if (this.query === undefined || this.query.length === 0) {
       return;
     }
     else if (this.query.length < 20) {

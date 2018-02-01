@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -15,6 +15,7 @@ export interface PageInterface {
   name: string;
   component: any;
   icon: string;
+  logsOut?: boolean;
   index?: number;
   tabName?: string;
   tabComponent?: any;
@@ -43,10 +44,11 @@ export class ConferenceApp {
   rootPage: any;
 
   constructor(
-    platform: Platform,
-    statusBar: StatusBar,
-    splashScreen: SplashScreen,
-    confData: ConferenceData,
+    public events: Events,
+    public menu: MenuController,
+    public platform: Platform,
+    public confData: ConferenceData,
+    public splashScreen: SplashScreen
   ) {
 
     this.rootPage = HomePage;
