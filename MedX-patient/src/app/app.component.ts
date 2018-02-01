@@ -5,18 +5,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
-import { AboutPage } from '../pages/about/about';
 import { AccountPage } from '../pages/account/account';
-import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
-import { SignupPage } from '../pages/signup/signup';
-import { TabsPage } from '../pages/tabs-page/tabs-page';
-import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SchedulePage } from '../pages/schedule/schedule';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-import { SupportPage } from '../pages/support/support';
-
 import { ConferenceData } from '../providers/conference-data';
+import { DemographicsPage } from '../pages/demographics/demographics';
+import { LaboratoryPage } from '../pages/laboratory/laboratory';
+import { LoginPage } from '../pages/login/login';
+import { OfficeVisitsPage } from '../pages/office-visits/office-visits';
+import { SignupPage } from '../pages/signup/signup';
+import { SummaryPage } from '../pages/summary/summary';
+import { SupportPage } from '../pages/support/support';
+import { SurgeriesPage } from '../pages/surgeries/surgeries';
+import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
@@ -42,10 +41,12 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar' },
-    { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-    { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+    { title: 'Demographics', name: 'DemographicsPage', component: DemographicsPage, tabComponent: DemographicsPage, index: 0, icon: 'information-circle' },
+    { title: 'Summary', name: 'SummaryPage', component: SummaryPage, tabComponent: SummaryPage, index: 1, icon: 'information-circle' },
+    { title: 'Office visits', name: 'OfficeVisitsPage', component: OfficeVisitsPage, tabComponent: OfficeVisitsPage, index: 2, icon: 'information-circle' },
+    { title: 'Laboratory', name: 'LaboratoryPage', component: LaboratoryPage, tabComponent: LaboratoryPage, index: 3, icon: 'information-circle' },
+    { title: 'Surgeries', name: 'SurgeriesPage', component: SurgeriesPage, tabComponent: SurgeriesPage, index: 3, icon: 'information-circle' }
+
   ];
   loggedInPages: PageInterface[] = [
     { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
@@ -68,18 +69,7 @@ export class ConferenceApp {
     public storage: Storage,
     public splashScreen: SplashScreen
   ) {
-
-    // Check if the user has already seen the tutorial
-    this.storage.get('hasSeenTutorial')
-      .then((hasSeenTutorial) => {
-        if (hasSeenTutorial) {
-          this.rootPage = TabsPage;
-        } else {
-          this.rootPage = TutorialPage;
-        }
-        this.platformReady()
-      });
-
+/*
     // load the conference data
     confData.load();
 
@@ -90,11 +80,13 @@ export class ConferenceApp {
     this.enableMenu(true);
 
     this.listenToLoginEvents();
+  */this.rootPage = DemographicsPage;
   }
 
   openPage(page: PageInterface) {
     let params = {};
 
+    /*
     // the nav component was found using @ViewChild(Nav)
     // setRoot on the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
@@ -113,6 +105,14 @@ export class ConferenceApp {
         console.log(`Didn't set nav root: ${err}`);
       });
     }
+*/
+    if (page.index) {
+      this.nav.setRoot(page.component, { tabIndex: page.index });
+    } else {
+      this.nav.setRoot(page.component).catch(() => {
+        console.log("Didn't set nav root");
+      });
+    }
 
     if (page.logsOut === true) {
       // Give the menu time to close before changing to logged out
@@ -120,9 +120,6 @@ export class ConferenceApp {
     }
   }
 
-  openTutorial() {
-    this.nav.setRoot(TutorialPage);
-  }
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
