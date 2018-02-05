@@ -15,8 +15,6 @@ import { StorePage } from '../pages/store/store';
 import { StatisticsPage } from '../pages/statistics/statistics';
 import { HistoryPage } from '../pages/history/history';
 
-import { ConferenceData } from '../providers/conference-data';
-import { UserData } from '../providers/user-data';
 
 @NgModule({
   declarations: [
@@ -50,8 +48,6 @@ import { UserData } from '../providers/user-data';
     HistoryPage
   ],
   providers: [
-    ConferenceData,
-    UserData,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

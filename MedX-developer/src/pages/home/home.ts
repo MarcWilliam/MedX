@@ -52,16 +52,12 @@ export class HomePage {
         {
           text: 'Ok',
           handler: () => {
-            console.log('OK clicked');
-
             this.logForm();
           }
         },
         {
           text: 'Cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
+          handler: () => {}
         }
       ]
     });

@@ -33,9 +33,9 @@ export class StorePage {
     StorePage.items.push(new Item(data, cost, "person"));
   }
 
-  public static get(){
+  /*public static get(){
     console.log(StorePage.items.slice(-1).pop().query);
-  }
+  }*/
 
   buy(){
     console.log("You bought this query");
