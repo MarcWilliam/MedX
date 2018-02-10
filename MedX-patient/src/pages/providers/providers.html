@@ -10,12 +10,48 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>providers</ion-title>
+    <ion-title>My doctors</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+        <ion-col>
+          <ion-note>name</ion-note>
+        </ion-col>
+        <ion-col>
+          <ion-note>access</ion-note>
+        </ion-col>
+        <ion-col>
+          <ion-note>expire</ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item *ngFor='let doc of doctors'>
+      <ion-row>
+        <ion-col>
+          <img src='../../assets/img/boss.png'>
+        </ion-col>
+        <ion-col>
+          {{ doc.name }}
+        </ion-col>
+        <ion-col>
+          {{ doc.access }}
+        </ion-col>
+        <ion-col>
+          {{ doc.expire }}
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>

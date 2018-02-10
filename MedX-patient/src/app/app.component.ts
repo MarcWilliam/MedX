@@ -34,11 +34,11 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Demographics', name: 'DemographicsPage', component: DemographicsPage, tabComponent: DemographicsPage, index: 0, icon: 'information-circle' },
+    { title: 'Demographics', name: 'DemographicsPage', component: DemographicsPage, tabComponent: DemographicsPage, index: 0, icon: 'pulse' },
     { title: 'Summary', name: 'SummaryPage', component: SummaryPage, tabComponent: SummaryPage, index: 1, icon: 'information-circle' },
-    { title: 'Office visits', name: 'OfficeVisitsPage', component: OfficeVisitsPage, tabComponent: OfficeVisitsPage, index: 2, icon: 'information-circle' },
-    { title: 'Laboratory', name: 'LaboratoryPage', component: LaboratoryPage, tabComponent: LaboratoryPage, index: 3, icon: 'information-circle' },
-    { title: 'Surgeries', name: 'SurgeriesPage', component: SurgeriesPage, tabComponent: SurgeriesPage, index: 3, icon: 'information-circle' }
+    { title: 'Office visits', name: 'OfficeVisitsPage', component: OfficeVisitsPage, tabComponent: OfficeVisitsPage, index: 2, icon: 'timer' },
+    { title: 'Laboratory', name: 'LaboratoryPage', component: LaboratoryPage, tabComponent: LaboratoryPage, index: 3, icon: 'flask' },
+    { title: 'Surgeries', name: 'SurgeriesPage', component: SurgeriesPage, tabComponent: SurgeriesPage, index: 3, icon: 'medkit' }
 
   ];
   navPages: PageInterface[] = [

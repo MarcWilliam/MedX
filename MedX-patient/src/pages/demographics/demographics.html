@@ -19,6 +19,27 @@
 <ion-content padding>
 
   <ion-list>
+    <!--<ion-item *ngFor="let d of data" (click)="toggleDetails(d)">
+      <ion-icon color="primary" item-right [name]="d.icon"></ion-icon>
+      {{d.title}}
+      <div *ngIf="d.showDetails">
+        <ion-buttons end (click)="showPrompt()">
+          <button ion-button clear icon-only>
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
+        <div text-center>Average Blood Pressure: 114/74</div>
+        <canvas #lineCanvas></canvas>
+      </div>
+    </ion-item>-->
+    <ion-buttons end (click)="showPrompt()">
+      <button ion-button clear icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <div text-center>Average Blood Pressure: 114/74</div>
+    <canvas #lineCanvas></canvas>
+
     <ion-card>
       <ion-card-header>
         Contact information
@@ -30,7 +51,7 @@
             Name:
           </ion-col>
           <ion-col col-8>
-            Full name
+            Roland Mendel
           </ion-col>
         </ion-row>
         <br>
@@ -40,7 +61,7 @@
             Address:
           </ion-col>
           <ion-col col-8>
-            Apt, block, st, state, country
+            120 Hanover Sq. London
           </ion-col>
         </ion-row>
         <br>
@@ -50,7 +71,7 @@
             Phone number:
           </ion-col>
           <ion-col col-8>
-
+            55577854
           </ion-col>
         </ion-row>
         <br>
@@ -60,7 +81,7 @@
             E-mail:
           </ion-col>
           <ion-col col-8>
-
+            RolandMendel@gmail.com
           </ion-col>
         </ion-row>
         <br>
@@ -70,7 +91,7 @@
             Emergency contact:
           </ion-col>
           <ion-col col-8>
-
+            Hanna Mendal
           </ion-col>
         </ion-row>
         <br>
@@ -80,7 +101,7 @@
             Emergency contact phone:
           </ion-col>
           <ion-col col-8>
-
+            55577850
           </ion-col>
         </ion-row>
         <br>
@@ -98,7 +119,7 @@
           Employer:
         </ion-col>
         <ion-col col-8>
-
+          X hotel
         </ion-col>
       </ion-row>
       <br>
@@ -107,7 +128,7 @@
           Occupation:
         </ion-col>
         <ion-col col-8>
-
+          Receptionist
         </ion-col>
       </ion-row>
       <br>
@@ -123,7 +144,7 @@
             Date of Birth:
           </ion-col>
           <ion-col col-8>
-            MM/DD/YYYY (age)
+            Aug 21 1980
           </ion-col>
         </ion-row>
         <br>
@@ -132,7 +153,7 @@
             Blood Type:
           </ion-col>
           <ion-col col-8>
-            A+/A-/...
+            A+
           </ion-col>
         </ion-row>
         <br>
@@ -142,7 +163,7 @@
             Height:
           </ion-col>
           <ion-col col-8>
-            XXX
+            179 cm
           </ion-col>
         </ion-row>
         <br>
@@ -151,7 +172,7 @@
             Weight:
           </ion-col>
           <ion-col col-8>
-            XX
+            76 kg
           </ion-col>
         </ion-row>
         <br>
@@ -160,7 +181,7 @@
             Body Mass Index:
           </ion-col>
           <ion-col col-8>
-            XX
+            23.7
           </ion-col>
         </ion-row>
         <br>
@@ -169,7 +190,7 @@
             Gender:
           </ion-col>
           <ion-col col-8>
-            Male/Female
+            Male
           </ion-col>
         </ion-row>
         <br>
@@ -178,7 +199,7 @@
             Social state:
           </ion-col>
           <ion-col col-8>
-            Single/Married
+            Married
           </ion-col>
         </ion-row>
         <br>
@@ -220,25 +241,24 @@
 
         <ion-row>
           <ion-col>
-            MM/DD/YYYY
+            Aug 20 2016
           </ion-col>
 
           <ion-col>
-            name
+            Augmentin
           </ion-col>
 
           <ion-col>
-            XX mg tab
+            1 g tab
           </ion-col>
 
           <ion-col>
-            As needed
+            twice daily
           </ion-col>
 
           <ion-col>
-            w/m
+            2 weeks
           </ion-col>
-
         </ion-row>
         <br>
 
@@ -251,8 +271,8 @@
       <hr>
 
       <ion-list>
-        <ion-item>item 1</ion-item>
-        <ion-item>item 2</ion-item>
+        <ion-item>- Peanuts</ion-item>
+        <ion-item>- Shellfish</ion-item>
       </ion-list>
 
     </ion-card>
