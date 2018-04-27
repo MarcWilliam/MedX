@@ -5,37 +5,18 @@ var server = require('./server');
 var control = require('./controllers/request_handler');
 
 
-server.get(`/api/record`, async (request, response)=>{
-    (await control.findRecords(request, response));
-    
+server.get(`/api/:table`, async (request, response)=>{
+    (await control.find(request, response));
 });
 
-server.post(`/api/record`, async (request, response)=>{
-    (await control.addRecord(request, response));
-
+server.post(`/api/:table`, async (request, response)=>{
+    (await control.add(request, response));
 })
 
-server.put(``, async (request, response)=>{
-    (await control.editRecord(request, response));
-
+server.put(`/api/:table/:id`, async (request, response)=>{
+    (await control.edit(request, response));
 })
 
-server.delete(`/api/record`, async (request, response)=>{
-    (await control.removeRecord(request, response));
-    
+server.delete(`/api/:table`, async (request, response)=>{
+    (await control.remove(request, response)); 
 })
-
-
-
-
-/*server.route([
-    {
-        method: 'GET',
-        path: '/api/record',
-        handler: function (request, response){
-            response.send(`api/record`);
-            console.log(`api/record`);
-        }
-    }
-
-])*/

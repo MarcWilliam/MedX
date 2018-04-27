@@ -5,24 +5,23 @@ var model = require('../models/record_store');
 class RequestHandler {
     constructor(){}
 
-    async findRecords(request, response){
-        response.send(await model.get());
+    async find(request, response){
+        response.send(await model.get(request.params.table));
     }
 
-    async addRecord(request, response){
-        (await model.post(request.body));
+    async add(request, response){
+        (await model.post(request.params.table, request.body));
     }
 
-    async editRecord(request, response){
-
+    async edit(request, response){
+        (await model.update(request.params.table, request.params.id, request.body));
     }
 
-
-    async removeRecord(request, response){
-        (await model.delete(request.body));
+    async remove(request, response){
+        (await model.delete(request.params.table, request.body));
     }
+
 
 }
-
 
 module.exports = new RequestHandler();

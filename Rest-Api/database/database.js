@@ -13,7 +13,7 @@ class Database {
 
     async getConnection(){
         if(this.db === null){
-            this.db = await mongoClient.connect(config.url);            
+            this.db = await mongoClient.connect(config.url); 
         }
 
         return this.db;

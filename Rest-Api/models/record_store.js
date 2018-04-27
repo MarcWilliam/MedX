@@ -2,13 +2,11 @@
 
 let database = require('../database/database');
 
-const table = 'records';
-
 class RecordStore {
 
     constructor(){}
 
-    async get(){
+    async get(table){
         let db = await database.getConnection();
 
         let collection = db.collection(table);
@@ -18,7 +16,7 @@ class RecordStore {
         return docs;
     }
 
-    async post (param){
+    async post (table, param){
         let db = await database.getConnection();
 
         let collection = db.collection(table);
@@ -26,11 +24,15 @@ class RecordStore {
         let result = collection.insertOne(param);
     }
 
-    async update (){
+    async update (table, id, param){
+        let db = await database.getConnection();
 
+        let collection = db.collection(table);
+        
+        let result = collection.updateOne({ id:parseInt(id,10) }, { $set: param });
     }
 
-    async delete (param){
+    async delete (table, param){
         let db = await database.getConnection();
 
         let collection = db.collection(table);
