@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
+import { Http, Headers, RequestOptions } from '@angular/http';
+
 import { StatisticsPage } from '../statistics/statistics';
 import { HistoryPage } from '../history/history';
 import { Query } from './query';
@@ -18,19 +20,33 @@ export class HomePage {
   private statisticsPage: any;
   private historyPage: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,
+    public alertCtrl: AlertController,
+    private http: Http
+    ) {
+
     this.statisticsPage = StatisticsPage;
     this.historyPage = HistoryPage;
   }
 
   logForm() {
+    //HistoryPage.queries.push(new Query(this.query, this.queryCost));
+    alert(JSON.stringify(new Query(this.query, this.queryCost)));
+    
+    this.http.post('http://localhost:3000/api/queries',
+     JSON.stringify(new Query(this.query, this.queryCost)),
+     new RequestOptions({ headers: new Headers({ 'Content-Type': 'application/json' }) })
+    ).subscribe(
+      data => {
+        alert('ok');
+      },
+      error => {
+        console.log(JSON.stringify(error.json()));
+      }
+    )
 
-    HistoryPage.queries.push(new Query(this.query, this.queryCost));
     this.navCtrl.push(this.statisticsPage);
-
     this.query = '';
-
-
   }
 
 
