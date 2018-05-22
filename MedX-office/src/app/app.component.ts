@@ -12,7 +12,6 @@ import {DrugsListPage} from '../pages/drugs-list/drugs-list';
 import {CreateTestPage} from '../pages/create-test/create-test'; 
 
 
-import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
@@ -55,7 +54,6 @@ export class ConferenceApp {
     public userData: UserData,
     public menu: MenuController,
     public platform: Platform,
-    public confData: ConferenceData,
     public storage: Storage,
     public splashScreen: SplashScreen
   ) {
@@ -73,8 +71,6 @@ export class ConferenceApp {
       });
 */
       this.rootPage =HistoryPage;
-    // load the conference data
-    confData.load();
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {

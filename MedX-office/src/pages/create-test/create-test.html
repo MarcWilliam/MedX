@@ -14,10 +14,50 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let item of htmlSelectors" (tap)="addElement(item)">
-      {{item.elementSelector}}
+  <ion-list no-lines>
+    <ion-item>
+        <ion-label stacked color="primary">Test Name</ion-label>
+      <ion-input [(ngModel)]="testName" name="testName" type="text"  required></ion-input>
     </ion-item>
+
+
+    <ion-item>
+        <ion-label stacked color="primary">Test Description</ion-label>
+      <ion-input [(ngModel)]="description" name="description" type="text"  required></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label stacked color="primary">Auther</ion-label>
+      <ion-input [(ngModel)]="auther" name="auther" type="text"  required></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked color="primary">Num Of Test Components</ion-label>
+      <ion-input [(ngModel)]="numberOfComponents"  name="numberOfComponents" type="number"  required min="0"></ion-input>
+    </ion-item>
+
   </ion-list>
-    <span ><input  type="number"> </span>
+  <button ion-button (click)="expand()">Generate</button>
+  <div *ngIf="numberOfComponents > 0">
+  <ion-list  no-lines>
+      <label *ngFor="let component of  form.components ;let i = index ; let j = index ;TrackBy : trackByIndex">
+        <ion-label>Componenet Number : {{j+1}}</ion-label>
+    <ion-item>
+          <ion-label stacked color="primary">Component Name</ion-label>
+          <ion-input [(ngModel)]="form.components[i].name" [value]="form.components[i].name" (ionChange)="write()"  [name]="'input-'+i" type="text"  #component.name="ngModel"  required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label stacked color="primary">Expected Value</ion-label>
+          <ion-input [(ngModel)]="form.components[i].expectedValue"  type="text"  required ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked color="primary">Unit</ion-label>
+          <ion-input [(ngModel)]="form.components[i].unit"  type="text"  required ></ion-input>     
+    </ion-item>
+      </label>
+  </ion-list>
+</div>
+<button ion-button (click)="submit()">Submit</button>
 </ion-content>

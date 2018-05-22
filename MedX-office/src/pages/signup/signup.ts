@@ -7,8 +7,6 @@ import { UserData } from '../../providers/user-data';
 
 import { UserOptions } from '../../interfaces/user-options';
 
-import { TabsPage } from '../tabs-page/tabs-page';
-
 
 @Component({
   selector: 'page-user',
@@ -25,7 +23,6 @@ export class SignupPage {
 
     if (form.valid) {
       this.userData.signup(this.signup.username);
-      this.navCtrl.push(TabsPage);
     }
   }
 }

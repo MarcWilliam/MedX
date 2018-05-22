@@ -1,4 +1,4 @@
-import { Component, ViewChildren } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { Chart } from 'chart.js';
@@ -17,7 +17,7 @@ import { Chart } from 'chart.js';
 })
 export class DemographicsPage {
 
-  @ViewChildren('lineCanvas') lineCanvas;
+  @ViewChild('lineCanvas') lineCanvas;
   lineChart: any;
 
   data: Array<{ title: string, details: string, icon: string, showDetails: boolean }> = [];
@@ -35,12 +35,12 @@ export class DemographicsPage {
 
   ionViewDidLoad() {
 
-    var tempSys:number[] = [110, 114, 109, 108, 120];
-    var tempDia:number[] = [76, 74, 79, 75, 80];
-    var tempDate:string[] = ['2016-01-02', '2016-01-09', '2016-01-15', '2016-01-26', '2016-02-02'];
+    var tempSys: number[] = [110, 114, 109, 108, 120];
+    var tempDia: number[] = [76, 74, 79, 75, 80];
+    var tempDate: string[] = ['2016-01-02', '2016-01-09', '2016-01-15', '2016-01-26', '2016-02-02'];
 
-    if (this.lineCanvas.toArray()[0]) {
-      this.lineChart = new Chart(this.lineCanvas.toArray()[0].nativeElement, {
+    if (this.lineCanvas) {
+      this.lineChart = new Chart(this.lineCanvas.nativeElement, {
 
         type: 'line',
         data: {

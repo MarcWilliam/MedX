@@ -1,4 +1,4 @@
-import { Component, ViewChildren } from '@angular/core';
+import { Component, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
 import { Chart } from 'chart.js';
@@ -18,7 +18,7 @@ import { Query } from './../home/query';
 })
 export class HistoryPage {
 
-  @ViewChildren('lineCanvas') lineCanvas;
+  @ViewChildren('lineCanvas') linesCanvas: QueryList<ElementRef>;
   lineChart: any;
 
   obj: Query;
@@ -31,17 +31,16 @@ export class HistoryPage {
     this.arr = HistoryPage.queries;
   }
 
-  ionViewDidLoad () {
-    for(let i in this.lineCanvas.toArray()/*.reverse()*/){
-
-      this.lineChart = new Chart(this.lineCanvas.toArray()[i].nativeElement, {
+  ionViewDidLoad() {
+    this.linesCanvas.forEach((line, i) => {
+      this.lineChart = new Chart(line.nativeElement, {
 
         type: 'line',
         data: {
           labels: [2003, 2004, 2005, 2006, 2007],
           datasets: [{
             label: 'Spendeng on drug development',
-            data:  HistoryPage.queries[i].result,
+            data: HistoryPage.queries[i].result,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)'
             ],
@@ -62,7 +61,8 @@ export class HistoryPage {
         }
 
       });
-    }
+    });
+
   }
 
 
