@@ -25,31 +25,36 @@
                 Discription
               </ion-col>
               <ion-col col-2>
-                  users
+                  Created By
                 </ion-col>
+                <!--
                 <ion-col col-1>
                     <ion-icon name="star" class="golden"></ion-icon>
                   </ion-col>
+                  -->
           </ion-row>
         </ion-item-divider>
-        
-        <ion-item *ngFor="let item of viewList" (click)="openPage(item.name)">
+        <div ngIF="Ready">
+        <ion-item *ngFor="let item of viewList" (click)="openPage(item)">
             <ion-row>
                 <ion-col col-2>
                   {{item.name}}
                 </ion-col>
                 <ion-col class="descr" col-7>
-                    {{item.descr}}
+                    {{item.description}}
                   </ion-col>
                   <ion-col col-2>
-                     {{item.users}} 
+                     {{item.auther}} 
                     </ion-col>
+                    <!--
                     <ion-col col-1>
                         <ion-icon name="star" class="golden" *ngIf="item.fav"></ion-icon>
                         <ion-icon name="star-outline" *ngIf="!item.fav"></ion-icon>
                       </ion-col>
+                      -->
               </ion-row>
         </ion-item>
+      </div>
       </ion-item-group>
 
 </ion-content>

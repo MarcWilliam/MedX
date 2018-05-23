@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TemplatePage} from '../template/template';
+import { Storage } from '@ionic/storage';
+import { testForms } from '../../interfaces/test-form';
 /**
  * Generated class for the ListTemplatesPage page.
  *
@@ -21,10 +23,11 @@ export class ListTemplatesPage {
     users : number,
     fav : boolean,
   }>; 
-
+  public templates :Array<testForms>;
   public viewList : any;
   public searchterm :any ="";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public Ready=false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage : Storage) {
     this.templateTests = [{
       name :  "CBC",
       descr :  " Complete Blood Count",
@@ -56,20 +59,32 @@ export class ListTemplatesPage {
       fav :    false
     },
   ]
-  this.viewList = this.templateTests;
+  //this.viewList = this.templateTests;
+  this.storage.get("tests").then(data=>{
+    if(data){
+      this.templates= data;
+      this.viewList = this.templates;
+      console.log(this.viewList);
+      this.Ready =true;
+    }
+  },err=>{
+    console.log(err);
+  });
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListTemplatesPage');
   }
-  openPage(testName){
-    this.navCtrl.push(TemplatePage ,{name : testName});
+  openPage(test){
+    this.navCtrl.push(TemplatePage ,{Test : test});
     console.log("Opened");
   }
 
   search(){
-    this.viewList = this.filter(this.templateTests,this.searchterm);
+    if(this.Ready){
+    this.viewList = this.filter(this.templates,this.searchterm);
+    }
   }
 
   

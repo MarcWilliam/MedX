@@ -23,6 +23,7 @@ import {HistoryPage} from '../pages/history/history';
 import {DrugsListPage} from '../pages/drugs-list/drugs-list';
 import {DrugsListDetalsPage} from '../pages/drugs-list-detals/drugs-list-detals';
 import {AddDrugPage} from '../pages/add-drug/add-drug';
+import {CreateTestPage} from '../pages/create-test/create-test';
 
 import { UserData } from '../providers/user-data';
 
@@ -41,7 +42,8 @@ import { UserData } from '../providers/user-data';
     HistoryPage,
     DrugsListPage,
     DrugsListDetalsPage,
-    AddDrugPage
+    AddDrugPage,
+    CreateTestPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { UserData } from '../providers/user-data';
         { component: HistoryPage ,name: 'HistoryPage' , segment:'HistoryPage'},
         { component:DrugsListPage ,name:'DrugsListPage',segment: 'DrugsListPage'},
         { component:DrugsListDetalsPage ,name:'Drugs Detals',segment:'DrugsListDetalsPage'},
-        { component:AddDrugPage , name:'AddDrugPage',segment:'AddDrugPage'}
+        { component:AddDrugPage , name:'AddDrugPage',segment:'AddDrugPage'},
+        { component:CreateTestPage , name:"CreateTestPage" , segment:'CreateTestPage'}
       ]
     }),
     IonicStorageModule.forRoot()
@@ -78,13 +81,14 @@ import { UserData } from '../providers/user-data';
     HistoryPage,
     DrugsListPage,
     DrugsListDetalsPage,
-    AddDrugPage
+    AddDrugPage,
+    CreateTestPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserData,
     InAppBrowser,
-    SplashScreen
+    SplashScreen,
   ]
 })
 export class AppModule { }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { testForms } from '../../interfaces/test-form';
 /**
  * Generated class for the TemplatePage page.
  *
@@ -28,11 +28,13 @@ export class TemplatePage {
     PC: 0,
     MPV: 0
   }
-  public name = "";
+  public test :testForms  ;
 
   public submitted = false;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.name = this.navParams.get('name');
+    this.test = this.navParams.get('Test');
+    
+    console.log(this.test);
   }
 
   ionViewDidLoad() {

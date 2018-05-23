@@ -9,6 +9,9 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import {ProfilePage} from '../pages/profile/profile';
 import {HistoryPage} from '../pages/history/history';
 import {DrugsListPage} from '../pages/drugs-list/drugs-list';
+import {CreateTestPage} from '../pages/create-test/create-test'; 
+
+
 import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
@@ -37,7 +40,8 @@ export class ConferenceApp {
     
     { title: 'profile', name: 'ProfilePage', component: ProfilePage , icon: 'information-circle' },
     { title: 'History Page', name: 'HistoryPage', component: HistoryPage , icon: 'information-circle' },
-    { title: 'Drugs List' , name: 'DrugsListPage',component: DrugsListPage , icon: 'information-circle'}
+    { title: 'Drugs List' , name: 'DrugsListPage',component: DrugsListPage , icon: 'information-circle'},
+    { title: 'Create New Test' , name: 'CreateTestPage' , component: CreateTestPage , icon: 'information-circle'}
   ];
   loggedInPages: PageInterface[] = [
   ];
