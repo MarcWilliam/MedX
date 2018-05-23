@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Storage} from'@ionic/storage';
-import {testForms, formComponent} from '../../interfaces/test-form';
+import { Storage } from '@ionic/storage';
+import { testForms, formComponent } from '../../interfaces/test-form';
 //mport { NgForm } from '@angular/forms';
 
 /**
@@ -17,30 +17,29 @@ import {testForms, formComponent} from '../../interfaces/test-form';
   templateUrl: 'create-test.html',
 })
 export class CreateTestPage {
-   auther : string="";
-   description: string="";
-   creationDate: Date=new Date();
-   testName: String="";
-   numberOfComponents: number =0;
-   form : testForms ;
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage :Storage 
+  auther: string = "";
+  description: string = "";
+  creationDate: Date = new Date();
+  testName: String = "";
+  numberOfComponents: number = 0;
+  form: testForms;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage
   ) {
     this.testName = "";
-    this.form=new testForms();
-    
-    
-    
+    this.form = new testForms();
+
+
+
     console.log();
-    
-    
+
+
   }
 
-  public expand(){
-    if(this.numberOfComponents >0){
-      this.form.components= new Array();
-      this.form.components.length = this.numberOfComponents;
-      this.form.components.fill(new formComponent());
+  public expand() {
+    if (this.numberOfComponents > 0) {
+      this.form.components = Array.from({ length: this.numberOfComponents }, () => new formComponent());
+
       console.log(this.form.components);
     }
 
@@ -49,26 +48,26 @@ export class CreateTestPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateTestPage');
   }
-   public Submit(){
-     this.storage.get("tests").then(data=>{
-       let tempArr = new Array();
-       tempArr = data.concat(this.form);
-       this.storage.set("test",tempArr);
-       console.log(tempArr);
-     },err=>{
-      console.log(err);
-     })
-   }
 
-   public write(){
-     console.log(this.form);
+  public submit() {
+    console.log(this.form);
+    this.storage.get("tests").then(data => {
+      if (data) {
+        let tempArr = new Array();
+        tempArr = data.concat(this.form);
+        this.storage.set("test", tempArr);
+        console.log(tempArr);
+      }
+    }, err => {
+      console.log(err);
+    })
   }
 
-  addElement(element : any){
+  addElement(element: any) {
     console.log(element)
   }
 
-  public trackByIndex(index: number, value: number) {
+  public trackByIndex(index: number) {
     return index;
   }
 
