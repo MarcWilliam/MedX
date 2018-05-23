@@ -20,7 +20,7 @@ export class CreateTestPage {
   auther: string = "";
   description: string = "";
   creationDate: Date = new Date();
-  testName: String = "";
+  testName: string = "";
   numberOfComponents: number = 0;
   form: testForms;
 
@@ -45,18 +45,29 @@ export class CreateTestPage {
 
   }
 
+  public write(){
+    console.log(this.form);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateTestPage');
   }
 
   public submit() {
     console.log(this.form);
+    this.form.name=this.testName;
+    this.form.auther=this.auther;
+    this.form.description=this.description;
+    this.form.createdAt=new Date();
     this.storage.get("tests").then(data => {
       if (data) {
-        let tempArr = new Array();
-        tempArr = data.concat(this.form);
-        this.storage.set("test", tempArr);
-        console.log(tempArr);
+        
+        data.push(this.form);
+        this.storage.set("tests", data);
+        console.log(data);
+      }else{
+        let temparr = new Array();
+        temparr.push(this.form);
+        this.storage.set("tests", temparr);
       }
     }, err => {
       console.log(err);

@@ -32,8 +32,10 @@ export class PrescriptionPage {
 
   expand(){
     if(this.form.scansCount >=0 && this.form.testsCount >=0){
-      this.form.scans.length = this.form.scansCount;
-    this.form.tests.length = this.form.testsCount;
+      this.form.tests  =new Array();
+      this.form.scans =new Array();
+      this.form.scans = Array.from({ length: this.form.scansCount }, () => " ");
+    this.form.tests = Array.from({ length: this.form.testsCount }, () => "");
     console.log(this.form);
     }
     
