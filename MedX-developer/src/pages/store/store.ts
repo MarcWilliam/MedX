@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Item } from './item';
 
+import { StatisticsPage } from '../statistics/statistics';
+
 /**
  * Generated class for the StorePage page.
  *
@@ -18,9 +20,8 @@ import { Item } from './item';
   templateUrl: 'store.html',
 })
 export class StorePage {
-
+  private url = "http://localhost:3000/api/store";
   private queries:any = [];
-
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -35,26 +36,26 @@ export class StorePage {
   }
 
   getQueries(){
-    this.httpClient.get('http://localhost:3000/api/store').subscribe((res)=>{
+    this.httpClient.get(this.url).subscribe((res)=>{
       this.queries = res;
     });
   }
 
-  buy(){
-    console.log("You bought this query");
+  execute(item){
+    this.navCtrl.push(StatisticsPage, {query: item});
   }
 
-  showConfirm(item:Item) {
+  showConfirm(item) {
 
     let confirm = this.alertCtrl.create({
-      title: `Buy this query?`,
-      message: `This service will cost you <span calss="costText">${item.cost} LE</span>`,
+      title: `Execute this query?`,
+      message: `This service will cost you ${item.cost} LE`,
       buttons: [
         {
           text: 'Ok',
           handler: () => {
             console.log('OK clicked');
-            this.buy();
+            this.execute(item);
           }
         },
         {

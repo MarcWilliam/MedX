@@ -10,7 +10,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ConferenceApp } from './app.component';
 
 import { ProfilePage } from '../pages/profile/profile';
-import { HomePage } from '../pages/home/home';
+import { NewPage } from '../pages/new/new';
 import { StorePage } from '../pages/store/store';
 import { StatisticsPage } from '../pages/statistics/statistics';
 import { HistoryPage } from '../pages/history/history';
@@ -20,7 +20,7 @@ import { HistoryPage } from '../pages/history/history';
   declarations: [
     ConferenceApp,
     ProfilePage,
-    HomePage,
+    NewPage,
     StorePage,
     StatisticsPage,
     HistoryPage
@@ -30,7 +30,7 @@ import { HistoryPage } from '../pages/history/history';
     HttpClientModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links:[
-        { component: HomePage, name: 'HomePage', segment: 'home' },
+        { component: NewPage, name: 'NewPage', segment: 'new' },
         { component: StorePage, name: 'StorePage', segment: 'store' },
         { component: ProfilePage, name: 'ProfilePage', segment: 'profile' },
         { component: HistoryPage, name: 'HistoryPage', segment: 'history' }
@@ -42,7 +42,7 @@ import { HistoryPage } from '../pages/history/history';
   entryComponents: [
     ConferenceApp,
     ProfilePage,
-    HomePage,
+    NewPage,
     StorePage,
     StatisticsPage,
     HistoryPage
