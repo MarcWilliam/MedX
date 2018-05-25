@@ -28,7 +28,7 @@
           </ion-col>
 
           <ion-col>
-            <ion-note>By</ion-note>
+            <ion-note>Name</ion-note>
           </ion-col>
 
           <ion-col>
@@ -40,18 +40,18 @@
           </ion-col>
         </ion-row>
 
-        <ion-item *ngFor="let item of arr">
+        <ion-item *ngFor="let query of queries">
           <ion-row>
             <ion-col text-wrap>
-              {{ item.query }}
+              {{ query.query }}
             </ion-col>
 
             <ion-col>
-              {{ item.by }}
+              {{ query.name }}
             </ion-col>
 
             <ion-col>
-              {{ item.cost }}
+              {{ query.cost }}
             </ion-col>
 
             <ion-col>

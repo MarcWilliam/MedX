@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Chart } from 'chart.js';
 import { Query } from '../home/query';
@@ -28,16 +30,24 @@ export class StatisticsPage {
 
     isAdded: boolean;
 
-    constructor(public navCtrl: NavController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
+    constructor(public navCtrl: NavController,
+        public navParams: NavParams,
+        public alertCtrl: AlertController,
+        public toastCtrl: ToastController,
+        private httpClient: HttpClient
+    ) {
 
-        this.obj = HistoryPage.queries.pop();
-        for (let i = 0; i < 5; i++) { //from db
-            this.obj.result.push(Math.floor(Math.random() * 100) + 0);
-        }
-        HistoryPage.queries.push(this.obj);
+        this.obj = navParams.get("query");
 
         this.isAdded = false;
     }
+
+    calculateResult(){
+        for (let i = 0; i < 5; i++) { //from db
+            this.obj.result.push(Math.floor(Math.random() * 100) + 0);
+        }
+    }
+
 
     ionViewDidLoad() {
 
@@ -71,6 +81,20 @@ export class StatisticsPage {
     }
 
 
+    addToStore(obj, price){
+        obj["cost"] = price;
+
+        this.httpClient.post('http://localhost:3000/api/store', obj)
+        .subscribe(
+          data => {
+            alert('ok');
+          },
+          error => {
+            console.log(error);
+          }
+        );
+    }
+
     showPrompt() {
         let prompt = this.alertCtrl.create({
             title: 'Sell this query?',
@@ -91,7 +115,7 @@ export class StatisticsPage {
                     handler: data => {
                         if (!this.isAdded) {
                             if (data.price <= (this.obj.cost * 10)) {
-                                StorePage.add(this.obj.query, data.price);
+                                this.addToStore(this.obj, data.price);
                                 this.okToast();
                                 this.isAdded = true;
                             }

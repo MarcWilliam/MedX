@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
+import { HttpClient } from '@angular/common/http';
+
 import { Item } from './item';
 
 /**
@@ -17,25 +19,26 @@ import { Item } from './item';
 })
 export class StorePage {
 
-  public static items:Item[] = new Array();
+  private queries:any = [];
 
-  arr:Item[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-    this.arr = StorePage.items;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    private httpClient: HttpClient
+  ) {
+    
   }
 
   ionViewDidLoad(){
-
+    this.getQueries();
   }
 
-  public static add(data:string, cost:number){
-    StorePage.items.push(new Item(data, cost, "person"));
+  getQueries(){
+    this.httpClient.get('http://localhost:3000/api/store').subscribe((res)=>{
+      this.queries = res;
+    });
   }
-
-  /*public static get(){
-    console.log(StorePage.items.slice(-1).pop().query);
-  }*/
 
   buy(){
     console.log("You bought this query");
