@@ -1,5 +1,7 @@
-export class Query{
+import { Injectable } from '@angular/core';
 
+@Injectable()
+export class Query{
     name:string;
     version:string;
     description:string;
@@ -20,9 +22,7 @@ export class Query{
         this.createdAt = new Date();
         this.developer = 0x123456789;
         this.cost = cost;
-        this.result = new Array();
+        this.result = [];
 
     }
-
-
 }

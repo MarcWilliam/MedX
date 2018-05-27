@@ -13,7 +13,6 @@ import { QueryValidator } from '../../validators/query';
 export class NewPage {
 
   private url = "http://localhost:3000/api/queries";
-  private statisticsPage: any;
 
   credentialsForm: FormGroup;
 

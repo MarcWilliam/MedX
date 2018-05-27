@@ -15,29 +15,29 @@
     <ion-list>
       <ion-item>
         <ion-label>Name:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['name']" name="name"></ion-input>
+        <ion-input type="text" [formControl]="credentialsForm.controls['name']" name="name" clearInput></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Version:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['version']" name="version"></ion-input>
+        <ion-input type="text" [formControl]="credentialsForm.controls['version']" name="version" clearInput></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Description:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['description']" name="description"></ion-input>
+        <ion-input type="text" [formControl]="credentialsForm.controls['description']" name="description" clearInput></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Query:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['query']" name="query"></ion-input>
+        <ion-input type="text" [formControl]="credentialsForm.controls['query']" name="query" clearInput></ion-input>
         <div *ngIf="!credentialsForm.controls.query.valid && credentialsForm.controls.query.dirty" 
         class="validator-error">Please enter a valid query.</div>
       </ion-item>
 
       <ion-item>
         <ion-label>Cost:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['cost']" name="cost"></ion-input>
+        <ion-input type="text" [formControl]="credentialsForm.controls['cost']" name="cost" clearInput></ion-input>
       </ion-item>
       
       <br><br>
