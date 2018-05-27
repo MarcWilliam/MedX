@@ -11,10 +11,8 @@ import { QueryValidator } from '../../validators/query';
   templateUrl: 'new.html'
 })
 export class NewPage {
-
   private url = "http://localhost:3000/api/queries";
-
-  credentialsForm: FormGroup;
+  queriesForm: FormGroup;
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -22,7 +20,7 @@ export class NewPage {
     private formBuilder: FormBuilder,
     private httpClient: HttpClient
   ) {
-    this.credentialsForm = this.formBuilder.group({
+    this.queriesForm = this.formBuilder.group({
       name: [''],
       version: [''],
       description: [''],
@@ -32,7 +30,9 @@ export class NewPage {
           Validators.required
         ])
       ],
-      cost: ['']
+      param1: [''],
+      param2: [''],
+      media: ['']
     });
   }
 
@@ -47,7 +47,35 @@ export class NewPage {
         console.log(error);
       }
     );
+  }
 
+  showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: `Are you sure you want to publish this query?`,
+      message: ``,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            let controls = this.queriesForm.controls;
+            this.logForm(new QueryService(
+              controls['name'].value,
+              controls['version'].value,
+              controls['description'].value,
+              controls['query'].value,
+              {'param1':controls['param1'].value, 'param2':controls['param2'].value},
+              controls['media'].value
+            ));
+              //this.queriesForm.reset();
+          }
+        },
+        {
+          text: 'Cancel',
+          handler: () => {}
+        }
+      ]
+    });
+    confirm.present();
   }
 
   okToast() {
@@ -66,32 +94,6 @@ export class NewPage {
         position: 'bottom'
     });
     toast.present();
-}
-
-  showConfirm() {
-    //input validation
-
-    let confirm = this.alertCtrl.create({
-      title: `Are you sure you want to publish this query?`,
-      message: ``,
-      buttons: [
-        {
-          text: 'Ok',
-          handler: () => {
-            this.logForm(new QueryService(
-              this.credentialsForm.controls['name'].value,
-              this.credentialsForm.controls['version'].value,
-              this.credentialsForm.controls['description'].value,
-              this.credentialsForm.controls['query'].value, 0));
-          }
-        },
-        {
-          text: 'Cancel',
-          handler: () => {}
-        }
-      ]
-    });
-    confirm.present();
   }
 
 }

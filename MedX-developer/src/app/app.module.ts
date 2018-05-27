@@ -4,9 +4,7 @@ import { ErrorHandler, NgModule, Injectable } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { IonicStorageModule } from '@ionic/storage';
-
 import { ConferenceApp } from './app.component';
 
 import { QueryService } from '../services/queries.service';
@@ -53,7 +51,7 @@ import { HistoryPage } from '../pages/history/history';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    QueryService
+    /*QueryService*/
   ]
 })
 export class AppModule {}

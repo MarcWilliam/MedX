@@ -11,37 +11,43 @@
 
 <ion-content padding>
 
-  <form text-center [formGroup]="credentialsForm">
+  <form text-center [formGroup]="queriesForm">
     <ion-list>
       <ion-item>
         <ion-label>Name:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['name']" name="name" clearInput></ion-input>
+        <ion-input type="text" [formControl]="queriesForm.controls['name']" name="name" clearInput></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Version:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['version']" name="version" clearInput></ion-input>
+        <ion-input type="text" [formControl]="queriesForm.controls['version']" name="version" clearInput></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Description:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['description']" name="description" clearInput></ion-input>
+        <ion-textarea type="text" [formControl]="queriesForm.controls['description']" name="description" clearInput></ion-textarea>
       </ion-item>
 
       <ion-item>
         <ion-label>Query:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['query']" name="query" clearInput></ion-input>
-        <div *ngIf="!credentialsForm.controls.query.valid && credentialsForm.controls.query.dirty" 
+        <ion-input type="text" [formControl]="queriesForm.controls['query']" name="query" clearInput></ion-input>
+        <div *ngIf="!queriesForm.controls.query.valid && queriesForm.controls.query.dirty" 
         class="validator-error">Please enter a valid query.</div>
       </ion-item>
 
       <ion-item>
-        <ion-label>Cost:</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['cost']" name="cost" clearInput></ion-input>
+          <ion-label col-2 color="dark">Query params:</ion-label>
+          <ion-input col-5 type="text" [formControl]="queriesForm.controls['param1']" name="param1" placeholder="Param1" clearInput></ion-input>
+          <ion-input col-5 type="text" [formControl]="queriesForm.controls['param2']" name="param2" placeholder="Param2" clearInput></ion-input>
       </ion-item>
       
+      <ion-item>
+        <ion-label color="dark" stacked>Media:</ion-label>
+        <ion-input text-right type="file" [formControl]="queriesForm.controls['media']" name="media" clearInput></ion-input>
+      </ion-item>
+
       <br><br>
-      <button [disabled]="!credentialsForm.valid" (click)='showConfirm()' ion-button end>Publish</button>
+      <button [disabled]="!queriesForm.valid" (click)='showConfirm()' ion-button end>Publish</button>
     </ion-list>
   </form>
 </ion-content>

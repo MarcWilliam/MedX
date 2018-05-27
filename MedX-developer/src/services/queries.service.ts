@@ -1,28 +1,27 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+//@Injectable()
 export class QueryService{
-    name:string;
-    version:string;
-    description:string;
-    //media:[]
-    query:string;
-    createdAt:Date;
-    developer:number;
-    params:{param1:string, param2:number};
-    cost:number;
-    result:number[];
+    public createdAt:Date;
+    public developer:number;
+    public cost:number;
 
-    constructor(name:string, version:string, description:string, query:string, cost:number){
+    constructor(
+        public name:string,
+        public version:string,
+        public description:string,
+        public query:string,
+        public params:{param1:string,param2:number},
+        public media:any
+    ){
         this.name = name;
         this.version = version;
         this.description = description;
-        //this.media
         this.query = query;
         this.createdAt = new Date();
         this.developer = 0x123456789;
-        this.cost = cost;
-        this.result = [];
-
+        this.params = params;
+        this.cost = 0; //calculated
+        this.media = media;
     }
 }
