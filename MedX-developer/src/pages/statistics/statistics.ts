@@ -1,11 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
-
 import { HttpClient, HttpParams } from '@angular/common/http';
-
 import { Chart } from 'chart.js';
-import { Query } from './../services/queries.service';
 
+import { Query } from './../services/queries.service';
 import { StorePage } from '../store/store';
 
 /**

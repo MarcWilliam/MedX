@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
 import { HttpClient } from '@angular/common/http';
 
 import { StatisticsPage } from '../statistics/statistics';

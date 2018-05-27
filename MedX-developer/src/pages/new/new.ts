@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ToastController } from 'ionic-angular';
-
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Query } from './../services/queries.service';
 
@@ -12,14 +12,28 @@ import { Query } from './../services/queries.service';
 export class NewPage {
 
   private url = "http://localhost:3000/api/queries";
-
   private statisticsPage: any;
+
+  credentialsForm: FormGroup;
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
+    private formBuilder: FormBuilder,
     private httpClient: HttpClient
-  ) {  }
+  ) {
+    this.credentialsForm = this.formBuilder.group({
+      name: [''],
+      version: [''],
+      description: [''],
+      query: ['', Validators.compose([
+          /*Validators.pattern(regexValidators.email),*/ ///reqex //import { regexValidators } from '../validators/validator';
+          Validators.required
+        ])
+      ],
+      cost: ['']
+    });
+  }
 
   logForm(query) {
     this.httpClient.post(this.url, query)
@@ -54,9 +68,7 @@ export class NewPage {
 }
 
   showConfirm() {
-
     //input validation
-    var query = new Query("",0);
 
     let confirm = this.alertCtrl.create({
       title: `Are you sure you want to publish this query?`,
@@ -65,7 +77,11 @@ export class NewPage {
         {
           text: 'Ok',
           handler: () => {
-            this.logForm(query);
+            this.logForm(new Query(
+              this.credentialsForm.controls['name'].value,
+              this.credentialsForm.controls['version'].value,
+              this.credentialsForm.controls['description'].value,
+              this.credentialsForm.controls['query'].value, 0));
           }
         },
         {
