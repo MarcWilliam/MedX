@@ -12,7 +12,7 @@
 <ion-content padding>
 
   <form text-center [formGroup]="credentialsForm">
-    <div text-center>
+    <ion-list>
       <ion-item>
         <ion-label>Name:</ion-label>
         <ion-input type="text" [formControl]="credentialsForm.controls['name']" name="name"></ion-input>
@@ -39,10 +39,9 @@
         <ion-label>Cost:</ion-label>
         <ion-input type="text" [formControl]="credentialsForm.controls['cost']" name="cost"></ion-input>
       </ion-item>
+      
       <br><br>
       <button [disabled]="!credentialsForm.valid" (click)='showConfirm()' ion-button end>Publish</button>
-    </div>
-    <br>
-
+    </ion-list>
   </form>
 </ion-content>
