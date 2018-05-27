@@ -2,7 +2,7 @@ import { Component, ViewChildren } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
 import { Chart } from 'chart.js';
-import { Query } from './../new/query';
+import { Query } from './../services/queries.service';
 
 /**
  * Generated class for the HistoryPage page.

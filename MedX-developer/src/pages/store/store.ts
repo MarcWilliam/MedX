@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 
 import { HttpClient } from '@angular/common/http';
 
-import { Item } from './item';
-
 import { StatisticsPage } from '../statistics/statistics';
 
 /**

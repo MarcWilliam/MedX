@@ -3,7 +3,7 @@ import { NavController, AlertController, ToastController } from 'ionic-angular';
 
 import { HttpClient } from '@angular/common/http';
 
-import { Query } from './query';
+import { Query } from './../services/queries.service';
 
 @Component({
   selector: 'page-new',
