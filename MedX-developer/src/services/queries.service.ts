@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class Query{
+export class QueryService{
     name:string;
     version:string;
     description:string;

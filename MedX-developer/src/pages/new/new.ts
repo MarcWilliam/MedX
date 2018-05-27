@@ -3,7 +3,7 @@ import { NavController, AlertController, ToastController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Query } from '../../services/queries.service';
+import { QueryService } from '../../services/queries.service';
 import { QueryValidator } from '../../validators/query';
 
 @Component({
@@ -78,7 +78,7 @@ export class NewPage {
         {
           text: 'Ok',
           handler: () => {
-            this.logForm(new Query(
+            this.logForm(new QueryService(
               this.credentialsForm.controls['name'].value,
               this.credentialsForm.controls['version'].value,
               this.credentialsForm.controls['description'].value,

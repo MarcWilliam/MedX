@@ -9,6 +9,8 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
 
+import { QueryService } from '../services/queries.service';
+
 import { ProfilePage } from '../pages/profile/profile';
 import { NewPage } from '../pages/new/new';
 import { StorePage } from '../pages/store/store';
@@ -51,7 +53,7 @@ import { HistoryPage } from '../pages/history/history';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Injectable
+    QueryService
   ]
 })
 export class AppModule {}
