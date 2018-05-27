@@ -3,7 +3,8 @@ import { NavController, AlertController, ToastController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Query } from './../services/queries.service';
+import { Query } from '../../services/queries.service';
+import { QueryValidator } from '../../validators/query';
 
 @Component({
   selector: 'page-new',
@@ -28,6 +29,7 @@ export class NewPage {
       description: [''],
       query: ['', Validators.compose([
           /*Validators.pattern(regexValidators.email),*/ ///reqex //import { regexValidators } from '../validators/validator';
+          QueryValidator.checkQuery,
           Validators.required
         ])
       ],
