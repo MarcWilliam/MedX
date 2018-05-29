@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+//import { Injectable } from '@angular/core';
 
 //@Injectable()
 export class QueryService{
     public createdAt:Date;
     public developer:number;
     public cost:number;
-
+    public result:number[];
     constructor(
         public name:string,
         public version:string,

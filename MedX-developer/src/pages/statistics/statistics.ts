@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, ToastController }
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Chart } from 'chart.js';
 
+import { QueryService } from '../../services/queries.service';
 import { StorePage } from '../store/store';
 
 /**
@@ -23,7 +24,7 @@ export class StatisticsPage {
     lineChart: any;
 
     private url = "http://localhost:3000/api/store";
-    obj: Query;
+    obj: QueryService;
     isAdded: boolean;
 
     constructor(public navCtrl: NavController,
