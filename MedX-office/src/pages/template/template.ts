@@ -44,7 +44,7 @@ export class TemplatePage {
   submitRequest(requestForm: NgForm){
     this.submitted = true;
     if(requestForm.valid){
-      console.log('submited');
+      console.log(JSON.stringify(this.test));
     }
     
   }

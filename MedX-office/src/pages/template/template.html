@@ -20,17 +20,19 @@
               <ion-row>
               <ion-col color="primary">Component</ion-col>
               <ion-col color="primary">Patient Results</ion-col>
-              <ion-col color="primary">standerd Range</ion-col>
+              <ion-col color="primary">standerd Range high</ion-col>
+              <ion-col color="primary">standerd Range low</ion-col>
               <ion-col color="primary">Units</ion-col>
             </ion-row>
             </ion-item>
 <div *ngIf="test != null">
-        <ion-item *ngFor="let component of  test.components ;let i = index ;">
+        <ion-item *ngFor="let component of  test.contained ;let i = index ;">
                 <ion-row>
-                <ion-col >{{component.name}}</ion-col>
-                <ion-col ><input [(ngModel)]="test.components[i].actualValue" name="WBC" type="number" #WBC="ngModel" required></ion-col>
-                <ion-col >{{component.expectedValue}}</ion-col>
-                <ion-col >{{component.unit}}</ion-col>
+                <ion-col >{{component.code.text}}</ion-col>
+                <ion-col ><input [(ngModel)]="test.contained[i].valueQuantity.value" name="WBC" type="number" #WBC="ngModel" required></ion-col>
+                <ion-col >{{component.referenceRange[0].high.value}}</ion-col>
+                <ion-col >{{component.referenceRange[0].low.value}}</ion-col>
+                <ion-col >{{component.referenceRange[0].high.unit}}</ion-col>
               </ion-row>
             </ion-item>
           </div>
