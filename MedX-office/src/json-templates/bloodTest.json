@@ -1,0 +1,252 @@
+{
+    "resourceType": "Blood Test",
+    "id": "",
+    "meta": {
+        "lastUpdated": "2018-06-04T12:09:17.077Z"
+    },
+    "text": {
+        "div": "",
+        "status": "generated"
+    },
+    "contained": [{
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "WBC Count",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "1",
+        "referenceRange": [{
+            "high": {
+                "value": "11.0",
+                "unit": "K/UL"
+            },
+            "low": {
+                "value": "4.5",
+                "unit": "K/UL"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "K/UL"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "RBC Count",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "2",
+        "referenceRange": [{
+            "high": {
+                "value": "5.5",
+                "unit": "MIL/UL"
+            },
+            "low": {
+                "value": "3.5",
+                "unit": "MIL/UL"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "MIL/UL"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "HEMOGLOBIN",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "3",
+        "referenceRange": [{
+            "high": {
+                "value": "15.0",
+                "unit": "G/DL"
+            },
+            "low": {
+                "value": "12.0",
+                "unit": "G/DL"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "G/DL"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "HEMATOCRIT",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "4",
+        "referenceRange": [{
+            "high": {
+                "value": "48.0",
+                "unit": "%"
+            },
+            "low": {
+                "value": "36.0",
+                "unit": "%"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "%"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "MCV",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "5",
+        "referenceRange": [{
+            "high": {
+                "value": "101.0",
+                "unit": "PG"
+            },
+            "low": {
+                "value": "79.0",
+                "unit": "PG"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "PG"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "MCH",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "6",
+        "referenceRange": [{
+            "high": {
+                "value": "35.0",
+                "unit": "PG"
+            },
+            "low": {
+                "value": "25.0",
+                "unit": "PG"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "PG"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "MCHC",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "7",
+        "referenceRange": [{
+            "high": {
+                "value": "37.0",
+                "unit": "%"
+            },
+            "low": {
+                "value": "31.0",
+                "unit": "%"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "%"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "RDW-CV",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "8",
+        "referenceRange": [{
+            "high": {
+                "value": "16.0",
+                "unit": "FL"
+            },
+            "low": {
+                "value": "11.0",
+                "unit": "FL"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "FL"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "PLATELET COUNT",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "9",
+        "referenceRange": [{
+            "high": {
+                "value": "420.0",
+                "unit": "K/UL"
+            },
+            "low": {
+                "value": "150.0",
+                "unit": "K/UL"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "K/UL"
+        }
+    }, {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+            "text": "MPV",
+            "coding": {
+                "system": "http://loinc.org"
+            }
+        },
+        "id": "10",
+        "referenceRange": [{
+            "high": {
+                "value": "10.0",
+                "unit": "FL"
+            },
+            "low": {
+                "value": "7.0",
+                "unit": "FL"
+            }
+        }],
+        "valueQuantity": {
+            "value": 0,
+            "unit": "FL"
+        }
+    }]
+}

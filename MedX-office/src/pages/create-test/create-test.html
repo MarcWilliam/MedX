@@ -59,7 +59,7 @@
 
         <ion-item>
           <ion-label stacked color="primary">Unit</ion-label>
-          <ion-input [(ngModel)]="form.contained[i].referenceRange[0].high.unit"   type="text"  required ></ion-input>     
+          <ion-input [(ngModel)]="form.contained[i].referenceRange[0].high.unit" (ionChange)="write(i)"type="text"  required ></ion-input>     
     </ion-item>
       </label>
   </ion-list>
