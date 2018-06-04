@@ -26,6 +26,7 @@ import {AddDrugPage} from '../pages/add-drug/add-drug';
 import {CreateTestPage} from '../pages/create-test/create-test';
 
 import { UserData } from '../providers/user-data';
+import { ResourcesProvider } from '../providers/resources/resources';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { UserData } from '../providers/user-data';
     UserData,
     InAppBrowser,
     SplashScreen,
+    ResourcesProvider,
   ]
 })
 export class AppModule { }

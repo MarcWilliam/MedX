@@ -21,11 +21,8 @@
             <ion-col col-2>
               Name
             </ion-col>
-            <ion-col col-7>
-                Discription
-              </ion-col>
               <ion-col col-2>
-                  Created By
+                  last used
                 </ion-col>
                 <!--
                 <ion-col col-1>
@@ -38,14 +35,11 @@
         <ion-item *ngFor="let item of viewList" (click)="openPage(item)">
             <ion-row>
                 <ion-col col-2>
-                  {{item.name}}
+                  {{item.resourceType}}
                 </ion-col>
                 <ion-col class="descr" col-7>
-                    {{item.description}}
+                    {{item.meta.lastUpdated}}
                   </ion-col>
-                  <ion-col col-2>
-                     {{item.auther}} 
-                    </ion-col>
                     <!--
                     <ion-col col-1>
                         <ion-icon name="star" class="golden" *ngIf="item.fav"></ion-icon>

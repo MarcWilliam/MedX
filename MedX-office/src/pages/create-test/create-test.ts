@@ -17,8 +17,7 @@ import { testForms, formComponent } from '../../interfaces/test-form';
   templateUrl: 'create-test.html',
 })
 export class CreateTestPage {
-  auther: string = "";
-  description: string = "";
+  id: string = "";
   creationDate: Date = new Date();
   testName: string = "";
   numberOfComponents: number = 0;
@@ -38,15 +37,17 @@ export class CreateTestPage {
 
   public expand() {
     if (this.numberOfComponents > 0) {
-      this.form.components = Array.from({ length: this.numberOfComponents }, () => new formComponent());
+      this.form.contained = Array.from({ length: this.numberOfComponents }, () => new formComponent());
 
-      console.log(this.form.components);
+      console.log(this.form.contained);
     }
 
   }
 
-  public write(){
-    console.log(this.form);
+  public write(i : number){
+    this.form.contained[i].valueQuantity.unit = this.form.contained[i].referenceRange[0].high.unit;
+    this.form.contained[i].referenceRange[0].low.unit =this.form.contained[i].referenceRange[0].high.unit;
+    //console.log(this.form);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateTestPage');
@@ -54,10 +55,10 @@ export class CreateTestPage {
 
   public submit() {
     console.log(this.form);
-    this.form.name=this.testName;
-    this.form.auther=this.auther;
-    this.form.description=this.description;
-    this.form.createdAt=new Date();
+    this.form.resourceType=this.testName;
+    this.form.id=this.id;
+    this.form.meta.lastUpdated=new Date();
+    
     this.storage.get("tests").then(data => {
       if (data) {
         
