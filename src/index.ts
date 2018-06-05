@@ -5,7 +5,7 @@ import SERVERS from './Servers';
 
 import Config from './helpers/config';
 
-export default class LoyalX {
+export default class MedX {
 	private static _instance;
 
 	public Web3Service;
@@ -21,23 +21,23 @@ export default class LoyalX {
 
 	public static async init({
 		TruffleContract,
-		lightwallet,
+		LightWallet,
 		server = SERVERS.LOCALHOST,
 		passwordGetter,
 		passwordSetter
 	}) {
-		if (!LoyalX._instance) {
+		if (!MedX._instance) {
 			Config.TruffleContract = TruffleContract;
-			Config.LightWallet = lightwallet;
+			Config.LightWallet = LightWallet;
 			Config.server = server;
 			Config.passwordGetter = passwordGetter;
 			Config.passwordSetter = passwordSetter;
 
-			var ret = new LoyalX();
+			var ret = new MedX();
 			ret.Web3Service = await Web3Service.getInstance();
-			LoyalX._instance = ret;
+			MedX._instance = ret;
 		}
-		return LoyalX._instance;
+		return MedX._instance;
 	}
 
 }

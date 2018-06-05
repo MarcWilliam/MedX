@@ -1,4 +1,4 @@
-// import lightwallet = require("eth-lightwallet");
+// import LightWallet = require("eth-lightwallet");
 import store = require('store');
 import { Web3Provider } from './web3-provider';
 import Config from './config';
