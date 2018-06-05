@@ -14,6 +14,9 @@ import {CreateTestPage} from '../pages/create-test/create-test';
 
 import { UserData } from '../providers/user-data';
 
+// the next declaration is for test templates from json file
+declare var require: any
+
 export interface PageInterface {
   title: string;
   name: string;
@@ -79,6 +82,16 @@ export class ConferenceApp {
     this.enableMenu(true);
 
     this.listenToLoginEvents();
+
+
+    // reading test template from json
+    var bloodTest = require('../json-templates/bloodTest.json');
+    var EBT = require('../json-templates/electrolyteBloodTest.json');
+    let temparr = new Array();
+    temparr.push(bloodTest);
+    temparr.push(EBT);
+    this.storage.set("tests", temparr);
+    //console.log(json);
   }
 
   openPage(page: PageInterface) {

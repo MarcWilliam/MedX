@@ -1,0 +1,276 @@
+{
+  "resourceType": "Electrolyte Blood Test",
+  "id": "2",
+  "meta": {
+    "lastUpdated": "2018-06-04T12:52:48.738Z"
+  },
+  "text": {
+    "div": "",
+    "status": "generated"
+  },
+  "contained": [{
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Sodium",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "1",
+    "referenceRange": [{
+      "high": {
+        "value": "150",
+        "unit": "mEq/L"
+      },
+      "low": {
+        "value": "142",
+        "unit": "mEq/L"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mEq/L"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Potassium",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "3",
+    "referenceRange": [{
+      "high": {
+        "value": "5.4",
+        "unit": "mEq/L"
+      },
+      "low": {
+        "value": "3.8",
+        "unit": "mEq/L"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mEq/L"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Chloride",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "3",
+    "referenceRange": [{
+      "high": {
+        "value": "116",
+        "unit": "mEq/L"
+      },
+      "low": {
+        "value": "105",
+        "unit": "mEq/L"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mEq/L"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Bicarbonate",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "4",
+    "referenceRange": [{
+      "high": {
+        "value": "25",
+        "unit": "mEq/L"
+      },
+      "low": {
+        "value": "15",
+        "unit": "mEq/L"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mEq/L"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Anion gap",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "5",
+    "referenceRange": [{
+      "high": {
+        "value": "25",
+        "unit": "mEq/L"
+      },
+      "low": {
+        "value": "14",
+        "unit": "mEq/L"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mEq/L"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Urea Nitrogen",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "6",
+    "referenceRange": [{
+      "high": {
+        "value": "32",
+        "unit": "mg/dL"
+      },
+      "low": {
+        "value": "10",
+        "unit": "mg/dL"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mg/dL"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Creatinine",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "7",
+    "referenceRange": [{
+      "high": {
+        "value": "1.4",
+        "unit": "mg/dL"
+      },
+      "low": {
+        "value": "0.6",
+        "unit": "mg/dL"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mg/dL"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Albumin",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "8",
+    "referenceRange": [{
+      "high": {
+        "value": "4.2",
+        "unit": "g/dL"
+      },
+      "low": {
+        "value": "3.1",
+        "unit": "g/dL"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "g/dL"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Calcium",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "9",
+    "referenceRange": [{
+      "high": {
+        "value": "11.4",
+        "unit": "mg/dL"
+      },
+      "low": {
+        "value": "9.3",
+        "unit": "mg/dL"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mg/dL"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Phosphate",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "10",
+    "referenceRange": [{
+      "high": {
+        "value": "5.2",
+        "unit": "mg/dL"
+      },
+      "low": {
+        "value": "2.9",
+        "unit": "mg/dL"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mg/dL"
+    }
+  }, {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "text": "Cholesterol",
+      "coding": {
+        "system": "http://loinc.org"
+      }
+    },
+    "id": "11",
+    "referenceRange": [{
+      "high": {
+        "value": "332",
+        "unit": "mg/dL"
+      },
+      "low": {
+        "value": "138",
+        "unit": "mg/dL"
+      }
+    }],
+    "valueQuantity": {
+      "value": 0,
+      "unit": "mg/dL"
+    }
+  }]
+}

@@ -22,13 +22,8 @@
 
 
     <ion-item>
-        <ion-label stacked color="primary">Test Description</ion-label>
-      <ion-input [(ngModel)]="description" name="description" type="text"  required></ion-input>
-    </ion-item>
-    
-    <ion-item>
-        <ion-label stacked color="primary">Auther</ion-label>
-      <ion-input [(ngModel)]="auther" name="auther" type="text"  required></ion-input>
+        <ion-label stacked color="primary">Test Id</ion-label>
+      <ion-input [(ngModel)]="id" name="testId" type="text"  required></ion-input>
     </ion-item>
 
     <ion-item>
@@ -40,21 +35,31 @@
   <button ion-button (click)="expand()">Generate</button>
   <div *ngIf="numberOfComponents > 0">
   <ion-list  no-lines>
-      <label *ngFor="let component of  form.components ;let i = index ; let j = index ;TrackBy : trackByIndex">
+      <label *ngFor="let component of  form.contained ;let i = index ; let j = index ;TrackBy : trackByIndex">
         <ion-label>Componenet Number : {{j+1}}</ion-label>
     <ion-item>
           <ion-label stacked color="primary">Component Name</ion-label>
-          <ion-input [(ngModel)]="form.components[i].name"  (ionChange)="write()"  [name]="'input-'+i" type="text"  #component.name="ngModel"  required></ion-input>
+          <ion-input [(ngModel)]="form.contained[i].code.text"    type="text"  required></ion-input>
       </ion-item>
 
       <ion-item>
-          <ion-label stacked color="primary">Expected Value</ion-label>
-          <ion-input [(ngModel)]="form.components[i].expectedValue"  type="text"  required ></ion-input>
+        <ion-label stacked color="primary">Component id</ion-label>
+        <ion-input [(ngModel)]="form.contained[i].id"   type="text"   required></ion-input>
+    </ion-item>
+
+      <ion-item>
+          <ion-label stacked color="primary">Lowest Value</ion-label>
+          <ion-input [(ngModel)]="form.contained[i].referenceRange[0].low.value"  type="text"  required ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked color="primary">Highest Value</ion-label>
+          <ion-input [(ngModel)]="form.contained[i].referenceRange[0].high.value"  type="text"  required ></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label stacked color="primary">Unit</ion-label>
-          <ion-input [(ngModel)]="form.components[i].unit"  type="text"  required ></ion-input>     
+          <ion-input [(ngModel)]="form.contained[i].referenceRange[0].high.unit" (ionChange)="write(i)"type="text"  required ></ion-input>     
     </ion-item>
       </label>
   </ion-list>
