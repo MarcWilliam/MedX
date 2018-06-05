@@ -1,4 +1,4 @@
-<img src="https://scontent-cai1-1.xx.fbcdn.net/v/t35.18174-12/s2048x2048/27398289_2174524742561297_1878488069_o.png?_nc_cat=0&oh=94d7f9cf44259366944a8b30e3a06164&oe=5B187AAA" height="45px"/> MedX Smart Contracts
+<img src="https://scontent-cai1-1.xx.fbcdn.net/v/t1.15752-0/p480x480/34411275_10216645685038246_2935287233994817536_n.png?_nc_cat=0&oh=9531d3abfd6e9e8221e9166d42da9ae7&oe=5B7AA002" height="45px"/> MedX Smart Contracts
 =========================================================================================
 
 self hosted contracts to help developer run local tests
