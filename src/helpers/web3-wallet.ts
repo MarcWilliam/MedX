@@ -4,7 +4,6 @@ import { Web3Provider } from './web3-provider';
 import Config from './config';
 
 import { generatedPasswordLength, generateString } from './utils';
-import LoyalX from './index';
 
 export class Web3Wallet {
 
@@ -118,13 +117,13 @@ export class Web3Wallet {
 	private _getPassword() {
 		let error = "";
 
-		if (typeof LoyalX.passwordGetter !== "function") {
+		if (typeof Config.passwordGetter !== "function") {
 			error = "'Web3-wallet' - '_getPassword' - Must provide 'PasswordGetter' function (Use 'LoyalX.setPasswordGetter' function to provide it)";
 			console.warn(error);
 			throw new Error(error);
 		}
 
-		let password = LoyalX.passwordGetter();
+		let password = Config.passwordGetter();
 		if (password) {
 			return password;
 		}
@@ -133,13 +132,13 @@ export class Web3Wallet {
 	private _setPassword() {
 		let error = "";
 
-		if (typeof LoyalX.passwordSetter !== "function") {
+		if (typeof Config.passwordSetter !== "function") {
 			error = "'Web3-wallet' - '_setPassword' - Must provide 'passwordSetter' function (Use 'LoyalX.setPasswordSetter' function to provide it)";
 			console.warn(error);
 			throw new Error(error);
 		}
 
-		let password = LoyalX.passwordSetter();
+		let password = Config.passwordSetter();
 		if (password) {
 			return password;
 		}

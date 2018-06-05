@@ -13,24 +13,25 @@ export default class LoyalX {
 
 	//public CONTRACT_NAME = CONTRACT_NAME;
 
-	public static passwordGetter;
-	public static passwordSetter;
-
 	private constructor() { }
 
-	public static setPasswordGetter(passwordGetter) {
-		LoyalX.passwordGetter = passwordGetter;
-	}
+	public static setPasswordGetter(passwordGetter) { Config.passwordGetter = passwordGetter; }
 
-	public static setPasswordSetter(passwordSetter) {
-		LoyalX.passwordSetter = passwordSetter;
-	}
+	public static setPasswordSetter(passwordSetter) { Config.passwordSetter = passwordSetter; }
 
-	public static async init({ TruffleContract, lightwallet, server = SERVERS.LOCALHOST }) {
+	public static async init({
+		TruffleContract,
+		lightwallet,
+		server = SERVERS.LOCALHOST,
+		passwordGetter,
+		passwordSetter
+	}) {
 		if (!LoyalX._instance) {
 			Config.TruffleContract = TruffleContract;
 			Config.LightWallet = lightwallet;
 			Config.server = server;
+			Config.passwordGetter = passwordGetter;
+			Config.passwordSetter = passwordSetter;
 
 			var ret = new LoyalX();
 			ret.Web3Service = await Web3Service.getInstance();

@@ -1,7 +1,9 @@
 
 export default class Config {
 
-    static TruffleContract;
-    static LightWallet;
-    static server: ServerInfo;
+    public static TruffleContract;
+    public static LightWallet;
+    public static server: ServerInfo;
+    public static passwordGetter
+	public static passwordSetter;
 }
