@@ -1,5 +1,5 @@
 {
-  "name": "medicalrecords-contracts",
+  "name": "medx.sol",
   "version": "0.0.0",
   "description": "smart contracts for Medical Records",
   "main": "truffle-config.js",
@@ -13,14 +13,14 @@
     "type": "git",
     "url": "git+https://github.com/MarcWafik/MedicalRecords-Contracts.git"
   },
-  "author": "Marc.Wafik",
-  "license": "ISC",
+  "author": "MarcWafik",
+  "license": "GNU LGPLv3",
   "bugs": {
     "url": "https://github.com/MarcWafik/MedicalRecords-Contracts/issues"
   },
   "homepage": "https://github.com/MarcWafik/MedicalRecords-Contracts#readme",
   "dependencies": {
-    "zeppelin-solidity": "^1.4.0"
+    "openzeppelin-solidity": "git+https://git@github.com/OpenZeppelin/openzeppelin-solidity.git"
   },
   "devDependencies": {
     "truffle": "^4.0.1"

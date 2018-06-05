@@ -1,8 +1,8 @@
 pragma solidity ^0.4.23;
 
-contract EncryptedDocument {
+contract EncryptedFile {
 
-    string public data;
+    string public filePath;
     string public dataHash;
     string public hashMethod;
     string public encriptionMethod;

@@ -1,0 +1,119 @@
+{
+  "contractName": "RecordFactory",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a723058202a260b25bd4747332178c5427372ed9d64b6473b4c6d73fbfd405cc4e46edb7f0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a723058202a260b25bd4747332178c5427372ed9d64b6473b4c6d73fbfd405cc4e46edb7f0029",
+  "sourceMap": "54:29:4:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;54:29:4;;;;;;;",
+  "deployedSourceMap": "54:29:4:-;;;;;",
+  "source": "pragma solidity ^0.4.23;\r\n\r\nimport \"./Record.sol\";\r\n\r\ncontract RecordFactory {\r\n\r\n}\r\n",
+  "sourcePath": "D:\\SourceCode\\MedX\\MedX.sol\\contracts\\RecordsFactory.sol",
+  "ast": {
+    "absolutePath": "/D/SourceCode/MedX/MedX.sol/contracts/RecordsFactory.sol",
+    "exportedSymbols": {
+      "RecordFactory": [
+        132
+      ]
+    },
+    "id": 133,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 130,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "absolutePath": "/D/SourceCode/MedX/MedX.sol/contracts/Record.sol",
+        "file": "./Record.sol",
+        "id": 131,
+        "nodeType": "ImportDirective",
+        "scope": 133,
+        "sourceUnit": 129,
+        "src": "28:22:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 132,
+        "linearizedBaseContracts": [
+          132
+        ],
+        "name": "RecordFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 133,
+        "src": "54:29:4"
+      }
+    ],
+    "src": "0:85:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/D/SourceCode/MedX/MedX.sol/contracts/RecordsFactory.sol",
+    "exportedSymbols": {
+      "RecordFactory": [
+        132
+      ]
+    },
+    "id": 133,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 130,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "absolutePath": "/D/SourceCode/MedX/MedX.sol/contracts/Record.sol",
+        "file": "./Record.sol",
+        "id": 131,
+        "nodeType": "ImportDirective",
+        "scope": 133,
+        "sourceUnit": 129,
+        "src": "28:22:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 132,
+        "linearizedBaseContracts": [
+          132
+        ],
+        "name": "RecordFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 133,
+        "src": "54:29:4"
+      }
+    ],
+    "src": "0:85:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-05T11:47:58.595Z"
+}

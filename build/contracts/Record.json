@@ -1,0 +1,1384 @@
+{
+  "contractName": "Record",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "attachments",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "record",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "doctor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "patient",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "createdAt",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_patient",
+          "type": "address"
+        },
+        {
+          "name": "_record",
+          "type": "address"
+        },
+        {
+          "name": "_attachments",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipRenounced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161088b38038061088b833981018060405281019080805190602001909291908051906020019092919080518201929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555033600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055504260038190555081600460006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060059080519060200190610167929190610170565b5050505061023d565b8280548282559060005260206000209081019282156101e9579160200282015b828111156101e85782518260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555091602001919060010190610190565b5b5090506101f691906101fa565b5090565b61023a91905b8082111561023657600081816101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905550600101610200565b5090565b90565b61063f8061024c6000396000f30060806040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630d6a203314610093578063266cf10914610100578063715018a6146101575780637ea7118c1461016e5780638da5cb5b146101c5578063bd96bd201461021c578063cf09e0d014610273578063f2fde38b1461029e575b600080fd5b34801561009f57600080fd5b506100be600480360381019080803590602001909291905050506102e1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561010c57600080fd5b5061011561031f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561016357600080fd5b5061016c610345565b005b34801561017a57600080fd5b50610183610447565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101d157600080fd5b506101da61046d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561022857600080fd5b50610231610492565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561027f57600080fd5b506102886104b8565b6040518082815260200191505060405180910390f35b3480156102aa57600080fd5b506102df600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104be565b005b6005818154811015156102f057fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103a057600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167ff8df31144d9c2f0f6b59d69b8b98abd5459d07f2742c4df920b25aae33c6482060405160405180910390a260008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561051957600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561055557600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058204dd771dc9839421f0ed7c36fedf88e2bc2816252e7aee93ce958d6ba615b495b0029",
+  "deployedBytecode": "0x60806040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630d6a203314610093578063266cf10914610100578063715018a6146101575780637ea7118c1461016e5780638da5cb5b146101c5578063bd96bd201461021c578063cf09e0d014610273578063f2fde38b1461029e575b600080fd5b34801561009f57600080fd5b506100be600480360381019080803590602001909291905050506102e1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561010c57600080fd5b5061011561031f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561016357600080fd5b5061016c610345565b005b34801561017a57600080fd5b50610183610447565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101d157600080fd5b506101da61046d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561022857600080fd5b50610231610492565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561027f57600080fd5b506102886104b8565b6040518082815260200191505060405180910390f35b3480156102aa57600080fd5b506102df600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104be565b005b6005818154811015156102f057fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103a057600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167ff8df31144d9c2f0f6b59d69b8b98abd5459d07f2742c4df920b25aae33c6482060405160405180910390a260008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561051957600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561055557600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058204dd771dc9839421f0ed7c36fedf88e2bc2816252e7aee93ce958d6ba615b495b0029",
+  "sourceMap": "126:487:3:-;;;329:281;8:9:-1;5:2;;;30:1;27;20:12;5:2;329:281:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;599:10:6;591:5;;:18;;;;;;;;;;;;;;;;;;474:8:3;464:7;;:18;;;;;;;;;;;;;;;;;;502:10;493:6;;:19;;;;;;;;;;;;;;;;;;535:3;523:9;:15;;;;558:7;549:6;;:16;;;;;;;;;;;;;;;;;;590:12;576:11;:26;;;;;;;;;;;;:::i;:::-;;329:281;;;126:487;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "126:487:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;286:34;;8:9:-1;5:2;;;30:1;27;20:12;5:2;286:34:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;252:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;252:27:3;;;;;;;;;;;;;;;;;;;;;;;;;;;1210:114:6;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1210:114:6;;;;;;191:21:3;;8:9:-1;5:2;;;30:1;27;20:12;5:2;191:21:3;;;;;;;;;;;;;;;;;;;;;;;;;;;247:20:6;;8:9:-1;5:2;;;30:1;27;20:12;5:2;247:20:6;;;;;;;;;;;;;;;;;;;;;;;;;;;162:22:3;;8:9:-1;5:2;;;30:1;27;20:12;5:2;162:22:3;;;;;;;;;;;;;;;;;;;;;;;;;;;219:24;;8:9:-1;5:2;;;30:1;27;20:12;5:2;219:24:3;;;;;;;;;;;;;;;;;;;;;;;937:178:6;;8:9:-1;5:2;;;30:1;27;20:12;5:2;937:178:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;286:34:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;252:27::-;;;;;;;;;;;;;:::o;1210:114:6:-;750:5;;;;;;;;;;;736:19;;:10;:19;;;728:28;;;;;;;;1287:5;;;;;;;;;;;1268:25;;;;;;;;;;;;1316:1;1300:5;;:18;;;;;;;;;;;;;;;;;;1210:114::o;191:21:3:-;;;;;;;;;;;;;:::o;247:20:6:-;;;;;;;;;;;;;:::o;162:22:3:-;;;;;;;;;;;;;:::o;219:24::-;;;;:::o;937:178:6:-;750:5;;;;;;;;;;;736:19;;:10;:19;;;728:28;;;;;;;;1034:1;1014:22;;:8;:22;;;;1006:31;;;;;;;;1077:8;1049:37;;1070:5;;;;;;;;;;;1049:37;;;;;;;;;;;;1101:8;1093:5;;:16;;;;;;;;;;;;;;;;;;937:178;:::o",
+  "source": "pragma solidity ^0.4.23;\r\n\r\nimport \"./EncryptedFile.sol\";\r\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\r\n\r\ncontract Record is Ownable {\r\n\r\n    address public patient;\r\n    address public doctor;\r\n    uint256 public createdAt;\r\n\r\n    EncryptedFile public record;\r\n    EncryptedFile[] public attachments;\r\n\r\n    constructor(\r\n        address _patient,\r\n        EncryptedFile _record,\r\n        EncryptedFile[] _attachments\r\n    ) public {\r\n        patient = _patient;\r\n        doctor = msg.sender;\r\n        createdAt = now;\r\n        record = _record;\r\n        attachments = _attachments;\r\n    }\r\n}\r\n",
+  "sourcePath": "D:\\SourceCode\\MedX\\MedX.sol\\contracts\\Record.sol",
+  "ast": {
+    "absolutePath": "/D/SourceCode/MedX/MedX.sol/contracts/Record.sol",
+    "exportedSymbols": {
+      "Record": [
+        128
+      ]
+    },
+    "id": 129,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 80,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "absolutePath": "/D/SourceCode/MedX/MedX.sol/contracts/EncryptedFile.sol",
+        "file": "./EncryptedFile.sol",
+        "id": 81,
+        "nodeType": "ImportDirective",
+        "scope": 129,
+        "sourceUnit": 22,
+        "src": "28:29:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 82,
+        "nodeType": "ImportDirective",
+        "scope": 129,
+        "sourceUnit": 263,
+        "src": "59:63:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 83,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 262,
+              "src": "145:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$262",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 84,
+            "nodeType": "InheritanceSpecifier",
+            "src": "145:7:3"
+          }
+        ],
+        "contractDependencies": [
+          262
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 128,
+        "linearizedBaseContracts": [
+          128,
+          262
+        ],
+        "name": "Record",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 86,
+            "name": "patient",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "162:22:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 85,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "162:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 88,
+            "name": "doctor",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "191:21:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 87,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "191:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 90,
+            "name": "createdAt",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "219:24:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 89,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "219:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 92,
+            "name": "record",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "252:27:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_EncryptedFile_$21",
+              "typeString": "contract EncryptedFile"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 91,
+              "name": "EncryptedFile",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 21,
+              "src": "252:13:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                "typeString": "contract EncryptedFile"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 95,
+            "name": "attachments",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "286:34:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage",
+              "typeString": "contract EncryptedFile[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 93,
+                "name": "EncryptedFile",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 21,
+                "src": "286:13:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                  "typeString": "contract EncryptedFile"
+                }
+              },
+              "id": 94,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "286:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage_ptr",
+                "typeString": "contract EncryptedFile[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 126,
+              "nodeType": "Block",
+              "src": "453:157:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 107,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 105,
+                      "name": "patient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 86,
+                      "src": "464:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 106,
+                      "name": "_patient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 97,
+                      "src": "474:8:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "464:18:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 108,
+                  "nodeType": "ExpressionStatement",
+                  "src": "464:18:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 112,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 109,
+                      "name": "doctor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 88,
+                      "src": "493:6:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 110,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 277,
+                        "src": "502:3:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 111,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "502:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "493:19:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 113,
+                  "nodeType": "ExpressionStatement",
+                  "src": "493:19:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 116,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 114,
+                      "name": "createdAt",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 90,
+                      "src": "523:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 115,
+                      "name": "now",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 279,
+                      "src": "535:3:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "523:15:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 117,
+                  "nodeType": "ExpressionStatement",
+                  "src": "523:15:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 120,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 118,
+                      "name": "record",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 92,
+                      "src": "549:6:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                        "typeString": "contract EncryptedFile"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 119,
+                      "name": "_record",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 99,
+                      "src": "558:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                        "typeString": "contract EncryptedFile"
+                      }
+                    },
+                    "src": "549:16:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                      "typeString": "contract EncryptedFile"
+                    }
+                  },
+                  "id": 121,
+                  "nodeType": "ExpressionStatement",
+                  "src": "549:16:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 124,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 122,
+                      "name": "attachments",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 95,
+                      "src": "576:11:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage",
+                        "typeString": "contract EncryptedFile[] storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 123,
+                      "name": "_attachments",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 102,
+                      "src": "590:12:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_memory_ptr",
+                        "typeString": "contract EncryptedFile[] memory"
+                      }
+                    },
+                    "src": "576:26:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage",
+                      "typeString": "contract EncryptedFile[] storage ref"
+                    }
+                  },
+                  "id": 125,
+                  "nodeType": "ExpressionStatement",
+                  "src": "576:26:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 127,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 103,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 97,
+                  "name": "_patient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 127,
+                  "src": "351:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "351:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 99,
+                  "name": "_record",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 127,
+                  "src": "378:21:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                    "typeString": "contract EncryptedFile"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 98,
+                    "name": "EncryptedFile",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 21,
+                    "src": "378:13:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                      "typeString": "contract EncryptedFile"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 102,
+                  "name": "_attachments",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 127,
+                  "src": "410:28:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_memory_ptr",
+                    "typeString": "contract EncryptedFile[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 100,
+                      "name": "EncryptedFile",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 21,
+                      "src": "410:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                        "typeString": "contract EncryptedFile"
+                      }
+                    },
+                    "id": 101,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "410:15:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage_ptr",
+                      "typeString": "contract EncryptedFile[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "340:105:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 104,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "453:0:3"
+            },
+            "scope": 128,
+            "src": "329:281:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 129,
+        "src": "126:487:3"
+      }
+    ],
+    "src": "0:615:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/D/SourceCode/MedX/MedX.sol/contracts/Record.sol",
+    "exportedSymbols": {
+      "Record": [
+        128
+      ]
+    },
+    "id": 129,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 80,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "absolutePath": "/D/SourceCode/MedX/MedX.sol/contracts/EncryptedFile.sol",
+        "file": "./EncryptedFile.sol",
+        "id": 81,
+        "nodeType": "ImportDirective",
+        "scope": 129,
+        "sourceUnit": 22,
+        "src": "28:29:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 82,
+        "nodeType": "ImportDirective",
+        "scope": 129,
+        "sourceUnit": 263,
+        "src": "59:63:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 83,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 262,
+              "src": "145:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$262",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 84,
+            "nodeType": "InheritanceSpecifier",
+            "src": "145:7:3"
+          }
+        ],
+        "contractDependencies": [
+          262
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 128,
+        "linearizedBaseContracts": [
+          128,
+          262
+        ],
+        "name": "Record",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 86,
+            "name": "patient",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "162:22:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 85,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "162:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 88,
+            "name": "doctor",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "191:21:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 87,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "191:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 90,
+            "name": "createdAt",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "219:24:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 89,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "219:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 92,
+            "name": "record",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "252:27:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_EncryptedFile_$21",
+              "typeString": "contract EncryptedFile"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 91,
+              "name": "EncryptedFile",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 21,
+              "src": "252:13:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                "typeString": "contract EncryptedFile"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 95,
+            "name": "attachments",
+            "nodeType": "VariableDeclaration",
+            "scope": 128,
+            "src": "286:34:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage",
+              "typeString": "contract EncryptedFile[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 93,
+                "name": "EncryptedFile",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 21,
+                "src": "286:13:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                  "typeString": "contract EncryptedFile"
+                }
+              },
+              "id": 94,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "286:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage_ptr",
+                "typeString": "contract EncryptedFile[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 126,
+              "nodeType": "Block",
+              "src": "453:157:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 107,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 105,
+                      "name": "patient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 86,
+                      "src": "464:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 106,
+                      "name": "_patient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 97,
+                      "src": "474:8:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "464:18:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 108,
+                  "nodeType": "ExpressionStatement",
+                  "src": "464:18:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 112,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 109,
+                      "name": "doctor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 88,
+                      "src": "493:6:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 110,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 277,
+                        "src": "502:3:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 111,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "502:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "493:19:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 113,
+                  "nodeType": "ExpressionStatement",
+                  "src": "493:19:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 116,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 114,
+                      "name": "createdAt",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 90,
+                      "src": "523:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 115,
+                      "name": "now",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 279,
+                      "src": "535:3:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "523:15:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 117,
+                  "nodeType": "ExpressionStatement",
+                  "src": "523:15:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 120,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 118,
+                      "name": "record",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 92,
+                      "src": "549:6:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                        "typeString": "contract EncryptedFile"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 119,
+                      "name": "_record",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 99,
+                      "src": "558:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                        "typeString": "contract EncryptedFile"
+                      }
+                    },
+                    "src": "549:16:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                      "typeString": "contract EncryptedFile"
+                    }
+                  },
+                  "id": 121,
+                  "nodeType": "ExpressionStatement",
+                  "src": "549:16:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 124,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 122,
+                      "name": "attachments",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 95,
+                      "src": "576:11:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage",
+                        "typeString": "contract EncryptedFile[] storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 123,
+                      "name": "_attachments",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 102,
+                      "src": "590:12:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_memory_ptr",
+                        "typeString": "contract EncryptedFile[] memory"
+                      }
+                    },
+                    "src": "576:26:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage",
+                      "typeString": "contract EncryptedFile[] storage ref"
+                    }
+                  },
+                  "id": 125,
+                  "nodeType": "ExpressionStatement",
+                  "src": "576:26:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 127,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 103,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 97,
+                  "name": "_patient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 127,
+                  "src": "351:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "351:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 99,
+                  "name": "_record",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 127,
+                  "src": "378:21:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                    "typeString": "contract EncryptedFile"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 98,
+                    "name": "EncryptedFile",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 21,
+                    "src": "378:13:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                      "typeString": "contract EncryptedFile"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 102,
+                  "name": "_attachments",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 127,
+                  "src": "410:28:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_memory_ptr",
+                    "typeString": "contract EncryptedFile[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 100,
+                      "name": "EncryptedFile",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 21,
+                      "src": "410:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_EncryptedFile_$21",
+                        "typeString": "contract EncryptedFile"
+                      }
+                    },
+                    "id": 101,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "410:15:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_EncryptedFile_$21_$dyn_storage_ptr",
+                      "typeString": "contract EncryptedFile[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "340:105:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 104,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "453:0:3"
+            },
+            "scope": 128,
+            "src": "329:281:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 129,
+        "src": "126:487:3"
+      }
+    ],
+    "src": "0:615:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-05T11:47:58.594Z"
+}
