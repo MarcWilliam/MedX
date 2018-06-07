@@ -3,7 +3,7 @@ pragma solidity ^0.4.23;
 import "./EncryptedFile.sol";
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
-contract Record is Ownable {
+contract Record {
 
     address public patient;
     address public doctor;
