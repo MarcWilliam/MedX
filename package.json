@@ -7,7 +7,14 @@
     "test": "test"
   },
   "scripts": {
-    "test": "truffle test"
+    "test": "truffle test",
+    "migrate": "truffle migrate",
+    "ganache": "truffle migrate --network ganache",
+    "testrpc": "truffle migrate --network testrpc",
+    "rinkeby": "truffle migrate --network rinkeby",
+    "ropsten": "truffle migrate --network ropsten",
+    "kovan": "truffle migrate --network kovan",
+    "compile": "truffle compile"
   },
   "repository": {
     "type": "git",
@@ -20,7 +27,8 @@
   },
   "homepage": "https://github.com/MarcWafik/MedicalRecords-Contracts#readme",
   "dependencies": {
-    "openzeppelin-solidity": "git+https://git@github.com/OpenZeppelin/openzeppelin-solidity.git"
+    "openzeppelin-solidity": "git+https://git@github.com/OpenZeppelin/openzeppelin-solidity.git",
+    "truffle-hdwallet-provider": "0.0.5"
   },
   "devDependencies": {
     "truffle": "^4.0.1"

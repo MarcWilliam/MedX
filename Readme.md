@@ -7,7 +7,7 @@ self hosted contracts to help developer run local tests
 
 1. start the test server `$ testrpc`, ganache or any local test environment
 2. compile the contracts `$ npm run compile`
-3. migrate the contracts `$ npm run migrate`
+3. migrate the contracts `$ npm run migrate` or `$ npm run ganache`
 4. run lite server to host the contract apb `$ npm run dev`
 
 
