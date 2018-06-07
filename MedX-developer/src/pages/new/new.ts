@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ToastController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 import { QueryService } from '../../services/queries.service';
 import { QueryValidator } from '../../validators/query';
@@ -13,6 +13,9 @@ import { QueryValidator } from '../../validators/query';
 export class NewPage {
   private url = "http://localhost:3000/api/queries";
   queriesForm: FormGroup;
+
+  //for dynamic param
+  public anArray:any=[];
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -30,8 +33,8 @@ export class NewPage {
           Validators.required
         ])
       ],
-      param1: [''],
-      param2: [''],
+      key: [],
+      value: [],
       media: ['']
     });
   }
@@ -58,12 +61,20 @@ export class NewPage {
           text: 'Ok',
           handler: () => {
             let controls = this.queriesForm.controls;
+            
+            var params;
+            let keys = this.queriesForm.get['key'];
+            let values = this.queriesForm.get['value'];
+            for(let i =0; i < keys.length; i++){
+              params[keys[i]] = values[i];
+            }
+            console.log(params)
             this.logForm(new QueryService(
               controls['name'].value,
               controls['version'].value,
               controls['description'].value,
               controls['query'].value,
-              {'param1':controls['param1'].value, 'param2':controls['param2'].value},
+              params,
               controls['media'].value
             ));
               //this.queriesForm.reset();
@@ -96,4 +107,7 @@ export class NewPage {
     toast.present();
   }
 
+  add(){
+    this.anArray.push(1);
+  }
 }

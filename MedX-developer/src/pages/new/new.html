@@ -35,10 +35,16 @@
         class="validator-error">Please enter a valid query.</div>
       </ion-item>
 
-      <ion-item>
-          <ion-label col-2 color="dark">Query params:</ion-label>
-          <ion-input col-5 type="text" [formControl]="queriesForm.controls['param1']" name="param1" placeholder="Param1" clearInput></ion-input>
-          <ion-input col-5 type="text" [formControl]="queriesForm.controls['param2']" name="param2" placeholder="Param2" clearInput></ion-input>
+      <ion-label text-left color="dark" stacked>Query params:
+        <button ion-button text-right (click)="add()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-label>
+      
+      <ion-item *ngFor="let att of anArray; let idx = index">
+        <ion-label col-2 color="dark">Param{{idx+1}}:</ion-label>
+        <ion-input col-5 type="text" [formControl]="queriesForm.controls['key']" name="key" placeholder="key" clearInput></ion-input>
+        <ion-input col-5 type="text" [formControl]="queriesForm.controls['value']" name="value" placeholder="value" clearInput></ion-input>
       </ion-item>
       
       <ion-item>

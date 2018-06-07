@@ -11,7 +11,7 @@ export class QueryService{
         public version:string,
         public description:string,
         public query:string,
-        public params:{param1:string,param2:number},
+        public params:{},
         public media:any
     ){
         this.name = name;
