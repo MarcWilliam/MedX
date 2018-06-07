@@ -1,6 +1,7 @@
 pragma solidity ^0.4.23;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "./EncryptedFile.sol";
 
 contract Record {
 
@@ -10,13 +11,6 @@ contract Record {
 
     EncryptedFile public record;
     EncryptedFile[] public attachments;
-
-    struct EncryptedFile {
-        string filePath;
-        string dataHash;
-        string hashMethod;
-        string encriptionMethod;
-    }
 
     constructor(
         address _patient,

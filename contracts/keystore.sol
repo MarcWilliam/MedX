@@ -1,26 +1,17 @@
 pragma solidity ^0.4.23;
 
-import "./Record.sol";
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "./Record.sol";
 
 contract Keystore is Ownable {
 
-    struct Store {
-        Record record;
-        string encKey;
+    mapping(address=>string) public rec2key;
+
+    event added(Record record, address addedby);
+
+    function add(Record _record, string _encKey) public {
+        require(bytes(rec2key[_record]).length == 0); // to protect aggainst enpty keystore attak
+        rec2key[_record] = _encKey;
+        emit added(_record, msg.sender);
     }
-
-    address patientProfile;
-
-    Store[] stores;
-
-    event added(address record, address addedby, uint indexed index);
-
-    function add(Record _record, string _encKey) public returns (uint index) {
-
-        index = stores.push(Store({record: _record, encKey: _encKey})) - 1;
-        emit added(_record, msg.sender, index);
-        
-    }
-
 }
