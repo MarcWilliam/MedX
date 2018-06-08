@@ -5,6 +5,8 @@ import "./Record.sol";
 
 contract Keystore is Ownable {
 
+    // EncryptedFile profile;
+
     mapping(address=>string) public rec2key;
 
     event added(Record record, address addedby);

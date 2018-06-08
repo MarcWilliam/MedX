@@ -4,7 +4,7 @@ import "./Keystore.sol";
 
 contract KeystoreFactory {
 
-    mapping(address=>Keystore) owners;
+    mapping(address=>Keystore) public owners;
 
     event Created(address createdBy);
 
