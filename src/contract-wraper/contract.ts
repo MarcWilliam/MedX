@@ -31,6 +31,26 @@ export abstract class Contract {
         return this.address ? contract.at(this.address) : contract.deployed();
     }
 
+    public async getAttribs(attribs?: string[]): Promise<any> {
+        if (!attribs)
+            throw (`please provide attrib parameters to .getAttribs(["attrib1", "attrib2"])`);
+        try {
+            var contractInstance = await this.getContractInstance();
+            var result = {};
+            
+            for (const i in attribs) {
+                const attName = attribs[i];
+                result[attName] = await contractInstance[attName]();
+            }
+
+            console.log("getAttribs", result);
+            return result;
+        } catch (err) {
+            console.warn(err.message);
+            throw err;
+        }
+    }
+
     protected async genericCall(functionName: string, params: any[], extraParams?): Promise<any> {
         try {
 
