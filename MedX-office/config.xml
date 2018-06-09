@@ -78,6 +78,7 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.15" />
     <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.2" />
+    <plugin name="cordova-plugin-googledrive" spec="https://github.com/AbdelrhmanAbdelhamed/cordova-plugin-googledrive" />
     <engine name="android" spec="7.1.0" />
     <engine name="ios" spec="^4.5.2" />
 </widget>

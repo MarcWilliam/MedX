@@ -32,6 +32,7 @@
     "cordova-android": "7.1.0",
     "cordova-ios": "^4.5.2",
     "cordova-plugin-device": "^1.1.7",
+    "cordova-plugin-googledrive": "git+https://github.com/AbdelrhmanAbdelhamed/cordova-plugin-googledrive.git",
     "cordova-plugin-inappbrowser": "^1.7.2",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^1.2.1",
@@ -63,7 +64,8 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-googledrive": {}
     }
   }
 }
