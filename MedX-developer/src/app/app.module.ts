@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { GoogleDrive } from '../providers/google-drive'
+
 import { ConferenceApp } from './app.component';
 
 import { ProfilePage } from '../pages/profile/profile';
@@ -48,9 +50,10 @@ import { HistoryPage } from '../pages/history/history';
     HistoryPage
   ],
   providers: [
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    GoogleDrive
   ]
 })
 export class AppModule {}

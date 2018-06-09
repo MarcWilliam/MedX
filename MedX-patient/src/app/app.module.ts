@@ -9,6 +9,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { GoogleDrive } from '../providers/google-drive'
+
 import { ConferenceApp } from './app.component';
 
 import { DemographicsPage } from '../pages/demographics/demographics';
@@ -49,7 +51,8 @@ import { ProvidersPage } from '../pages/providers/providers';
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     InAppBrowser,
-    SplashScreen
+    SplashScreen,
+    GoogleDrive
   ]
 })
 export class AppModule { }
