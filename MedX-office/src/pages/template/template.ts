@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { testForms } from '../../interfaces/test-form';
+
+
+
 /**
  * Generated class for the TemplatePage page.
  *
@@ -45,6 +48,8 @@ export class TemplatePage {
     this.submitted = true;
     if(requestForm.valid){
       console.log(JSON.stringify(this.test));
+      alert("Test Comleted");
+        this.navCtrl.pop();
     }
     
   }

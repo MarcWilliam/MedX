@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { testForms, formComponent } from '../../interfaces/test-form';
+
+import {HistoryPage} from '../history/history';
+
 //mport { NgForm } from '@angular/forms';
 
 /**
@@ -65,10 +68,14 @@ export class CreateTestPage {
         data.push(this.form);
         this.storage.set("tests", data);
         console.log(data);
+        alert("Test Created");
+        this.navCtrl.setRoot(HistoryPage);
       }else{
         let temparr = new Array();
         temparr.push(this.form);
         this.storage.set("tests", temparr);
+        alert("Test Created");
+        this.navCtrl.setRoot(HistoryPage);
       }
     }, err => {
       console.log(err);
