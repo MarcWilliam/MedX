@@ -22,28 +22,30 @@
 
       <ion-item>
           <ion-label stacked color="primary">Num. Of Required Tests</ion-label>
-          <ion-input [(ngModel)]="form.testsCount" (ionChange)="expand()"  name="testsCount" type="number" min="0" #testsCount="ngModel" ></ion-input>
+          <ion-input [(ngModel)]="form.testsCount" (ionChange)="expand('test')"  name="testsCount" type="number" min="0" #testsCount="ngModel" ></ion-input>
         </ion-item>
     
       <ion-item>
           <ion-label stacked color="primary">Num. Of Required Scans</ion-label>
-          <ion-input [(ngModel)]="form.scansCount" (ionChange)="expand()" name="scanssCount" type="number" min="0" #scansCount="ngModel" ></ion-input>
+          <ion-input [(ngModel)]="form.scansCount" (ionChange)="expand('scan')" name="scanssCount" type="number" min="0" #scansCount="ngModel" ></ion-input>
           
         </ion-item>
 
 
 
         <div *ngIf="form.tests.length>0">
-            <ion-item *ngFor="let item of form.tests ; let i = index ">
+            <ion-item *ngFor="let test of form.tests ; let i = index ">
                 <ion-label stacked color="primary">Required Test{{i}}</ion-label>
-                <ion-input [(ngModel)]="form.tests[i]" type="text" required></ion-input>
+                <ion-input [(ngModel)]="testsInput[i]" type="text" required></ion-input>
                 
             </ion-item>
             </div>
-      <div *ngIf="form.scans.length>0">
-      <ion-item *ngFor="let item of form.scans ; let i = index">
+
+
+      <div *ngIf="form.scans.length > 0">
+      <ion-item *ngFor="let scan of form.scans ; let i = index ; TrackBy index">
           <ion-label stacked color="primary">Required Scan{{i}}</ion-label>
-          <ion-input [(ngModel)]="form.scans[i]"   type="text"  required></ion-input>
+         <ion-input [(ngModel)]="scansInput[i]" type="text" ></ion-input>
       </ion-item>
       </div>
 
