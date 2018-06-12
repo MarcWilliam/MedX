@@ -47,6 +47,11 @@ export class NewPage {
     params.push(this.createParam());
   }
 
+  removeParam(index: number) {
+    let params = this.queriesForm.get('params') as FormArray;
+    params.removeAt(index);
+  }
+
   logForm(query) {
     this.httpClient.post(this.url, query)
     .subscribe(
