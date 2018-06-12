@@ -27,15 +27,16 @@
   "homepage": "https://github.com/MarcWafik/MedicalRecords.js#readme",
   "dependencies": {
     "@types/node": "^8.5.2",
+    "aes-js": "^3.1.1",
     "bignumber.js": "^4.1.0",
     "eth-lightwallet": "^3.0.0",
+    "ipfs-api": "^22.0.1",
+    "jshashes": "^1.0.7",
     "request": "^2.83.0",
     "store": "^2.0.12",
     "truffle-contract": "^3.0.1",
     "web3": "^1.0.0-beta.26",
-    "web3-provider-engine": "^13.4.0",
-    "aes-js": "^3.1.0",
-    "jshashes": "^1.0.7"
+    "web3-provider-engine": "^13.4.0"
   },
   "devDependencies": {
     "typescript": "^2.6.1"
