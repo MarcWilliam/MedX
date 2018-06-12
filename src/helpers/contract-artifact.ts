@@ -2,11 +2,21 @@ import request = require('request');
 import Config from './config';
 
 //let CONTRACT_NAME = require("medx.sol/build/contracts/{CONTRACT_NAME}.json");
+let EncryptedFile = require("medx.sol/build/contracts/EncryptedFile.json");
+let Keystore = require("medx.sol/build/contracts/Keystore.json");
+let KeystoreFactory = require("medx.sol/build/contracts/KeystoreFactory.json");
+let Record = require("medx.sol/build/contracts/Record.json");
+let RecordFactory = require("medx.sol/build/contracts/RecordFactory.json");
 
 export class ContractArtifact {
 
-	static Jsons = {
+	private static Jsons = {
 		//CONTRACT_NAME: CONTRACT_NAME,
+		EncryptedFile: EncryptedFile,
+		Keystore: Keystore,
+		KeystoreFactory: KeystoreFactory,
+		Record: Record,
+		RecordFactory: RecordFactory,
 	}
 
 	/**
@@ -17,7 +27,7 @@ export class ContractArtifact {
 		return new Promise((resolve, reject) => {
 
 			var fromLocal = () => {
-				this.Jsons[contractName] ? resolve(this.Jsons[contractName]) : reject("the contract name does not exists");
+				this.Jsons[contractName] ? resolve(ContractArtifact.Jsons[contractName]) : reject("the contract name does not exists");
 			}
 
 			var fromServer = () => {
