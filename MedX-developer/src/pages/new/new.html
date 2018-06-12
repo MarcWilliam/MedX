@@ -15,41 +15,43 @@
     <ion-list>
       <ion-item>
         <ion-label>Name:</ion-label>
-        <ion-input type="text" [formControl]="queriesForm.controls['name']" name="name" clearInput></ion-input>
+        <ion-input type="text" formControlName="name" name="name" clearInput></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Version:</ion-label>
-        <ion-input type="text" [formControl]="queriesForm.controls['version']" name="version" clearInput></ion-input>
+        <ion-input type="text" formControlName="version" name="version" clearInput></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Description:</ion-label>
-        <ion-textarea type="text" [formControl]="queriesForm.controls['description']" name="description" clearInput></ion-textarea>
+        <ion-textarea type="text" formControlName="description" name="description" clearInput></ion-textarea>
       </ion-item>
 
       <ion-item>
         <ion-label>Query:</ion-label>
-        <ion-input type="text" [formControl]="queriesForm.controls['query']" name="query" clearInput></ion-input>
+        <ion-input type="text" formControlName="query" name="query" clearInput></ion-input>
         <div *ngIf="!queriesForm.controls.query.valid && queriesForm.controls.query.dirty" 
         class="validator-error">Please enter a valid query.</div>
       </ion-item>
 
       <ion-label text-left color="dark" stacked>Query params:
-        <button ion-button text-right (click)="add()">
+        <button ion-button text-right (click)="addParam()">
           <ion-icon name="add"></ion-icon>
         </button>
       </ion-label>
       
-      <ion-item *ngFor="let att of anArray; let idx = index">
-        <ion-label col-2 color="dark">Param{{idx+1}}:</ion-label>
-        <ion-input col-5 type="text" [formControl]="queriesForm.controls['key']" name="key" placeholder="key" clearInput></ion-input>
-        <ion-input col-5 type="text" [formControl]="queriesForm.controls['value']" name="value" placeholder="value" clearInput></ion-input>
-      </ion-item>
-      
+      <div formArrayName="params">
+        <ion-item *ngFor="let param of this.queriesForm.get('params').controls; let i = index;" [formGroupName]="i">
+            <ion-label col-2 color="dark">Param{{i+1}}:</ion-label>
+            <ion-input col-5 type="text" formControlName="key" placeholder="Param key" clearInput></ion-input>
+            <ion-input col-5 type="text" formControlName="value" placeholder="Param value" clearInput></ion-input>
+        </ion-item>
+      </div>
+
       <ion-item>
         <ion-label color="dark" stacked>Media:</ion-label>
-        <ion-input text-right type="file" [formControl]="queriesForm.controls['media']" name="media" clearInput></ion-input>
+        <ion-input text-right type="file" formControlName="media" name="media" clearInput></ion-input>
       </ion-item>
 
       <br><br>

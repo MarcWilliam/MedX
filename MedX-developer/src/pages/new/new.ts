@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ToastController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 import { QueryService } from '../../services/queries.service';
 import { QueryValidator } from '../../validators/query';
@@ -13,9 +13,6 @@ import { QueryValidator } from '../../validators/query';
 export class NewPage {
   private url = "http://localhost:3000/api/queries";
   queriesForm: FormGroup;
-
-  //for dynamic param
-  public anArray:any=[];
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -33,10 +30,21 @@ export class NewPage {
           Validators.required
         ])
       ],
-      key: [],
-      value: [],
+      params: this.formBuilder.array([]),
       media: ['']
     });
+  }
+
+  createParam():FormGroup {
+    return this.formBuilder.group({
+      key: '',
+      value: ''
+    });
+  }
+
+  addParam() {
+    let params = this.queriesForm.get('params') as FormArray;
+    params.push(this.createParam());
   }
 
   logForm(query) {
@@ -62,19 +70,18 @@ export class NewPage {
           handler: () => {
             let controls = this.queriesForm.controls;
             
-            var params;
-            let keys = this.queriesForm.get['key'];
-            let values = this.queriesForm.get['value'];
-            for(let i =0; i < keys.length; i++){
-              params[keys[i]] = values[i];
+            let paramsArr = controls['params'].value;
+            let paramsObj = {};
+            for(let i = 0; i < paramsArr.length; i++){
+              paramsObj[paramsArr[i].key] = paramsArr[i].value;
             }
-            console.log(params)
+            
             this.logForm(new QueryService(
               controls['name'].value,
               controls['version'].value,
               controls['description'].value,
               controls['query'].value,
-              params,
+              paramsObj,
               controls['media'].value
             ));
               //this.queriesForm.reset();
@@ -107,7 +114,5 @@ export class NewPage {
     toast.present();
   }
 
-  add(){
-    this.anArray.push(1);
-  }
+
 }
