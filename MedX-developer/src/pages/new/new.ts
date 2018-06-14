@@ -40,7 +40,6 @@ export class NewPage {
         imgs: this.formBuilder.array([])
       })
     });
-
   }
 
   createParam():FormGroup {
