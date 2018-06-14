@@ -19,20 +19,22 @@ export class NewPage {
     public toastCtrl: ToastController,
     private formBuilder: FormBuilder,
     private httpClient: HttpClient
-  ) {
-    
-  }
+  ) { }
 
   ngOnInit() {
-    this.queriesForm = this.formBuilder.group({
+    this.queriesForm = this.buildMyForm();
+  }
+
+  buildMyForm() {
+    return this.formBuilder.group({
       name: [''],
       version: [''],
       description: [''],
       query: ['', Validators.compose([
-          /*Validators.pattern(regexValidators.email),*/ ///reqex //import { regexValidators } from '../validators/validator';
-          QueryValidator.checkQuery,
-          Validators.required
-        ])
+        /*Validators.pattern(regexValidators.email),*/ ///reqex //import { regexValidators } from '../validators/validator';
+        QueryValidator.checkQuery,
+        Validators.required
+      ])
       ],
       params: this.formBuilder.array([]),
       media: this.formBuilder.group({
@@ -42,14 +44,14 @@ export class NewPage {
     });
   }
 
-  createParam():FormGroup {
+  createParam(): FormGroup {
     return this.formBuilder.group({
       key: '',
       value: ''
     });
   }
 
-  createImg():FormGroup {
+  createImg(): FormGroup {
     return this.formBuilder.group({
       img: ''
     });
@@ -75,10 +77,9 @@ export class NewPage {
     imgs.removeAt(index);
   }
 
-
   logForm(query) {
     this.httpClient.post(this.url, query)
-    .subscribe(
+      .subscribe(
       res => {
         this.okToast();
       },
@@ -86,7 +87,7 @@ export class NewPage {
         this.rejectToast();
         console.log(error);
       }
-    );
+      );
   }
 
   showConfirm() {
@@ -98,13 +99,13 @@ export class NewPage {
           text: 'Ok',
           handler: () => {
             let controls = this.queriesForm.controls;
-            
+
             let paramsArr = controls['params'].value;
             let paramsObj = {};
-            for(let i = 0; i < paramsArr.length; i++){
+            for (let i = 0; i < paramsArr.length; i++) {
               paramsObj[paramsArr[i].key] = paramsArr[i].value;
             }
-            
+
             this.logForm(new QueryService(
               controls['name'].value,
               controls['version'].value,
@@ -113,12 +114,14 @@ export class NewPage {
               paramsObj,
               controls['media'].value
             ));
-              //this.queriesForm.reset();
+
+            //form reset
+            this.queriesForm = this.buildMyForm();
           }
         },
         {
           text: 'Cancel',
-          handler: () => {}
+          handler: () => { }
         }
       ]
     });
@@ -127,21 +130,20 @@ export class NewPage {
 
   okToast() {
     let toast = this.toastCtrl.create({
-        message: 'Query added successfully',
-        duration: 3000,
-        position: 'bottom'
+      message: 'Query added successfully',
+      duration: 3000,
+      position: 'bottom'
     });
     toast.present();
   }
 
   rejectToast() {
     let toast = this.toastCtrl.create({
-        message: 'Rejected',
-        duration: 3000,
-        position: 'bottom'
+      message: 'Rejected',
+      duration: 3000,
+      position: 'bottom'
     });
     toast.present();
   }
-
 
 }
