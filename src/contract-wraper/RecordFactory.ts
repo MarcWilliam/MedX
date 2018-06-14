@@ -1,5 +1,6 @@
 import { Contract } from './contract';
 import { EncryptedFileDat } from './EncryptedFile';
+import { StatisticsHandler } from '../helpers/statistics-handler';
 
 export class RecordFactory extends Contract {
 
@@ -15,21 +16,23 @@ export class RecordFactory extends Contract {
 
         //>> get user anonymous pk
         //>> upload record to statistics DB using anonymous pk
+        //<< StatisticsHandler.PostRecord(record);
+
         //> record = encript files
         //> upload files to ipfs
         //> doctorsKey = gen enc key with dr public ( dr key is the one in account)
         //> patientKey = gen enc key with pattient public
 
-        record = <EncryptedFileDat> {
+        let recordInfo = <EncryptedFileDat>{
             filePath: "",
             dataHash: "",
             hashMethod: "",
             encriptionMethod: ""
         };
-        var patientKey = "";
-        var doctorsKey = "";
+        let patientKey = "";
+        let doctorsKey = "";
 
-        return this.genericCall("create", [patient, patientKey, doctorsKey, record, attachments], extraParams);
+        return this.genericCall("create", [patient, patientKey, doctorsKey, recordInfo, attachments], extraParams);
     }
 
 }
