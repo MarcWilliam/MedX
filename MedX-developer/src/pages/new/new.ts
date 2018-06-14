@@ -20,6 +20,10 @@ export class NewPage {
     private formBuilder: FormBuilder,
     private httpClient: HttpClient
   ) {
+    
+  }
+
+  ngOnInit() {
     this.queriesForm = this.formBuilder.group({
       name: [''],
       version: [''],
@@ -31,14 +35,24 @@ export class NewPage {
         ])
       ],
       params: this.formBuilder.array([]),
-      media: ['']
+      media: this.formBuilder.group({
+        video: '',
+        imgs: this.formBuilder.array([])
+      })
     });
+
   }
 
   createParam():FormGroup {
     return this.formBuilder.group({
       key: '',
       value: ''
+    });
+  }
+
+  createImg():FormGroup {
+    return this.formBuilder.group({
+      img: ''
     });
   }
 
@@ -51,6 +65,17 @@ export class NewPage {
     let params = this.queriesForm.get('params') as FormArray;
     params.removeAt(index);
   }
+
+  addImg() {
+    let imgs = this.queriesForm.get('media').get('imgs') as FormArray;
+    imgs.push(new FormControl(''));
+  }
+
+  removeImg(index: number) {
+    let imgs = this.queriesForm.get('media').get('imgs') as FormArray;
+    imgs.removeAt(index);
+  }
+
 
   logForm(query) {
     this.httpClient.post(this.url, query)

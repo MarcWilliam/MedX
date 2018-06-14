@@ -53,10 +53,28 @@
         </ion-item>
       </div>
 
-      <ion-item>
-        <ion-label color="dark" stacked>Media:</ion-label>
-        <ion-input text-right type="file" formControlName="media" name="media" clearInput></ion-input>
-      </ion-item>
+      <div formGroupName="media">
+        <ion-item>
+          <ion-label>Youtube:</ion-label>
+          <ion-input type="text" formControlName="video" clearInput></ion-input>    
+        </ion-item>
+
+        <ion-label text-left color="dark" stacked>Images:
+            <button ion-button text-right (click)="addImg()">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-label>
+
+        <div formArrayName="imgs">
+          <ion-item *ngFor="let param of this.queriesForm.get('media').get('imgs').controls; let i = index;" [formGroupName]="i">
+            <ion-label>Image{{i+1}}:</ion-label>
+            <ion-input formControlName={{i}} clearInput></ion-input>
+            <button item-end ion-button (click)="removeImg(i)" clear>
+                <ion-icon name="remove-circle"></ion-icon>
+            </button>  
+          </ion-item>
+        </div>
+      </div>
 
       <br><br>
       <button [disabled]="!queriesForm.valid" (click)='showConfirm()' ion-button end>Publish</button>
