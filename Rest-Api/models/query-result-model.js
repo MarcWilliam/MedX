@@ -2,44 +2,35 @@
 
 let database = require('../database/database');
 
-class RecordStore {
+const table = "queries_result";
 
+class QueryResultModel {
     constructor(){}
 
-    async get(table){
+    async get(){
         let db = await database.getConnection();
-
         let collection = db.collection(table);
-
         let docs = (await collection.find({}).toArray());
-        
         return docs;
     }
 
-    async post (table, param){
+    async post (param){
         let db = await database.getConnection();
-
         let collection = db.collection(table);
-
         let result = collection.insertOne(param);
     }
 
-    async update (table, id, param){
+    async update (id, param){
         let db = await database.getConnection();
-
         let collection = db.collection(table);
-        
         let result = collection.updateOne({ id:parseInt(id,10) }, { $set: param });
     }
 
-    async delete (table, param){
+    async delete (param){
         let db = await database.getConnection();
-
         let collection = db.collection(table);
-
         let result = collection.deleteOne(param);
     }
 
 }
-module.exports = new RecordStore();
-
+module.exports = new QueryResultModel();
