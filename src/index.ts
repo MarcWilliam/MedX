@@ -36,7 +36,6 @@ export = class MedX {
 		passwordGetter,
 		passwordSetter
 	}) {
-
 		Config.TruffleContract = TruffleContract;
 		Config.LightWallet = LightWallet;
 		Config.server = server;
@@ -44,7 +43,7 @@ export = class MedX {
 		Config.passwordSetter = passwordSetter;
 
 		if (!MedX._instance) { MedX._instance = new MedX(); }
-		//MedX._instance.Web3Service = await Web3Service.getInstance();
+		MedX._instance.Web3Service = await Web3Service.getInstance();
 
 		return MedX._instance;
 	}

@@ -1,6 +1,5 @@
-// import LightWallet = require("eth-lightwallet");
+//import LightWallet = require("eth-lightwallet");
 import store = require('store');
-import { Web3Provider } from './web3-provider';
 import Config from './config';
 
 import { generatedPasswordLength, generateString } from './utils';
@@ -12,11 +11,8 @@ export class Web3Wallet {
 	private lightWallet;
 	private _keyStore;
 	private _address;
-	private _passwordGetter;
-	private _passwordSetter;
 
-	private constructor() {
-	}
+	private constructor() { }
 
 	private async _init() {
 		try {
@@ -30,8 +26,8 @@ export class Web3Wallet {
 			}
 			else {
 				password = this._setPassword();
-				const extraEntropy = generateString(generatedPasswordLength);
-				const randomSeed = this.lightWallet.keystore.generateRandomSeed(extraEntropy);
+				//const extraEntropy = generateString(generatedPasswordLength);
+				const randomSeed = this.lightWallet.keystore.generateRandomSeed(/*extraEntropy*/);
 				// const randomSeed = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
 				this._keyStore = await (this._createKeyStore(password, randomSeed));
 
@@ -39,7 +35,7 @@ export class Web3Wallet {
 			}
 			this._keyStore.passwordProvider = this._passwordProvider.bind(this);
 
-			this._address = await (this._generateAddresses(password, 2)) ? this._keyStore.getAddresses() [0] : "";
+			this._address = await (this._generateAddresses(password, 2)) ? this._keyStore.getAddresses()[0] : "";
 		}
 		catch (err) {
 			throw err;
@@ -69,7 +65,7 @@ export class Web3Wallet {
 		let password = this._getPassword();
 
 		if (password) {
-			
+
 			let pwDerivedKey = await this._keyFromPassword(password);
 			if (!this._keyStore.isDerivedKeyCorrect(pwDerivedKey)) {
 				callback("Incorrect Password!");
@@ -106,14 +102,6 @@ export class Web3Wallet {
 		}
 	}
 
-	public setPasswordGetter(passwordGetter) {
-		this._passwordGetter = passwordGetter;
-	}
-
-	public setPasswordSetter(passwordSetter) {
-		this._passwordSetter = passwordSetter;
-	}
-
 	private _getPassword() {
 		let error = "";
 
@@ -146,7 +134,7 @@ export class Web3Wallet {
 
 	public async getAddress() {
 		if (!this._address) {
-			this._address = await this._keyStore.getAddresses() [0];
+			this._address = await this._keyStore.getAddresses()[0];
 		}
 		return this._address;
 	}
