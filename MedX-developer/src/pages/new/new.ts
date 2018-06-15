@@ -11,7 +11,7 @@ import { QueryValidator } from '../../validators/query';
   templateUrl: 'new.html'
 })
 export class NewPage {
-  private url = "http://localhost:3000/api/queries";
+  private url = "http://localhost:8064/api/queries";
   queriesForm: FormGroup;
 
   constructor(public navCtrl: NavController,

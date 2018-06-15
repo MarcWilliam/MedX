@@ -23,7 +23,7 @@ export class StatisticsPage {
     @ViewChild('lineCanvas') lineCanvas;
     lineChart: any;
 
-    private url = "http://localhost:3000/api/store";
+    private url = "http://localhost:8064/api/store";
     obj: QueryService;
     isAdded: boolean;
 

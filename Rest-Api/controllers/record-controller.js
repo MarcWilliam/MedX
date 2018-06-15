@@ -1,27 +1,23 @@
 "use strict";
 
-var record_model = require('../models/record-model');
+var Record = require('../models/record');
 
-class RecordController {
-    constructor(){}
+module.exports = class RecordController {
 
-    async find(request, response){
-        response.send(await record_model.get());
+    static async find(request, response){
+        response.send(await Record.get());
     }
 
-    async add(request, response){
-        (await record_model.post(request.body));
+    static async add(request, response){
+        (await Record.post(request.body));
     }
 
-    async edit(request, response){
-        (await record_model.update(request.params.id, request.body));
+    static async edit(request, response){
+        (await Record.update(request.params.id, request.body));
     }
 
-    async remove(request, response){
-        (await record_model.delete(request.body));
+    static async remove(request, response){
+        (await Record.delete(request.body));
     }
-
 
 }
-
-module.exports = new RecordController();

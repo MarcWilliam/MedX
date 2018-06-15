@@ -1,0 +1,20 @@
+{
+    "IS_PRODUCTION": false,
+    "CLUSTER": {
+        "USE": false,
+        "NO": 0
+    },
+    "DB": {
+        "SCHEMA": "medical_records",
+        "HOST": "localhost",
+        "USERNAME": "root",
+        "PASSWORD": "",
+        "PORT": 27017
+    },
+    "HTTP": {
+        "PORT": 8064
+    },
+    "TCP": {
+        "PORT": 3032
+    }
+}

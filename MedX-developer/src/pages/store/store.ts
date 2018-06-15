@@ -17,7 +17,7 @@ import { StatisticsPage } from '../statistics/statistics';
   templateUrl: 'store.html',
 })
 export class StorePage {
-  private url = "http://localhost:3000/api/queries";
+  private url = "http://localhost:8064/api/queries";
   private queries:any = [];
 
   constructor(public navCtrl: NavController,

@@ -1,26 +1,23 @@
 "use strict";
 
-var model = require('../models/query-result-model');
+var QueryResult = require('../models/query-result');
 
-class QueryResultController {
-    constructor(){}
+module.exports = class QueryResultController {
 
-    async find(request, response){
-        response.send(await model.get());
+    static async find(request, response){
+        response.send(await QueryResult.get());
     }
 
-    async add(request, response){
-        (await model.post(request.body));
+    static async add(request, response){
+        (await QueryResult.post(request.body));
     }
 
-    async edit(request, response){
-        (await model.update(request.params.id, request.body));
+    static async edit(request, response){
+        (await QueryResult.update(request.params.id, request.body));
     }
 
-    async remove(request, response){
-        (await model.delete(request.body));
+    static async remove(request, response){
+        (await QueryResult.delete(request.body));
     }
 
 }
-
-module.exports = new QueryResultController();
