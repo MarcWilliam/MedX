@@ -8,9 +8,9 @@ import { KeystoreFactory } from './contract-wraper/KeystoreFactory';
 import { Record } from './contract-wraper/Record';
 import { RecordFactory } from './contract-wraper/RecordFactory';
 
-import Config from './helpers/config';
+import { Config } from './helpers/config';
 
-export default class MedX {
+export = class MedX {
 	private static _instance;
 
 	public Web3Service;
@@ -44,7 +44,7 @@ export default class MedX {
 		Config.passwordSetter = passwordSetter;
 
 		if (!MedX._instance) { MedX._instance = new MedX(); }
-		MedX._instance.Web3Service = await Web3Service.getInstance();
+		//MedX._instance.Web3Service = await Web3Service.getInstance();
 
 		return MedX._instance;
 	}
