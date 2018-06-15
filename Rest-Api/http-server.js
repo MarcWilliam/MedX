@@ -21,4 +21,5 @@ module.exports = function HTTPserver() {
     server.use(`/api/records`, Record);
     server.use(`/api/queries`, Query);
     server.use(`/api/queries-result`, QueryResult);
+    return server;
 }
