@@ -5,6 +5,7 @@ import { FormControl, FormBuilder, FormGroup, FormArray, Validators } from '@ang
 
 import { QueryService } from '../../services/queries.service';
 import { QueryValidator } from '../../validators/query';
+import { PublishedQueriesPage } from '../published-queries/published-queries';
 
 @Component({
   selector: 'page-new',
@@ -39,6 +40,7 @@ export class NewPage {
       params: this.formBuilder.array([]),
       media: this.formBuilder.group({
         video: '',
+        main: '',
         imgs: this.formBuilder.array([])
       })
     });
@@ -47,7 +49,7 @@ export class NewPage {
   createParam(): FormGroup {
     return this.formBuilder.group({
       key: '',
-      value: ''
+      type: ''
     });
   }
 
@@ -103,7 +105,7 @@ export class NewPage {
             let paramsArr = controls['params'].value;
             let paramsObj = {};
             for (let i = 0; i < paramsArr.length; i++) {
-              paramsObj[paramsArr[i].key] = paramsArr[i].value;
+              paramsObj[paramsArr[i].key] = paramsArr[i].type;
             }
 
             this.logForm(new QueryService(
@@ -117,6 +119,7 @@ export class NewPage {
 
             //form reset
             this.queriesForm = this.buildMyForm();
+            this.navCtrl.setRoot(PublishedQueriesPage);
           }
         },
         {

@@ -15,6 +15,8 @@ import { NewPage } from '../pages/new/new';
 import { StorePage } from '../pages/store/store';
 import { StatisticsPage } from '../pages/statistics/statistics';
 import { HistoryPage } from '../pages/history/history';
+import { QueryModalPage } from '../pages/query-modal/query-modal';
+import { PublishedQueriesPage } from '../pages/published-queries/published-queries';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { HistoryPage } from '../pages/history/history';
     NewPage,
     StorePage,
     StatisticsPage,
-    HistoryPage
+    HistoryPage,
+    PublishedQueriesPage,
+    QueryModalPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { HistoryPage } from '../pages/history/history';
         { component: NewPage, name: 'NewPage', segment: 'new' },
         { component: StorePage, name: 'StorePage', segment: 'store' },
         { component: ProfilePage, name: 'ProfilePage', segment: 'profile' },
-        { component: HistoryPage, name: 'HistoryPage', segment: 'history' }
+        { component: HistoryPage, name: 'HistoryPage', segment: 'history' },
+        { component: PublishedQueriesPage, name: 'PublishedQueriesPage', segment: 'published-queries' }
       ]
     }),
     IonicStorageModule.forRoot()
@@ -46,7 +51,9 @@ import { HistoryPage } from '../pages/history/history';
     NewPage,
     StorePage,
     StatisticsPage,
-    HistoryPage
+    HistoryPage,
+    QueryModalPage,
+    PublishedQueriesPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

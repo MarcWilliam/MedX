@@ -5,7 +5,7 @@ import { NewPage } from '../pages/new/new';
 import { ProfilePage } from '../pages/profile/profile';
 import { StorePage } from '../pages/store/store';
 import { HistoryPage } from '../pages/history/history';
-
+import { PublishedQueriesPage } from '../pages/published-queries/published-queries';
 
 export interface PageInterface {
   title: string;
@@ -34,6 +34,7 @@ export class ConferenceApp {
     { title: 'Profile', name: 'ProfilePage', component: ProfilePage , icon: 'person' },
     { title: 'New', name: 'NewPage', component: NewPage , icon: 'add' },
     { title: 'Store' , name: 'StorePage', component: StorePage , icon: 'cart'},
+    { title: 'Published Queries' , name: 'PublishedQueriesPage', component: PublishedQueriesPage , icon: 'timer'},
     { title: 'History' , name: 'HistoryPage', component: HistoryPage , icon: 'timer'}
   ];
 

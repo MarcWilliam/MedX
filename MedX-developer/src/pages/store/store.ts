@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController  } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 
 import { StatisticsPage } from '../statistics/statistics';
+import { QueryModalPage } from '../query-modal/query-modal';
 
 /**
  * Generated class for the StorePage page.
@@ -22,8 +23,8 @@ export class StorePage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public alertCtrl: AlertController,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    public modalCtrl: ModalController
   ) {
     
   }
@@ -38,32 +39,9 @@ export class StorePage {
     });
   }
 
-  execute(item){
-    this.navCtrl.push(StatisticsPage, {query: item});
-  }
-
-  showConfirm(item) {
-
-    let confirm = this.alertCtrl.create({
-      title: `Execute this query?`,
-      message: `This service will cost you ${item.cost} LE`,
-      buttons: [
-        {
-          text: 'Ok',
-          handler: () => {
-            console.log('OK clicked');
-            this.execute(item);
-          }
-        },
-        {
-          text: 'Cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    confirm.present();
+  presentQueryModal(query){
+    let modal = this.modalCtrl.create(QueryModalPage, { query: query });
+    modal.present();
   }
 
 }

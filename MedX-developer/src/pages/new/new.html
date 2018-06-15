@@ -44,7 +44,7 @@
         <ion-item *ngFor="let param of this.queriesForm.get('params').controls; let i = index;" [formGroupName]="i">
           <ion-label col-2 color="dark">Param{{i+1}}:</ion-label>
           <ion-input col-5 type="text" formControlName="key" placeholder="Param key" clearInput></ion-input>
-          <ion-input col-5 type="text" formControlName="value" placeholder="Param value" clearInput></ion-input>
+          <ion-input col-5 type="text" formControlName="type" placeholder="Param type" clearInput></ion-input>
 
           <button item-end ion-button (click)="removeParam(i)" clear>
             <ion-icon name="remove-circle"></ion-icon>
@@ -56,6 +56,11 @@
         <ion-item>
           <ion-label>Youtube:</ion-label>
           <ion-input type="text" formControlName="video" clearInput></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Main image:</ion-label>
+          <ion-input type="text" formControlName="main" clearInput></ion-input>
         </ion-item>
 
         <ion-label text-left color="dark" stacked>Images:
