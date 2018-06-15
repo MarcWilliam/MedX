@@ -8,7 +8,7 @@ import { KeystoreFactory } from './contract-wraper/KeystoreFactory';
 import { Record } from './contract-wraper/Record';
 import { RecordFactory } from './contract-wraper/RecordFactory';
 
-import { Config } from './helpers/config';
+import Config from './helpers/config';
 
 export = class MedX {
 	private static _instance;
