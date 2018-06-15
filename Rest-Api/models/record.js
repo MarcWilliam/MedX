@@ -1,43 +1,36 @@
 "use strict";
 
-let database = require('../database/database');
+let database = require('../helpers/database');
 
-const table = 'records';
+const table = "records";
 
-class RecordStore {
+module.exports = class Record {
 
-    constructor(){}
+    constructor() { }
 
-    async get(){
+    static async get() {
         let db = await database.getConnection();
-
         let collection = db.collection(table);
-
         let docs = (await collection.find({}).toArray());
-        
         return docs;
     }
 
-    async post (param){
+    static async post(param) {
         let db = await database.getConnection();
-
         let collection = db.collection(table);
-
         let result = collection.insertOne(param);
     }
 
-    async update (){
-
+    static async update(id, param) {
+        let db = await database.getConnection();
+        let collection = db.collection(table);
+        let result = collection.updateOne({ id: parseInt(id, 10) }, { $set: param });
     }
 
-    async delete (param){
+    static async delete(param) {
         let db = await database.getConnection();
-
         let collection = db.collection(table);
-
         let result = collection.deleteOne(param);
     }
 
 }
-module.exports = new RecordStore();
-
