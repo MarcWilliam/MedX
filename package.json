@@ -15,6 +15,7 @@
   "scripts": {
     "build": "tsc",
     "run": "ts-node ./src/index.ts",
+    "debug": "ts-node ./src/debug.ts",
     "pretest": "npm run build",
     "test": "mocha || exit 0",
     "postinstall": "npm run build"
@@ -35,7 +36,7 @@
     "medx.sol": "git+https://github.com/MarcWafik/MedX.sol.git",
     "request": "^2.83.0",
     "store": "^2.0.12",
-    "truffle-contract": "^3.0.1",
+    "truffle-contract": "^3.0.5",
     "web3": "^1.0.0-beta.26",
     "web3-provider-engine": "^13.4.0"
   },

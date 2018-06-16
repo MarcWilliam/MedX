@@ -10,7 +10,7 @@ import { RecordFactory } from './contract-wraper/RecordFactory';
 
 import Config from './helpers/config';
 
-export = class MedX {
+export default class MedX {
 	private static _instance;
 
 	public Web3Service;

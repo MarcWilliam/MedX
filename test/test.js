@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 
 var TruffleContract = require("truffle-contract");
 var LightWallet = require("eth-lightwallet");
-var MedX = require('../lib/index');
+var MedX = require('../lib/index').default;
 
 
 describe('KeystoreFactory', function () {

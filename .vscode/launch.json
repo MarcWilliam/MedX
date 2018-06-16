@@ -7,11 +7,68 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Launch Program",
-			"program": "${workspaceFolder}\\lib\\index.js",
-			"preLaunchTask": "tsc: build - tsconfig.json",
+			"name": "NODE debug",
+			"program": "${workspaceFolder}/lib/debug.js",
+			"preLaunchTask": "npm: build",
+			"sourceMaps": true,
 			"outFiles": [
-				"${workspaceFolder}/lib/**/*.js"
+				"${workspaceFolder}/lib/**/*.*"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "NODE run",
+			"program": "${workspaceFolder}/lib/index.js",
+			"preLaunchTask": "npm: build",
+			"sourceMaps": true,
+			"outFiles": [
+				"${workspaceFolder}/lib/**/*.*"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Mocha All",
+			"program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+			"args": [
+				//"--timeout", "999999", "--colors", "${workspaceFolder}/test"
+			],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Mocha Current File",
+			"program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+			"args": [
+				//"--timeout","999999","--colors",
+				"${file}"
+			],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Mocha Tests",
+			"cwd": "${workspaceRoot}",
+			"env": {
+				"TS_NODE_CACHE_DIRECTORY": "${workspaceRoot}/.ts-node"
+			},
+			"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/mocha",
+			"runtimeArgs": [
+				"--no-timeouts",
+				"--colors",
+				"--compilers",
+				"ts:ts-node/register",
+				"${workspaceRoot}/src/*/*.tests.ts"
+			],
+			"protocol": "inspector",
+			"sourceMaps": true,
+			"outFiles": [
+				"${workspaceRoot}/.ts-node/**"
 			]
 		}
 	]
