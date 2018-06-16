@@ -2,6 +2,7 @@ import { Contract } from './contract';
 import { EncryptedFileDat } from './EncryptedFile';
 import {EcnriptionHandler,IpfsDataOpject} from '../helpers/encription-handler';
 import {IPFSservice} from '../helpers/ipfs-service';
+import { StatisticsHandler } from '../helpers/statistics-handler';
 
 export class RecordFactory extends Contract {
     encHandler : EcnriptionHandler;
@@ -28,7 +29,7 @@ export class RecordFactory extends Contract {
         //> doctorsKey = gen enc key with dr public ( dr key is the one in account)
         //> patientKey = gen enc key with pattient public
 
-        record = <EncryptedFileDat> {
+        let recordInfo = <EncryptedFileDat>{
             filePath: "",
             dataHash: "",
             hashMethod: "",
@@ -43,7 +44,7 @@ export class RecordFactory extends Contract {
         var patientKey = "";
         var doctorsKey = "";
 
-        return this.genericCall("create", [patient, patientKey, doctorsKey, record, attachments], extraParams);
+        return this.genericCall("create", [patient, patientKey, doctorsKey, recordInfo, attachments], extraParams);
     }
 
 }

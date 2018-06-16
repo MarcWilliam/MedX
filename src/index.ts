@@ -10,7 +10,7 @@ import { RecordFactory } from './contract-wraper/RecordFactory';
 
 import Config from './helpers/config';
 
-export default class MedX {
+export = class MedX {
 	private static _instance;
 
 	public Web3Service;
@@ -36,17 +36,15 @@ export default class MedX {
 		passwordGetter,
 		passwordSetter
 	}) {
-		if (!MedX._instance) {
-			Config.TruffleContract = TruffleContract;
-			Config.LightWallet = LightWallet;
-			Config.server = server;
-			Config.passwordGetter = passwordGetter;
-			Config.passwordSetter = passwordSetter;
+		Config.TruffleContract = TruffleContract;
+		Config.LightWallet = LightWallet;
+		Config.server = server;
+		Config.passwordGetter = passwordGetter;
+		Config.passwordSetter = passwordSetter;
 
-			var ret = new MedX();
-			ret.Web3Service = await Web3Service.getInstance();
-			MedX._instance = ret;
-		}
+		if (!MedX._instance) { MedX._instance = new MedX(); }
+		MedX._instance.Web3Service = await Web3Service.getInstance();
+
 		return MedX._instance;
 	}
 
