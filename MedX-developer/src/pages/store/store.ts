@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 
-import { StatisticsPage } from '../statistics/statistics';
 import { QueryModalPage } from '../query-modal/query-modal';
 
 /**
@@ -19,27 +18,27 @@ import { QueryModalPage } from '../query-modal/query-modal';
 })
 export class StorePage {
   private url = "http://localhost:8064/api/queries";
-  private queries:any = [];
+  private queries: any = [];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private httpClient: HttpClient,
     public modalCtrl: ModalController
   ) {
-    
+
   }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     this.getQueries();
   }
 
-  getQueries(){
-    this.httpClient.get(this.url).subscribe((res)=>{
+  getQueries() {
+    this.httpClient.get(this.url).subscribe((res) => {
       this.queries = res;
     });
   }
 
-  presentQueryModal(query){
+  presentQueryModal(query) {
     let modal = this.modalCtrl.create(QueryModalPage, { query: query, from: 0 });
     modal.present();
   }

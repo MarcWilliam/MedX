@@ -13,7 +13,7 @@ import { PublishedQueriesPage } from '../published-queries/published-queries';
 })
 export class NewPage {
   private url = "http://localhost:8064/api/queries";
-  queriesForm: FormGroup;
+  private queriesForm: FormGroup;
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,

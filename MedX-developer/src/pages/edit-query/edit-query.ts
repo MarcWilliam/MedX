@@ -15,7 +15,7 @@ import { PublishedQueriesPage } from '../published-queries/published-queries';
 export class EditQueryPage {
   private url = "http://localhost:8064/api/queries";
   queriesForm: FormGroup;
-  query: QueryService;
+  query: any;
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -29,6 +29,11 @@ export class EditQueryPage {
 
   ngOnInit() {
     this.queriesForm = this.buildMyForm();
+    for (var key in this.query.params){
+      if(this.query.params.hasOwnProperty){
+        this.addParam(key, this.query.params[key]);
+      }
+    }
   }
 
   buildMyForm() {
@@ -51,10 +56,10 @@ export class EditQueryPage {
     });
   }
 
-  createParam(): FormGroup {
+  createParam(key = '', type = ''): FormGroup {
     return this.formBuilder.group({
-      key: this.query.params.key,
-      type: this.query.params.type
+      key: key,
+      type: type
     });
   }
 
@@ -64,9 +69,9 @@ export class EditQueryPage {
     });
   }
 
-  addParam() {
+  addParam(key = '', type = '') {
     let params = this.queriesForm.get('params') as FormArray;
-    params.push(this.createParam());
+    params.push(this.createParam(key, type));
   }
 
   removeParam(index: number) {
@@ -85,7 +90,6 @@ export class EditQueryPage {
   }
 
   logForm(query) {
-    console.log(this.query.id);
     this.httpClient.put(this.url+`/${this.query.id}`, query)
       .subscribe(
       res => {

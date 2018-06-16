@@ -18,6 +18,7 @@ import { HistoryPage } from '../pages/history/history';
 import { QueryModalPage } from '../pages/query-modal/query-modal';
 import { PublishedQueriesPage } from '../pages/published-queries/published-queries';
 import { EditQueryPage } from '../pages/edit-query/edit-query';
+import { ExecuteFormPage } from '../pages/execute-form/execute-form';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EditQueryPage } from '../pages/edit-query/edit-query';
     HistoryPage,
     PublishedQueriesPage,
     QueryModalPage,
-    EditQueryPage
+    EditQueryPage,
+    ExecuteFormPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { EditQueryPage } from '../pages/edit-query/edit-query';
     HistoryPage,
     QueryModalPage,
     PublishedQueriesPage,
-    EditQueryPage
+    EditQueryPage,
+    ExecuteFormPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

@@ -9,11 +9,9 @@ module.exports = class Query {
     constructor() { }
 
     static async get() {
-        console.log('b');
         let db = await database.getConnection();
         let collection = db.collection(table);
         let docs = (await collection.find({}).toArray());
-        console.log(docs);
         return docs;
     }
 
