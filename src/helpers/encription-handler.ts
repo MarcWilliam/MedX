@@ -2,14 +2,14 @@ const aesjs = require('aes-js');
 const Hasher = require('jshashes');
 
 
-export default class EcnriptionHandler {
-    private data: ipfsDataOpject;
+export  class EcnriptionHandler {
+    private data: IpfsDataOpject;
 
     constructor(){
-        this.data = new ipfsDataOpject();
+        this.data = new IpfsDataOpject();
     }
 
-    private GenKey_256() {
+    public  GenKey_256() {
         var key = "";
         for (let i = 0; i < 32; i++) {
             let x = Math.floor((Math.random() * 93) + 33);
@@ -41,12 +41,13 @@ export default class EcnriptionHandler {
         return decryptedText; //return text
     }
 
-    private encrypt(bytes, eType = "AES", keySize = "256") {
-        var key; // to store the RG key
+    public  encrypt(bytes,key="", eType = "AES", keySize = "256") {
         var C_Text; // to store the cypher text
         if (eType == "AES") { //check for encryption type
             if (keySize == "256") { // check for key size
-                key = this.GenKey_256(); // generate random key
+                if(key ==""){
+                    key = this.GenKey_256(); // generate random key
+                }
                 let bufferdKey = new Buffer(key);
                 this.data.encryptionKey = key;
                 C_Text = this.AES_Encrypt(bytes, bufferdKey); // encrypt the data
@@ -58,7 +59,7 @@ export default class EcnriptionHandler {
     }
 
 
-    private decrypt(C_Text, eType = "AES", key, KeySize = "256") {
+    public decrypt(C_Text, eType = "AES", key, KeySize = "256") {
         var text; // to store the Plane text
         if (eType == "AES") {
             if (KeySize == "256") {
@@ -70,7 +71,7 @@ export default class EcnriptionHandler {
 
 
     }
-    private hash(bytes, type = "SHA-512") {
+    public hash(bytes, type = "SHA-512") {
         var hash; // to store the hash
         if (type = "SHA-512") {
             var SHA512 = new Hasher.SHA512;
@@ -79,8 +80,8 @@ export default class EcnriptionHandler {
             //return new Hasher.SHA512().any(bytes,UTF-8);    
         }
         if (hash != undefined) {
-            this.data.hash = hash; //store the hash
-            this.data.hashType = type; //store the hash type
+            this.data.dataHash = hash; //store the hash
+            this.data.hashMethod = type; //store the hash type
             return hash; // return the hash
         }
 
@@ -90,20 +91,22 @@ export default class EcnriptionHandler {
 
     //function add : creates new Object from data 
     //input in the data to be stored either string or Buffer
-    //inputType s -> string  r->Buffer
-    public add(inputarr, inputType) {
+    public add(inputarr,data,encrKey ="") {
         let input =inputarr[0].hash;
         //console.log(input);
         let inputHex; //to store the hex to be hashed
-        let Bytes = aesjs.utils.utf8.toBytes(input); //converts the data to bytes to be encrypted
-        if (inputType == 's') {
-            inputHex = aesjs.utils.hex.fromBytes(Bytes);  //Conver Bytes to hex to hash
-        } else if (inputType == 'r') {
-            inputHex = input.toString('hex'); //Conver buffer to hex to hash
-        }
+        
+        
+        let bathBytes = aesjs.utils.utf8.toBytes(input);
+            inputHex = this.bufferToHex(data);
+            
         let hashedBytes = this.hash(inputHex); // hash the data to be stored
-        this.encrypt(Bytes); // encrypt the data
-        this.data.inputType = inputType; //store the data
+        if(encrKey ==""){
+            this.encrypt(bathBytes); // encrypt the data
+        }else{
+            this.encrypt(bathBytes,encrKey);
+        }
+        
         return this.data; //return the data
     }
 
@@ -129,20 +132,13 @@ export default class EcnriptionHandler {
             }
         */
         let bufferdKey = new Buffer(dataOpject.encryptionKey);// convert the key from string to buffer tobe used in encryption
-        // console.log(bufferdKey);
+       
         let bText = this.decrypt(dataOpject.cypherText, dataOpject.encryptionMethod, bufferdKey); //decrypt the text
         let bufferedData = new Buffer(bText) //Conver text to buffer
         let inputHex = bufferedData.toString('hex'); // Convert buffer to hex to hash it
-        if (dataOpject.inputType == 'r') {
-            bText = bufferedData  // if the data was origenally buffer then use the buffered data
-        }
-        if (this.hash(inputHex) == dataOpject.hash) { //check if the origenal data hash is the same as the retrived data hash
+        bText = bufferedData  // if the data was origenally buffer then use the buffered data
             output.massage = "success"; //create succes massage
             output.data = bText;
-        } else {
-            output.massage = "fail"; //create fail massage
-            output.data = "";
-        }
         return output;
 
 
@@ -152,14 +148,18 @@ export default class EcnriptionHandler {
         return new Buffer(str);
     }
 
+    public bufferToHex(buffer : Buffer){
+        return buffer.toString('hex');
+    }
+
+
 }
-export class ipfsDataOpject{
+export class IpfsDataOpject{
     encryptionKey: string="";
         cypherText: string="";
         encryptionMethod: string="";
-        hash: string="";
-        hashType: any="";
-        inputType: any="";
+        dataHash: string="";
+        hashMethod: any="";
         constructor(){
         }
 }
