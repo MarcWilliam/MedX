@@ -17,7 +17,7 @@ module.exports = class Query {
         return docs;
     }
 
-    static async get(id) {
+    static async getById(id) {
         let db = await database.getConnection();
         let collection = db.collection(table);
         let docs = (await collection.find({ developer: parseInt(id)}).toArray());

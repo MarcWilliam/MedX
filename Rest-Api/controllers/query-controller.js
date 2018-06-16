@@ -9,7 +9,7 @@ module.exports = class QueryController {
     }
 
     static async findById(request, response) {
-        response.send(await Query.get(request.params.id));
+        response.send(await Query.getById(request.params.id));
     }
 
     static async add(request, response) {
