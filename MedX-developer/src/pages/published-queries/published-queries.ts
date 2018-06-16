@@ -27,7 +27,7 @@ export class PublishedQueriesPage {
   ) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.getQueries();
   }
 

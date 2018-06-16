@@ -117,8 +117,6 @@ export class NewPage {
               controls['media'].value
             ));
 
-            //form reset
-            //this.queriesForm = this.buildMyForm();
             this.navCtrl.setRoot(PublishedQueriesPage);
           }
         },

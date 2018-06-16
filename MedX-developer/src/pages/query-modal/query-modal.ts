@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ViewController, App } from 'ionic-angular';
 
 import { StatisticsPage } from '../statistics/statistics';
 import { QueryService } from '../../services/queries.service';
@@ -25,7 +25,8 @@ export class QueryModalPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    public appCtrl: App
   ) {
     this.query = this.navParams.get("query");
     this.from = this.navParams.get("from") == 0 ? "Execute" : "Edit";
@@ -42,7 +43,8 @@ export class QueryModalPage {
 
 
   execute(query) {
-    this.navCtrl.push(StatisticsPage, { query: query });
+    this.viewCtrl.dismiss();
+    this.appCtrl.getRootNav().push(StatisticsPage, { query: query });
   }
 
   showConfirm(query) {
@@ -69,7 +71,8 @@ export class QueryModalPage {
       confirm.present();
     }
     else {
-      this.navCtrl.push(EditQueryPage, { query: query });
+      this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(EditQueryPage, { query: query });
     }
   }
 
