@@ -1,10 +1,12 @@
 import { Contract } from './contract';
 import { EncryptedFileDat } from './EncryptedFile';
+import {EcnriptionHandler,IpfsDataOpject} from '../helpers/encription-handler';
+import {IPFSservice} from '../helpers/ipfs-service';
 
 export class RecordFactory extends Contract {
-
+    encHandler : EcnriptionHandler;
+    ipfsSevice : IPFSservice;
     public get contractName(): string { return "RecordFactory" };
-
     public async create({
         patient = "",
         record, // json or obj of the data
@@ -15,6 +17,12 @@ export class RecordFactory extends Contract {
 
         //>> get user anonymous pk
         //>> upload record to statistics DB using anonymous pk
+        this.encHandler = new EcnriptionHandler();
+        this.ipfsSevice = new IPFSservice();
+        this.ipfsSevice.init();
+        let key = this.encHandler.GenKey_256();
+        let ipfsDataOpject = new IpfsDataOpject();
+         ipfsDataOpject =<IpfsDataOpject> await this.ipfsSevice.ipfsInsert(record); 
         //> record = encript files
         //> upload files to ipfs
         //> doctorsKey = gen enc key with dr public ( dr key is the one in account)
@@ -24,8 +32,14 @@ export class RecordFactory extends Contract {
             filePath: "",
             dataHash: "",
             hashMethod: "",
-            encriptionMethod: ""
+            encriptionMethod: "",
+            
         };
+
+        record.filePath = ipfsDataOpject.cypherText;
+        record.dataHash =ipfsDataOpject.dataHash;
+        record.hashMethod = ipfsDataOpject.hashMethod;
+        record.encriptionMethod = ipfsDataOpject.encryptionMethod;
         var patientKey = "";
         var doctorsKey = "";
 
