@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, ViewController } 
 
 import { StatisticsPage } from '../statistics/statistics';
 import { QueryService } from '../../services/queries.service';
+import { EditQueryPage } from '../edit-query/edit-query';
 
 /**
  * Generated class for the QueryModalPage page.
@@ -19,6 +20,7 @@ import { QueryService } from '../../services/queries.service';
 export class QueryModalPage {
 
   private query: QueryService;
+  private from: string;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -26,6 +28,7 @@ export class QueryModalPage {
     public viewCtrl: ViewController
   ) {
     this.query = this.navParams.get("query");
+    this.from = this.navParams.get("from") == 0 ? "Execute" : "Edit";
     console.log(this.query.media.main);
   }
 
@@ -37,33 +40,37 @@ export class QueryModalPage {
     this.viewCtrl.dismiss();
   }
 
-  
-  execute(item){
-    this.navCtrl.push(StatisticsPage, {query: item});
+
+  execute(query) {
+    this.navCtrl.push(StatisticsPage, { query: query });
   }
 
-  showConfirm(item) {
-
-    let confirm = this.alertCtrl.create({
-      title: `Execute this query?`,
-      message: `This service will cost you ${item.cost} LE`,
-      buttons: [
-        {
-          text: 'Ok',
-          handler: () => {
-            console.log('OK clicked');
-            this.execute(item);
+  showConfirm(query) {
+    if (this.from === "Execute") {
+      let confirm = this.alertCtrl.create({
+        title: `Execute this query?`,
+        message: `This service will cost you ${query.cost} LE`,
+        buttons: [
+          {
+            text: 'Ok',
+            handler: () => {
+              console.log('OK clicked');
+              this.execute(query);
+            }
+          },
+          {
+            text: 'Cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
           }
-        },
-        {
-          text: 'Cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    confirm.present();
+        ]
+      });
+      confirm.present();
+    }
+    else {
+      this.navCtrl.push(EditQueryPage, { query: query });
+    }
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, ToastController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
@@ -7,20 +7,25 @@ import { QueryService } from '../../services/queries.service';
 import { QueryValidator } from '../../validators/query';
 import { PublishedQueriesPage } from '../published-queries/published-queries';
 
+@IonicPage()
 @Component({
-  selector: 'page-new',
-  templateUrl: 'new.html'
+  selector: 'page-edit-query',
+  templateUrl: 'edit-query.html',
 })
-export class NewPage {
+export class EditQueryPage {
   private url = "http://localhost:8064/api/queries";
   queriesForm: FormGroup;
+  query: QueryService;
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     private formBuilder: FormBuilder,
-    private httpClient: HttpClient
-  ) { }
+    private httpClient: HttpClient,
+    public navParams: NavParams,
+  ) { 
+    this.query = this.navParams.get("query");
+  }
 
   ngOnInit() {
     this.queriesForm = this.buildMyForm();
@@ -28,10 +33,10 @@ export class NewPage {
 
   buildMyForm() {
     return this.formBuilder.group({
-      name: [''],
-      version: [''],
-      description: [''],
-      query: ['', Validators.compose([
+      name: [this.query.name],
+      version: [this.query.version],
+      description: [this.query.description],
+      query: [this.query.query, Validators.compose([
         /*Validators.pattern(regexValidators.email),*/ ///reqex //import { regexValidators } from '../validators/validator';
         QueryValidator.checkQuery,
         Validators.required
@@ -39,17 +44,17 @@ export class NewPage {
       ],
       params: this.formBuilder.array([]),
       media: this.formBuilder.group({
-        video: '',
-        main: '',
-        imgs: this.formBuilder.array([])
+        video: this.query.media.video,
+        main: this.query.media.main,
+        imgs: this.formBuilder.array(this.query.media.imgs)
       })
     });
   }
 
   createParam(): FormGroup {
     return this.formBuilder.group({
-      key: '',
-      type: ''
+      key: this.query.params.key,
+      type: this.query.params.type
     });
   }
 
@@ -80,7 +85,8 @@ export class NewPage {
   }
 
   logForm(query) {
-    this.httpClient.post(this.url, query)
+    console.log(this.query.id);
+    this.httpClient.put(this.url+`/${this.query.id}`, query)
       .subscribe(
       res => {
         this.okToast();
@@ -117,8 +123,6 @@ export class NewPage {
               controls['media'].value
             ));
 
-            //form reset
-            //this.queriesForm = this.buildMyForm();
             this.navCtrl.setRoot(PublishedQueriesPage);
           }
         },
@@ -148,5 +152,4 @@ export class NewPage {
     });
     toast.present();
   }
-
 }

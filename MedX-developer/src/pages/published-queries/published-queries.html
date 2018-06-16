@@ -7,12 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Published Queries</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Published queries</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-xl-4 *ngFor="let query of queries">
+        <ion-card (click)="presentQueryModal(query)">
+          <img [src]="query.media.main" />
+          <ion-card-content>
+            <ion-card-title>{{ query.name }}</ion-card-title>
+            <ion-row>
+              <ion-col>
+                <ion-note>by </ion-note>{{ query.developer }}
+                <p>{{ query.description }}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

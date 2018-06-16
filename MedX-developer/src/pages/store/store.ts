@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ModalController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController  } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 
 import { StatisticsPage } from '../statistics/statistics';
@@ -40,7 +40,7 @@ export class StorePage {
   }
 
   presentQueryModal(query){
-    let modal = this.modalCtrl.create(QueryModalPage, { query: query });
+    let modal = this.modalCtrl.create(QueryModalPage, { query: query, from: 0 });
     modal.present();
   }
 

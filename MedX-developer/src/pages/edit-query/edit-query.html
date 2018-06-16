@@ -1,0 +1,88 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>
+        Edit
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <form text-center [formGroup]="queriesForm">
+      <ion-list>
+        <ion-item>
+          <ion-label>Name:</ion-label>
+          <ion-input type="text" formControlName="name" name="name" clearInput></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Version:</ion-label>
+          <ion-input type="text" formControlName="version" name="version" clearInput></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Description:</ion-label>
+          <ion-textarea type="text" formControlName="description" name="description" clearInput></ion-textarea>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Query:</ion-label>
+          <ion-input type="text" formControlName="query" name="query" clearInput></ion-input>
+          <div *ngIf="!queriesForm.controls.query.valid && queriesForm.controls.query.dirty" class="validator-error">Please enter a valid query.</div>
+        </ion-item>
+  
+        <ion-label text-left color="dark" stacked>Query params:
+          <button ion-button text-right (click)="addParam()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-label>
+  
+        <div formArrayName="params">
+          <ion-item *ngFor="let param of this.queriesForm.get('params').controls; let i = index;" [formGroupName]="i">
+            <ion-label col-2 color="dark">Param{{i+1}}:</ion-label>
+            <ion-input col-5 type="text" formControlName="key" placeholder="Param key" clearInput></ion-input>
+            <ion-input col-5 type="text" formControlName="type" placeholder="Param type" clearInput></ion-input>
+  
+            <button item-end ion-button (click)="removeParam(i)" clear>
+              <ion-icon name="remove-circle"></ion-icon>
+            </button>
+          </ion-item>
+        </div>
+  
+        <div formGroupName="media">
+          <ion-item>
+            <ion-label>Youtube:</ion-label>
+            <ion-input type="text" formControlName="video" clearInput></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label>Main image:</ion-label>
+            <ion-input type="text" formControlName="main" clearInput></ion-input>
+          </ion-item>
+  
+          <ion-label text-left color="dark" stacked>Images:
+            <button ion-button text-right (click)="addImg()">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-label>
+  
+          <div formArrayName="imgs">
+            <ion-item *ngFor="let param of this.queriesForm.get('media').get('imgs').controls; let i = index;">
+              <ion-label>Image{{i+1}}:</ion-label>
+              <ion-input formControlName={{i}} clearInput></ion-input>
+              <button item-end ion-button (click)="removeImg(i)" clear>
+                <ion-icon name="remove-circle"></ion-icon>
+              </button>
+            </ion-item>
+          </div>
+        </div>
+  
+        <br>
+        <br>
+        <button [disabled]="!queriesForm.valid" (click)='showConfirm()' ion-button end>Publish</button>
+      </ion-list>
+    </form>
+  </ion-content>

@@ -2,6 +2,7 @@
 
 //@Injectable()
 export class QueryService{
+    public id:number;
     public createdAt:Date;
     public developer:number;
     public cost:number;

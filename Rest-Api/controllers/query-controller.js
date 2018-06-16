@@ -8,6 +8,10 @@ module.exports = class QueryController {
         response.send(await Query.get());
     }
 
+    static async findById(request, response) {
+        response.send(await Query.get(request.params.id));
+    }
+
     static async add(request, response) {
         (await Query.post(request.body));
     }
