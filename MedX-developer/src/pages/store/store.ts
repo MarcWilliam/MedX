@@ -1,15 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
 
 import { QueryModalPage } from '../query-modal/query-modal';
-
-/**
- * Generated class for the StorePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { DatabaseProvider } from '../../providers/database';
 
 @IonicPage()
 @Component({
@@ -17,24 +10,19 @@ import { QueryModalPage } from '../query-modal/query-modal';
   templateUrl: 'store.html',
 })
 export class StorePage {
-  private url = "http://localhost:8064/api/queries";
   private queries: any = [];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private httpClient: HttpClient,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private db: DatabaseProvider 
   ) {
-
   }
 
   ionViewDidLoad() {
-    this.getQueries();
-  }
-
-  getQueries() {
-    this.httpClient.get(this.url).subscribe((res) => {
-      this.queries = res;
+    this.db.get(`queries`)
+      .then((res) => {
+        this.queries = res;
     });
   }
 

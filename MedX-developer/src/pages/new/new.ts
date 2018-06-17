@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ToastController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
 import { FormControl, FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 import { QueryService } from '../../services/queries.service';
 import { QueryValidator } from '../../validators/query';
 import { PublishedQueriesPage } from '../published-queries/published-queries';
+import { DatabaseProvider } from '../../providers/database';
 
 @Component({
   selector: 'page-new',
@@ -19,7 +19,7 @@ export class NewPage {
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     private formBuilder: FormBuilder,
-    private httpClient: HttpClient
+    private db: DatabaseProvider 
   ) { }
 
   ngOnInit() {
@@ -80,16 +80,15 @@ export class NewPage {
   }
 
   logForm(query) {
-    this.httpClient.post(this.url, query)
-      .subscribe(
-      res => {
-        this.okToast();
-      },
-      error => {
+
+    this.db.post('queries', query)
+      .then((res) => {
+          this.okToast();
+        },
+      (error) => {
         this.rejectToast();
         console.log(error);
-      }
-      );
+      });
   }
 
   showConfirm() {

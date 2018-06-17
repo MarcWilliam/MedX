@@ -1,14 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { ErrorHandler, NgModule/*, Injectable*/ } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { GoogleDrive } from '../providers/google-drive'
 import { ConferenceApp } from './app.component';
-
-//import { QueryService } from '../services/queries.service';
 
 import { ProfilePage } from '../pages/profile/profile';
 import { NewPage } from '../pages/new/new';
@@ -19,6 +17,7 @@ import { QueryModalPage } from '../pages/query-modal/query-modal';
 import { PublishedQueriesPage } from '../pages/published-queries/published-queries';
 import { EditQueryPage } from '../pages/edit-query/edit-query';
 import { ExecuteFormPage } from '../pages/execute-form/execute-form';
+import { DatabaseProvider } from '../providers/database';
 
 @NgModule({
   declarations: [
@@ -66,7 +65,7 @@ import { ExecuteFormPage } from '../pages/execute-form/execute-form';
     SplashScreen,
     GoogleDrive,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    /*QueryService*/
+    DatabaseProvider,
   ]
 })
 export class AppModule {}

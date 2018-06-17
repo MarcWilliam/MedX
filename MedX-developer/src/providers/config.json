@@ -1,0 +1,11 @@
+{
+    "DB": {
+        "HOST": "localhost"
+    },
+    "HTTP": {
+        "PORT": 8064
+    },
+    "TCP": {
+        "PORT": 3032
+    }
+}
