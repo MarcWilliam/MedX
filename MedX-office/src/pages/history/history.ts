@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController ,ModalController } from 'ionic-angular';
-import { ListTemplatesPage} from '../list-templates/list-templates';
+import { NavController, ModalController } from 'ionic-angular';
+import { ListTemplatesPage } from '../list-templates/list-templates';
 import { PrescriptionPage } from '../prescription/prescription';
 @Component({
   selector: 'page-history',
@@ -8,15 +8,15 @@ import { PrescriptionPage } from '../prescription/prescription';
 })
 export class HistoryPage {
   page = "info";
-  private templatesModal  ;
-  constructor(public navCtrl: NavController ,public modalCtrl : ModalController) {
-    this.templatesModal =  this.modalCtrl.create(ListTemplatesPage);
+  private templatesModal;
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+    this.templatesModal = this.modalCtrl.create(ListTemplatesPage);
   }
 
-  openTemplate(){
+  openTemplate() {
     this.templatesModal.present();
   }
-  openPrescription(){
+  openPrescription() {
     this.navCtrl.push(PrescriptionPage);
   }
 }

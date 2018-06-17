@@ -1,7 +1,7 @@
 <ion-split-pane>
 
   <!-- logged out menu -->
-  <ion-menu id="loggedOutMenu" [content]="content">
+  <ion-menu id="loggedOutMenu" [content]="content" style="max-width: 150px;">
 
     <ion-header>
       <ion-toolbar>
@@ -15,7 +15,7 @@
         <ion-list-header>
           Navigate
         </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)" [color]="isActive(p,'light')">
           <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
           {{p.title}}
         </button>
@@ -25,7 +25,7 @@
   </ion-menu>
 
   <!-- logged in menu -->
-  <ion-menu id="loggedInMenu" [content]="content">
+  <ion-menu id="loggedInMenu" [content]="content" style="max-width: 150px;">
 
     <ion-header>
       <ion-toolbar>
@@ -39,8 +39,8 @@
         <ion-list-header>
           Navigate
         </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)" [color]="isActive(p,'light')">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
           {{p.title}}
         </button>
       </ion-list>
@@ -49,8 +49,8 @@
         <ion-list-header>
           Account
         </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)" [color]="isActive(p,'light')">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
           {{p.title}}
         </button>
       </ion-list>

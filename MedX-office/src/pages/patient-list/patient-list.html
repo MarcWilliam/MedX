@@ -14,7 +14,7 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content>
   <ion-grid>
 
     <ion-row>
@@ -27,22 +27,29 @@
 
     <ion-row *ngFor="let pat of patients">
 
-      <ion-card (click)="patientClicked(pat.identifier)">
 
-        <button ion-item>
-          <ion-avatar item-start>
-            <img [src]="pat.photo">
-          </ion-avatar>
-          <h2>{{pat.name}}</h2>
-          <p>
-            <ion-note>Gender:</ion-note> {{pat.gender}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <ion-note>Brithdate:</ion-note> {{pat.birthDate | date: 'dd MMMM yyyy'}}
-          </p>
-        </button>
-      </ion-card>
+
+      <button ion-item (click)="patientClicked(pat.identifier)">
+        <ion-avatar item-start>
+          <img [src]="pat.photo">
+        </ion-avatar>
+        <h2>{{pat.name}}</h2>
+        <p>
+          <ion-note>Gender:</ion-note> {{pat.gender}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <ion-note>Brith date:</ion-note> {{pat.birthDate | date: 'dd MMMM yyyy'}}
+        </p>
+      </button>
+
 
     </ion-row>
 
 
   </ion-grid>
+  <div padding>
+    <ion-fab bottom right #fab>
+      <button ion-fab>
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-fab>
+  </div>
 </ion-content>

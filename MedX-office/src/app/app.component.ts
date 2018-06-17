@@ -153,19 +153,19 @@ export class ConferenceApp {
     });
   }
 
-  isActive(page: PageInterface) {
+  isActive(page: PageInterface,color = 'primary') {
     let childNav = this.nav.getActiveChildNavs()[0];
 
     // Tabs are a special case because they have their own navigation
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
-        return 'primary';
+        return color;
       }
       return;
     }
 
     if (this.nav.getActive() && this.nav.getActive().name === page.name) {
-      return 'primary';
+      return color;
     }
     return;
   }
