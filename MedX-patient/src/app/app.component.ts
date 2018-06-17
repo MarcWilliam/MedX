@@ -1,16 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Storage } from '@ionic/storage';
-
-import { DemographicsPage } from '../pages/demographics/demographics';
-import { LaboratoryPage } from '../pages/laboratory/laboratory';
-import { OfficeVisitsPage } from '../pages/office-visits/office-visits';
-import { SummaryPage } from '../pages/summary/summary';
-import { SurgeriesPage } from '../pages/surgeries/surgeries';
-import { ProvidersPage } from '../pages/providers/providers';
+import { LOGIN_PAGE, DEMOGRAPHICS_PAGE, SUMMARY_PAGE, OFFICE_VISIS_PAGE, LABORATORY_PAGE, SURGERIES_PAGE, PROVIDERS_PAGE } from '../pages/pages.constants';
 
 export interface PageInterface {
   title: string;
@@ -25,7 +19,7 @@ export interface PageInterface {
 @Component({
   templateUrl: './app.template.html'
 })
-export class ConferenceApp {
+export class PatientApp {
   // the root nav is a child of the root app component
   // @ViewChild(Nav) gets a reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
@@ -34,15 +28,18 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Demographics', name: 'DemographicsPage', component: DemographicsPage, tabComponent: DemographicsPage, index: 0, icon: 'pulse' },
-    { title: 'Summary', name: 'SummaryPage', component: SummaryPage, tabComponent: SummaryPage, index: 1, icon: 'information-circle' },
-    { title: 'Office visits', name: 'OfficeVisitsPage', component: OfficeVisitsPage, tabComponent: OfficeVisitsPage, index: 2, icon: 'timer' },
-    { title: 'Laboratory', name: 'LaboratoryPage', component: LaboratoryPage, tabComponent: LaboratoryPage, index: 3, icon: 'flask' },
-    { title: 'Surgeries', name: 'SurgeriesPage', component: SurgeriesPage, tabComponent: SurgeriesPage, index: 3, icon: 'medkit' }
+    { title: 'Demographics', name: 'DemographicsPage', component: DEMOGRAPHICS_PAGE, tabComponent: DEMOGRAPHICS_PAGE, index: 0, icon: 'pulse' },
+    { title: 'Summary', name: 'SummaryPage', component: SUMMARY_PAGE, tabComponent: SUMMARY_PAGE, index: 1, icon: 'information-circle' },
+    { title: 'Office visits', name: 'OfficeVisitsPage', component: OFFICE_VISIS_PAGE, tabComponent: OFFICE_VISIS_PAGE, index: 2, icon: 'timer' },
+    { title: 'Laboratory', name: 'LaboratoryPage', component: LABORATORY_PAGE, tabComponent: LABORATORY_PAGE, index: 3, icon: 'flask' },
+    { title: 'Surgeries', name: 'SurgeriesPage', component: SURGERIES_PAGE, tabComponent: SURGERIES_PAGE, index: 4, icon: 'medkit' },
+    //{ title: 'Access', name: 'ScannerPage', component: SCANNER_PAGE, tabComponent: SCANNER_PAGE, index: 5, icon: 'qr-scanner' },
+    //{ title: 'Records', name: 'RecordListPage', component: RECORD_LIST_PAGE, tabComponent: RECORD_LIST_PAGE, index: 6, icon: 'medkit' }
+
 
   ];
   navPages: PageInterface[] = [
-    { title: 'Providers', name: 'ProvidersPage', component: ProvidersPage, tabComponent: ProvidersPage, index: 0, icon: 'person' }
+    { title: 'Providers', name: 'ProvidersPage', component: PROVIDERS_PAGE, tabComponent: PROVIDERS_PAGE, index: 0, icon: 'person' }
 
   ];
   rootPage: any;
@@ -51,11 +48,11 @@ export class ConferenceApp {
     public events: Events,
     public menu: MenuController,
     public platform: Platform,
-    public storage: Storage,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public statusBar: StatusBar,
   ) {
-    
-    this.rootPage = DemographicsPage;
+    this.platformReady();
+    this.rootPage = LOGIN_PAGE;
   }
 
   openPage(page: PageInterface) {
@@ -72,6 +69,7 @@ export class ConferenceApp {
   platformReady() {
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }

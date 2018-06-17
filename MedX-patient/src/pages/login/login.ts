@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController, AlertController, LoadingController, Loading, IonicPage, ModalController } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ProvidersPage } from '../providers/providers';
+import { REGISTER_PAGE, PROVIDERS_PAGE } from '../pages.constants';
 
 @IonicPage()
 @Component({
@@ -34,12 +33,12 @@ export class LoginPage {
   }
 
   public createAccount() {
-    this.nav.push(RegisterPage);
+    this.nav.push(REGISTER_PAGE);
   }
 
   public login() {
     this.showLoading();
-    this.nav.setRoot(ProvidersPage);
+    this.nav.setRoot(PROVIDERS_PAGE);
   }
 
   showLoading() {

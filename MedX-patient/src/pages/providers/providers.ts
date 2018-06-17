@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController, ToastController } from 'ionic-angular';
 
 import { Doctor } from './doctor';
-import { ScannerPage } from '../scanner/scanner';
-import { RecordListPage } from '../record-list/record-list';
+import { SCANNER_PAGE, RECORD_LIST_PAGE } from '../pages.constants';
 
 /**
  * Generated class for the ProvidersPage page.
@@ -34,7 +33,7 @@ export class ProvidersPage {
   }
 
   openScannerModal() {
-    let scannerModal = this.modalCtrl.create(ScannerPage);
+    let scannerModal = this.modalCtrl.create(SCANNER_PAGE);
     scannerModal.present();
 
     scannerModal.onDidDismiss(content => {
@@ -60,7 +59,7 @@ export class ProvidersPage {
 
   openRecordListModal(content?) {
     let office = content;
-    let recordsListModal = this.modalCtrl.create(RecordListPage, { 'office': office });
+    let recordsListModal = this.modalCtrl.create(RECORD_LIST_PAGE, { 'office': office });
     recordsListModal.present();
     recordsListModal.onDidDismiss(content => {
       if (content) {

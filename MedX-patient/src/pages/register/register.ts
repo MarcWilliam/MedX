@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, IonicPage, MenuController, LoadingController, Loading } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ProvidersPage } from '../providers/providers';
+import { PROVIDERS_PAGE } from '../pages.constants';
 
 @IonicPage({
   name: "register"
@@ -34,7 +34,7 @@ export class RegisterPage {
   }
 
   public register() {
-    this.nav.setRoot(ProvidersPage);
+    this.nav.setRoot(PROVIDERS_PAGE);
   }
 
   showLoading() {
