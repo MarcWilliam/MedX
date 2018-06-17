@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav } from 'ionic-angular';
 
-import { HomePage } from '../pages/home/home';
+import { NewPage } from '../pages/new/new';
 import { ProfilePage } from '../pages/profile/profile';
 import { StorePage } from '../pages/store/store';
 import { HistoryPage } from '../pages/history/history';
@@ -32,7 +32,7 @@ export class ConferenceApp {
   appPages: PageInterface[] = [
     
     { title: 'Profile', name: 'ProfilePage', component: ProfilePage , icon: 'person' },
-    { title: 'Home', name: 'HomePage', component: HomePage , icon: 'home' },
+    { title: 'New', name: 'NewPage', component: NewPage , icon: 'add' },
     { title: 'Store' , name: 'StorePage', component: StorePage , icon: 'cart'},
     { title: 'History' , name: 'HistoryPage', component: HistoryPage , icon: 'timer'}
   ];
@@ -41,7 +41,7 @@ export class ConferenceApp {
 
   constructor() {
 
-    this.rootPage = HomePage;
+    this.rootPage = NewPage;
 
   }
 

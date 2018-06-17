@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import {HistoryPage} from '../history/history';
+
 /**
  * Generated class for the PrescriptionPage page.
  *
@@ -17,12 +19,14 @@ export class PrescriptionPage {
   public form = {
     medicine : "",
     testsCount : 0,
-    tests : new Array(),
+    tests : [],
     scansCount : 0,
-    scans : new Array()
+    scans :[]
   }
-
+public testsInput= [];
+public scansInput= [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log(this.form.tests.length);
   }
 
   ionViewDidLoad() {
@@ -30,19 +34,29 @@ export class PrescriptionPage {
   }
 
 
-  expand(){
-    if(this.form.scansCount >=0 && this.form.testsCount >=0){
-      this.form.tests  =new Array();
-      this.form.scans =new Array();
-      this.form.scans = Array.from({ length: this.form.scansCount }, () => " ");
-    this.form.tests = Array.from({ length: this.form.testsCount }, () => "");
-    console.log(this.form);
+  expand(type : string){
+    if(type =="test"){
+      if(this.form.testsCount>=0){
+        this.form.tests.length = this.form.testsCount;
+        this.testsInput.length=this.form.testsCount;
+        
     }
-    
+  }else{
+    if(this.form.scansCount >=0 ){
+      this.form.scans.length = this.form.scansCount;
+      this.scansInput.length=this.form.scansCount;
+   
+  }
+   
+    }
+    //console.log(this.form);
   }
 
   submit(){
-    console.log(this.form);
+    this.form.scans=this.scansInput;
+    this.form.tests=this.testsInput;
+    alert("prescription Created");
+    this.navCtrl.setRoot(HistoryPage);
   }
 
 }
