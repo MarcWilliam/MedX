@@ -32,11 +32,11 @@ export class LoginPage {
     });
   }
 
-  public createAccount() {
+  public onCreateAccount() {
     this.nav.push(REGISTER_PAGE);
   }
 
-  public login() {
+  public onLogin() {
     this.showLoading();
     this.nav.setRoot(PROVIDERS_PAGE);
   }
