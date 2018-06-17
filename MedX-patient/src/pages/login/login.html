@@ -7,7 +7,7 @@
   </ion-row>
 
   <div class="login-box">
-    <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="login()">
+    <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <ion-row>
         <ion-col>
           <ion-list inset>
@@ -27,7 +27,7 @@
       <ion-row>
         <ion-col class="signup-col">
           <button ion-button class="submit-btn" full type="submit" [disabled]="!isReadyToLogin">Login</button>
-          <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>
+          <button ion-button class="register-btn" block clear type="button" (click)="onCreateAccount()">Create New Account</button>
         </ion-col>
       </ion-row>
 
