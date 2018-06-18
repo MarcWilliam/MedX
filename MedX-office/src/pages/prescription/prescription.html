@@ -14,44 +14,68 @@
 
 
 <ion-content padding>
-    <ion-list no-lines>
-      <ion-item>
-        <ion-label stacked color="primary">prescribed medication</ion-label>
-        <ion-input [(ngModel)]="form.medicine" name="medicine" type="text" #medicine="ngModel" required></ion-input>
-      </ion-item>
 
-      <ion-item>
-          <ion-label stacked color="primary">Num. Of Required Tests</ion-label>
-          <ion-input [(ngModel)]="form.testsCount" (ionChange)="expand('test')"  name="testsCount" type="number" min="0" #testsCount="ngModel" ></ion-input>
-        </ion-item>
-    
-      <ion-item>
-          <ion-label stacked color="primary">Num. Of Required Scans</ion-label>
-          <ion-input [(ngModel)]="form.scansCount" (ionChange)="expand('scan')" name="scanssCount" type="number" min="0" #scansCount="ngModel" ></ion-input>
-          
-        </ion-item>
+  <ion-list no-lines *ngIf="this.medications.meds.length>0">
+    <ion-card *ngFor="let medication of  this.medications.meds;let i = index">
+      <ion-card-header class="medHeader">
+        <ion-row>
+          <ion-col>
+            <ion-label>medicines : {{this.medications.meds[i].json.medicationReference.refrance}}</ion-label>
+          </ion-col>
+          <ion-col *ngIf="!this.medications.meds[i].expand">
+            <button ion-button  icon-only clear class="headerButton" (tap)="expand(0,i)">
+              <ion-icon color="primary" class="headerIcon" name="arrow-dropleft"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col *ngIf="this.medications.meds[i].expand">
+            <button ion-button  icon-only clear class="headerButton" (tap)="expand(0,i)">
+              <ion-icon color="primary" class="headerIcon" name="arrow-dropdown"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-header>
+      <div class="cardContent" *ngIf="this.medications.meds[i].expand">
+        <ion-label color="primary" stacked>medicines name/ID</ion-label>
+        <ion-input [(ngModel)]="this.medications.meds[i].json.medicationReference.refrance" placeholder="medicines name/ID"></ion-input>
+        <ion-label color="primary" stacked>method</ion-label>
+        <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].method.display" placeholder="method"></ion-input>
+        <ion-label color="primary" stacked>Instruction</ion-label>
+        <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].patientInstruction" placeholder="Instruction"></ion-input>
+        <ion-label color="primary" stacked>frequency</ion-label>
+        <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.frequency" placeholder="frequency"></ion-input>
+        <ion-label color="primary" stacked>period</ion-label>
+        <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.period" placeholder="period"></ion-input>
+        <ion-label color="primary" stacked>periodMax</ion-label>
+        <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.periodMax" placeholder="periodMax"></ion-input>
+        <ion-label color="primary" stacked>periodUnit</ion-label>
+        <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.periodUnit" placeholder="periodUnit"></ion-input>
+        <button class="headerButton" ion-button icon-only clear>
+                <ion-icon style="color: red" name="ios-trash-outline"></ion-icon>
+              </button>
+    </div>
+      
+    </ion-card>
+  </ion-list>
 
 
 
-        <div *ngIf="form.tests.length>0">
-            <ion-item *ngFor="let test of form.tests ; let i = index ">
-                <ion-label stacked color="primary">Required Test{{i}}</ion-label>
-                <ion-input [(ngModel)]="testsInput[i]" type="text" required></ion-input>
-                
-            </ion-item>
-            </div>
-
-
-      <div *ngIf="form.scans.length > 0">
-      <ion-item *ngFor="let scan of form.scans ; let i = index ; TrackBy index">
-          <ion-label stacked color="primary">Required Scan{{i}}</ion-label>
-         <ion-input [(ngModel)]="scansInput[i]" type="text" ></ion-input>
-      </ion-item>
-      </div>
-
-      <button ion-button (click)="submit()">Submit</button>
+<div class="submitButtonWrapper">
+  <button ion-button (click)="submit()">Submit</button>
+</div>
 
 
 
-    </ion-list>
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="addElement(0)">
+        <ion-label>medicines</ion-label>
+        <ion-icon name="ios-create"></ion-icon>
+      </button>
+
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

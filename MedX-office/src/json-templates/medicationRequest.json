@@ -1,0 +1,36 @@
+{
+    "resourceType":"MedicationRequest",
+    "status": "Active",
+    "intent" :  "Proposal",
+    "subject" : "PatientID",
+    "authoredOn" : "Data",
+    "requester" : "DoctorID",
+    "reasonReference" :"PatientCondition/Observation",
+    "medicationReference":{
+        "refrance" : ""
+    },
+  "dosageInstruction": [{
+    "resourceType":"Dosage",
+    "sequence": 1,
+      "patientInstruction" :"",
+      "timing": {
+        "repeat": {
+          "frequency": 0,
+          "period": 0,
+          "periodMax": 0,
+          "periodUnit": ""
+        }
+      },
+      "method": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "421521009",
+            "display": "Swallow"
+          }
+        ]
+      }
+  }
+  ]
+
+}
