@@ -13,6 +13,10 @@ export class StatisticsPage {
     @ViewChild('doughnutCanvas') doughnutCanvas;
     private obj: any;
 
+    lineChart:any;
+    barChart:any;
+    doughnutChart:any;
+
     constructor(public navCtrl: NavController,
         public navParams: NavParams,
         public alertCtrl: AlertController,
