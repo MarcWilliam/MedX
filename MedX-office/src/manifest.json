@@ -1,6 +1,6 @@
 {
-  "name": "Ionic Conference",
-  "short_name": "Ionic Conf",
+  "name": "MEDx - Office",
+  "short_name": "MEDx Office",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

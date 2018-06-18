@@ -1,6 +1,6 @@
 {
-  "name": "Ionic Conference",
-  "short_name": "Ionic Conf",
+  "name": "MEDx - Patient",
+  "short_name": "MEDx Patient",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
