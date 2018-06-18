@@ -27,29 +27,30 @@
 
     <ion-row *ngFor="let pat of patients">
 
-
-
       <button ion-item (click)="patientClicked(pat.identifier)">
         <ion-avatar item-start>
           <img [src]="pat.photo">
         </ion-avatar>
         <h2>{{pat.name}}</h2>
         <p>
-          <ion-note>Gender:</ion-note> {{pat.gender}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <ion-note>Brith date:</ion-note> {{pat.birthDate | date: 'dd MMMM yyyy'}}
+          <ion-row>
+            <ion-col>
+              <ion-note>Gender: </ion-note> {{pat.gender}}</ion-col>
+            <ion-col>
+              <ion-note>Birth date: </ion-note> {{pat.birthDate | date: 'dd MMMM yyyy'}}</ion-col>
+          </ion-row>
         </p>
       </button>
-
 
     </ion-row>
 
 
   </ion-grid>
-  <div padding>
-    <ion-fab bottom right #fab>
-      <button ion-fab>
-        <ion-icon name="md-add"></ion-icon>
-      </button>
-    </ion-fab>
-  </div>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>

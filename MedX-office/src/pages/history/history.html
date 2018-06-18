@@ -13,9 +13,6 @@
             <ion-segment-button value="laboratory">
                 Laboratory
             </ion-segment-button>
-            <ion-segment-button value="surgeries">
-                Surgeries
-            </ion-segment-button>
         </ion-segment>
     </ion-toolbar>
 
@@ -23,323 +20,221 @@
     <div [ngSwitch]="page">
 
         <ion-list *ngSwitchCase="'info'">
+            <ion-grid>
+                <ion-row>
 
-            <ion-card>
-
-                <ion-grid>
                     <ion-item>
-                        <ion-row padding-top>
-                            <ion-col col-4>
-                                Name:
-                            </ion-col>
-                            <ion-col col-8>
-                                Roland Mendel
-                            </ion-col>
-                        </ion-row>
 
-
-                        <ion-row padding-top>
-                            <ion-col col-4>
-                                Address:
-                            </ion-col>
-                            <ion-col col-8>
-                                120 Hanover Sq. London
-                            </ion-col>
-                        </ion-row>
-
-
-                        <ion-row padding-top>
-                            <ion-col col-4>
-                                Phone number:
-                            </ion-col>
-                            <ion-col col-8>
-                                +20 012 345 6789
-                            </ion-col>
-                        </ion-row>
-
-
-                        <ion-row padding-top>
-                            <ion-col col-4>
-                                E-mail:
-                            </ion-col>
-                            <ion-col col-8>
-                                RolandMendel@gmail.com
-                            </ion-col>
-                        </ion-row>
-
-
-                        <ion-row padding-top>
-                            <ion-col col-4>
-                                Gender:
-                            </ion-col>
-                            <ion-col col-8>
-                                Male
-                            </ion-col>
-                        </ion-row>
-
-                        <ion-row padding-top>
-                            <ion-col col-4>
-                                Birth Date:
-                            </ion-col>
-                            <ion-col col-8>
-                                4/16/1992
-                            </ion-col>
-                        </ion-row>
-
-                        <ion-row padding-top>
-                            <ion-col col-4>
-                                maritalStatus:
-                            </ion-col>
-                            <ion-col col-8>
-                                single
-                            </ion-col>
-                        </ion-row>
-
-                        <ion-row padding-top>
-                            <ion-col col-4>
-                                Language:
-                            </ion-col>
-                            <ion-col col-8>
-                                English, French, Arabic
-                            </ion-col>
-                        </ion-row>
-
-                        <ion-avatar item-end style="height: 200px; width:200px">
+                        <ion-avatar style="margin:0 auto;" class="profile-picture hidden-sm-up" col-3>
+                            <img style="height: 100%; width:100%" src="http://www.concordrusam.com/wp-content/uploads/2017/10/pro.jpg" />
+                        </ion-avatar>
+                        <ion-avatar item-end class="profile-picture hidden-sm-down" col-3>
                             <img style="height: 100%; width:100%" src="http://www.concordrusam.com/wp-content/uploads/2017/10/pro.jpg" />
                         </ion-avatar>
 
+                        <div style="max-width: 1000px; margin: 0 auto;">
+                            <ion-row class="data-item">
+                                <span> Name:</span>
+                                <span> Roland Mendel</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span> Address:</span>
+                                <span> 120 Hanover Sq. London</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span> Phone:</span>
+                                <span> +20 012 345 6789</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span> E-mail:</span>
+                                <span> RolandMendel@gmail.com</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span> Gender:</span>
+                                <span> Male</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span> Birth Date:</span>
+                                <span> 4/16/1992</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span> Marital Status:</span>
+                                <span> single</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span> Language:</span>
+                                <span> English, French, Arabic</span>
+                            </ion-row>
+                        </div>
+
+
                     </ion-item>
-                </ion-grid>
-            </ion-card>
 
-            <ion-card>
-                <ion-card-header>
-                    Allergies
-                </ion-card-header>
+                </ion-row>
 
-                <ion-grid>
+                <ion-row no-padding>
+                    <ion-col>
+                        <h4 bold padding-left ion-text color="">Allergies</h4>
+                        <ion-card padding>
 
-                    <ion-row>
-                        <ion-col>
-                            <ion-note>category</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>onset Age</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>last Occurrence</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>substance</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>severity</ion-note>
-                        </ion-col>
-                    </ion-row>
-
-                    <br>
-
-                    <ion-row>
-                        <ion-col>
-                            food
-                        </ion-col>
-                        <ion-col>
-                            6
-                        </ion-col>
-                        <ion-col>
-                            12/5/2008
-                        </ion-col>
-                        <ion-col>
-                            Peanuts
-                        </ion-col>
-                        <ion-col>
-                            moderate
-                        </ion-col>
-                    </ion-row>
-
-                </ion-grid>
-            </ion-card>
-
-            <ion-card>
-                <ion-card-header>
-                    Family history
-                </ion-card-header>
-
-                <ion-grid>
-                    <ion-row>
-                        <ion-col>
-                            <ion-note>Relative</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>relationship</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>Gender</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>BirthDate</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>deceasedAge</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note>Condition</ion-note>
-                        </ion-col>
-                        <ion-col>
-                            <ion-note> onset Age</ion-note>
-                        </ion-col>
-                    </ion-row>
-                    <br>
-
-                    <ion-row>
-                        <ion-col>
-                            Anie Mendal
-                        </ion-col>
-                        <ion-col>
-                            Ant
-                        </ion-col>
-                        <ion-col>
-                            Female
-                        </ion-col>
-                        <ion-col>
-                            15/6/1961
-                        </ion-col>
-                        <ion-col>
-                            55
-                        </ion-col>
-                        <ion-col>
-                            Alzheimer
-                        </ion-col>
-                        <ion-col>
-                            50
-                        </ion-col>
-                    </ion-row>
-
-                    <br>
-
-                    <ion-row>
-                        <ion-col>
-                            Molar Mendal
-                        </ion-col>
-                        <ion-col>
-                            Cousin
-                        </ion-col>
-                        <ion-col>
-                            Male
-                        </ion-col>
-                        <ion-col>
-                            1/6/1981
-                        </ion-col>
-                        <ion-col>
-                        </ion-col>
-                        <ion-col>
-                            Lung Cancer
-                        </ion-col>
-                        <ion-col>
-                            30
-                        </ion-col>
-                    </ion-row>
-                    <br>
-
-                </ion-grid>
-            </ion-card>
-
-            <ion-row no-padding>
-                <ion-col col-6 no-padding>
-                    <ion-card>
-                        <ion-card-header>
-                            Emergency Contact
-                        </ion-card-header>
-
-                        <ion-grid>
-                            <ion-row padding-top>
-                                <ion-col col-4>
-                                    Name:
+                            <ion-row>
+                                <ion-col>
+                                    <ion-note>category</ion-note>
                                 </ion-col>
-                                <ion-col col-8>
-                                    Rolanda Mendel
+                                <ion-col>
+                                    <ion-note>onset Age</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>last Occurrence</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>substance</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>severity</ion-note>
                                 </ion-col>
                             </ion-row>
-                            <ion-row padding-top>
-                                <ion-col col-4>
-                                    Address:
-                                </ion-col>
-                                <ion-col col-8>
-                                    120 Hanover Sq. London
-                                </ion-col>
-                            </ion-row>
-                            <ion-row padding-top>
-                                <ion-col col-4>
-                                    Phone number:
-                                </ion-col>
-                                <ion-col col-8>
-                                    +20 012 345 6789
-                                </ion-col>
-                            </ion-row>
-                            <ion-row padding-top>
-                                <ion-col col-4>
-                                    Gender:
-                                </ion-col>
-                                <ion-col col-8>
-                                    Female:
-                                </ion-col>
-                            </ion-row>
-                            <ion-row padding-top>
-                                <ion-col col-4>
-                                    Relationship:
-                                </ion-col>
-                                <ion-col col-8>
-                                    Spouse:
-                                </ion-col>
-                            </ion-row>
-                        </ion-grid>
-                    </ion-card>
-                </ion-col>
-                <ion-col col-6 no-padding>
-                    <ion-card>
-                        <ion-card-header>
-                            Vitals
-                        </ion-card-header>
-                        <ion-grid>
-                            <ion-row  padding-top>
-                                <ion-col col-4>
-                                    Blood Type:
-                                </ion-col>
-                                <ion-col col-8>
-                                    A+
-                                </ion-col>
-                            </ion-row>
-                            <ion-row  padding-top>
-                                <ion-col col-4>
-                                    Height:
-                                </ion-col>
-                                <ion-col col-8>
-                                    179 cm
-                                </ion-col>
-                            </ion-row>
-                            
-                            <ion-row  padding-top>
-                                <ion-col col-4>
-                                    Weight:
-                                </ion-col>
-                                <ion-col col-8>
-                                    76 kg
-                                </ion-col>
-                            </ion-row>
-                        </ion-grid>
-                    </ion-card>
-                </ion-col>
-            </ion-row>
 
+                            <br>
+
+                            <ion-row>
+                                <ion-col>food</ion-col>
+                                <ion-col>6</ion-col>
+                                <ion-col>12/5/2008</ion-col>
+                                <ion-col>Peanuts</ion-col>
+                                <ion-col>moderate</ion-col>
+                            </ion-row>
+
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row no-padding>
+                    <ion-col>
+                        <h4 bold padding-left ion-text color="">Family History</h4>
+                        <ion-card padding>
+
+                            <ion-row>
+                                <ion-col>
+                                    <ion-note>Relative</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>relationship</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>Gender</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>BirthDate</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>deceasedAge</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>Condition</ion-note>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-note>onset Age</ion-note>
+                                </ion-col>
+                            </ion-row>
+                            <br>
+
+                            <ion-row>
+                                <ion-col>Anie Mendal</ion-col>
+                                <ion-col>Ant</ion-col>
+                                <ion-col>Female</ion-col>
+                                <ion-col>15/6/1961</ion-col>
+                                <ion-col>55</ion-col>
+                                <ion-col>Alzheimer</ion-col>
+                                <ion-col>50</ion-col>
+                            </ion-row>
+
+                            <br>
+
+                            <ion-row>
+                                <ion-col>Molar Mendal</ion-col>
+                                <ion-col>Cousin</ion-col>
+                                <ion-col>Male</ion-col>
+                                <ion-col>1/6/1981</ion-col>
+                                <ion-col></ion-col>
+                                <ion-col>Lung Cancer</ion-col>
+                                <ion-col>30</ion-col>
+                            </ion-row>
+                            <br>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row no-padding>
+
+                    <ion-col col-12 col-lg-6>
+                        <h4 bold padding-left ion-text color="">Emergency Contact</h4>
+                        <ion-card padding>
+
+                            <ion-row class="data-item">
+                                <span>Name:</span>
+                                <span>Rolanda Mendel</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span>Address:</span>
+                                <span>120 Hanover Sq. London</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span>Phone:</span>
+                                <span>+20 012 345 6789</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span>Gender:</span>
+                                <span>Female</span>
+                            </ion-row>
+                            <ion-row class="data-item">
+                                <span>Relationship:</span>
+                                <span>Spouse</span>
+                            </ion-row>
+
+                        </ion-card>
+                    </ion-col>
+
+                    <ion-col>
+                        <h4 bold padding-left ion-text color="">Vitals</h4>
+                        <ion-card padding>
+                            <ion-grid>
+                                <ion-row class="data-item">
+                                    <span>
+                                        Blood Type:
+                                    </span>
+                                    <span>
+                                        A+
+                                    </span>
+                                </ion-row>
+                                <ion-row class="data-item">
+                                    <span>
+                                        Height:
+                                    </span>
+                                    <span>
+                                        179 cm
+                                    </span>
+                                </ion-row>
+
+                                <ion-row class="data-item">
+                                    <span>
+                                        Weight:
+                                    </span>
+                                    <span>
+                                        76 kg
+                                    </span>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
         </ion-list>
 
         <ion-list *ngSwitchCase="'record'">
+
             <ion-searchbar></ion-searchbar>
-            <ion-buttons end (click)="openPrescription()">
-                <button ion-button clear icon-only>
-                    <ion-icon name="add"></ion-icon>
-                </button>
-            </ion-buttons>
+
             <ion-card>
                 <ion-grid>
                     <ion-row>
@@ -377,11 +272,7 @@
 
         <ion-list *ngSwitchCase="'laboratory'">
             <ion-searchbar></ion-searchbar>
-            <ion-buttons (click)="openTemplate()" end>
-                <button ion-button clear icon-only>
-                    <ion-icon name="add"></ion-icon>
-                </button>
-            </ion-buttons>
+
             <ion-card>
                 <ion-grid>
                     <ion-row>
@@ -442,60 +333,24 @@
             </ion-card>
         </ion-list>
 
-        <ion-list *ngSwitchCase="'surgeries'">
-            <ion-searchbar></ion-searchbar>
-            <ion-buttons end>
-                <button ion-button clear icon-only>
-                    <ion-icon name="add"></ion-icon>
-                </button>
-            </ion-buttons>
-            <ion-card>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col col-3>
-                            Surgery:
-                        </ion-col>
-                        <ion-col col-9>
-                            Broken leg
-                        </ion-col>
-                    </ion-row>
-                    <br>
-
-                    <ion-row>
-                        <ion-col col-3>
-                            Onset:
-                        </ion-col>
-                        <ion-col col-9>
-                            20 Jan 2016
-                        </ion-col>
-                    </ion-row>
-                    <br>
-
-                    <ion-row>
-                        <ion-col col-3>
-                            Condition
-                        </ion-col>
-                        <ion-col col-9>
-                            Success
-                        </ion-col>
-                    </ion-row>
-                    <br>
-
-                    <ion-row>
-                        <ion-col col-3>
-                            Note:
-                        </ion-col>
-                        <ion-col col-9>
-
-                        </ion-col>
-                    </ion-row>
-                    <br>
-                </ion-grid>
-            </ion-card>
-
-
-        </ion-list>
-
     </div>
+
+    <ion-fab bottom right #fab>
+        <button ion-fab>
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+        <ion-fab-list side="top">
+            <button ion-fab (click)="openPrescription()">
+                <ion-label>Prescription</ion-label>
+                <ion-icon name="ios-create"></ion-icon>
+            </button>
+            <button ion-fab (click)="openTemplate()">
+                <ion-label>Tempate</ion-label>
+                <ion-icon name="md-create"></ion-icon>
+            </button>
+
+
+        </ion-fab-list>
+    </ion-fab>
 
 </ion-content>

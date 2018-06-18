@@ -11,7 +11,8 @@ import {
   OFFICE_VISITS_PAGE,
   LABORATORY_PAGE,
   SURGERIES_PAGE,
-  PROVIDERS_PAGE
+  PROVIDERS_PAGE,
+  RECORD_LIST_PAGE
 } from '../pages/pages.constants';
 
 export interface PageInterface {
@@ -42,7 +43,7 @@ export class PatientApp {
     { title: 'Laboratory', name: LABORATORY_PAGE, component: LABORATORY_PAGE, tabComponent: LABORATORY_PAGE, index: 3, icon: 'flask' },
     { title: 'Surgeries', name: SURGERIES_PAGE, component: SURGERIES_PAGE, tabComponent: SURGERIES_PAGE, index: 4, icon: 'medkit' },
     //{ title: 'Access', name: SCANNER_PAGE, component: SCANNER_PAGE, tabComponent: SCANNER_PAGE, index: 5, icon: 'qr-scanner' },
-    //{ title: 'Records', name: RECORD_LIST_PAGE, component: RECORD_LIST_PAGE, tabComponent: RECORD_LIST_PAGE, index: 6, icon: 'medkit' }
+    { title: 'Records', name: RECORD_LIST_PAGE, component: RECORD_LIST_PAGE, tabComponent: RECORD_LIST_PAGE, index: 6, icon: 'medkit' }
 
 
   ];
