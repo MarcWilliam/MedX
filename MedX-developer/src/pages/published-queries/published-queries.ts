@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 
 import { QueryModalPage } from '../query-modal/query-modal';
 import { DatabaseProvider } from '../../providers/database';
+import { NewPage } from '../new/new';
 
 @IonicPage()
 @Component({
@@ -30,4 +31,7 @@ export class PublishedQueriesPage {
     modal.present();
   }
 
+  goToCreateQuery() {
+    this.navCtrl.push(NewPage);
+  }
 }

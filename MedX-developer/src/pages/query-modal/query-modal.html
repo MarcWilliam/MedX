@@ -4,7 +4,7 @@
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <span ion-text showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        <ion-icon name="md-close"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
@@ -18,8 +18,8 @@
   </ion-card-content>
 
   <ion-buttons end padding color="primary">
-    <button ion-button (click)='showConfirm(query)'>
-      {{from}}
-    </button>
-  </ion-buttons>
+      <button ion-button (click)='showConfirm(query)'>
+        {{from}}
+      </button>
+    </ion-buttons>
 </ion-content>

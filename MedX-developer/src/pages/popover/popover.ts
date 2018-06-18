@@ -13,6 +13,7 @@ export class PopoverPage {
   private categories: any = [];
   private subcategories: any = [];
   private callback: any;
+  private selectedCategory=null;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -27,6 +28,7 @@ export class PopoverPage {
   }
 
   presentPopover(category) {
+    this.selectedCategory = category;
     this.subcategories = CATEGORIES[category];
   }
 
