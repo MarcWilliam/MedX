@@ -48,7 +48,7 @@ export class PatientApp {
 
   ];
   navPages: PageInterface[] = [
-    { title: 'Providers', name: 'ProvidersPage', component: PROVIDERS_PAGE, tabComponent: PROVIDERS_PAGE, index: 0, icon: 'person' }
+    { title: 'Access', name: 'ProvidersPage', component: PROVIDERS_PAGE, tabComponent: PROVIDERS_PAGE, index: 0, icon: 'key' }
 
   ];
   rootPage: any;
@@ -86,19 +86,19 @@ export class PatientApp {
     });
   }
 
-  isActive(page: PageInterface) {
+  isActive(page: PageInterface, color = 'primary') {
     let childNav = this.nav.getActiveChildNavs()[0];
 
     // Tabs are a special case because they have their own navigation
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
-        return 'primary';
+        return color;
       }
       return;
     }
 
     if (this.nav.getActive() && this.nav.getActive().name === page.name) {
-      return 'primary';
+      return color;
     }
     return;
   }

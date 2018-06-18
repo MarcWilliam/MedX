@@ -153,7 +153,7 @@ export class ConferenceApp {
     });
   }
 
-  isActive(page: PageInterface,color = 'primary') {
+  isActive(page: PageInterface, color = 'primary') {
     let childNav = this.nav.getActiveChildNavs()[0];
 
     // Tabs are a special case because they have their own navigation

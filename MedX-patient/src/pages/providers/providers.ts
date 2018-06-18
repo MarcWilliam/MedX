@@ -19,7 +19,12 @@ import { SCANNER_PAGE, RECORD_LIST_PAGE } from '../pages.constants';
 
 export class ProvidersPage {
 
-  doctors: Doctor[] = [];
+  doctors = [{
+    photo: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg?s=200",
+    name: "Dr. John Smith",
+    access: new Date("5/17/2018"),
+    expire: new Date("6/17/2018")
+  }];
   testCheckboxOpen = false;
   testCheckboxResult: any;
 
@@ -29,7 +34,7 @@ export class ProvidersPage {
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController) {
-    this.doctors.push(new Doctor("John Smith", "17 Jan", "15 Mar"));
+    //this.doctors.push(new Doctor("John Smith", new Date("17/5/2018"), new Date("17/6/2018")));
   }
 
   openScannerModal() {
@@ -63,7 +68,7 @@ export class ProvidersPage {
     recordsListModal.present();
     recordsListModal.onDidDismiss(content => {
       if (content) {
-        this.doctors.push(new Doctor(office, content[0].title, content[1].title));
+       // this.doctors.push(new Doctor(office, content[0].title, content[1].title));
       }
     })
   }
