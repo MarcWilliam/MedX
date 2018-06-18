@@ -27,24 +27,24 @@ export class RecordListPage {
   searchControl: FormControl;
   searching: any = false;
 
-  records: MockRecord[] = [
-    { title: "test 1", selected: false },
-    { title: "test 2", selected: false },
-    { title: "test 3", selected: false },
-    { title: "test 4", selected: false },
-    { title: "test 5", selected: false },
-    { title: "test 6", selected: false },
-    { title: "test 7", selected: false },
-    { title: "test 8", selected: false },
-    { title: "test 9", selected: false },
-    { title: "test 10", selected: false },
-    { title: "test 11", selected: false },
-    { title: "test 12", selected: false },
-    { title: "test 13", selected: false },
-    { title: "test 14", selected: false },
-    { title: "test 15", selected: false },
-    { title: "test 16", selected: false },
-    { title: "test 17", selected: false }
+  records: any[] = [
+    { title: "test 1", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 2", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 3", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 4", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 5", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 6", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 7", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 8", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 9", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 10", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 11", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 12", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 13", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 14", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 15", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 16", date: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 17", date: new Date(), doctor: "Dr. John Smith", selected: false }
   ];
 
   filteredRecords: MockRecord[] = this.records.slice(0, this.records.length);

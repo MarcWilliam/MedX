@@ -38,10 +38,7 @@ export class PatientApp {
     { title: 'Info', name: DEMOGRAPHICS_PAGE, component: DEMOGRAPHICS_PAGE, tabComponent: DEMOGRAPHICS_PAGE, index: 0, icon: 'information-circle' },
     { title: 'Summary', name: SUMMARY_PAGE, component: SUMMARY_PAGE, tabComponent: SUMMARY_PAGE, index: 1, icon: 'pulse' },
     { title: 'Records', name: OFFICE_VISITS_PAGE, component: OFFICE_VISITS_PAGE, tabComponent: OFFICE_VISITS_PAGE, index: 2, icon: 'clipboard' },
-    //{ title: 'Access', name: SCANNER_PAGE, component: SCANNER_PAGE, tabComponent: SCANNER_PAGE, index: 5, icon: 'qr-scanner' },
     //{ title: 'Records', name: RECORD_LIST_PAGE, component: RECORD_LIST_PAGE, tabComponent: RECORD_LIST_PAGE, index: 6, icon: 'medkit' }
-
-
   ];
   navPages: PageInterface[] = [
     { title: 'Access', name: 'ProvidersPage', component: PROVIDERS_PAGE, tabComponent: PROVIDERS_PAGE, index: 0, icon: 'key' }

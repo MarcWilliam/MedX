@@ -20,7 +20,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content scroll="false">
+<ion-content scroll="false" has-footer>
   <div *ngIf="searching" class="spinner-container">
     <ion-spinner></ion-spinner>
   </div>
@@ -35,8 +35,7 @@
     </ion-card-content>
   </ion-card>
 
-
-  <ion-scroll style="width:100%; height:50%" scrollY="true">
+  <ion-scroll style="width:100%; height:100%" scrollY="true">
     <!-- <ion-card> -->
     <ion-list scroll="true">
       <ion-item>
@@ -46,20 +45,27 @@
 
       <ion-item *ngFor="let record of filteredRecords">
         <ion-checkbox [(ngModel)]="record.selected" (click)="checkIfAllSelected()"></ion-checkbox>
-        <ion-label>{{ record.title }}</ion-label>
+        <ion-label>
+          {{ record.title }}
+          <p>
+            <ion-row>
+              <ion-col>
+                <ion-note> by: </ion-note> {{ record.doctor }}</ion-col>
+              <ion-col>
+                <ion-note> at: </ion-note> {{record.date | date: 'dd MMMM yyyy'}}</ion-col>
+            </ion-row>
+          </p>
+        </ion-label>
       </ion-item>
     </ion-list>
     <!-- </ion-card> -->
   </ion-scroll>
+</ion-content>
 
+<ion-footer no-shadow>
+    <ion-toolbar position="bottom">
   <button full ion-button color="secondary" (click)="onGrantAccess()">
     Grant Access
   </button>
-
-  <!--   <ion-fab top right>
-    <button ion-fab color="secondary" (click)="grantAccess()">
-      <ion-icon name="checkmark"></ion-icon>
-    </button>
-  </ion-fab> -->
-
-</ion-content>
+</ion-toolbar>
+</ion-footer>
