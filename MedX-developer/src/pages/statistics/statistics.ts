@@ -6,13 +6,6 @@ import { Chart } from 'chart.js';
 import { QueryService } from '../../services/queries.service';
 import { StorePage } from '../store/store';
 
-/**
- * Generated class for the StatisticsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
     selector: 'page-statistics',

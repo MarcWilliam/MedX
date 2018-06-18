@@ -7,7 +7,7 @@ var CONFIG = require('./config.json');
 
 @Injectable()
 export class DatabaseProvider {
-  private url = `http://${CONFIG.DB.HOST}:${CONFIG.HTTP.PORT}/api`;
+  private url = `http://${CONFIG.DB.HOST}:${CONFIG.HTTP.PORT}${CONFIG.SERVER.PATH}`;
 
   constructor(public httpClient: HttpClient) {
     console.log('Hello DatabaseProvider Provider');
@@ -27,6 +27,16 @@ export class DatabaseProvider {
 
     return new Promise(resolve => {
       this.httpClient.get(`${this.url}/${collection}/${id}`)
+        .subscribe(data => {
+          resolve(data);
+        });
+    });
+  }
+
+  getByCategory(collection, category, subCategory) {
+
+    return new Promise(resolve => {
+      this.httpClient.get(`${this.url}/${collection}`)
         .subscribe(data => {
           resolve(data);
         });

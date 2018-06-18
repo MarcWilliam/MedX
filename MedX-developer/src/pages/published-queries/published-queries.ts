@@ -10,7 +10,7 @@ import { DatabaseProvider } from '../../providers/database';
   templateUrl: 'published-queries.html',
 })
 export class PublishedQueriesPage {
-  private queries:any = [];
+  private queries: any = [];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -25,7 +25,7 @@ export class PublishedQueriesPage {
     });
   }
 
-  presentQueryModal(query){
+  presentQueryModal(query) {
     let modal = this.modalCtrl.create(QueryModalPage, { query: query, from: 1 });
     modal.present();
   }

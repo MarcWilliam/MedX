@@ -7,23 +7,32 @@ import { QueryValidator } from '../../validators/query';
 import { PublishedQueriesPage } from '../published-queries/published-queries';
 import { DatabaseProvider } from '../../providers/database';
 
+declare var require: any;
+var CATEGORIES = require('./categories.json');
+
 @Component({
   selector: 'page-new',
   templateUrl: 'new.html'
 })
 export class NewPage {
-  private url = "http://localhost:8064/api/queries";
   private queriesForm: FormGroup;
+  private categories:any = [];
+  private subCtegories: any = [];
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     private formBuilder: FormBuilder,
-    private db: DatabaseProvider 
+    private db: DatabaseProvider
   ) { }
 
   ngOnInit() {
+    this.categories = CATEGORIES['categories'];
     this.queriesForm = this.buildMyForm();
+  }
+
+  onSelectChange(selected){
+    this.subCtegories = CATEGORIES[selected];
   }
 
   buildMyForm() {
@@ -38,6 +47,8 @@ export class NewPage {
       ])
       ],
       params: this.formBuilder.array([]),
+      category: '',
+      subCategory: '',
       media: this.formBuilder.group({
         video: '',
         main: '',
@@ -83,8 +94,8 @@ export class NewPage {
 
     this.db.post('queries', query)
       .then((res) => {
-          this.okToast();
-        },
+        this.okToast();
+      },
       (error) => {
         this.rejectToast();
         console.log(error);
@@ -113,6 +124,8 @@ export class NewPage {
               controls['description'].value,
               controls['query'].value,
               paramsObj,
+              controls['category'].value,
+              controls['subCategory'].value,
               controls['media'].value
             ));
 

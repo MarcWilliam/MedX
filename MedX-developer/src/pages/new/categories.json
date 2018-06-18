@@ -1,0 +1,10 @@
+{
+    "categories" : ["Administration", "Clinical", "Diagnostics", "Medications", "Workflow", "Financial", "Clinical Reasoning"],
+    "Administration" : ["Patient", "Practitioner", "Device", "Organization", "Location", "Healthcare Service"],
+    "Clinical" : ["Allergy", "Problem", "CarePlan", "DetectedIssue", "RiskAssessment"],
+    "Diagnostics" : ["Observation", "Report", "Specimen", "ImagingStudy", "Genomics"],
+    "Medications" : ["Order", "Dispense", "Administration", "Statement", "Immunization"],
+    "Workflow" : ["Task", "Appointment", "Schedule", "Referral", "PlanDefinition"],
+    "Financial" : ["Claim", "Account", "Coverage", "Claim", "EligibilityRequest", "ExplanationOfBenefit"],
+    "Clinical Reasoning" : ["Library", "ServiceDefinition & GuidanceResponse", "Measure/MeasureReport"]
+}

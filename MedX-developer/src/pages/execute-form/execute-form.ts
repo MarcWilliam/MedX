@@ -4,7 +4,6 @@ import { FormControl, FormBuilder, FormGroup, FormArray, Validators } from '@ang
 
 import { StatisticsPage } from '../statistics/statistics';
 
-
 @Component({
   selector: 'page-execute-form',
   templateUrl: 'execute-form.html',
@@ -27,8 +26,8 @@ export class ExecuteFormPage {
       params: this.formBuilder.array([])
     });
 
-    for (var key in this.query.params){
-      if(this.query.params.hasOwnProperty){
+    for (var key in this.query.params) {
+      if (this.query.params.hasOwnProperty) {
         this.addParam(key, '');
       }
     }

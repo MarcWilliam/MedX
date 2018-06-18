@@ -13,6 +13,8 @@ export class QueryService{
         public description:string,
         public query:string,
         public params:{},
+        public category:string,
+        public subCategory:string,
         public media:any
     ){
         this.name = name;
@@ -22,6 +24,8 @@ export class QueryService{
         this.createdAt = new Date();
         this.developer = 0x123456789;
         this.params = params;
+        this.category = category;
+        this.subCategory = subCategory;
         this.cost = 0; //calculated
         this.media = media;
     }

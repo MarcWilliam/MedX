@@ -15,15 +15,14 @@ export class StorePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    private db: DatabaseProvider 
-  ) {
-  }
+    private db: DatabaseProvider
+  ) {}
 
   ionViewDidLoad() {
     this.db.get(`queries`)
       .then((res) => {
         this.queries = res;
-    });
+      });
   }
 
   presentQueryModal(query) {
