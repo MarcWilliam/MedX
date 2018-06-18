@@ -124,6 +124,8 @@ export class EditQueryPage {
               controls['description'].value,
               controls['query'].value,
               paramsObj,
+              controls['category'].value,
+              controls['subCategory'].value,
               controls['media'].value
             ));
 

@@ -18,6 +18,7 @@ import { PublishedQueriesPage } from '../pages/published-queries/published-queri
 import { EditQueryPage } from '../pages/edit-query/edit-query';
 import { ExecuteFormPage } from '../pages/execute-form/execute-form';
 import { DatabaseProvider } from '../providers/database';
+import { PopoverPage } from '../pages/popover/popover';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DatabaseProvider } from '../providers/database';
     PublishedQueriesPage,
     QueryModalPage,
     EditQueryPage,
-    ExecuteFormPage
+    ExecuteFormPage,
+    PopoverPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { DatabaseProvider } from '../providers/database';
     QueryModalPage,
     PublishedQueriesPage,
     EditQueryPage,
-    ExecuteFormPage
+    ExecuteFormPage,
+    PopoverPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

@@ -33,10 +33,10 @@ export class DatabaseProvider {
     });
   }
 
-  getByCategory(collection, category, subCategory) {
+  getByCategory(collection, subCategory) {
 
     return new Promise(resolve => {
-      this.httpClient.get(`${this.url}/${collection}`)
+      this.httpClient.get(`${this.url}/${collection}?subCategory=${subCategory}`)
         .subscribe(data => {
           resolve(data);
         });

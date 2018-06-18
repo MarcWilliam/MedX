@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, PopoverController } from 'ionic-angular';
 
 import { QueryModalPage } from '../query-modal/query-modal';
 import { DatabaseProvider } from '../../providers/database';
+import { PopoverPage } from '../popover/popover';
 
 @IonicPage()
 @Component({
@@ -15,14 +16,26 @@ export class StorePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
+    public popoverCtrl: PopoverController,
     private db: DatabaseProvider
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
-    this.db.get(`queries`)
-      .then((res) => {
-        this.queries = res;
-      });
+  }
+
+  presentPopover(myEvent) {
+    let popoverData = {
+      callback: (category) => {
+        this.db.getByCategory(`queries`, category)
+          .then((res) => {
+            this.queries = res;
+          });
+      }
+    };
+    let popover = this.popoverCtrl.create(PopoverPage, popoverData, { cssClass: 'custom-popover' });
+    popover.present({
+      ev: myEvent
+    });
   }
 
   presentQueryModal(query) {
