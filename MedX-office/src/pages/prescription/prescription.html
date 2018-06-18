@@ -50,7 +50,7 @@
         <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.periodMax" placeholder="periodMax"></ion-input>
         <ion-label color="primary" stacked>periodUnit</ion-label>
         <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.periodUnit" placeholder="periodUnit"></ion-input>
-        <button class="headerButton" ion-button icon-only clear>
+        <button class="headerButton" ion-button icon-only clear (tap)="removeElement(0,i)">
                 <ion-icon style="color: red" name="ios-trash-outline"></ion-icon>
               </button>
     </div>

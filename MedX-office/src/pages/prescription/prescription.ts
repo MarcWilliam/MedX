@@ -18,22 +18,22 @@ declare var require: any;
 })
 export class PrescriptionPage {
   public form = {
-    medicine : "",
-    testsCount : 0,
-    tests : [],
-    scansCount : 0,
-    scans :[]
+    medicine: "",
+    testsCount: 0,
+    tests: [],
+    scansCount: 0,
+    scans: []
   }
-public testsInput= [];
-public scansInput= [];
+  public testsInput = [];
+  public scansInput = [];
 
-public medicationTemplate : any;
-public medications={ count : 0 , meds : []  , expand : false};
+  public medicationTemplate: any;
+  public medications = { count: 0, meds: [], expand: false };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log(this.form.tests.length);
-    this.medications = { count:0 , meds: new Array() , expand : false};
-    
+    this.medications = { count: 0, meds: new Array(), expand: false };
+
   }
 
   ionViewDidLoad() {
@@ -41,9 +41,9 @@ public medications={ count : 0 , meds : []  , expand : false};
   }
 
 
-  expand(id,index){
-    if(id ==0){
-      this.medications.meds[index].expand=!this.medications.meds[index].expand;
+  expand(id, index) {
+    if (id == 0) {
+      this.medications.meds[index].expand = !this.medications.meds[index].expand;
     }
 
 
@@ -67,31 +67,48 @@ public medications={ count : 0 , meds : []  , expand : false};
     */
   }
 
-  addElement(type){
-    if(type==0){
-       
-         this.medications.count++
-        let temp = {json : require('../../json-templates/medicationRequest.json') , expand : true }
-         this.medications.meds.push(JSON.parse(JSON.stringify(temp)));
-         this.medications.expand=true;
-       console.log(this.medications.meds);
-       
+  addElement(type) {
+    if (type == 0) {
+
+      this.medications.count++
+      let temp = { json: require('../../json-templates/medicationRequest.json'), expand: true }
+      this.medications.meds.push(JSON.parse(JSON.stringify(temp)));
+      this.medications.expand = true;
+      console.log(this.medications.meds);
 
 
-     
 
-    }else if(type ==1){
-     // this.testsInput =number;
 
-    }else if(type==2){
-     // this.scansInput = number;
+
+    } else if (type == 1) {
+      // this.testsInput =number;
+
+    } else if (type == 2) {
+      // this.scansInput = number;
     }
   }
 
-  submit(){
-   // this.form.scans=this.scansInput;
+  removeElement(type, index) {
+    if (type == 0) {
+      if (this.medications.meds.length == 1) {
+        this.medications.meds.pop();
+        
+      } else {
+        let counter = index + 1
+        for (let i = index; i < this.medications.meds.length - 1; i++) {
+          this.medications.meds[i] = this.medications.meds[counter++];
+
+        }
+        this.medications.meds.length--;
+        this.medications.count--;
+      }
+    }
+  }
+
+  submit() {
+    // this.form.scans=this.scansInput;
     //this.form.tests=this.testsInput;
-   // alert("prescription Created");
+    // alert("prescription Created");
     //this.navCtrl.setRoot(HistoryPage);
     console.log(this.medications.meds)
   }
