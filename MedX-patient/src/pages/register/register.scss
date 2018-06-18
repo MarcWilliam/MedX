@@ -23,6 +23,17 @@ page-register {
       border-bottom: 0px !important;
       box-shadow: none !important;
     }
+    ion-item-divider {
+      align-items: center;
+      text-align: center;
+      border-radius: 30px !important;
+      padding-left: 10px !important;
+      font-size: 1.0em;
+      margin-bottom: 10px;
+      border: 1px solid color($colors, dark);
+      border-bottom: 0px !important;
+      box-shadow: none !important;
+    }
     .signup-col {
       margin: 0px 16px 0px 16px;
       padding-bottom: 20px;
@@ -35,18 +46,7 @@ page-register {
       background: color($colors, secondary);
       border-radius: 30px !important;
       border: 1px solid #ffffff;
-    }
-    button:disabled,
-    button[disabled] {
-      background: #cccccc;
-      border-radius: 30px !important;
-      border: 1px solid #ffffff;
-    }
-    .register-btn {
-      color: #ffffff;
-      font-size: 0.8em;
+      height: 46px
     }
   }
 }
-
-

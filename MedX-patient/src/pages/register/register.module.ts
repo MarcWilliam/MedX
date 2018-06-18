@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Base64 } from '@ionic-native/base64';
+
 import { RegisterPage } from './register';
 
 @NgModule({
@@ -9,8 +12,9 @@ import { RegisterPage } from './register';
   imports: [
     IonicPageModule.forChild(RegisterPage),
   ],
-  exports: [
-    RegisterPage
+  providers: [
+    ImagePicker,
+    Base64
   ]
 })
-export class RegisterPageModule {}
+export class RegisterPageModule { }

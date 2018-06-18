@@ -4,7 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { QRScanner } from '@ionic-native/qr-scanner';
 
 import { GoogleDrive } from '../providers/google-drive'
 
@@ -20,13 +19,12 @@ import { PatientApp } from './app.component';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    PatientApp
+    PatientApp    
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     StatusBar,
     SplashScreen,
-    QRScanner,
     GoogleDrive
   ]
 })
