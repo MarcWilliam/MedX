@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, AlertController, ToastController } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Chart } from 'chart.js';
-import { Query } from '../home/query';
-import { HistoryPage } from '../history/history';
 
+import { QueryService } from '../../services/queries.service';
 import { StorePage } from '../store/store';
 
 /**
@@ -24,20 +23,27 @@ export class StatisticsPage {
     @ViewChild('lineCanvas') lineCanvas;
     lineChart: any;
 
-    obj: Query;
-
+    private url = "http://localhost:8064/api/store";
+    obj: QueryService;
     isAdded: boolean;
 
-    constructor(public navCtrl: NavController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
+    constructor(public navCtrl: NavController,
+        public navParams: NavParams,
+        public alertCtrl: AlertController,
+        public toastCtrl: ToastController,
+        private httpClient: HttpClient
+    ) {
 
-        this.obj = HistoryPage.queries.pop();
+        this.obj = navParams.get("query");
+        this.isAdded = false;
+    }
+
+    calculateResult(){
         for (let i = 0; i < 5; i++) { //from db
             this.obj.result.push(Math.floor(Math.random() * 100) + 0);
         }
-        HistoryPage.queries.push(this.obj);
-
-        this.isAdded = false;
     }
+
 
     ionViewDidLoad() {
 
@@ -68,59 +74,5 @@ export class StatisticsPage {
                 }
             }
         });
-    }
-
-
-    showPrompt() {
-        let prompt = this.alertCtrl.create({
-            title: 'Sell this query?',
-            message: "Enter a price for this query to sell it in the store:",
-            inputs: [
-                {
-                    name: 'price',
-                    placeholder: 'Price'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: data => { }
-                },
-                {
-                    text: 'Ok',
-                    handler: data => {
-                        if (!this.isAdded) {
-                            if (data.price <= (this.obj.cost * 10)) {
-                                StorePage.add(this.obj.query, data.price);
-                                this.okToast();
-                                this.isAdded = true;
-                            }
-                            else {
-                                this.rejectToast();
-                            }
-                        }
-
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    }
-
-    rejectToast() {
-        let toast = this.toastCtrl.create({
-            message: 'The price you entered is too high',
-            duration: 3000,
-            position: 'bottom'
-        });
-        toast.present();
-    }
-    okToast() {
-        let toast = this.toastCtrl.create({
-            message: 'The query is added to the store',
-            duration: 3000,
-            position: 'bottom'
-        });
-        toast.present();
     }
 }

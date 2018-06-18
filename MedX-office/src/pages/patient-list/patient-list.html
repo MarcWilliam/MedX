@@ -1,0 +1,56 @@
+<!--
+  Generated template for the PatientListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Patients</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+        <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)" > </ion-searchbar> -->
+        <ion-searchbar [(ngModel)]="myInput"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngFor="let pat of patients">
+
+      <button ion-item (click)="patientClicked(pat.identifier)">
+        <ion-avatar item-start>
+          <img [src]="pat.photo">
+        </ion-avatar>
+        <h2>{{pat.name}}</h2>
+        <p>
+          <ion-row>
+            <ion-col>
+              <ion-note>Gender: </ion-note> {{pat.gender}}</ion-col>
+            <ion-col>
+              <ion-note>Birth date: </ion-note> {{pat.birthDate | date: 'dd MMMM yyyy'}}</ion-col>
+          </ion-row>
+        </p>
+      </button>
+
+    </ion-row>
+
+
+  </ion-grid>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

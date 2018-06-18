@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
-import { Item } from './item';
+import { StatisticsPage } from '../statistics/statistics';
 
 /**
  * Generated class for the StorePage page.
@@ -16,42 +17,42 @@ import { Item } from './item';
   templateUrl: 'store.html',
 })
 export class StorePage {
+  private url = "http://localhost:8064/api/queries";
+  private queries:any = [];
 
-  public static items:Item[] = new Array();
-
-  arr:Item[];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-    this.arr = StorePage.items;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    private httpClient: HttpClient
+  ) {
+    
   }
 
   ionViewDidLoad(){
-
+    this.getQueries();
   }
 
-  public static add(data:string, cost:number){
-    StorePage.items.push(new Item(data, cost, "person"));
+  getQueries(){
+    this.httpClient.get(this.url).subscribe((res)=>{
+      this.queries = res;
+    });
   }
 
-  /*public static get(){
-    console.log(StorePage.items.slice(-1).pop().query);
-  }*/
-
-  buy(){
-    console.log("You bought this query");
+  execute(item){
+    this.navCtrl.push(StatisticsPage, {query: item});
   }
 
-  showConfirm(item:Item) {
+  showConfirm(item) {
 
     let confirm = this.alertCtrl.create({
-      title: `Buy this query?`,
-      message: `This service will cost you <span calss="costText">${item.cost} LE</span>`,
+      title: `Execute this query?`,
+      message: `This service will cost you ${item.cost} LE`,
       buttons: [
         {
           text: 'Ok',
           handler: () => {
             console.log('OK clicked');
-            this.buy();
+            this.execute(item);
           }
         },
         {

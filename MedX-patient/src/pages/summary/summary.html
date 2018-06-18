@@ -19,114 +19,26 @@
 <ion-content padding>
 
   <ion-list>
-
-    <ion-card>
-      <ion-card-header>
-        Family history
-      </ion-card-header>
-      <hr>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-3>
-            <ion-note>Relative</ion-note>
-          </ion-col>
-
-          <ion-col>
-            <ion-note>Gender</ion-note>
-          </ion-col>
-
-          <ion-col>
-            <ion-note>Birth date</ion-note>
-          </ion-col>
-
-          <ion-col>
-            <ion-note>Disease</ion-note>
-          </ion-col>
-
-        </ion-row>
-        <br>
-
-        <ion-row>
-          <ion-col>
-            Anie Mendal
-          </ion-col>
-
-          <ion-col>
-            Female
-          </ion-col>
-
-          <ion-col>
-            40
-          </ion-col>
-
-          <ion-col>
-            Lung cancer
-          </ion-col>
-        </ion-row>
-
-        <br>
-
-        <ion-row>
-          <ion-col>
-            Molar Mendal
-          </ion-col>
-
-          <ion-col>
-            Male
-          </ion-col>
-
-          <ion-col>
-            76
-          </ion-col>
-
-          <ion-col>
-            Alzheimer
-          </ion-col>
-        </ion-row>
-        <br>
-
-      </ion-grid>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        Childhood history
-      </ion-card-header>
-      <hr>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-note>Age</ion-note>
-          </ion-col>
-
-          <ion-col>
-            <ion-note>Disease</ion-note>
-          </ion-col>
-
-          <ion-col>
-            <ion-note>Treatment</ion-note>
-          </ion-col>
-
-        </ion-row>
-        <br>
-
-        <ion-row>
-          <ion-col>
-            4
-          </ion-col>
-
-          <ion-col>
-            Chickenpox
-          </ion-col>
-
-          <ion-col>
-            Calamine lotion
-          </ion-col>
-        </ion-row>
-        <br>
-
-      </ion-grid>
-    </ion-card>
+    <!--<ion-item *ngFor="let d of data" (click)="toggleDetails(d)">
+        <ion-icon color="primary" item-right [name]="d.icon"></ion-icon>
+        {{d.title}}
+        <div *ngIf="d.showDetails">
+          <ion-buttons end (click)="showPrompt()">
+            <button ion-button clear icon-only>
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-buttons>
+          <div text-center>Average Blood Pressure: 114/74</div>
+          <canvas #lineCanvas></canvas>
+        </div>
+      </ion-item>-->
+    <ion-buttons end (click)="showPrompt()">
+      <button ion-button clear icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <div text-center>Average Blood Pressure: 114/74</div>
+    <canvas #lineCanvas padding></canvas>
 
   </ion-list>
 

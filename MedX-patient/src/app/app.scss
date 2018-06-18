@@ -6,11 +6,11 @@
     @media (max-width: $max) {
       @content;
     }
-  } @else {
+  }
+  @else {
     @content;
   }
 }
-
 
 // Name of the next breakpoint, or null for the last breakpoint.
 //
@@ -25,7 +25,6 @@
   @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
 
-
 // Maximum breakpoint width. Null for the largest (last) breakpoint.
 // The maximum value is calculated as the minimum of the next one less 0.1.
 //
@@ -36,34 +35,87 @@
   @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
 }
 
-
 // Creates text alignment classes based on screen size
 // TODO this would be nice to add to the framework
 @each $breakpoint in map-keys($grid-breakpoints) {
   $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-
   @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
     // Provide text `[text-{bp}]` attributes for aligning text based on screen size
     [text#{$infix}-center] {
       text-align: center;
     }
-
     [text#{$infix}-left] {
       text-align: left;
     }
-
     [text#{$infix}-right] {
       text-align: right;
     }
-
     [hidden#{$infix}-up] {
       display: none;
     }
   }
-
   @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
     [hidden#{$infix}-down] {
       display: none;
     }
   }
+}
+
+.button-large {
+  width: 100%;
+  line-height: $font-size-x-large;
+  height: $font-size-x-large;
+  border-radius: $button-border-radius;
+}
+
+.button-bottom {
+  width: 80%;
+  position: absolute;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  .fab {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+button {
+  ion-spinner {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+[no-scroll] {
+  .scroll-content {
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.toolbar-title-md {
+  text-align: left !important;
+}
+
+.toolbar-title-ios {
+  padding-top: 12px;
+}
+
+ion-app {
+  &.md,
+  &.ios {
+    background-color: transparent !important;
+    .ion-page.show-page~.nav-decor {
+      background-color: transparent !important;
+    }
+  }
+}
+::-webkit-scrollbar{
+  display:none;
 }

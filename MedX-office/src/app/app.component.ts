@@ -7,10 +7,10 @@ import { Storage } from '@ionic/storage';
 
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import {ProfilePage} from '../pages/profile/profile';
-import {HistoryPage} from '../pages/history/history';
-import {DrugsListPage} from '../pages/drugs-list/drugs-list';
-import {CreateTestPage} from '../pages/create-test/create-test'; 
-
+//import {HistoryPage} from '../pages/history/history';
+//import {DrugsListPage} from '../pages/drugs-list/drugs-list';
+//import {CreateTestPage} from '../pages/create-test/create-test'; 
+import {PatientListPage} from '../pages/patient-list/patient-list'; 
 
 import { UserData } from '../providers/user-data';
 
@@ -41,10 +41,11 @@ export class ConferenceApp {
   // the login page disables the left menu
   appPages: PageInterface[] = [
     
-    { title: 'profile', name: 'ProfilePage', component: ProfilePage , icon: 'information-circle' },
-    { title: 'History Page', name: 'HistoryPage', component: HistoryPage , icon: 'information-circle' },
-    { title: 'Drugs List' , name: 'DrugsListPage',component: DrugsListPage , icon: 'information-circle'},
-    { title: 'Create New Test' , name: 'CreateTestPage' , component: CreateTestPage , icon: 'information-circle'}
+    { title: 'Patients', name: 'PatientListPage', component: PatientListPage , icon: 'people' },
+    //{ title: 'History Page', name: 'HistoryPage', component: HistoryPage , icon: 'information-circle' },
+    //{ title: 'Drugs List' , name: 'DrugsListPage',component: DrugsListPage , icon: 'information-circle'},
+    //{ title: 'Create New Test' , name: 'CreateTestPage' , component: CreateTestPage , icon: 'information-circle'},
+    { title: 'Profile', name: 'ProfilePage', component: ProfilePage , icon: 'person' },
   ];
   loggedInPages: PageInterface[] = [
   ];
@@ -73,7 +74,7 @@ export class ConferenceApp {
         this.platformReady()
       });
 */
-      this.rootPage =HistoryPage;
+      this.rootPage = PatientListPage;
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
@@ -152,19 +153,19 @@ export class ConferenceApp {
     });
   }
 
-  isActive(page: PageInterface) {
+  isActive(page: PageInterface, color = 'primary') {
     let childNav = this.nav.getActiveChildNavs()[0];
 
     // Tabs are a special case because they have their own navigation
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
-        return 'primary';
+        return color;
       }
       return;
     }
 
     if (this.nav.getActive() && this.nav.getActive().name === page.name) {
-      return 'primary';
+      return color;
     }
     return;
   }

@@ -1,0 +1,55 @@
+page-record-list {
+  .spinner-container {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+  .searchbar-md-cancel.button {
+    color: #fff
+  }
+  
+  ion-scroll {
+    white-space: nowrap;
+  }
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  ::-webkit-scrollbar:vertical {
+    width: 11px;
+  }
+  ::-webkit-scrollbar:horizontal {
+    height: 11px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, .5);
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  .overflow-scroll {
+    overflow-y: auto !important;
+  }
+  .button {
+    margin-left: 10px;
+  }
+  /*.button {
+    height: 5.6rem;
+    font-size: 1.6rem;
+  }*/
+  /*.searchbar-md .searchbar-input {
+    padding: 6px 55px;
+    border-radius: 0px;
+    background-position: left 8px center;
+    height: auto;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 3rem;
+    color: #fff;
+    background-color: map-get($colors, primary);
+    -webkit-box-shadow: 0 0 0;
+    box-shadow: 0 0 0;
+  }*/
+}
