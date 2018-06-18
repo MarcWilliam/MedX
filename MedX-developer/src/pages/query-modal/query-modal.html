@@ -10,16 +10,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <img [src]="query.media.main" />
+<ion-content>
+  <img width="100%" [src]="query.media.main" />
   <ion-card-content>
     <ion-note>by </ion-note> {{query.developer}}
     <p>{{query.description}}</p>
   </ion-card-content>
 
-  <ion-buttons end padding color="primary">
-      <button ion-button (click)='showConfirm(query)'>
+  
+      <button ion-button (click)='showConfirm(query)' style="position: absolute; bottom: 15px;right: 15px;">
         {{from}}
       </button>
-    </ion-buttons>
+  
 </ion-content>
