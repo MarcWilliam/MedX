@@ -11,7 +11,8 @@ import { StatisticsPage } from '../statistics/statistics';
 export class ExecuteFormPage {
   private paramsForm: FormGroup;
   private query: any;
-  constructor(public navCtrl: NavController,
+  constructor(
+    public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public viewCtrl: ViewController,
@@ -58,7 +59,7 @@ export class ExecuteFormPage {
           text: 'Ok',
           handler: () => {
             console.log('OK clicked');
-            this.appCtrl.getRootNav().push(StatisticsPage, { query: this.query });
+            this.navCtrl.setRoot(StatisticsPage, { query: this.query });
           }
         },
         {

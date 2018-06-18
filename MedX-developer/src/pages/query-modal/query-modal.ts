@@ -26,7 +26,6 @@ export class QueryModalPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QueryModalPage');
   }
 
   dismiss() {

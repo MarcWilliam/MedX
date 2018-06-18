@@ -10,7 +10,6 @@ export class DatabaseProvider {
   private url = `http://${CONFIG.DB.HOST}:${CONFIG.HTTP.PORT}${CONFIG.SERVER.PATH}`;
 
   constructor(public httpClient: HttpClient) {
-    console.log('Hello DatabaseProvider Provider');
   }
 
   get(collection) {
