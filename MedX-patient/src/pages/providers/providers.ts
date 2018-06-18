@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController, ToastController } from 'ionic-angular';
 
-import { Doctor } from './doctor';
+//import { Doctor } from './doctor';
 import { SCANNER_PAGE, RECORD_LIST_PAGE } from '../pages.constants';
 
 /**

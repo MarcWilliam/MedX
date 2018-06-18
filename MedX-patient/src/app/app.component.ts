@@ -9,10 +9,10 @@ import {
   DEMOGRAPHICS_PAGE,
   SUMMARY_PAGE,
   OFFICE_VISITS_PAGE,
-  LABORATORY_PAGE,
-  SURGERIES_PAGE,
+  //LABORATORY_PAGE,
+  //SURGERIES_PAGE,
   PROVIDERS_PAGE,
-  RECORD_LIST_PAGE
+  //RECORD_LIST_PAGE
 } from '../pages/pages.constants';
 
 export interface PageInterface {
@@ -37,13 +37,13 @@ export class PatientApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Demographics', name: DEMOGRAPHICS_PAGE, component: DEMOGRAPHICS_PAGE, tabComponent: DEMOGRAPHICS_PAGE, index: 0, icon: 'pulse' },
-    { title: 'Summary', name: SUMMARY_PAGE, component: SUMMARY_PAGE, tabComponent: SUMMARY_PAGE, index: 1, icon: 'information-circle' },
-    { title: 'Office visits', name: OFFICE_VISITS_PAGE, component: OFFICE_VISITS_PAGE, tabComponent: OFFICE_VISITS_PAGE, index: 2, icon: 'timer' },
-    { title: 'Laboratory', name: LABORATORY_PAGE, component: LABORATORY_PAGE, tabComponent: LABORATORY_PAGE, index: 3, icon: 'flask' },
-    { title: 'Surgeries', name: SURGERIES_PAGE, component: SURGERIES_PAGE, tabComponent: SURGERIES_PAGE, index: 4, icon: 'medkit' },
+    { title: 'Demographics', name: DEMOGRAPHICS_PAGE, component: DEMOGRAPHICS_PAGE, tabComponent: DEMOGRAPHICS_PAGE, index: 0, icon: 'information-circle' },
+    { title: 'Summary', name: SUMMARY_PAGE, component: SUMMARY_PAGE, tabComponent: SUMMARY_PAGE, index: 1, icon: 'pulse' },
+    { title: 'Records', name: OFFICE_VISITS_PAGE, component: OFFICE_VISITS_PAGE, tabComponent: OFFICE_VISITS_PAGE, index: 2, icon: 'clipboard' },
+    //{ title: 'Laboratory', name: LABORATORY_PAGE, component: LABORATORY_PAGE, tabComponent: LABORATORY_PAGE, index: 3, icon: 'flask' },
+    //{ title: 'Surgeries', name: SURGERIES_PAGE, component: SURGERIES_PAGE, tabComponent: SURGERIES_PAGE, index: 4, icon: 'medkit' },
     //{ title: 'Access', name: SCANNER_PAGE, component: SCANNER_PAGE, tabComponent: SCANNER_PAGE, index: 5, icon: 'qr-scanner' },
-    { title: 'Records', name: RECORD_LIST_PAGE, component: RECORD_LIST_PAGE, tabComponent: RECORD_LIST_PAGE, index: 6, icon: 'medkit' }
+    //{ title: 'Records', name: RECORD_LIST_PAGE, component: RECORD_LIST_PAGE, tabComponent: RECORD_LIST_PAGE, index: 6, icon: 'medkit' }
 
 
   ];
