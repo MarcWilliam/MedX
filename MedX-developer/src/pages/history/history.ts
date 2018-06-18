@@ -3,13 +3,6 @@ import { IonicPage, NavController } from 'ionic-angular';
 
 import { Chart } from 'chart.js';
 
-/**
- * Generated class for the HistoryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-history',
@@ -20,26 +13,26 @@ export class HistoryPage {
   @ViewChildren('lineCanvas') linesCanvas: QueryList<ElementRef>;
   lineChart: any;
 
-  private queries:any = [];
+  private queries: any = [];
 
   constructor(public navCtrl: NavController) {
-    
+
   }
 
 
-  ionViewDidLoad () {
+  ionViewDidLoad() {
     this.show();
   }
 
-  show(){
-    for(let i in this.linesCanvas.toArray()/*.reverse()*/){
+  show() {
+    for (let i in this.linesCanvas.toArray()/*.reverse()*/) {
       this.lineChart = new Chart(this.linesCanvas.toArray()[i].nativeElement, {
         type: 'line',
         data: {
           labels: [2003, 2004, 2005, 2006, 2007],
           datasets: [{
             label: 'Spendeng on drug development',
-            data:  this.queries[i].result,
+            data: this.queries[i].result,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)'
             ],

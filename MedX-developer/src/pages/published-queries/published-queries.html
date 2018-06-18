@@ -3,15 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Store</ion-title>
+    <ion-title>Published queries</ion-title>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-  <ion-searchbar></ion-searchbar>
-  <button ion-button (click)="presentPopover($event)">
-    Category
-  </button>
   <ion-grid>
     <ion-row>
       <ion-col col-12 col-lg-6 col-xl-4 *ngFor="let query of queries">
@@ -30,5 +27,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>

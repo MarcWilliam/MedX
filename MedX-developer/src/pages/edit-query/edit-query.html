@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      New
+      Edit
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -51,20 +51,6 @@
           </button>
         </ion-item>
       </div>
-
-      <ion-item>
-        <ion-label>Category:</ion-label>
-        <ion-select [(ngModel)]="selected" formControlName="category" (ionChange)="onSelectChange($event)">
-          <ion-option *ngFor="let category of categories" [value] = "category">{{category}}</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Sub category:</ion-label>
-        <ion-select formControlName="subCategory">
-          <ion-option *ngFor="let sub of subCtegories" [value] = "sub">{{sub}}</ion-option>
-        </ion-select>
-      </ion-item>
 
       <div formGroupName="media">
         <ion-item>
