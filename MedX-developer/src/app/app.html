@@ -1,27 +1,22 @@
 <ion-split-pane>
 
-
-  <!-- logged out menu -->
-  <ion-menu id="loggedOutMenu" [content]="content" style="max-width: 300px;">
-
+    <!-- logged out menu -->
+    <ion-menu id="loggedOutMenu" [content]="content" style="max-width: 300px;">
+  
       <ion-header>
-          <ion-toolbar>
-            <ion-buttons left>
-              <button ion-button icon-only>
-                <img alt="logo" height="40" src="assets/img/medx-logo.png">
-              </button>
-            </ion-buttons>
-    
-            <ion-title>MedX</ion-title>
-    
-            <ion-buttons right>
-              <button ion-button icon-end clear (click)="openLoginPage()">
-                Logout
-                <ion-icon name="log-out"></ion-icon>
-              </button>
-            </ion-buttons>
-          </ion-toolbar>
-        </ion-header>
+        <ion-toolbar>
+  
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <ion-buttons right no-padding>
+            <button ion-button icon-only right no-padding>
+              <img alt="logo" height="40" src="assets/img/medx-logo.png">
+            </button>
+          </ion-buttons>
+  
+        </ion-toolbar>
+      </ion-header>
 
     <ion-content class="outer-content">
 

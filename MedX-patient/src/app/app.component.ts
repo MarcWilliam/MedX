@@ -37,7 +37,7 @@ export class PatientApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Demographics', name: DEMOGRAPHICS_PAGE, component: DEMOGRAPHICS_PAGE, tabComponent: DEMOGRAPHICS_PAGE, index: 0, icon: 'information-circle' },
+    { title: 'Info', name: DEMOGRAPHICS_PAGE, component: DEMOGRAPHICS_PAGE, tabComponent: DEMOGRAPHICS_PAGE, index: 0, icon: 'information-circle' },
     { title: 'Summary', name: SUMMARY_PAGE, component: SUMMARY_PAGE, tabComponent: SUMMARY_PAGE, index: 1, icon: 'pulse' },
     { title: 'Records', name: OFFICE_VISITS_PAGE, component: OFFICE_VISITS_PAGE, tabComponent: OFFICE_VISITS_PAGE, index: 2, icon: 'clipboard' },
     //{ title: 'Laboratory', name: LABORATORY_PAGE, component: LABORATORY_PAGE, tabComponent: LABORATORY_PAGE, index: 3, icon: 'flask' },
