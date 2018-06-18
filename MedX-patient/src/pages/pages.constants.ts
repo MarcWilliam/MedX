@@ -2,7 +2,7 @@
 export const SURGERIES_PAGE = 'SurgeriesPage';
 export const SUMMARY_PAGE = 'SummaryPage';
 export const LABORATORY_PAGE = 'LaboratoryPage';
-export const OFFICE_VISIS_PAGE = 'OfficeVisitsPage';
+export const OFFICE_VISITS_PAGE = 'OfficeVisitsPage';
 export const PROVIDERS_PAGE = 'ProvidersPage';
 export const DEMOGRAPHICS_PAGE = 'DemographicsPage';
 export const REGISTER_PAGE = 'RegisterPage';

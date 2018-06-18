@@ -57,7 +57,7 @@ export class RecordListPage {
     this.office = this.navParams.get("office");
   }
 
-  grantAccess() {
+  onGrantAccess() {
     if (confirm(`Are you sure you want give ${this.office} access to these records.`)) {
       this.dismiss(this.getSelectedRecords());
     }

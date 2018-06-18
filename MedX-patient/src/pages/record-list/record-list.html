@@ -20,7 +20,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content scroll="false">
   <div *ngIf="searching" class="spinner-container">
     <ion-spinner></ion-spinner>
   </div>
@@ -31,7 +31,7 @@
     </ion-card-header>
     <ion-card-content>
       <p ion-text color="primary"> Select the records you want
-        <ion-note color="secondary">{{office}}</ion-note> to be able to access it from the below list. </p>
+        <ion-note color="secondary">{{office}}</ion-note> to be able to access it from the list below. </p>
     </ion-card-content>
   </ion-card>
 
@@ -52,7 +52,7 @@
     <!-- </ion-card> -->
   </ion-scroll>
 
-  <button full ion-button color="secondary" (click)="grantAccess()">
+  <button full ion-button color="secondary" (click)="onGrantAccess()">
     Grant Access
   </button>
 

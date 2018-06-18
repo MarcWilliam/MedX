@@ -1,24 +1,159 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content class="login-content" padding>
 
-  <ion-row class="logo-row">
+  <!--   <ion-row class="logo-row">
     <ion-col>
       <img src="http://placehold.it/300x200" />
     </ion-col>
-  </ion-row>
+  </ion-row> -->
 
   <div class="login-box">
-    <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="register()">
+    <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <ion-row>
         <ion-col>
           <ion-list inset>
+            <ion-item-group>
+              <ion-item-divider color="dark" text-center>Your Basic Info</ion-item-divider>
+              <ion-item>
+                <ion-label fixed>Name</ion-label>
+                <ion-input type="text" name="name" formControlName="name"></ion-input>
+              </ion-item>
 
-            <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" formControlName="email"></ion-input>
-            </ion-item>
+              <ion-item>
+                <ion-label fixed>Gender</ion-label>
+                <ion-select formControlName="gender">
+                  <ion-option value="male">Male</ion-option>
+                  <ion-option value="female">Female</ion-option>
+                </ion-select>
+              </ion-item>
 
-            <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" formControlName="password"></ion-input>
-            </ion-item>
+              <ion-item>
+                <ion-label fixed> Date of Birth</ion-label>
+                <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MMMM-DD" formControlName="birthDate"></ion-datetime>
+              </ion-item>
+
+              <ion-item>
+                <ion-label fixed>Address</ion-label>
+                <ion-input type="text" name="address" formControlName="address"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label fixed>Marital Status</ion-label>
+                <ion-select formControlName="maritalStatus">
+                  <ion-option value="single">Single</ion-option>
+                  <ion-option value="married">Married</ion-option>
+                  <ion-option value="widowed">Widowed</ion-option>
+                  <ion-option value="separated">Separated</ion-option>
+                  <ion-option value="divorced">Divorced</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item class="item-input" (click)="getPhoto()">
+                <ion-label fixed>Photo</ion-label>
+                <ion-avatar item-end>
+                  <img src="{{photo64}}">
+                </ion-avatar>
+              </ion-item>
+            </ion-item-group>
+
+            <ion-item-group formGroupName="communication">
+              <ion-item-divider color="dark" text-center>Your Communication Info</ion-item-divider>
+              <ion-item>
+                <ion-label fixed>Language</ion-label>
+                <ion-select formControlName="language" multiple="true">
+                  <ion-option value="english">English</ion-option>
+                  <ion-option value="arabic">Arabic</ion-option>
+                  <ion-option value="french">French</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label fixed>Preferred</ion-label>
+                <ion-select formControlName="preferred">
+                  <ion-option value="english">English</ion-option>
+                  <ion-option value="arabic">Arabic</ion-option>
+                  <ion-option value="french">French</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-item-group>
+
+            <ion-item-group formGroupName="contact">
+              <ion-item-divider color="dark" text-center>Contact Basic Info</ion-item-divider>
+              <ion-item>
+                <ion-label fixed>Relationship</ion-label>
+                <ion-select formControlName="relationship">
+                  <ion-option value="emergencyContact">Emergency Contact</ion-option>
+                  <ion-option value="employer">Employer</ion-option>
+                  <ion-option value="federalAgency">Federal Agency</ion-option>
+                  <ion-option value="insuranceCompany">Insurance Company</ion-option>
+                  <ion-option value="nextOfKin">Next-of-Kin</ion-option>
+                  <ion-option value="other">Other</ion-option>
+                  <ion-option value="stateAgency">State Agency</ion-option>
+                  <ion-option value="unknown">Unknown</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label fixed>Name</ion-label>
+                <ion-input type="text" name="name" formControlName="name"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label fixed>Address</ion-label>
+                <ion-input type="text" name="address" formControlName="address"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label fixed>Gender</ion-label>
+                <ion-select formControlName="gender">
+                  <ion-option value="male">Male</ion-option>
+                  <ion-option value="female">Female</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label fixed>Organization</ion-label>
+                <ion-input type="text" name="organization" formControlName="organization"></ion-input>
+              </ion-item>
+
+              <!-- TODO: expand to detail multi input (e.g. phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.). -->
+              <ion-item-group formGroupName="telecom">
+                <ion-item-divider color="dark" text-center>Contact Telecom</ion-item-divider>
+                <ion-item>
+                  <ion-label fixed>Phone</ion-label>
+                  <ion-input type="tel" name="phone" formControlName="phone"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label fixed>Email</ion-label>
+                  <ion-input type="email" name="email" formControlName="email"></ion-input>
+                </ion-item>
+              </ion-item-group>
+
+              <ion-item-group formGroupName="period">
+                <ion-row>
+                  <ion-item-divider color="dark" text-center>Contact Period</ion-item-divider>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label stacked>From:</ion-label>
+                      <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MMMM-DD" formControlName="from"></ion-datetime>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label stacked>To:</ion-label>
+                      <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MMMM-DD" formControlName="to"></ion-datetime>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-item-group>
+            </ion-item-group>
 
           </ion-list>
         </ion-col>
