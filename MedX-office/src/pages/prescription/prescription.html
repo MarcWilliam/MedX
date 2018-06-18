@@ -24,12 +24,12 @@
           </ion-col>
           <ion-col *ngIf="!this.medications.meds[i].expand">
             <button ion-button  icon-only clear class="headerButton" >
-              <ion-icon color="primary" class="headerIcon" name="arrow-dropleft"></ion-icon>
+              <ion-icon  class="headerIcon" name="ios-arrow-back"></ion-icon>
             </button>
           </ion-col>
           <ion-col *ngIf="this.medications.meds[i].expand">
             <button ion-button  icon-only clear class="headerButton" >
-              <ion-icon color="primary" class="headerIcon" name="arrow-dropdown"></ion-icon>
+              <ion-icon  class="headerIcon-open" name="ios-arrow-down"></ion-icon>
             </button>
           </ion-col>
         </ion-row>
@@ -68,12 +68,12 @@
                       </ion-col>
                       <ion-col *ngIf="!this.procedures.proc[j].expand">
                         <button ion-button  icon-only clear class="headerButton" >
-                          <ion-icon color="primary" class="headerIcon" name="arrow-dropleft"></ion-icon>
+                          <ion-icon class="headerIcon" name="ios-arrow-back"></ion-icon>
                         </button>
                       </ion-col>
                       <ion-col *ngIf="this.procedures.proc[j].expand">
                         <button ion-button  icon-only clear class="headerButton" >
-                          <ion-icon color="primary" class="headerIcon" name="arrow-dropdown"></ion-icon>
+                          <ion-icon class="headerIcon-open" name="ios-arrow-down"></ion-icon>
                         </button>
                       </ion-col>
                     </ion-row>
@@ -109,12 +109,12 @@
                           </ion-col>
                           <ion-col *ngIf="!this.test.tests[j].expand">
                             <button ion-button  icon-only clear class="headerButton" >
-                              <ion-icon color="primary" class="headerIcon" name="arrow-dropleft"></ion-icon>
+                              <ion-icon  class="headerIcon" name="ios-arrow-back"></ion-icon>
                             </button>
                           </ion-col>
                           <ion-col *ngIf="this.test.tests[j].expand">
                             <button ion-button  icon-only clear class="headerButton" >
-                              <ion-icon color="primary" class="headerIcon" name="arrow-dropdown"></ion-icon>
+                              <ion-icon  class="headerIcon-open" name="ios-arrow-down"></ion-icon>
                             </button>
                           </ion-col>
                         </ion-row>
@@ -157,11 +157,11 @@
         <ion-icon name="ios-create"></ion-icon>
       </button>
       <button ion-fab (click)="addElement(1)">
-            <ion-label>Surgery</ion-label>
+            <ion-label>Surgery Request</ion-label>
             <ion-icon name="ios-create"></ion-icon>
           </button>
           <button ion-fab (click)="addElement(2)">
-                <ion-label>Test</ion-label>
+                <ion-label>Test Request</ion-label>
                 <ion-icon name="ios-create"></ion-icon>
           </button>
     </ion-fab-list>
