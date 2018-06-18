@@ -1,0 +1,29 @@
+<ion-list>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-5>
+        <ion-list>
+          <!--<ion-list-header>Category:</ion-list-header>-->
+          <ion-item class="category-item" *ngFor="let category of categories" ion-item (click)="presentPopover(category)">
+            <span ion-text *ngIf="category == selectedCategory" color="primary">{{category}}</span>
+            <ion-icon color="primary" item-end name="ios-arrow-forward" *ngIf="category == selectedCategory"></ion-icon>
+            <span ion-text *ngIf="category != selectedCategory">{{category}}</span>
+            <ion-icon item-end name="" *ngIf="category != selectedCategory"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col col-7>
+        <ion-list>
+          <!--<ion-list-header>Sub category:</ion-list-header>-->
+          <ion-item class="category-item" *ngFor="let category of subcategories" ion-item (click)="get(category)">
+            {{category}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-list>

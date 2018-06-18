@@ -1,66 +1,65 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, ToastController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 import { FormControl, FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 import { QueryService } from '../../services/queries.service';
 import { QueryValidator } from '../../validators/query';
 import { PublishedQueriesPage } from '../published-queries/published-queries';
-import { DatabaseProvider } from '../../providers/database';
 
-declare var require: any;
-var CATEGORIES = require('./categories.json');
-
+@IonicPage()
 @Component({
-  selector: 'page-new',
-  templateUrl: 'new.html'
+  selector: 'page-edit-query',
+  templateUrl: 'edit-query.html',
 })
-export class NewPage {
-  private queriesForm: FormGroup;
-  private categories:any = [];
-  private subCtegories: any = [];
+export class EditQueryPage {
+  private url = "http://localhost:8064/api/queries";
+  queriesForm: FormGroup;
+  query: any;
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     private formBuilder: FormBuilder,
-    private db: DatabaseProvider
-  ) { }
-
-  ngOnInit() {
-    this.categories = CATEGORIES['categories'];
-    this.queriesForm = this.buildMyForm();
+    private httpClient: HttpClient,
+    public navParams: NavParams,
+  ) { 
+    this.query = this.navParams.get("query");
   }
 
-  onSelectChange(selected){
-    this.subCtegories = CATEGORIES[selected];
+  ngOnInit() {
+    this.queriesForm = this.buildMyForm();
+    for (var key in this.query.params){
+      if(this.query.params.hasOwnProperty){
+        this.addParam(key, this.query.params[key]);
+      }
+    }
   }
 
   buildMyForm() {
     return this.formBuilder.group({
-      name: [''],
-      version: [''],
-      description: [''],
-      query: ['', Validators.compose([
+      name: [this.query.name],
+      version: [this.query.version],
+      description: [this.query.description],
+      query: [this.query.query, Validators.compose([
         /*Validators.pattern(regexValidators.email),*/ ///reqex //import { regexValidators } from '../validators/validator';
         QueryValidator.checkQuery,
         Validators.required
       ])
       ],
       params: this.formBuilder.array([]),
-      category: '',
-      subCategory: '',
       media: this.formBuilder.group({
-        video: '',
-        main: '',
-        imgs: this.formBuilder.array([])
+        video: this.query.media.video,
+        main: this.query.media.main,
+        imgs: this.formBuilder.array(this.query.media.imgs)
       })
     });
   }
 
-  createParam(): FormGroup {
+  createParam(key = '', type = ''): FormGroup {
     return this.formBuilder.group({
-      key: '',
-      type: ''
+      key: key,
+      type: type
     });
   }
 
@@ -70,9 +69,9 @@ export class NewPage {
     });
   }
 
-  addParam() {
+  addParam(key = '', type = '') {
     let params = this.queriesForm.get('params') as FormArray;
-    params.push(this.createParam());
+    params.push(this.createParam(key, type));
   }
 
   removeParam(index: number) {
@@ -91,15 +90,16 @@ export class NewPage {
   }
 
   logForm(query) {
-
-    this.db.post('queries', query)
-      .then((res) => {
+    this.httpClient.put(this.url+`/${this.query.id}`, query)
+      .subscribe(
+      res => {
         this.okToast();
       },
-      (error) => {
+      error => {
         this.rejectToast();
         console.log(error);
-      });
+      }
+      );
   }
 
   showConfirm() {
@@ -158,5 +158,4 @@ export class NewPage {
     });
     toast.present();
   }
-
 }

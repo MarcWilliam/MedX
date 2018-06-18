@@ -7,17 +7,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-toolbar color="light">
-      <ion-buttons item-start>
-          <button padding-left ion-button color="dark" (click)="presentPopover($event)">
-            Categories <ion-icon padding-left name="ios-arrow-down"></ion-icon>
-          </button>
-          <button padding-left ion-button color="dark">
-            Home
-          </button>
-        </ion-buttons>
-  </ion-toolbar>
+
+<ion-content padding>
 
   <ion-grid>
     <ion-row>
@@ -37,5 +28,11 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab (click)="goToCreateQuery()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>

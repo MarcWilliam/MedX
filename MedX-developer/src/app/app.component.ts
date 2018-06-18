@@ -5,7 +5,7 @@ import { NewPage } from '../pages/new/new';
 import { ProfilePage } from '../pages/profile/profile';
 import { StorePage } from '../pages/store/store';
 import { HistoryPage } from '../pages/history/history';
-
+import { PublishedQueriesPage } from '../pages/published-queries/published-queries';
 
 export interface PageInterface {
   title: string;
@@ -30,28 +30,27 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    
-    { title: 'Profile', name: 'ProfilePage', component: ProfilePage , icon: 'person' },
-    { title: 'New', name: 'NewPage', component: NewPage , icon: 'add' },
-    { title: 'Store' , name: 'StorePage', component: StorePage , icon: 'cart'},
-    { title: 'History' , name: 'HistoryPage', component: HistoryPage , icon: 'timer'}
+    { title: 'Store', name: 'StorePage', component: StorePage, icon: 'cart' },
+    { title: 'Published', name: 'PublishedQueriesPage', component: PublishedQueriesPage, icon: 'apps' },
+    { title: 'History', name: 'HistoryPage', component: HistoryPage, icon: 'timer' },
+    { title: 'Profile', name: 'ProfilePage', component: ProfilePage, icon: 'person' },
   ];
 
   rootPage: any;
 
   constructor() {
 
-    this.rootPage = NewPage;
+    this.rootPage = StorePage;
 
   }
 
   openPage(page: PageInterface) {
     let params = {};
-    
+
     if (page.index) {
       params = { tabIndex: page.index };
     }
-    
+
     if (this.nav.getActiveChildNavs().length && page.index != undefined) {
       this.nav.getActiveChildNavs()[0].select(page.index);
     } else {
@@ -61,16 +60,19 @@ export class ConferenceApp {
     }
   }
 
-  isActive(page: PageInterface) {
+  isActive(page: PageInterface, color = 'primary') {
     let childNav = this.nav.getActiveChildNavs()[0];
+
+    // Tabs are a special case because they have their own navigation
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
-        return 'primary';
+        return color;
       }
       return;
     }
+
     if (this.nav.getActive() && this.nav.getActive().name === page.name) {
-      return 'primary';
+      return color;
     }
     return;
   }

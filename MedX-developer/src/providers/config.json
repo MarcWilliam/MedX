@@ -1,0 +1,14 @@
+{
+    "DB": {
+        "HOST": "localhost"
+    },
+    "SERVER": {
+        "PATH": "/api"
+    },
+    "HTTP": {
+        "PORT": 8064
+    },
+    "TCP": {
+        "PORT": 3032
+    }
+}

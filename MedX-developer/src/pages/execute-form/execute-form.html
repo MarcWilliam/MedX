@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Execution form
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form text-center [formGroup]="paramsForm">
+    <ion-list>
+      <div formArrayName="params">
+        <ion-item *ngFor="let param of this.paramsForm.get('params').controls; let i = index;" [formGroupName]="i">
+          <ion-label color="dark">{{param.controls.key.value}}:</ion-label>
+          <ion-input type="text" formControlName="value" placeholder="Param value" clearInput></ion-input>
+        </ion-item>
+      </div>
+
+      <br>
+      <br>
+      <button [disabled]="!paramsForm.valid" (click)='execute()' ion-button end>Publish</button>
+
+    </ion-list>
+  </form>
+</ion-content>

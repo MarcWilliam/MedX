@@ -1,3 +1,20 @@
 page-store {
 
 }
+
+.custom-popover .popover-content {
+    width: 50%;
+}
+
+
+@media (max-width: 1024px) {
+    .custom-popover .popover-content {
+        width: 90%;
+    }
+  }
+
+@media (min-width: 1024px) {
+    .custom-popover .popover-content {
+        width: 50%;
+    }
+}
