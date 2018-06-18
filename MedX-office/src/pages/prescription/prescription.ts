@@ -27,12 +27,18 @@ export class PrescriptionPage {
   public testsInput = [];
   public scansInput = [];
 
+  public procedures = { proc: [] };
+
   public medicationTemplate: any;
-  public medications = { count: 0, meds: [], expand: false };
+  public medications = { meds: [] };
+
+  public test = { tests: [] };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log(this.form.tests.length);
-    this.medications = { count: 0, meds: new Array(), expand: false };
+    this.medications = { meds: new Array() };
+    this.procedures = { proc: new Array() };
+    this.test = { tests: new Array() };
 
   }
 
@@ -44,47 +50,27 @@ export class PrescriptionPage {
   expand(id, index) {
     if (id == 0) {
       this.medications.meds[index].expand = !this.medications.meds[index].expand;
+    } else if (id == 1) {
+      this.procedures.proc[index].expand = !this.procedures.proc[index].expand;
+    } else if (id ==2) {
+      this.test.tests[index].expand = !this.test.tests[index].expand;
     }
-
-
-
-    /*
-    if(type =="test"){
-      if(this.form.testsCount>=0){
-        this.form.tests.length = this.form.testsCount;
-        this.testsInput.length=this.form.testsCount;
-        
-    }
-  }else{
-    if(this.form.scansCount >=0 ){
-      this.form.scans.length = this.form.scansCount;
-      this.scansInput.length=this.form.scansCount;
-   
-  }
-   
-    }
-    //console.log(this.form);
-    */
   }
 
   addElement(type) {
     if (type == 0) {
 
-      this.medications.count++
       let temp = { json: require('../../json-templates/medicationRequest.json'), expand: true }
       this.medications.meds.push(JSON.parse(JSON.stringify(temp)));
-      this.medications.expand = true;
-      console.log(this.medications.meds);
-
-
-
-
 
     } else if (type == 1) {
-      // this.testsInput =number;
+      let temp = { json: require('../../json-templates/procedureRequest.json'), expand: true }
+      this.procedures.proc.push(JSON.parse(JSON.stringify(temp)));
+
 
     } else if (type == 2) {
-      // this.scansInput = number;
+      let temp = { json: require('../../json-templates/procedureRequest.json'), expand: true }
+      this.test.tests.push(JSON.parse(JSON.stringify(temp)));
     }
   }
 
@@ -92,7 +78,7 @@ export class PrescriptionPage {
     if (type == 0) {
       if (this.medications.meds.length == 1) {
         this.medications.meds.pop();
-        
+
       } else {
         let counter = index + 1
         for (let i = index; i < this.medications.meds.length - 1; i++) {
@@ -100,7 +86,26 @@ export class PrescriptionPage {
 
         }
         this.medications.meds.length--;
-        this.medications.count--;
+      }
+    } else if (type == 1) {
+      if (this.procedures.proc.length == 1) {
+        this.procedures.proc.pop();
+      } else {
+        let counter = index + 1
+        for (let i = index; i < this.procedures.proc.length - 1; i++) {
+          this.procedures.proc[i] = this.procedures.proc[counter++];
+        }
+        this.procedures.proc.length--;
+      }
+    } else {
+      if (this.test.tests.length == 1) {
+        this.test.tests.pop();
+      } else {
+        let counter = index + 1
+        for (let i = index; i < this.test.tests.length - 1; i++) {
+          this.test.tests[i] = this.test.tests[counter++];
+        }
+        this.test.tests.length--;
       }
     }
   }
