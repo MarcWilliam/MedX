@@ -25,7 +25,7 @@ export class ProfilePage {
     "website": "https://www.happy.ae",
     "publicKey": "0x627306090abaB3A6e1400e9345bC60c78a8BEf57",
     "specialization": "Cardiologist",
-    "PCL" : "Dubai International Hospital"
+    "PCL": "Dubai International Hospital"
 
   };
 
@@ -66,7 +66,7 @@ export class ProfilePage {
 
   requestCredentials() {
     console.log("requestCredentials method"); //fill u-port here
-  } 
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');

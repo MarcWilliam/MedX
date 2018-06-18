@@ -5,7 +5,7 @@
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="page">
             <ion-segment-button value="info">
-                Demographics
+                Info
             </ion-segment-button>
             <ion-segment-button value="record">
                 Office visits
@@ -23,12 +23,6 @@
     <div [ngSwitch]="page">
 
         <ion-list *ngSwitchCase="'info'">
-
-
-
-
-
-
 
             <ion-card>
 
@@ -85,6 +79,15 @@
 
                         <ion-row padding-top>
                             <ion-col col-4>
+                                Birth Date:
+                            </ion-col>
+                            <ion-col col-8>
+                                4/16/1992
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row padding-top>
+                            <ion-col col-4>
                                 maritalStatus:
                             </ion-col>
                             <ion-col col-8>
@@ -110,52 +113,52 @@
             </ion-card>
 
             <ion-card>
-                    <ion-card-header>
-                        Allergies
-                    </ion-card-header>
-    
-                    <ion-grid>
-    
-                        <ion-row>
-                            <ion-col>
-                                <ion-note>category</ion-note>
-                            </ion-col>
-                            <ion-col>
-                                <ion-note>onset Age</ion-note>
-                            </ion-col>
-                            <ion-col>
-                                <ion-note>last Occurrence</ion-note>
-                            </ion-col>
-                            <ion-col>
-                                <ion-note>substance</ion-note>
-                            </ion-col>
-                            <ion-col>
-                                <ion-note>severity</ion-note>
-                            </ion-col>
-                        </ion-row>
-    
-                        <br>
-    
-                        <ion-row>
-                            <ion-col>
-                                food
-                            </ion-col>
-                            <ion-col>
-                                6
-                            </ion-col>
-                            <ion-col>
-                                12/5/2008
-                            </ion-col>
-                            <ion-col>
-                                Peanuts
-                            </ion-col>
-                            <ion-col>
-                                moderate
-                            </ion-col>
-                        </ion-row>
-    
-                    </ion-grid>
-                </ion-card>
+                <ion-card-header>
+                    Allergies
+                </ion-card-header>
+
+                <ion-grid>
+
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>category</ion-note>
+                        </ion-col>
+                        <ion-col>
+                            <ion-note>onset Age</ion-note>
+                        </ion-col>
+                        <ion-col>
+                            <ion-note>last Occurrence</ion-note>
+                        </ion-col>
+                        <ion-col>
+                            <ion-note>substance</ion-note>
+                        </ion-col>
+                        <ion-col>
+                            <ion-note>severity</ion-note>
+                        </ion-col>
+                    </ion-row>
+
+                    <br>
+
+                    <ion-row>
+                        <ion-col>
+                            food
+                        </ion-col>
+                        <ion-col>
+                            6
+                        </ion-col>
+                        <ion-col>
+                            12/5/2008
+                        </ion-col>
+                        <ion-col>
+                            Peanuts
+                        </ion-col>
+                        <ion-col>
+                            moderate
+                        </ion-col>
+                    </ion-row>
+
+                </ion-grid>
+            </ion-card>
 
             <ion-card>
                 <ion-card-header>
@@ -345,8 +348,48 @@
                 </ion-col>
             </ion-row>
 
+        </ion-list>
 
-         
+        <ion-list *ngSwitchCase="'record'">
+            <ion-searchbar></ion-searchbar>
+            <ion-buttons end (click)="openPrescription()">
+                <button ion-button clear icon-only>
+                    <ion-icon name="add"></ion-icon>
+                </button>
+            </ion-buttons>
+            <ion-card>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>Date</ion-note>
+                        </ion-col>
+
+                        <ion-col>
+                            <ion-note>Diagnosis</ion-note>
+                        </ion-col>
+
+                        <ion-col>
+                            <ion-note>Medication</ion-note>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col>
+                            Aug 20 2016
+                        </ion-col>
+
+                        <ion-col>
+                            Fever
+                        </ion-col>
+
+                        <ion-col>
+                            Augmentin
+                        </ion-col>
+                    </ion-row>
+                    <br>
+
+                </ion-grid>
+            </ion-card>
         </ion-list>
 
         <ion-list *ngSwitchCase="'laboratory'">
@@ -473,16 +516,3 @@
     </div>
 
 </ion-content>
-
-
-
-
-
-<!--
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-            <ion-list>
-              <ion-item *ngFor="let item of items">
-                {{ item }}
-              </ion-item>
-            </ion-list>
-          -->
