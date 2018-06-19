@@ -1,14 +1,20 @@
 page-register {
   .login-content {
     background: color($colors, primary);
+    background-image: url('/assets/img/backgorund-login.jpg');
+    background-size: cover;
+    background-position: center center;
+    
     .logo-row {
       padding-top: 50px;
       padding-bottom: 20px;
     }
     .login-box {
-      background: #23b6ea;
+      /*background: #238aea;*/
       padding: 20px 20px 0px 20px;
       margin-top: 10px;
+      margin:0 auto;
+      max-width: 900px;
     }
     ion-row {
       align-items: center;
@@ -68,7 +74,7 @@ page-register {
     border-bottom: 0px !important;
     box-shadow: none !important;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     .img-center-container {
       position: relative;
       height: 100px;

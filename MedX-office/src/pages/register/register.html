@@ -1,6 +1,5 @@
-<ion-header>
+<!--<ion-header>
   <ion-navbar>
-    <ion-title>Register</ion-title>
     <ion-buttons start *ngIf="!registerSliderBegin">
       <button ion-button icon-left (click)="onPrevSlide()">
         <ion-icon name="arrow-back"></ion-icon> Prev</button>
@@ -11,7 +10,7 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content class="login-content" padding>
 
@@ -19,39 +18,41 @@
     <ion-slide>
       <ion-row class="logo-row">
         <ion-col text-center>
-          <img alt="logo" style="height: 40px" height="40" src="assets/img/medx-logo.png" />
+          <img alt="logo" style="height: 80px" height="80" src="assets/img/medx-logo.png" />
           <h1 ion-text color="light" no-padding no-margin>Choose your role</h1>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <div>
-            <ion-card class="round" (click)="onCardSlideClicked(roles[0])">
-              <ion-card-header class="img-center-container">
-                <img class="img-circle img-center" src="assets/img/doctor.jpg" />
-              </ion-card-header>
-              <ion-card-title color="primary">
-                Practitioner
-              </ion-card-title>
-              <ion-card-content text-wrap color="dark">
-                A person who is directly or indirectly involved in the provisioning of healthcare.
-              </ion-card-content>
-            </ion-card>
-
-            <ion-card class="round" (click)="onCardSlideClicked(roles[1])">
-              <ion-card-header class="img-center-container">
-                <img class="img-circle img-center" src="assets/img/lab.jpg" />
-              </ion-card-header>
-              <ion-card-title color="primary">
-                Organization
-              </ion-card-title>
-              <ion-card-content text-wrap color="dark">
-                A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of
-                collective action. Includes companies, institutions, corporations, departments, community groups, healthcare
-                practice groups, etc.
-              </ion-card-content>
-            </ion-card>
-          </div>
+          <ion-row>
+            <ion-col col-md-6 col-sm-12>
+              <ion-card class="round" (click)="onCardSlideClicked(roles[0])">
+                <ion-card-header class="img-center-container">
+                  <img class="img-circle img-center" src="assets/img/doctor.jpg" />
+                </ion-card-header>
+                <ion-card-title color="primary">
+                  Practitioner
+                </ion-card-title>
+                <ion-card-content text-wrap color="dark">
+                  A person who is directly or indirectly involved in the provisioning of healthcare.
+                  <br>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            <ion-col col-md-6 col-sm-12>
+              <ion-card class="round" (click)="onCardSlideClicked(roles[1])">
+                <ion-card-header class="img-center-container">
+                  <img class="img-circle img-center" src="assets/img/lab.jpg" />
+                </ion-card-header>
+                <ion-card-title color="primary">
+                  Organization
+                </ion-card-title>
+                <ion-card-content text-wrap color="dark">
+                  Companies, institutions, corporations, departments, community groups, healthcare, practice groups, etc.
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -61,11 +62,12 @@
     </ion-slide>
 
     <ion-slide>
-      <!--   <ion-row class="logo-row">
-    <ion-col>
-      <img src="http://placehold.it/300x200" />
-    </ion-col>
-  </ion-row> -->
+      <ion-row class="logo-row">
+        <ion-col text-center>
+          <img alt="logo" style="height: 80px" height="80" src="assets/img/medx-logo.png" />
+          <h1 ion-text color="light" no-padding no-margin>Register</h1>
+        </ion-col>
+      </ion-row>
 
       <div class="login-box">
         <form *ngIf="practitionerForm" [formGroup]="practitionerForm" (ngSubmit)="onRegister()">
