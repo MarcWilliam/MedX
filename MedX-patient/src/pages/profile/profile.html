@@ -18,7 +18,6 @@
     <div class="main-content" text-wrap text-center>
         <div class="circular"></div>
         <h2>{{user.name}}</h2>
-        <p class="profile-description">{{user.specialization}}</p>
         <hr>
 
         <ion-row>
@@ -37,12 +36,7 @@
                     <ion-item>
                         <ion-icon item-start name="call" color="grey"></ion-icon>
                         <ion-note>Phone</ion-note>
-                        <p>123 456 7890</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="globe" color="grey"></ion-icon>
-                        <ion-note>Country</ion-note>
-                        <p>{{user.country}}</p>
+                        <p>{{user.phone}}</p>
                     </ion-item>
                     <ion-item>
                         <ion-icon item-start name="key" color="grey"></ion-icon>
@@ -51,9 +45,31 @@
                     </ion-item>
                     <ion-item>
                         <ion-icon item-start name="pin" color="grey"></ion-icon>
-                        <ion-note>Primary Consultation Location :</ion-note>
-                        <p>{{user.PCL}}</p>
+                        <ion-note>Address :</ion-note>
+                        <p>{{user.address}}</p>
                     </ion-item>
+                    <ion-item>
+                        <ion-icon item-start name="globe" color="grey"></ion-icon>
+                        <ion-note>Language</ion-note>
+                        <p>{{user.language}}</p>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon item-start name="calendar" color="grey"></ion-icon>
+                        <ion-note>Birth Date</ion-note>
+                        <p>{{user.birthDate}}</p>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon item-start name="" color="grey"></ion-icon>
+                        <ion-note>Gender</ion-note>
+                        <p>{{user.gender}}</p>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon item-start name="" color="grey"></ion-icon>
+                        <ion-note>Marital Status</ion-note>
+                        <p>{{user.maritalStatus}}</p>
+                    </ion-item>
+
+
 
                 </ion-list>
             </ion-col>
@@ -61,11 +77,11 @@
         </ion-row>
 
     </div>
-  
-        <ion-fab bottom right #fab>
-            <button ion-fab>
-                <ion-icon name="md-create"></ion-icon>
-            </button>
-        </ion-fab>
-    
+
+    <ion-fab bottom right #fab>
+        <button ion-fab>
+            <ion-icon name="md-create"></ion-icon>
+        </button>
+    </ion-fab>
+
 </ion-content>

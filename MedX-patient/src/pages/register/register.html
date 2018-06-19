@@ -1,16 +1,16 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Register</ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar>
+      <ion-title>Register</ion-title>
+    </ion-navbar>
+  </ion-header>
 
 <ion-content class="login-content" padding>
 
-  <!--   <ion-row class="logo-row">
+   <ion-row class="logo-row">
     <ion-col>
-      <img src="http://placehold.it/300x200" />
+      <img src="assets/img/medx-logo.png" height="80"/>
     </ion-col>
-  </ion-row> -->
+  </ion-row> 
 
   <div class="login-box">
     <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="onRegister()">
