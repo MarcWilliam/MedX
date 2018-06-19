@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-//import {HistoryPage} from '../history/history';
+import { IonicPage, NavController, NavParams  } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { ToastController } from 'ionic-angular';
+import {HistoryPage} from '../history/history';
 
 /**
  * Generated class for the PrescriptionPage page.
@@ -17,74 +18,68 @@ declare var require: any;
   templateUrl: 'prescription.html',
 })
 export class PrescriptionPage {
-  public form = {
-    medicine: "",
-    testsCount: 0,
-    tests: [],
-    scansCount: 0,
-    scans: []
-  }
-  public testsInput = [];
-  public scansInput = [];
+  public all = [];
+
+  public procedures = { proc: [] };
 
   public medicationTemplate: any;
-  public medications = { count: 0, meds: [], expand: false };
+  public medications = { meds: [] };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    console.log(this.form.tests.length);
-    this.medications = { count: 0, meds: new Array(), expand: false };
+  public test = { tests: [] };
+
+  constructor(public navCtrl: NavController, public navParams: NavParams , public storage : Storage , public toastCtrl : ToastController) {
+    
+    this.medications = { meds: new Array() };
+    this.procedures = { proc: new Array() };
+    this.test = { tests: new Array() };
+    this.all = new Array();
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrescriptionPage');
   }
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'prescription Created',
+      duration: 2000,
+      position: 'middle'
+    });
 
+    toast.onDidDismiss(() => {
+      this.navCtrl.setRoot(HistoryPage);
+    });
+  
+    toast.present();
+  }
 
   expand(id, index) {
     if (id == 0) {
       this.medications.meds[index].expand = !this.medications.meds[index].expand;
+    } else if (id == 1) {
+      this.procedures.proc[index].expand = !this.procedures.proc[index].expand;
+    } else if (id ==2) {
+      this.test.tests[index].expand = !this.test.tests[index].expand;
     }
-
-
-
-    /*
-    if(type =="test"){
-      if(this.form.testsCount>=0){
-        this.form.tests.length = this.form.testsCount;
-        this.testsInput.length=this.form.testsCount;
-        
-    }
-  }else{
-    if(this.form.scansCount >=0 ){
-      this.form.scans.length = this.form.scansCount;
-      this.scansInput.length=this.form.scansCount;
-   
-  }
-   
-    }
-    //console.log(this.form);
-    */
   }
 
   addElement(type) {
     if (type == 0) {
 
-      this.medications.count++
       let temp = { json: require('../../json-templates/medicationRequest.json'), expand: true }
+      temp.json.authoredOn=Date();
       this.medications.meds.push(JSON.parse(JSON.stringify(temp)));
-      this.medications.expand = true;
-      console.log(this.medications.meds);
-
-
-
-
 
     } else if (type == 1) {
-      // this.testsInput =number;
+      let temp = { json: require('../../json-templates/procedureRequest.json'), expand: true }
+      temp.json.authoredOn= Date();
+      this.procedures.proc.push(JSON.parse(JSON.stringify(temp)));
+
 
     } else if (type == 2) {
-      // this.scansInput = number;
+      let temp = { json: require('../../json-templates/procedureRequest.json'), expand: true }
+      temp.json.authoredOn=Date();
+      this.test.tests.push(JSON.parse(JSON.stringify(temp)));
     }
   }
 
@@ -92,7 +87,7 @@ export class PrescriptionPage {
     if (type == 0) {
       if (this.medications.meds.length == 1) {
         this.medications.meds.pop();
-        
+
       } else {
         let counter = index + 1
         for (let i = index; i < this.medications.meds.length - 1; i++) {
@@ -100,17 +95,38 @@ export class PrescriptionPage {
 
         }
         this.medications.meds.length--;
-        this.medications.count--;
+      }
+    } else if (type == 1) {
+      if (this.procedures.proc.length == 1) {
+        this.procedures.proc.pop();
+      } else {
+        let counter = index + 1
+        for (let i = index; i < this.procedures.proc.length - 1; i++) {
+          this.procedures.proc[i] = this.procedures.proc[counter++];
+        }
+        this.procedures.proc.length--;
+      }
+    } else {
+      if (this.test.tests.length == 1) {
+        this.test.tests.pop();
+      } else {
+        let counter = index + 1
+        for (let i = index; i < this.test.tests.length - 1; i++) {
+          this.test.tests[i] = this.test.tests[counter++];
+        }
+        this.test.tests.length--;
       }
     }
   }
 
   submit() {
-    // this.form.scans=this.scansInput;
-    //this.form.tests=this.testsInput;
-    // alert("prescription Created");
-    //this.navCtrl.setRoot(HistoryPage);
-    console.log(this.medications.meds)
+    this.all[0]=this.medications
+    this.all[1]=this.procedures
+    this.all[2]=this.test
+    this.storage.set("Records",this.all);
+    this.presentToast();
+  
+    console.log(this.all)
   }
 
 }
