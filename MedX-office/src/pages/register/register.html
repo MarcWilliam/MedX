@@ -1,0 +1,246 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+    <ion-buttons start *ngIf="!registerSliderBegin">
+      <button ion-button icon-left (click)="onPrevSlide()">
+        <ion-icon name="arrow-back"></ion-icon> Prev</button>
+    </ion-buttons>
+    <ion-buttons end *ngIf="false">
+      <button ion-button icon-right (click)="onNextSlide()">Next
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="login-content" padding>
+
+  <ion-slides #registerSlider effect="slide" (ionSlideWillChange)="onSlideChange()" (ionSlideDidChange)="onSlideChange()">
+    <ion-slide>
+      <ion-row class="logo-row">
+        <ion-col text-center>
+          <img alt="logo" style="height: 40px" height="40" src="assets/img/medx-logo.png" />
+          <h1 ion-text color="light" no-padding no-margin>Choose your role</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-card class="round" (click)="onCardSlideClicked(roles[0])">
+              <ion-card-header class="img-center-container">
+                <img class="img-circle img-center" src="assets/img/doctor.jpg" />
+              </ion-card-header>
+              <ion-card-title color="primary">
+                Practitioner
+              </ion-card-title>
+              <ion-card-content text-wrap color="dark">
+                A person who is directly or indirectly involved in the provisioning of healthcare.
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card class="round" (click)="onCardSlideClicked(roles[1])">
+              <ion-card-header class="img-center-container">
+                <img class="img-circle img-center" src="assets/img/lab.jpg" />
+              </ion-card-header>
+              <ion-card-title color="primary">
+                Organization
+              </ion-card-title>
+              <ion-card-content text-wrap color="dark">
+                A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of
+                collective action. Includes companies, institutions, corporations, departments, community groups, healthcare
+                practice groups, etc.
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+
+    <ion-slide>
+      <!--   <ion-row class="logo-row">
+    <ion-col>
+      <img src="http://placehold.it/300x200" />
+    </ion-col>
+  </ion-row> -->
+
+      <div class="login-box">
+        <form *ngIf="practitionerForm" [formGroup]="practitionerForm" (ngSubmit)="onRegister()">
+          <ion-row>
+            <ion-col>
+              <ion-list inset>
+                <ion-item-group>
+                  <ion-item-divider color="dark" text-center>Basic Info</ion-item-divider>
+                  <ion-item>
+                    <ion-label fixed>Name</ion-label>
+                    <ion-input type="text" name="name" formControlName="name"></ion-input>
+                  </ion-item>
+
+                  <!-- TODO: expand to detail multi input (e.g. phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.). -->
+                  <ion-item-group formGroupName="telecom">
+                    <ion-item-divider color="dark" text-center>Telecom Info</ion-item-divider>
+                    <ion-item>
+                      <ion-label fixed>Phone</ion-label>
+                      <ion-input type="tel" name="phone" formControlName="phone"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label fixed>Email</ion-label>
+                      <ion-input type="email" name="email" formControlName="email"></ion-input>
+                    </ion-item>
+                  </ion-item-group>
+
+                  <ion-item>
+                    <ion-label fixed>Address</ion-label>
+                    <ion-input type="text" name="address" formControlName="address"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label fixed>Gender</ion-label>
+                    <ion-select formControlName="gender">
+                      <ion-option value="male">Male</ion-option>
+                      <ion-option value="female">Female</ion-option>
+                    </ion-select>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label fixed> Date of Birth</ion-label>
+                    <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MMMM-DD" formControlName="birthDate"></ion-datetime>
+                  </ion-item>
+                </ion-item-group>
+
+                <ion-item-group formGroupName="communication">
+                  <ion-item-divider color="dark" text-center>Communication Info</ion-item-divider>
+                  <ion-item>
+                    <ion-label fixed>Language</ion-label>
+                    <ion-select formControlName="language" multiple="true">
+                      <ion-option value="english">English</ion-option>
+                      <ion-option value="arabic">Arabic</ion-option>
+                      <ion-option value="french">French</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-item-group>
+
+                <ion-item-group formGroupName="qualification">
+                  <ion-item-divider color="dark" text-center>Qualification Info</ion-item-divider>
+
+                  <ion-item>
+                    <ion-label fixed>Title</ion-label>
+                    <ion-input type="text" name="title" formControlName="title"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label fixed>Issuer</ion-label>
+                    <ion-input type="text" name="issuer" formControlName="issuer"></ion-input>
+                  </ion-item>
+
+                  <ion-item-group formGroupName="period">
+                    <ion-row>
+                      <ion-item-divider color="dark" text-center>Qualification Period</ion-item-divider>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col col-6>
+                        <ion-item>
+                          <ion-label stacked>From:</ion-label>
+                          <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MMMM-DD" formControlName="from"></ion-datetime>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-item>
+                          <ion-label stacked>To:</ion-label>
+                          <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MMMM-DD" formControlName="to"></ion-datetime>
+                        </ion-item>
+                      </ion-col>
+                    </ion-row>
+                  </ion-item-group>
+                </ion-item-group>
+
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="signup-col">
+              <button ion-button class="submit-btn" full type="submit" [disabled]="!isReadyToRegister">Register</button>
+            </ion-col>
+          </ion-row>
+        </form>
+
+        <form *ngIf="organizationForm" [formGroup]="organizationForm" (ngSubmit)="onRegister()">
+          <ion-row>
+            <ion-col>
+              <ion-list inset>
+                <ion-item-group>
+                  <ion-item-divider color="dark" text-center>Basic Info</ion-item-divider>
+
+                  <ion-item>
+                    <ion-label fixed>Type</ion-label>
+                    <ion-select formControlName="type">
+                      <ion-option value="laboratory">Laboratory</ion-option>
+                      <ion-option value="scanCenter">Scan Center</ion-option>
+                    </ion-select>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label fixed>Name</ion-label>
+                    <ion-input type="text" name="name" formControlName="name"></ion-input>
+                  </ion-item>
+
+                  <!-- TODO: expand to detail multi input (e.g. phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.). -->
+                  <ion-item-group formGroupName="telecom">
+                    <ion-item-divider color="dark" text-center>Telecom Info</ion-item-divider>
+                    <ion-item>
+                      <ion-label fixed>Phone</ion-label>
+                      <ion-input type="tel" name="phone" formControlName="phone"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label fixed>Email</ion-label>
+                      <ion-input type="email" name="email" formControlName="email"></ion-input>
+                    </ion-item>
+                  </ion-item-group>
+
+                  <ion-item>
+                    <ion-label fixed>Address</ion-label>
+                    <ion-input type="text" name="address" formControlName="address"></ion-input>
+                  </ion-item>
+                </ion-item-group>
+
+                <ion-item>
+                  <ion-label fixed>Services</ion-label>
+                  <ion-select formControlName="services" multiple="true">
+                    <ion-option value="Allied Health">Allied Health</ion-option>
+                    <ion-option value="Clinical Neuropsychologist">Clinical Neuropsychologist</ion-option>
+                    <ion-option value="Podiatry Service">Podiatry Service</ion-option>
+                    <ion-option value="Smallville Hospital Emergency Services">Smallville Hospital Emergency Services</ion-option>
+                    <ion-option value="Respite care provided at a nursing home or hostel">Respite care provided at a nursing home or hostel</ion-option>
+                    <ion-option value="24hr crisis telephone counseling service">24hr crisis telephone counseling service</ion-option>
+                    <ion-option value="Rural TeleHealth Services">Rural TeleHealth Services</ion-option>
+                    <ion-option value="Hospital in the home">Hospital in the home</ion-option>
+                    <ion-option value="Pharmacy">Pharmacy</ion-option>
+                    <ion-option value="Active Rehab">Podiatry ServiceActive Rehab</ion-option>
+                    <ion-option value="Social Support">Social Support</ion-option>
+                    <ion-option value="Drug and/or alcohol counselin">Drug and/or alcohol counselin</ion-option>
+                    <ion-option value="Day Programs, Adult Training & Support Services">Day Programs, Adult Training & Support Services</ion-option>
+                    <ion-option value="Consulting psychologists and/or psychology services">Consulting psychologists and/or psychology services</ion-option>
+                    <ion-option value="Group Hydrotherapy">Group Hydrotherapy</ion-option>
+                    <ion-option value="Little River Home Maintenance">Little River Home Maintenance</ion-option>
+                  </ion-select>
+                </ion-item>
+
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="signup-col">
+              <button ion-button class="submit-btn" full type="submit" [disabled]="!isReadyToRegister">Register</button>
+            </ion-col>
+          </ion-row>
+        </form>
+
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

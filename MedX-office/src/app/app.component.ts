@@ -1,18 +1,21 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import {ProfilePage} from '../pages/profile/profile';
+import { ProfilePage } from '../pages/profile/profile';
 //import {HistoryPage} from '../pages/history/history';
 //import {DrugsListPage} from '../pages/drugs-list/drugs-list';
 //import {CreateTestPage} from '../pages/create-test/create-test'; 
-import {PatientListPage} from '../pages/patient-list/patient-list'; 
+import { PatientListPage } from '../pages/patient-list/patient-list';
+import { RegisterPage } from '../pages/register/register';
 
 import { UserData } from '../providers/user-data';
+import { LoginPage } from '../pages/login/login';
 
 // the next declaration is for test templates from json file
 declare var require: any
@@ -40,12 +43,12 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    
-    { title: 'Patients', name: 'PatientListPage', component: PatientListPage , icon: 'people' },
+
+    { title: 'Patients', name: 'PatientListPage', component: PatientListPage, icon: 'people' },
     //{ title: 'History Page', name: 'HistoryPage', component: HistoryPage , icon: 'information-circle' },
     //{ title: 'Drugs List' , name: 'DrugsListPage',component: DrugsListPage , icon: 'information-circle'},
     //{ title: 'Create New Test' , name: 'CreateTestPage' , component: CreateTestPage , icon: 'information-circle'},
-    { title: 'Profile', name: 'ProfilePage', component: ProfilePage , icon: 'person' },
+    { title: 'Profile', name: 'ProfilePage', component: ProfilePage, icon: 'person' },
   ];
   loggedInPages: PageInterface[] = [
   ];
@@ -59,7 +62,8 @@ export class ConferenceApp {
     public menu: MenuController,
     public platform: Platform,
     public storage: Storage,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public statusBar: StatusBar,
   ) {
 
     // Check if the user has already seen the tutorial
@@ -74,16 +78,10 @@ export class ConferenceApp {
         this.platformReady()
       });
 */
-      this.rootPage = PatientListPage;
 
-    // decide which menu items should be hidden by current login status stored in local storage
-    this.userData.hasLoggedIn().then((hasLoggedIn) => {
-      this.enableMenu(hasLoggedIn === true);
-    });
-    this.enableMenu(true);
+    this.platformReady();
 
-    this.listenToLoginEvents();
-
+    this.rootPage = LoginPage;
 
     // reading test template from json
     var bloodTest = require('../json-templates/bloodTest.json');
@@ -116,39 +114,20 @@ export class ConferenceApp {
         console.log(`Didn't set nav root: ${err}`);
       });
     }
+  }
 
-    if (page.logsOut === true) {
-      // Give the menu time to close before changing to logged out
-      this.userData.logout();
-    }
+  openLoginPage() {
+    this.nav.setRoot(LoginPage);
   }
 
   openTutorial() {
     this.nav.setRoot(TutorialPage);
   }
 
-  listenToLoginEvents() {
-    this.events.subscribe('user:login', () => {
-      this.enableMenu(true);
-    });
-
-    this.events.subscribe('user:signup', () => {
-      this.enableMenu(true);
-    });
-
-    this.events.subscribe('user:logout', () => {
-      this.enableMenu(false);
-    });
-  }
-
-  enableMenu(loggedIn: boolean) {
-    this.menu.enable(loggedIn, 'loggedInMenu');
-    this.menu.enable(!loggedIn, 'loggedOutMenu');
-  }
-
   platformReady() {
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }

@@ -15,6 +15,8 @@ import { HistoryPage } from '../history/history';
   templateUrl: 'patient-list.html',
 })
 export class PatientListPage {
+  profileData: any;
+
   patients = [
     {
       photo: ["http://www.concordrusam.com/wp-content/uploads/2017/10/pro.jpg"],
@@ -53,6 +55,7 @@ export class PatientListPage {
     }
   ];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.profileData = this.navParams.get('data'); // data from the register form
   }
 
   ionViewDidLoad() {

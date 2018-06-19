@@ -1,14 +1,15 @@
 {
-  "name": "ionic-conference-app",
-  "version": "0.0.0",
-  "description": "Ionic Conference App",
+  "name": "MedX-office",
+  "version": "1.0.0",
+  "description": "A MedX demo project",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/ionic-conference-app.git"
+    "url": "https://github.com/MarcWafik/MedX.git"
   },
   "scripts": {
     "build": "ionic-app-scripts build",
+    "serve": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "npm run build",
@@ -25,28 +26,30 @@
     "@angular/platform-browser": "5.0.0",
     "@angular/platform-browser-dynamic": "5.0.0",
     "@ionic-native/core": "^4.3.1",
-    "@ionic-native/in-app-browser": "^4.3.1",
+    "@ionic-native/image-picker": "^4.7.0",
     "@ionic-native/splash-screen": "^4.3.1",
     "@ionic-native/status-bar": "^4.3.1",
     "@ionic/storage": "2.1.3",
-    "cordova-android": "7.1.0",
+    "chart.js": "^2.7.2",
+    "cordova-android": "^7.1.0",
+    "cordova-browser": "5.0.3",
     "cordova-ios": "^4.5.2",
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-googledrive": "git+https://github.com/AbdelrhmanAbdelhamed/cordova-plugin-googledrive.git",
-    "cordova-plugin-inappbrowser": "^1.7.2",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
-    "ionic-angular": "3.9.2",
+    "ionic-angular": "^3.9.2",
     "ionicons": "3.0.0",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.18"
+    "zone.js": "0.8.18",
+    "cordova-plugin-inappbrowser": "^1.7.1"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "3.1.5",
+    "@ionic/app-scripts": "^3.1.10",
     "typescript": "~2.4.2"
   },
   "config": {
@@ -54,18 +57,19 @@
   },
   "cordova": {
     "platforms": [
+      "browser",
       "android",
       "ios"
     ],
     "plugins": {
       "cordova-plugin-device": {},
-      "cordova-plugin-inappbrowser": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-googledrive": {}
+      "cordova-plugin-googledrive": {},
+      "cordova-plugin-inappbrowser": {}
     }
   }
 }

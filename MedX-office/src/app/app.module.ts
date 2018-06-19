@@ -4,8 +4,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -14,7 +14,7 @@ import { GoogleDrive } from '../providers/google-drive';
 import { ConferenceApp } from './app.component';
 
 import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
+import { RegisterPage } from '../pages/register/register';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { ListTemplatesPage } from '../pages/list-templates/list-templates';
 import { ChooseTemplatePage } from '../pages/choose-template/choose-template';
@@ -36,7 +36,7 @@ import { ResourcesProvider } from '../providers/resources/resources';
   declarations: [
     ConferenceApp,
     LoginPage,
-    SignupPage,
+    RegisterPage,
     TutorialPage,
     ListTemplatesPage,
     ChooseTemplatePage,
@@ -58,7 +58,7 @@ import { ResourcesProvider } from '../providers/resources/resources';
         { component: PatientListPage, name: 'PatientListPage', segment: 'patients'},
         { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
-        { component: SignupPage, name: 'SignupPage', segment: 'signup' },
+        { component: RegisterPage, name: 'RegisterPage', segment: 'register' },
         { component: ListTemplatesPage, name: 'ListTemplatesPage', segment: 'ListTemplates' },
         { component: ChooseTemplatePage, name: 'ChooseTemplatePage', segment: 'ChooseTemplatePage' },
         { component: TemplatePage, name: 'TemplatePage', segment: 'TemplatePage' },
@@ -77,7 +77,7 @@ import { ResourcesProvider } from '../providers/resources/resources';
   entryComponents: [
     ConferenceApp,
     LoginPage,
-    SignupPage,
+    RegisterPage,
     TutorialPage,
     ListTemplatesPage,
     ChooseTemplatePage,
@@ -94,8 +94,8 @@ import { ResourcesProvider } from '../providers/resources/resources';
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserData,
-    InAppBrowser,
     SplashScreen,
+    StatusBar,
     ResourcesProvider,
     GoogleDrive
   ]

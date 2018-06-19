@@ -36,10 +36,10 @@ export class UserData {
     this.events.publish('user:login');
   };
 
-  signup(username: string): void {
+  register(username: string): void {
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.setUsername(username);
-    this.events.publish('user:signup');
+    this.events.publish('user:register');
   };
 
   logout(): void {

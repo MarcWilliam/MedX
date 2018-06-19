@@ -1,34 +1,75 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NavController, MenuController, AlertController, LoadingController, Loading, IonicPage, ModalController } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { RegisterPage } from '../register/register';
+import { PatientListPage } from '../patient-list/patient-list';
 
-import { NavController } from 'ionic-angular';
-
-import { UserData } from '../../providers/user-data';
-
-import { UserOptions } from '../../interfaces/user-options';
-
-import { SignupPage } from '../signup/signup';
-
-
+@IonicPage()
 @Component({
-  selector: 'page-user',
-  templateUrl: 'login.html'
+  selector: 'page-login',
+  templateUrl: 'login.html',
 })
 export class LoginPage {
-  login: UserOptions = { username: '', password: '' };
-  submitted = false;
+  loginForm: FormGroup;
+  isReadyToLogin: boolean;
+  loading: Loading;
+  loginCredentials = { email: '', password: '' };
 
-  constructor(public navCtrl: NavController, public userData: UserData) { }
+  constructor(
+    private nav: NavController,
+    private formBuilder: FormBuilder,
+    private alertCtrl: AlertController,
+    private loadingCtrl: LoadingController,
+    public modalCtrl: ModalController,
+    public menu: MenuController) {
 
-  onLogin(form: NgForm) {
-    this.submitted = true;
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    });
 
-    if (form.valid) {
-      this.userData.login(this.login.username);
-    }
+    this.loginForm.valueChanges.subscribe(() => {
+      this.isReadyToLogin = this.loginForm.valid;
+    });
   }
 
-  onSignup() {
-    this.navCtrl.push(SignupPage);
+  public onCreateAccount() {
+    this.nav.push(RegisterPage);
   }
+
+  public onLogin() {
+    this.showLoading();
+    this.nav.setRoot(PatientListPage);
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
+  }
+
+  showError(text) {
+    this.loading.dismiss();
+
+    let alert = this.alertCtrl.create({
+      title: 'Fail',
+      subTitle: text,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  ionViewWillEnter() {
+    this.menu.enable(false);
+    this.menu.swipeEnable(false);
+  }
+
+  ionViewWillLeave() {
+    this.menu.enable(true);
+    this.menu.swipeEnable(true);
+  }
+
+
 }

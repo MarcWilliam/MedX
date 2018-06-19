@@ -143,9 +143,9 @@ ionic-conference-app/
 │    │    │    ├── session-detail.html   * SessionDetailPage template
 │    │    │    └── session-detail.ts     * SessionDetailPage code
 │    │    │
-│    │    │── signup/                    * Signup page
-│    │    │    ├── signup.html           * SignupPage template
-│    │    │    └── signup.ts             * SignupPage code
+│    │    │── register/                    * register page
+│    │    │    ├── register.html           * RegisterPage template
+│    │    │    └── register.ts             * RegisterPage code
 │    │    │
 │    │    │── speaker-detail/            * Speaker Detail page
 │    │    │    ├── speaker-detail.html   * SpeakerDetailPage template
