@@ -1,28 +1,18 @@
 page-office-visits {
-    .headerIcon-open {
-        font-size: 3.0em;
-        float: right;
-        color: #000000;
-    }
-    .headerIcon {
-        font-size: 3.0em;
-        float: right;
+  
+    .data-item{
+        line-height: 30px;
 
-    }
-    .submitButtonWrapper{
-        padding: 8px;
-    }
-    .card-header-md {
-        font-size: 1.6rem;
-        color: #000000;
-        padding: 0px;
-        background-color: #eef1f0;
-    
-    }
-    .cardContent{
-        padding: 10px
-    }
-    .headerButton{
-        float: right;
+        :first-child {
+            width:100px;
+            margin-right: 10px;
+            color: #747474;
+            text-align: end;
+        }
+        
+        :last-child {
+
+        }
+
     }
 }
