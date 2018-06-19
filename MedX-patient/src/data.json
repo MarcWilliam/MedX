@@ -1,0 +1,89 @@
+[{
+  "meds": [{
+    "json": {
+      "resourceType": "MedicationRequest",
+      "status": "Active",
+      "intent": "Proposal",
+      "subject": "PatientID",
+      "authoredOn": "Tue Jun 19 2018 03:12:14 GMT+0200 (Eastern European Standard Time)",
+      "requester": "DoctorID",
+      "reasonReference": "PatientCondition/Observation",
+      "medicationReference": {
+        "refrance": "panadol"
+      },
+      "dosageInstruction": [{
+        "resourceType": "Dosage",
+        "sequence": 1,
+        "patientInstruction": "take a pill tow times a day",
+        "timing": {
+          "repeat": {
+            "frequency": "2",
+            "period": "12",
+            "periodMax": "12",
+            "periodUnit": "h"
+          }
+        },
+        "method": {
+          "coding": [{
+            "system": "http://snomed.info/sct",
+            "code": "421521009",
+            "display": "Swallow"
+          }],
+          "display": "swallow"
+        }
+      }]
+    },
+    "expand": true
+  }, {
+    "json": {
+      "resourceType": "MedicationRequest",
+      "status": "Active",
+      "intent": "Proposal",
+      "subject": "PatientID",
+      "authoredOn": "Tue Jun 19 2018 03:12:14 GMT+0200 (Eastern European Standard Time)",
+      "requester": "DoctorID",
+      "reasonReference": "PatientCondition/Observation",
+      "medicationReference": {
+        "refrance": "cataflam"
+      },
+      "dosageInstruction": [{
+        "resourceType": "Dosage",
+        "sequence": 1,
+        "patientInstruction": "take a pill three times a day",
+        "timing": {
+          "repeat": {
+            "frequency": "2",
+            "period": "12",
+            "periodMax": "12",
+            "periodUnit": "h"
+          }
+        },
+        "method": {
+          "coding": [{
+            "system": "http://snomed.info/sct",
+            "code": "421521009",
+            "display": "Swallow"
+          }],
+          "display": "swallow"
+        }
+      }]
+    },
+    "expand": true
+  }]
+}, {
+  "proc": []
+}, {
+  "tests": [{
+    "json": {
+      "resourceType": "ProcedureRequest",
+      "identifier": "1",
+      "definition": "Blood Test",
+      "authoredOn": "Tue Jun 19 2018 03:12:16 GMT+0200 (Eastern European Standard Time)",
+      "subject": "",
+      "performer": "",
+      "occurrenceDateTime": "",
+      "context": "full Blood image Test"
+    },
+    "expand": true
+  }]
+}]
