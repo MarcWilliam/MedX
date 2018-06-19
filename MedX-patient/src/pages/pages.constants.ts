@@ -7,3 +7,4 @@ export const REGISTER_PAGE = 'RegisterPage';
 export const LOGIN_PAGE = 'LoginPage';
 export const SCANNER_PAGE = 'ScannerPage';
 export const RECORD_LIST_PAGE = 'RecordListPage';
+export const PROFILE_PAGE = 'ProfilePage';
