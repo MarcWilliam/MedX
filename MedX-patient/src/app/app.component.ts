@@ -39,7 +39,7 @@ export class PatientApp {
     { title: 'Summary', name: SUMMARY_PAGE, component: SUMMARY_PAGE, tabComponent: SUMMARY_PAGE, index: 1, icon: 'pulse' },
     { title: 'Records', name: OFFICE_VISITS_PAGE, component: OFFICE_VISITS_PAGE, tabComponent: OFFICE_VISITS_PAGE, index: 2, icon: 'clipboard' },
     //{ title: 'Records', name: RECORD_LIST_PAGE, component: RECORD_LIST_PAGE, tabComponent: RECORD_LIST_PAGE, index: 3, icon: 'medkit' }
-    { title: 'Access', name: 'ProvidersPage', component: PROVIDERS_PAGE, tabComponent: PROVIDERS_PAGE, index: 3, icon: 'key' }
+    { title: 'Access', name: PROVIDERS_PAGE, component: PROVIDERS_PAGE, tabComponent: PROVIDERS_PAGE, index: 3, icon: 'key' }
   ];
   rootPage: any;
 
@@ -87,7 +87,7 @@ export class PatientApp {
       return;
     }
 
-    if (this.nav.getActive() && this.nav.getActive().name === page.name) {
+    if (this.nav.getActive() && this.nav.getActive().id === page.name) {
       return color;
     }
     return;

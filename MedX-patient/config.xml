@@ -99,5 +99,5 @@
     <plugin name="com-badrit-base64" spec="^0.2.0" />
     <engine name="ios" spec="^4.5.2" />
     <engine name="android" spec="^7.1.0" />
-    <engine name="browser" spec="5.0.3" />
+    <engine name="browser" spec="^5.0.3" />
 </widget>
