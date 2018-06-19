@@ -17,19 +17,19 @@
 
   <ion-list no-lines *ngIf="this.medications.meds.length>0">
     <ion-card *ngFor="let medication of  this.medications.meds;let i = index">
-      <ion-card-header class="medHeader">
+      <ion-card-header class="medHeader" (tap)="expand(0,i)">
         <ion-row>
           <ion-col>
-            <ion-label>medicines : {{this.medications.meds[i].json.medicationReference.refrance}}</ion-label>
+            <ion-label>Medicine : {{this.medications.meds[i].json.medicationReference.refrance}}</ion-label>
           </ion-col>
           <ion-col *ngIf="!this.medications.meds[i].expand">
-            <button ion-button  icon-only clear class="headerButton" (tap)="expand(0,i)">
-              <ion-icon color="primary" class="headerIcon" name="arrow-dropleft"></ion-icon>
+            <button ion-button  icon-only clear class="headerButton" >
+              <ion-icon  class="headerIcon" name="ios-arrow-back"></ion-icon>
             </button>
           </ion-col>
           <ion-col *ngIf="this.medications.meds[i].expand">
-            <button ion-button  icon-only clear class="headerButton" (tap)="expand(0,i)">
-              <ion-icon color="primary" class="headerIcon" name="arrow-dropdown"></ion-icon>
+            <button ion-button  icon-only clear class="headerButton" >
+              <ion-icon  class="headerIcon-open" name="ios-arrow-down"></ion-icon>
             </button>
           </ion-col>
         </ion-row>
@@ -58,6 +58,87 @@
     </ion-card>
   </ion-list>
 
+  <ion-list no-lines *ngIf="this.procedures.proc.length>0">
+    <ion-card *ngFor="let procedure of this.procedures.proc ; let j = index">
+
+            <ion-card-header class="medHeader" (tap)="expand(1,j)">
+                    <ion-row>
+                      <ion-col>
+                        <ion-label>Surgery : {{this.procedures.proc[j].json.definition}}</ion-label>
+                      </ion-col>
+                      <ion-col *ngIf="!this.procedures.proc[j].expand">
+                        <button ion-button  icon-only clear class="headerButton" >
+                          <ion-icon class="headerIcon" name="ios-arrow-back"></ion-icon>
+                        </button>
+                      </ion-col>
+                      <ion-col *ngIf="this.procedures.proc[j].expand">
+                        <button ion-button  icon-only clear class="headerButton" >
+                          <ion-icon class="headerIcon-open" name="ios-arrow-down"></ion-icon>
+                        </button>
+                      </ion-col>
+                    </ion-row>
+            
+                  </ion-card-header>
+
+
+                  <div class="cardContent" *ngIf="this.procedures.proc[j].expand">
+                        <ion-label color="primary" stacked>Surgery ID</ion-label>
+                        <ion-input [(ngModel)]="this.procedures.proc[j].json.identifier" placeholder="Surgery ID"></ion-input>
+                        <ion-label color="primary" stacked>Surgery Name</ion-label>
+                        <ion-input [(ngModel)]="this.procedures.proc[j].json.definition"  placeholder="Surgery Name"></ion-input>
+                        <ion-label color="primary" stacked>Surgery description</ion-label>
+                        <ion-input [(ngModel)]="this.procedures.proc[j].json.context"  placeholder="Surgery context"></ion-input>
+                        <button class="headerButton" ion-button icon-only clear (tap)="removeElement(1,j)">
+                                <ion-icon style="color: red" name="ios-trash-outline"></ion-icon>
+                              </button>
+                    </div>
+
+
+
+    </ion-card>
+  </ion-list>
+
+
+  <ion-list no-lines *ngIf="this.test.tests.length>0">
+        <ion-card *ngFor="let t of this.test.tests ; let j = index">
+    
+                <ion-card-header class="medHeader" (tap)="expand(2,j)">
+                        <ion-row>
+                          <ion-col>
+                            <ion-label>Test : {{this.test.tests[j].json.definition}}</ion-label>
+                          </ion-col>
+                          <ion-col *ngIf="!this.test.tests[j].expand">
+                            <button ion-button  icon-only clear class="headerButton" >
+                              <ion-icon  class="headerIcon" name="ios-arrow-back"></ion-icon>
+                            </button>
+                          </ion-col>
+                          <ion-col *ngIf="this.test.tests[j].expand">
+                            <button ion-button  icon-only clear class="headerButton" >
+                              <ion-icon  class="headerIcon-open" name="ios-arrow-down"></ion-icon>
+                            </button>
+                          </ion-col>
+                        </ion-row>
+                
+                      </ion-card-header>
+    
+    
+                      <div class="cardContent" *ngIf="this.test.tests[j].expand">
+                            <ion-label color="primary" stacked>Test ID</ion-label>
+                            <ion-input [(ngModel)]="this.test.tests[j].json.identifier" placeholder="test ID"></ion-input>
+                            <ion-label color="primary" stacked>Test Name</ion-label>
+                            <ion-input [(ngModel)]="this.test.tests[j].json.definition"  placeholder="Test Name"></ion-input>
+                            <ion-label color="primary" stacked>Test description</ion-label>
+                            <ion-input [(ngModel)]="this.test.tests[j].json.context"  placeholder="Test context"></ion-input>
+                            <button class="headerButton" ion-button icon-only clear (tap)="removeElement(2,j)">
+                                    <ion-icon style="color: red" name="ios-trash-outline"></ion-icon>
+                                  </button>
+                        </div>
+    
+    
+    
+        </ion-card>
+      </ion-list>
+
 
 
 <div class="submitButtonWrapper">
@@ -75,7 +156,14 @@
         <ion-label>medicines</ion-label>
         <ion-icon name="ios-create"></ion-icon>
       </button>
-
+      <button ion-fab (click)="addElement(1)">
+            <ion-label>Surgery Request</ion-label>
+            <ion-icon name="ios-create"></ion-icon>
+          </button>
+          <button ion-fab (click)="addElement(2)">
+                <ion-label>Test Request</ion-label>
+                <ion-icon name="ios-create"></ion-icon>
+          </button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>
