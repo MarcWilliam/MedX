@@ -20,19 +20,9 @@
     <ion-content class="outer-content">
       <ion-list>
         <ion-list-header>
-          Basics Info
-        </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)" [color]="isActive(p,'light')">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-          <p ion-text [color]="isActive(p)">{{p.title}}</p>
-        </button>
-      </ion-list>
-
-      <ion-list>
-        <ion-list-header>
           Navigate
         </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of navPages" (click)="openPage(p)" [color]="isActive(p,'light')">
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)" [color]="isActive(p,'light')">
           <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
           <p ion-text [color]="isActive(p)">{{p.title}}</p>
         </button>

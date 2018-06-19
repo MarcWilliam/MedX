@@ -12,7 +12,6 @@ import { ProfilePage } from '../pages/profile/profile';
 //import {DrugsListPage} from '../pages/drugs-list/drugs-list';
 //import {CreateTestPage} from '../pages/create-test/create-test'; 
 import { PatientListPage } from '../pages/patient-list/patient-list';
-import { RegisterPage } from '../pages/register/register';
 
 import { UserData } from '../providers/user-data';
 import { LoginPage } from '../pages/login/login';
