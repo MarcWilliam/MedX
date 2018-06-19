@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams  } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
-//import {HistoryPage} from '../history/history';
+import { ToastController } from 'ionic-angular';
+import {HistoryPage} from '../history/history';
 
 /**
  * Generated class for the PrescriptionPage page.
@@ -27,7 +27,7 @@ export class PrescriptionPage {
 
   public test = { tests: [] };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams , public storage : Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams , public storage : Storage , public toastCtrl : ToastController) {
     
     this.medications = { meds: new Array() };
     this.procedures = { proc: new Array() };
@@ -39,7 +39,19 @@ export class PrescriptionPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrescriptionPage');
   }
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'prescription Created',
+      duration: 2000,
+      position: 'middle'
+    });
 
+    toast.onDidDismiss(() => {
+      this.navCtrl.setRoot(HistoryPage);
+    });
+  
+    toast.present();
+  }
 
   expand(id, index) {
     if (id == 0) {
@@ -112,8 +124,8 @@ export class PrescriptionPage {
     this.all[1]=this.procedures
     this.all[2]=this.test
     this.storage.set("Records",this.all);
-    alert("prescription Created");
-    //this.navCtrl.pop();
+    this.presentToast();
+  
     console.log(this.all)
   }
 
