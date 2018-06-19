@@ -52,6 +52,20 @@
         </ion-item>
       </div>
 
+      <ion-item>
+        <ion-label>Category:</ion-label>
+        <ion-select [(ngModel)]="selected" formControlName="category" (ionChange)="onSelectChange($event)">
+          <ion-option *ngFor="let category of categories" [value] = "category">{{category}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sub category:</ion-label>
+        <ion-select formControlName="subCategory">
+          <ion-option *ngFor="let sub of subCtegories" [value] = "sub">{{sub}}</ion-option>
+        </ion-select>
+      </ion-item>
+
       <div formGroupName="media">
         <ion-item>
           <ion-label>Youtube:</ion-label>
@@ -82,7 +96,7 @@
 
       <br>
       <br>
-      <button [disabled]="!queriesForm.valid" (click)='showConfirm()' ion-button end>Publish</button>
+      <button [disabled]="!queriesForm.valid" (click)='showConfirm()' ion-button end>Save</button>
     </ion-list>
   </form>
 </ion-content>

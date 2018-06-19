@@ -18,15 +18,21 @@ export class StorePage {
     public modalCtrl: ModalController,
     public popoverCtrl: PopoverController,
     private db: DatabaseProvider
-  ) { }
+  ) {
+
+  }
 
   ionViewDidLoad() {
+    this.db.get(`queries`)
+      .then((res) => {
+        this.queries = res;
+      });
   }
 
   presentPopover(myEvent) {
     let popoverData = {
-      callback: (category) => {
-        this.db.getByCategory(`queries`, category)
+      callback: (category, subCategory) => {
+        this.db.getByCategory(`queries`, category, subCategory)
           .then((res) => {
             this.queries = res;
           });
