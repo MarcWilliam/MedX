@@ -11,15 +11,14 @@
 </ion-header>
 
 <ion-content>
-  <img width="100%" [src]="query.media.main" />
+  <img class="mainImg" [src]="query.media.main" />
   <ion-card-content>
     <ion-note>by </ion-note> {{query.developer}}
     <p>{{query.description}}</p>
   </ion-card-content>
 
-  
-      <button ion-button (click)='showConfirm(query)' style="position: absolute; bottom: 15px;right: 15px;">
-        {{from}}
-      </button>
-  
+  <button ion-button (click)='showConfirm(query)' style="position: absolute; bottom: 15px;right: 15px;">
+    {{from}}
+  </button>
+
 </ion-content>

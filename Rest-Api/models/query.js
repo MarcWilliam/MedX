@@ -22,6 +22,13 @@ module.exports = class Query {
         return docs;
     }
 
+    static async getByCategory(category, subCategory) {
+        let db = await database.getConnection();
+        let collection = db.collection(table);
+        let docs = (await collection.find({ category: category, subCategory: subCategory }).toArray());
+        return docs;
+    }
+
     static async post(param) {
         let db = await database.getConnection();
         

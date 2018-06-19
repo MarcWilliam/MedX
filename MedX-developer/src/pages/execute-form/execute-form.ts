@@ -20,6 +20,7 @@ export class ExecuteFormPage {
     private formBuilder: FormBuilder
   ) {
     this.query = this.navParams.get("query");
+    this.query.cost = 5;
   }
 
   ngOnInit() {
@@ -53,7 +54,7 @@ export class ExecuteFormPage {
   execute(query) {
     let confirm = this.alertCtrl.create({
       title: `Execute this query?`,
-      message: `This service will cost you ${this.query.cost} LE`,
+      message: `This service will cost you ${this.query.cost}$`,
       buttons: [
         {
           text: 'Ok',

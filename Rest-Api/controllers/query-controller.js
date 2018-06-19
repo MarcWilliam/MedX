@@ -12,6 +12,10 @@ module.exports = class QueryController {
         response.send(await Query.getById(request.params.id));
     }
 
+    static async findByCategory(request, response) {
+        response.send(await Query.getByCategory(request.params.category, request.params.subCategory));
+    }
+
     static async add(request, response) {
         (await Query.post(request.body));
     }

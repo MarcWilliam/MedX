@@ -7,6 +7,9 @@ import { QueryService } from '../../services/queries.service';
 import { QueryValidator } from '../../validators/query';
 import { PublishedQueriesPage } from '../published-queries/published-queries';
 
+declare var require: any;
+var CATEGORIES = require('../new/categories.json');
+
 @IonicPage()
 @Component({
   selector: 'page-edit-query',
@@ -14,9 +17,11 @@ import { PublishedQueriesPage } from '../published-queries/published-queries';
 })
 export class EditQueryPage {
   private url = "http://localhost:8064/api/queries";
+  private categories:any = [];
+  private subCtegories: any = [];
   queriesForm: FormGroup;
   query: any;
-
+  
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
@@ -25,6 +30,8 @@ export class EditQueryPage {
     public navParams: NavParams,
   ) { 
     this.query = this.navParams.get("query");
+    this.categories = CATEGORIES['categories'];
+    this.subCtegories = CATEGORIES[this.query.category];
   }
 
   ngOnInit() {
@@ -48,6 +55,8 @@ export class EditQueryPage {
       ])
       ],
       params: this.formBuilder.array([]),
+      category: this.query.category,
+      subCategory: this.query.subCategory,
       media: this.formBuilder.group({
         video: this.query.media.video,
         main: this.query.media.main,

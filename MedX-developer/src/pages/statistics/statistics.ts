@@ -33,9 +33,9 @@ export class StatisticsPage {
         this.lineChart = new Chart(this.lineCanvas.nativeElement, {
             type: 'line',
             data: {
-                labels: [2003, 2004, 2005, 2006, 2007],
+                labels: [2012, 2013, 2014, 2015, 2016],
                 datasets: [{
-                    label: 'Spendeng on drug development',
+                    label: this.obj.name,
                     data: this.obj.result,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)'
@@ -60,9 +60,9 @@ export class StatisticsPage {
         this.barChart = new Chart(this.barCanvas.nativeElement, {
             type: 'bar',
             data: {
-                labels: [2003, 2004, 2005, 2006, 2007],
+                labels: [2012, 2013, 2014, 2015, 2016],
                 datasets: [{
-                    label: 'Spendeng on drug development',
+                    label: this.obj.name,
                     data: this.obj.result,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -96,9 +96,9 @@ export class StatisticsPage {
         this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
             type: 'doughnut',
             data: {
-                labels: [2003, 2004, 2005, 2006, 2007],
+                labels: [2012, 2013, 2014, 2015, 2016],
                 datasets: [{
-                    label: 'Spendeng on drug development',
+                    label: this.obj.name,
                     data: this.obj.result,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.4)',
