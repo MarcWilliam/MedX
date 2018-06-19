@@ -48,6 +48,8 @@ export class ConferenceApp {
     //{ title: 'Drugs List' , name: 'DrugsListPage',component: DrugsListPage , icon: 'information-circle'},
     //{ title: 'Create New Test' , name: 'CreateTestPage' , component: CreateTestPage , icon: 'information-circle'},
     { title: 'Profile', name: 'ProfilePage', component: ProfilePage, icon: 'person' },
+    { title: 'Log out', name: 'LoginPage', component: LoginPage, index: 5, icon: 'log-out' }
+
   ];
   loggedInPages: PageInterface[] = [
   ];

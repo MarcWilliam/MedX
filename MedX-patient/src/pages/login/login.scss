@@ -1,12 +1,15 @@
 page-login {
   .login-content {
     background: color($colors, primary);
+    background-image: url('/assets/img/background-login.jpg');
+    background-size: cover;
+    background-position: center center;
     .logo-row {
       padding-top: 50px;
       padding-bottom: 20px;
     }
     .login-box {
-      background: #23b6ea;
+      /*background: #238aea;;*/
       padding: 20px 20px 0px 20px;
       margin-top: 10px;
       margin:0 auto;
