@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { testForms } from '../../interfaces/test-form';
 
+import { ToastController } from 'ionic-angular';
+import {HistoryPage} from '../history/history'; 
 
 
 /**
@@ -34,7 +36,7 @@ export class TemplatePage {
   public test :testForms  ;
 
   public submitted = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl : ToastController) {
     this.test = this.navParams.get('Test');
     
     console.log(this.test);
@@ -44,12 +46,27 @@ export class TemplatePage {
     console.log('ionViewDidLoad TemplatePage');
   }
 
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Test Comleted',
+      duration: 2000,
+      position: 'middle'
+    });
+
+    toast.onDidDismiss(() => {
+      this.navCtrl.setRoot(HistoryPage);
+    });
+  
+    toast.present();
+  }
+
+
   submitRequest(requestForm: NgForm){
     this.submitted = true;
     if(requestForm.valid){
       console.log(JSON.stringify(this.test));
-      alert("Test Comleted");
-        this.navCtrl.pop();
+     this.presentToast();
+        
     }
     
   }
