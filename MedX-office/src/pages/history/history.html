@@ -231,7 +231,127 @@
         <ion-list *ngSwitchCase="'record'">
 
             <ion-searchbar></ion-searchbar>
+             <div *ngIf="hasRecords">
+            <ion-list no-lines *ngIf="this.medications.meds.length>0">
+                <ion-card *ngFor="let medication of  this.medications.meds;let i = index">
+                  <ion-card-header class="medHeader" (tap)="expand(0,i)">
+                    <ion-row>
+                      <ion-col>
+                        <ion-label>Medicine : {{this.medications.meds[i].json.medicationReference.refrance}}</ion-label>
+                      </ion-col>
+                      <ion-col *ngIf="!this.medications.meds[i].expand">
+                        <button ion-button  icon-only clear class="headerButton" >
+                          <ion-icon  class="headerIcon" name="ios-arrow-back"></ion-icon>
+                        </button>
+                      </ion-col>
+                      <ion-col *ngIf="this.medications.meds[i].expand">
+                        <button ion-button  icon-only clear class="headerButton" >
+                          <ion-icon  class="headerIcon-open" name="ios-arrow-down"></ion-icon>
+                        </button>
+                      </ion-col>
+                    </ion-row>
+            
+                  </ion-card-header>
+                  <div class="cardContent" *ngIf="this.medications.meds[i].expand">
+                    <ion-label color="primary" stacked>medicines name/ID</ion-label>
+                    <ion-input [(ngModel)]="this.medications.meds[i].json.medicationReference.refrance" [readonly]="true" ></ion-input>
+                    <ion-label color="primary" stacked>method</ion-label>
+                    <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].method.display"[readonly]="true" ></ion-input>
+                    <ion-label color="primary" stacked>Instruction</ion-label>
+                    <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].patientInstruction" [readonly]="true" ></ion-input>
+                    <ion-label color="primary" stacked>frequency</ion-label>
+                    <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.frequency"[readonly]="true" ></ion-input>
+                    <ion-label color="primary" stacked>period</ion-label>
+                    <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.period" [readonly]="true" ></ion-input>
+                    <ion-label color="primary" stacked>periodMax</ion-label>
+                    <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.periodMax" [readonly]="true" ></ion-input>
+                    <ion-label color="primary" stacked>periodUnit</ion-label>
+                    <ion-input [(ngModel)]="this.medications.meds[i].json.dosageInstruction[0].timing.repeat.periodUnit" [readonly]="true" ></ion-input>
+                    
+                </div>
+                  
+                </ion-card>
+              </ion-list>
 
+              <ion-list no-lines *ngIf="this.procedures.proc.length>0">
+                <ion-card *ngFor="let procedure of this.procedures.proc ; let j = index">
+            
+                        <ion-card-header class="medHeader" (tap)="expand(1,j)">
+                                <ion-row>
+                                  <ion-col>
+                                    <ion-label>Surgery : {{this.procedures.proc[j].json.definition}}</ion-label>
+                                  </ion-col>
+                                  <ion-col *ngIf="!this.procedures.proc[j].expand">
+                                    <button ion-button  icon-only clear class="headerButton" >
+                                      <ion-icon class="headerIcon" name="ios-arrow-back"></ion-icon>
+                                    </button>
+                                  </ion-col>
+                                  <ion-col *ngIf="this.procedures.proc[j].expand">
+                                    <button ion-button  icon-only clear class="headerButton" >
+                                      <ion-icon class="headerIcon-open" name="ios-arrow-down"></ion-icon>
+                                    </button>
+                                  </ion-col>
+                                </ion-row>
+                        
+                              </ion-card-header>
+            
+            
+                              <div class="cardContent" *ngIf="this.procedures.proc[j].expand">
+                                    <ion-label color="primary" stacked>Surgery ID</ion-label>
+                                    <ion-input [(ngModel)]="this.procedures.proc[j].json.identifier"[readonly]="true"></ion-input>
+                                    <ion-label color="primary" stacked>Surgery Name</ion-label>
+                                    <ion-input [(ngModel)]="this.procedures.proc[j].json.definition"  [readonly]="true"></ion-input>
+                                    <ion-label color="primary" stacked>Surgery description</ion-label>
+                                    <ion-input [(ngModel)]="this.procedures.proc[j].json.context"  [readonly]="true"></ion-input>
+                                   
+                                </div>
+            
+            
+            
+                </ion-card>
+              </ion-list>
+
+
+              <ion-list no-lines *ngIf="this.test.tests.length>0">
+                <ion-card *ngFor="let t of this.test.tests ; let j = index">
+            
+                        <ion-card-header class="medHeader" (tap)="expand(2,j)">
+                                <ion-row>
+                                  <ion-col>
+                                    <ion-label>Test : {{this.test.tests[j].json.definition}}</ion-label>
+                                  </ion-col>
+                                  <ion-col *ngIf="!this.test.tests[j].expand">
+                                    <button ion-button  icon-only clear class="headerButton" >
+                                      <ion-icon  class="headerIcon" name="ios-arrow-back"></ion-icon>
+                                    </button>
+                                  </ion-col>
+                                  <ion-col *ngIf="this.test.tests[j].expand">
+                                    <button ion-button  icon-only clear class="headerButton" >
+                                      <ion-icon  class="headerIcon-open" name="ios-arrow-down"></ion-icon>
+                                    </button>
+                                  </ion-col>
+                                </ion-row>
+                        
+                              </ion-card-header>
+            
+            
+                              <div class="cardContent" *ngIf="this.test.tests[j].expand">
+                                    <ion-label color="primary" stacked>Test ID</ion-label>
+                                    <ion-input [(ngModel)]="this.test.tests[j].json.identifier" [readonly]="true"></ion-input>
+                                    <ion-label color="primary" stacked>Test Name</ion-label>
+                                    <ion-input [(ngModel)]="this.test.tests[j].json.definition"  [readonly]="true"></ion-input>
+                                    <ion-label color="primary" stacked>Test description</ion-label>
+                                    <ion-input [(ngModel)]="this.test.tests[j].json.context"  [readonly]="true"></ion-input>
+                                    
+                                </div>
+            
+            
+            
+                </ion-card>
+              </ion-list>
+
+            
+              </div>
             <!--    MAGDY  -->
         </ion-list>
 
