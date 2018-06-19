@@ -1,8 +1,7 @@
 <ion-split-pane>
 
-  <!-- logged out menu -->
-  <ion-menu id="loggedOutMenu" [content]="content" style="max-width: 300px;">
-
+  <!-- logged in menu -->
+  <ion-menu id="loggedInMenu" [content]="content">
     <ion-header>
       <ion-toolbar>
 
@@ -19,43 +18,12 @@
     </ion-header>
 
     <ion-content class="outer-content">
-
-        <ion-list>
-          <ion-list-header>
-            Navigate
-          </ion-list-header>
+      <ion-list style="padding-top: 3px">
         <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)" [color]="isActive(p,'light')">
           <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
           <p ion-text [color]="isActive(p)">{{p.title}}</p>
         </button>
       </ion-list>
-    </ion-content>
-
-  </ion-menu>
-
-  <!-- logged in menu -->
-  <ion-menu id="loggedInMenu" [content]="content" style="max-width: 150px;">
-
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content class="outer-content">
-
-      <ion-list>
-        <ion-list-header>
-          Navigate
-        </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)" [color]="isActive(p,'light')">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-          {{p.title}}
-        </button>
-      </ion-list>
-
-      
-
     </ion-content>
 
   </ion-menu>

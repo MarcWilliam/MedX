@@ -116,6 +116,13 @@ ion-app {
     }
   }
 }
-::-webkit-scrollbar{
-  display:none;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  #loggedInMenu {
+    max-width: 300px;
+  }
 }
