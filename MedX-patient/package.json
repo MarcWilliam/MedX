@@ -1,8 +1,10 @@
 {
-  "name": "MedX-patient",
-  "version": "1.0.0",
+  "name": "medx-patient",
   "description": "A MedX demo project",
-  "license": "Apache-2.0",
+  "version": "0.0.1",
+  "author": "Exception",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/MarcWafik/MedX.git"
@@ -38,7 +40,7 @@
     "cordova-browser": "^5.0.3",
     "cordova-ios": "^4.5.2",
     "cordova-plugin-device": "^1.1.7",
-    "cordova-plugin-googledrive": "git+https://github.com/AbdelrhmanAbdelhamed/cordova-plugin-googledrive.git",
+    "cordova-plugin-googledrive": "^2.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-qrscanner": "^2.6.0",
@@ -61,9 +63,7 @@
   },
   "cordova": {
     "platforms": [
-      "ios",
-      "android",
-      "browser"
+      "android"
     ],
     "plugins": {
       "cordova-plugin-device": {},
