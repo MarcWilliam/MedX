@@ -1,5 +1,5 @@
 import { Web3Service } from './helpers/web3-service';
-import SERVERS from './Servers';
+import SERVERS, { ServerInfo } from '../lib/Servers';
 
 //import { CONTRACT_NAME } from './contract-wraper/CONTRACT_NAME';
 import { EncryptedFile } from './contract-wraper/EncryptedFile';

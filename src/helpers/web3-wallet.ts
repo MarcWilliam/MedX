@@ -35,7 +35,7 @@ export class Web3Wallet {
 			}
 			this._keyStore.passwordProvider = this._passwordProvider.bind(this);
 
-			this._address = await (this._generateAddresses(password, 2)) ? this._keyStore.getAddresses()[0] : "";
+			this._address = await (this._generateAddresses(password)) ? this._keyStore.getAddresses()[0] : "";
 		}
 		catch (err) {
 			throw err;
@@ -106,7 +106,7 @@ export class Web3Wallet {
 		let error = "";
 
 		if (typeof Config.passwordGetter !== "function") {
-			error = "'Web3-wallet' - '_getPassword' - Must provide 'PasswordGetter' function (Use 'LoyalX.setPasswordGetter' function to provide it)";
+			error = "'Web3-wallet' - '_getPassword' - Must provide 'PasswordGetter' function (Use 'MedX.setPasswordGetter' function to provide it)";
 			console.warn(error);
 			throw new Error(error);
 		}
@@ -121,7 +121,7 @@ export class Web3Wallet {
 		let error = "";
 
 		if (typeof Config.passwordSetter !== "function") {
-			error = "'Web3-wallet' - '_setPassword' - Must provide 'passwordSetter' function (Use 'LoyalX.setPasswordSetter' function to provide it)";
+			error = "'Web3-wallet' - '_setPassword' - Must provide 'passwordSetter' function (Use 'MedX.setPasswordSetter' function to provide it)";
 			console.warn(error);
 			throw new Error(error);
 		}

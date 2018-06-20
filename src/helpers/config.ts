@@ -1,3 +1,4 @@
+import { ServerInfo } from '../../lib/Servers';
 
 export default class Config {
 
