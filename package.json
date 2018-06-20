@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "dev": "lite-server",
     "test": "truffle test",
     "migrate": "truffle migrate",
     "ganache": "truffle migrate --network ganache",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/MarcWafik/MedicalRecords-Contracts#readme",
   "dependencies": {
+    "lite-server": "^2.3.0",
     "openzeppelin-solidity": "git+https://git@github.com/OpenZeppelin/openzeppelin-solidity.git",
     "truffle-hdwallet-provider": "0.0.5"
   },
