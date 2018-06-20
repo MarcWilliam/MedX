@@ -126,3 +126,37 @@ ion-app {
     max-width: 300px;
   }
 }
+
+// Android transparent status bar (https://github.com/jeneser/ionic-super-bar)
+.platform-android {
+  #loggedInMenu {
+    ion-header {
+      min-height: 107px;
+      ion-toolbar {
+        min-height: inherit;
+      }
+    }
+  }
+  .ion-page {
+    background-color: color($colors, primary) !important;
+    &:after {
+      height: 5px !important;
+    }
+    ion-header {
+      padding-top: $cordova-md-statusbar-padding;
+      background-color: color($colors, primary);
+    }
+    .scroll-content,
+    ion-scroll {
+      margin-top: 0 !important;
+    }
+    ion-header,
+    .toolbar-background {
+      background-color: color($colors, primary);
+      transition: background-color 1s ease;
+      &:after {
+        height: 0 !important;
+      }
+    }
+  }
+}

@@ -74,8 +74,6 @@
     </platform>
     <preference name="orientation" value="default" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#0095DA" />
-    <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="screen" />

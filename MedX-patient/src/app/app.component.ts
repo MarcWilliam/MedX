@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Events, MenuController, Nav, Platform } from 'ionic-angular';
+import { Events, MenuController, Nav, Platform, Loading, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -25,7 +25,8 @@ export interface PageInterface {
 }
 
 @Component({
-  templateUrl: './app.template.html'
+  templateUrl: './app.template.html',
+  selector: 'page-patient-app'
 })
 export class PatientApp {
   // the root nav is a child of the root app component
@@ -46,18 +47,31 @@ export class PatientApp {
   ];
   rootPage: any;
 
+  loading: Loading;
+
   constructor(
     public events: Events,
     public menu: MenuController,
     public platform: Platform,
     public splashScreen: SplashScreen,
     public statusBar: StatusBar,
+    private loadingCtrl: LoadingController,
   ) {
     this.platformReady();
     this.rootPage = LOGIN_PAGE;
   }
 
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
+  }
+
   openPage(page: PageInterface) {
+    // this.showLoading();
+
     if (page.index) {
       this.nav.setRoot(page.component, { tabIndex: page.index });
     } else {
@@ -74,9 +88,22 @@ export class PatientApp {
   platformReady() {
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      // Transparent status bar for android
+      // #AARRGGBB where AA is an alpha value
+      if (this.platform.is('android')) {
+        this.statusBar.backgroundColorByHexString("#33000000");
+      }
+
       this.splashScreen.hide();
     });
+  }
+
+  loggedInMenuDragged() {
+    this.statusBar.backgroundColorByHexString("#00000000");
+  }
+
+  loggedInMenuClosed() {
+    this.statusBar.backgroundColorByHexString("#33000000");
   }
 
   isActive(page: PageInterface, color = 'primary') {

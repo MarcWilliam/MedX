@@ -1,7 +1,7 @@
 <ion-split-pane>
 
   <!-- logged in menu -->
-  <ion-menu id="loggedInMenu" [content]="content">
+  <ion-menu id="loggedInMenu" [content]="content" (ionDrag)="loggedInMenuDragged()" (ionClose)="loggedInMenuClosed()">
     <ion-header>
       <ion-toolbar>
 
