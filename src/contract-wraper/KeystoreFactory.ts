@@ -8,7 +8,7 @@ export class KeystoreFactory extends Contract {
 
     public async create(profile, extraParams?): Promise<any> {
         return new Keystore(await this.genericCall("create", {
-            params: [profile],
+            params: [JSON.stringify(profile)],
             extraParams: extraParams
         }));
     }

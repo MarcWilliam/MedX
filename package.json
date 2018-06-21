@@ -32,6 +32,7 @@
     "aes-js": "^3.1.0",
     "bignumber.js": "^4.1.0",
     "eth-lightwallet": "^3.0.0",
+    "ipfs": "^0.29.3",
     "ipfs-api": "^22.1.0",
     "jshashes": "^1.0.7",
     "medx.sol": "git+https://github.com/MarcWafik/MedX.sol.git",
