@@ -62,8 +62,8 @@ export abstract class Contract {
 
             var contractInstance = await this.getContractInstance();
 
-            let params = (args && args.params) || [];
-            let extraParams = (args && args.extraParams) || {};
+            let params = (args && args.params) ? args.params : [];
+            let extraParams = (args && args.extraParams) ? args.extraParams : {};
 
             if (extraParams.from == null) {
                 let web3ServiceInstance = await (Web3Service.getInstance());
