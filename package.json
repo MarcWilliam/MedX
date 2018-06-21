@@ -17,8 +17,7 @@
     "run": "ts-node ./src/index.ts",
     "debug": "ts-node ./src/debug.ts",
     "pretest": "npm run build",
-    "test": "mocha || exit 0",
-    "postinstall": "npm run build"
+    "test": "mocha || exit 0"
   },
   "repository": {
     "type": "git",
