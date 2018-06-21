@@ -1,41 +1,55 @@
-import {EcnriptionHandler} from'./encription-handler';
+import { EcnriptionHandler } from './encription-handler';
+import { randomBytes } from 'crypto';
 
-const ipfsAPI = require('ipfs-api'); //ipfs Library
+const IPFS = require('ipfs');
 const fs = require('fs'); //Js File library
 
-export  class IPFSservice {
-    ipfs: any;
-    encrServece : EcnriptionHandler;
-    isInit :boolean = false;
+export class IPFSservice {
+    node: any;
+    ;
+    encrServece: EcnriptionHandler;
+    isInit: boolean = false;
 
 
     constructor() { }
-    public init(url = '/ip4/127.0.0.1/tcp/5001') {
-        this.ipfs = ipfsAPI(url)
-        this.encrServece = new EcnriptionHandler();
+    public async init(url = '/ip4/127.0.0.1/tcp/5001') {
         this.isInit = true;
+        
+        this.encrServece = new EcnriptionHandler();
+        this.node = new IPFS({
+            start: true,
+
+            config: {
+                Addresses: {
+                    API: url,
+
+                }
+            }
+        })
+
+
     }
 
-    public async ipfsInsert(data:any , key:string = ""){
-        try{
-                return new Promise((resolve , reject)=>{
-                this.addToIpfs(data).then(output=>{
-                    resolve(this.encrServece.add(output,data,key));
-               },err=>{
-                   reject(err);
-               })
+    public async ipfsInsert(data: any, key: string = "") {
+        try {
+            return new Promise((resolve, reject) => {
+                this.addToIpfs(data).then(output => {
+                    resolve(this.encrServece.add(output, data, key));
+                }, err => {
+                    reject(err);
+                })
             })
-            
-        }catch(err){
+
+        } catch (err) {
             console.error(err);
         }
-       
+
 
     }
 
-    public  async readFile(file_Url) {
-        try{
-            if(this.ipfs != null){
+    public async readFile(file_Url) {
+        try {
+            
                 return new Promise((resolve, reject) => {
                     fs.readFile(file_Url, (err, data) => {
                         if (err) {
@@ -44,73 +58,74 @@ export  class IPFSservice {
                             resolve(data);
                         }
                     });
-        
+
                 });
-            }else{
-                console.log("init first")
-            }
-        }catch(err){
+            
+        } catch (err) {
             console.error(err);
         }
-       
+
     }
 
 
-    public async  retriveIpfs(dataOpject : any) {
-        try{
+    public async  retriveIpfs(dataOpject: any) {
+        try {
 
-            let dataPath = this.encrServece.decrypt(dataOpject.cypherText, dataOpject.encryptionMethod,new Buffer(dataOpject.encryptionKey));
+            let dataPath = this.encrServece.decrypt(dataOpject.cypherText, dataOpject.encryptionMethod, new Buffer(dataOpject.encryptionKey));
 
             return new Promise((resolve, reject) => {
-                this.ipfs.files.get(dataPath, (err, data) => {
-                    if(err){
+                this.node.files.get(dataPath, (err, data) => {
+                    if (err) {
                         reject(err);
-                    }else{
-                       
+                    } else {
+
                         let hex = this.encrServece.bufferToHex(data[0].content);
-                        
-                        if(dataOpject.dataHash == this.encrServece.hash(hex)){
+
+                        if (dataOpject.dataHash == this.encrServece.hash(hex)) {
                             resolve(data[0].content);
-                        }else{
+                        } else {
                             console.error('Authentication Error : Wrong hash detected The data may be corrupted')
                         }
                     }
-                
-            });
-            
+
                 });
-          
-        }catch(err){
+
+            });
+
+        } catch (err) {
             console.error(err);
         }
-        
-            
-        }
-        
+
+
+    }
+
 
 
 
     private async addToIpfs(bufferdData) {
-        try{
-            if (this.ipfs != null) {
-                return new Promise((resolve, reject) => {
-                    this.ipfs.files.add(bufferdData, (err, file) => {
+        try {
+            return new Promise((resolve, reject) => {
+                let files = {
+                    path: Math.random().toString(),
+                    content: bufferdData
+                }
+                this.node.on("start", () => {
+                    this.node.files.add(files, function (err, output) {
                         if (err) {
                             reject(err)
                         }
-                        else {
-                            resolve(file);
+                        if (output) {
+                            resolve(output);
                         }
-    
-                    });
-                });
-            } else {
-                console.log("init first");
-            }
-        }catch(err){
+
+                    })
+                    this.node.stop();
+                })
+            });
+        } catch (err) {
             console.error(err);
         }
-        
+
     }
 
 
