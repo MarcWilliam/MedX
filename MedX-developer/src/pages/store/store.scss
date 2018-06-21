@@ -1,20 +1,21 @@
 page-store {
-
+  .toolbar-md {
+    min-height: 51px;
+  }
 }
 
 .custom-popover .popover-content {
-    width: 50%;
+  width: 50%;
 }
 
-
 @media (max-width: 1024px) {
-    .custom-popover .popover-content {
-        width: 90%;
-    }
+  .custom-popover .popover-content {
+    width: 90%;
   }
+}
 
 @media (min-width: 1024px) {
-    .custom-popover .popover-content {
-        width: 50%;
-    }
+  .custom-popover .popover-content {
+    width: 50%;
+  }
 }

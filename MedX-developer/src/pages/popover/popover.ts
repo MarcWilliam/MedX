@@ -25,6 +25,8 @@ export class PopoverPage {
   }
 
   ionViewDidLoad() {
+    this.selectedCategory = this.categories[0];
+    this.subcategories = CATEGORIES[this.categories[0]];
   }
 
   presentPopover(category) {
