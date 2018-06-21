@@ -1,10 +1,15 @@
-import { ServerInfo } from '../../lib/Servers';
 
 export default class Config {
 
+    public static IsProduction: boolean = false;
+    public static DevMnemonic: string = "bleak brass click burden silver ability high squeeze glimpse any race card";
+
+    public static server: ServerInfo;
+
     public static TruffleContract;
     public static LightWallet;
-    public static server: ServerInfo;
-    public static passwordGetter
-	public static passwordSetter;
+
+    public static passwordGetter: Function;
+    public static passwordSetter: Function;
+
 }

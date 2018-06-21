@@ -27,8 +27,11 @@ export class Web3Wallet {
 			else {
 				password = this._setPassword();
 				//const extraEntropy = generateString(generatedPasswordLength);
-				const randomSeed = this.lightWallet.keystore.generateRandomSeed(/*extraEntropy*/);
-				// const randomSeed = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
+
+				const randomSeed = Config.IsProduction ?
+					this.lightWallet.keystore.generateRandomSeed(/*extraEntropy*/) :
+					Config.DevMnemonic
+
 				this._keyStore = await (this._createKeyStore(password, randomSeed));
 
 				store.set('ks', this._keyStore.serialize());
