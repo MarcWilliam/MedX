@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-declare var cordova;
+declare let cordova;
 
 /*
   Generated class for the GoogleDriveProvider provider.
@@ -11,10 +11,16 @@ declare var cordova;
 @Injectable()
 export class GoogleDriveProvider {
 
-  private googleDrive;
+  private googleDrive = {
+    signIn: function (isFileScoped, isAppFolderScoped, errorCallBack, SuccessCallBack) { console.error("cordova is not available") },
+    createFile: function (title, contents, mimeType, inAppFolder, errorCallBack, SuccessCallBack) { console.error("cordova is not available") },
+    retrieveFileContentsByTitle: function (title, inAppFolder, errorCallBack, SuccessCallBack) { console.error("cordova is not available") }
+  };
 
   constructor() {
-    this.googleDrive = cordova.plugins.googleDrive;
+    if (typeof cordova !== 'undefined') {
+      this.googleDrive = (cordova.plugins && cordova.plugins.googleDrive) ? cordova.plugins.googleDrive : this.googleDrive;
+    }
   }
 
   signIn(isFileScoped, isAppFolderScoped): Promise<any> {

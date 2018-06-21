@@ -66,12 +66,15 @@ export class LoginPage {
   }
 
   async ionViewDidLoad() {
-    let medX = await this.medXProvider.getInstance();
-    console.log(medX);
-    console.log(this.googleDriveProvider);
+    // let medX = await this.medXProvider.getInstance();
+    // console.log(medX);
+    // let result = await medX.KeystoreFactory.create();
+    // console.log(result);
+    // console.log(this.googleDriveProvider);
     // console.log(await this.googleDriveProvider.signIn(false, true));
     // console.log(await this.googleDriveProvider.createFile("test.txt", "IT WORKS!", "text/plain", true));
-    // console.log(await this.googleDriveProvider.retrieveFileContentsByTitle("test.txt", true));
+    // let fileContents = await this.googleDriveProvider.retrieveFileContentsByTitle("test.txt", true);
+    // console.log(fileContents);
   }
 
   ionViewWillEnter() {

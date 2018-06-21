@@ -41,7 +41,7 @@
     "cordova-browser": "^5.0.3",
     "cordova-ios": "^4.5.2",
     "cordova-plugin-device": "^1.1.7",
-    "cordova-plugin-googledrive": "^2.0.0",
+    "cordova-plugin-googledrive": "git+https://github.com/AbdelrhmanAbdelhamed/cordova-plugin-googledrive.git",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-qrscanner": "^2.6.0",
@@ -80,12 +80,12 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-googledrive": {},
       "cordova-plugin-qrscanner": {},
       "cordova-plugin-telerik-imagepicker": {
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Image of the patient"
       },
-      "com-badrit-base64": {}
+      "com-badrit-base64": {},
+      "cordova-plugin-googledrive": {}
     }
   }
 }
