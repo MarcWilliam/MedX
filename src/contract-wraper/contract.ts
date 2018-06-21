@@ -1,5 +1,11 @@
 import { Web3Service } from '../helpers/web3-service';
 
+
+export interface GenericCallArgs {
+    params?: any;
+    extraParams?: any;
+}
+
 export abstract class Contract {
 
     protected _address: string;
@@ -37,7 +43,7 @@ export abstract class Contract {
         try {
             var contractInstance = await this.getContractInstance();
             var result = {};
-            
+
             for (const i in attribs) {
                 const attName = attribs[i];
                 result[attName] = await contractInstance[attName]();
@@ -51,16 +57,21 @@ export abstract class Contract {
         }
     }
 
-    protected async genericCall(functionName: string, params: any[], extraParams?): Promise<any> {
+    protected async genericCall(functionName: string, args?: GenericCallArgs): Promise<any> {
         try {
 
             var contractInstance = await this.getContractInstance();
 
-            extraParams = extraParams || {};
+            let params = (args && args.params) || [];
+            let extraParams = (args && args.extraParams) || {};
 
-            if (extraParams.account == null) {
+            if (extraParams.from == null) {
                 let web3ServiceInstance = await (Web3Service.getInstance());
-                extraParams.account = await web3ServiceInstance.getAccount();
+                extraParams.from = await web3ServiceInstance.getAccount();
+            }
+
+            if (extraParams.gas == null) {
+                extraParams.gas = 5000000;
             }
 
             var result = await contractInstance[functionName](...params, extraParams);

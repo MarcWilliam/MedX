@@ -7,7 +7,7 @@ export class KeystoreFactory extends Contract {
     public get contractName(): string { return "KeystoreFactory" };
 
     public async create(extraParams?): Promise<any> {
-        return new Keystore(await this.genericCall("create", extraParams));
+        return new Keystore(await this.genericCall("create", { extraParams: extraParams }));
     }
 
     public async getKeyStore(_account?: string) {
