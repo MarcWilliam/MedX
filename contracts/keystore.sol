@@ -5,7 +5,15 @@ import "./Record.sol";
 
 contract Keystore is Ownable {
 
-    // EncryptedFile profile;
+    string public profile;
+
+    constructor ( string _profile) public {
+        profile = _profile;
+    }
+
+    function setProfile(string _profile) public {
+        profile = _profile;
+    }
 
     mapping(address=>string) public rec2key;
 

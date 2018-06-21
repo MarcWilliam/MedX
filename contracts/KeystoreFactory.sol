@@ -8,9 +8,9 @@ contract KeystoreFactory {
 
     event Created(address createdBy);
 
-    function create() public returns (Keystore ks){
+    function create(string _profile) public returns (Keystore ks){
         require(owners[msg.sender] == address(0x0));
-        ks = new Keystore();
+        ks = new Keystore(_profile);
         ks.transferOwnership(msg.sender);
         owners[msg.sender] = ks;
         emit Created(msg.sender);
