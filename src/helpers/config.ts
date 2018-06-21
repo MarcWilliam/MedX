@@ -2,7 +2,7 @@
 export default class Config {
 
     public static IsProduction: boolean = false;
-    public static DevMnemonic: string = "bleak brass click burden silver ability high squeeze glimpse any race card";
+    public static DevMnemonic: string = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
 
     public static server: ServerInfo;
 
