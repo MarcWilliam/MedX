@@ -1,4 +1,7 @@
 page-scanner {
+  &.ion-page.show-page {
+    background: none transparent !important;
+  }
   .qrscanner {
     background: none;
     &-area {

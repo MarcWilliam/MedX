@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MedXProvider } from '../providers/medx';
-import { GoogleDrive } from '../providers/google-drive'
+import { GoogleDriveProvider } from '../providers/google-drive'
 
 import { PatientApp } from './app.component';
 
@@ -26,7 +26,7 @@ import { PatientApp } from './app.component';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     StatusBar,
     SplashScreen,
-    GoogleDrive,
+    GoogleDriveProvider,
     MedXProvider
   ]
 })

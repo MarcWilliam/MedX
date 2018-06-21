@@ -3,15 +3,15 @@ import { Injectable } from '@angular/core';
 declare var cordova;
 
 /*
-  Generated class for the GoogleDrive provider.
+  Generated class for the GoogleDriveProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class GoogleDrive {
+export class GoogleDriveProvider {
 
-  public googleDrive;
+  private googleDrive;
 
   constructor() {
     this.googleDrive = cordova.plugins.googleDrive;
@@ -41,9 +41,9 @@ export class GoogleDrive {
     });
   }
 
-  getFileWithTitle(title, inAppFolder): Promise<any> {
+  retrieveFileContentsByTitle(title, inAppFolder): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.googleDrive.createFile(title, inAppFolder,
+      this.googleDrive.retrieveFileContentsByTitle(title, inAppFolder,
         function (response) {
           resolve(response);
         },
