@@ -38,7 +38,6 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="Image of the patient" />
     </plugin>
     <plugin name="com-badrit-base64" spec="^0.2.0" />
-    <engine name="android" spec="7.1.0" />
     <platform name="android">
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -59,4 +58,5 @@
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
+    <engine name="android" spec="7.1.0" />
 </widget>

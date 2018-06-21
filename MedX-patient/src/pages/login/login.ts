@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, MenuController, AlertController, LoadingController, Loading, IonicPage, ModalController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { REGISTER_PAGE, PROVIDERS_PAGE } from '../pages.constants';
+import { MedXProvider } from '../../providers/medx';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,9 @@ export class LoginPage {
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
-    public menu: MenuController) {
+    public menu: MenuController,
+    public medXProvider: MedXProvider
+  ) {
 
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
@@ -58,6 +61,12 @@ export class LoginPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  async ionViewDidLoad() {
+    let medx = await this.medXProvider.getInstance();
+    /*let result = await medx.KeystoreFactory.create();
+    console.log(result);*/
   }
 
   ionViewWillEnter() {
