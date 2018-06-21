@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav } from 'ionic-angular';
+import { Nav, Platform } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { NewPage } from '../pages/new/new';
 import { ProfilePage } from '../pages/profile/profile';
@@ -38,10 +39,19 @@ export class ConferenceApp {
 
   rootPage: any;
 
-  constructor() {
-
+  constructor(
+    public platform: Platform,
+    public splashScreen: SplashScreen
+  ) {
+    this.platformReady();
     this.rootPage = StorePage;
+  }
 
+  platformReady() {
+    // Call any initial plugins when ready
+    this.platform.ready().then(() => {
+      this.splashScreen.hide();
+    });
   }
 
   openPage(page: PageInterface) {

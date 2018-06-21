@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Events, MenuController, Nav, Platform, Loading, LoadingController } from 'ionic-angular';
+import { Nav, Platform, Loading, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -50,8 +50,6 @@ export class PatientApp {
   loading: Loading;
 
   constructor(
-    public events: Events,
-    public menu: MenuController,
     public platform: Platform,
     public splashScreen: SplashScreen,
     public statusBar: StatusBar,
