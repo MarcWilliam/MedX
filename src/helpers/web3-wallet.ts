@@ -38,7 +38,7 @@ export class Web3Wallet {
 			}
 			this._keyStore.passwordProvider = this._passwordProvider.bind(this);
 
-			this._address = await (this._generateAddresses(password)) ? this._keyStore.getAddresses()[0] : "";
+			await (this._generateAddresses(password, 2));
 		}
 		catch (err) {
 			throw err;
@@ -135,11 +135,9 @@ export class Web3Wallet {
 		}
 	}
 
-	public async getAddress() {
-		if (!this._address) {
-			this._address = await this._keyStore.getAddresses()[0];
-		}
-		return this._address;
+	public async getAddress(index?) {
+		let address = await this._keyStore.getAddresses()[index != null ? index : 0];
+		return address;
 	}
 
 	public get keyStore() {

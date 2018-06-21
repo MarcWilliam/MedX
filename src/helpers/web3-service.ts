@@ -130,9 +130,9 @@ export class Web3Service {
 	/**
  	* get the first account
  	*/
-	public async getAccount(): Promise<string> {
+	public async getAccount(index?): Promise<string> {
 		try {
-			let address = await (this._wallet.getAddress());
+			let address = await (this._wallet.getAddress(index));
 			return address;
 		} catch (err) {
 			console.warn("getAccount", err);
