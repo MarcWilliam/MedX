@@ -3,6 +3,7 @@ import { EncryptedFileDat } from './EncryptedFile';
 import { EcnriptionHandler, IpfsDataOpject } from '../helpers/encription-handler';
 import { IPFSservice } from '../helpers/ipfs-service';
 import { StatisticsHandler } from '../helpers/statistics-handler';
+import { Record } from './Record';
 
 export class RecordFactory extends Contract {
 
@@ -42,7 +43,7 @@ export class RecordFactory extends Contract {
 
         };
 
-        return this.genericCall("createQuick", {
+        return new Record( await this.genericCall("createQuick", {
             params: [
                 patient,
                 patientKey,
@@ -54,7 +55,7 @@ export class RecordFactory extends Contract {
                 attachments
             ],
             extraParams: extraParams
-        });
+        }));
     }
 
 }
