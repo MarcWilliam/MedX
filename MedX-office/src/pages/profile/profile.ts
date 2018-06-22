@@ -98,7 +98,9 @@ export class ProfilePage {
     let medX = await this.medXProvider.getInstance();
     let keystore = await medX.KeystoreFactory.getKeyStore();
     let profile = (await keystore.getAttribs()).profile;
-    Object.assign(this.user, profile);
+    if (profile) {
+      Object.assign(this.user, profile);
+    }
   }
 
 
