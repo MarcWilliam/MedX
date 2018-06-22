@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
+import { MedXProvider } from '../../providers/medx';
+
 /**
  * Generated class for the ProfilePage page.
  *
@@ -17,21 +19,45 @@ export class ProfilePage {
 
   //https://api.qrserver.com/v1/create-qr-code/?data=0x627306090abaB3A6e1400e9345bC60c78a8BEf57&size=220x220&margin=0
   user = {
-    "name": "Dr. John Smith",
-    "avatar": "https://www.happy.ae/Frontend-Assembly/Telerik.Sitefinity.Frontend.Navigation/assets/dist/images/happiness_logo1.png?package=Bootstrap",
-    "backgroundImg": "https://www.happy.ae/images/default-source/home/why-image.jpg?Status=Temp&sfvrsn=2",
-    "country": "Dubai",
-    "email": "john.smith@amail.com",
-    "website": "https://www.happy.ae",
-    "publicKey": "0x627306090abaB3A6e1400e9345bC60c78a8BEf57",
-    "specialization": "Cardiologist",
-    "PCL": "Dubai International Hospital"
+    name: "Dr. John Smith",
+    telecom: {
+      phone: "123 456 7890",
+      email: "john.smith@amail.com"
+    },
+    address: "",
+    gender: "",
+    birthDate: "",
+    photo: "https://www.happy.ae/Frontend-Assembly/Telerik.Sitefinity.Frontend.Navigation/assets/dist/images/happiness_logo1.png?package=Bootstrap",
+    qualification: {
+      title: "",
+      issuer: "",
+      period: {
+        from: "",
+        to: ""
+      },
+    },
+    communication: {
+      language: ""
+    },
 
+    /**organization additional data*/
+    type: "",
+    services: "",
+    /**organization additional data*/
+
+    /**Not covered Data Yet*/
+    backgroundImg: "https://www.happy.ae/images/default-source/home/why-image.jpg?Status=Temp&sfvrsn=2",
+    country: "Dubai",
+    website: "https://www.happy.ae",
+    publicKey: "0x627306090abaB3A6e1400e9345bC60c78a8BEf57",
+    specialization: "Cardiologist",
+    PCL: "Dubai International Hospital"
+    /**Not covered Data Yet*/
   };
 
   /*
-{
-
+  {
+  
     "resourceType": "Practitioner",
     // from Resource: id, meta, implicitRules, and language
     // from DomainResource: text, contained, extension, and modifierExtension
@@ -54,11 +80,11 @@ export class ProfilePage {
     "photo": ["https://www.happy.ae/Frontend-Assembly/Telerik.Sitefinity.Frontend.Navigation/assets/dist/images/happiness_logo1.png?package=Bootstrap"], // Image of the person
     "qualification": ["Cardiologist"],
     "communication": ["English", "French", "Arabic"] // A language the practitioner is able to use in patient communication
-
+  
   }
    */
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, private medXProvider: MedXProvider) { }
 
   getCredentials() {
     console.log("getCredentials method"); // fill u-port here
@@ -67,6 +93,14 @@ export class ProfilePage {
   requestCredentials() {
     console.log("requestCredentials method"); //fill u-port here
   }
+
+  async ionViewWillLoad() {
+    let medX = await this.medXProvider.getInstance();
+    let keystore = await medX.KeystoreFactory.getKeyStore();
+    let profile = (await keystore.getAttribs()).profile;
+    Object.assign(this.user, profile);
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');

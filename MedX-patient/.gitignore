@@ -20,6 +20,7 @@ npm-debug.log*
 coverage/
 dist/
 www/
+src/config.ts
 resources/android/
 resources/ios/
 node_modules/

@@ -15,7 +15,6 @@ import { HistoryPage } from '../history/history';
   templateUrl: 'patient-list.html',
 })
 export class PatientListPage {
-  profileData: any;
 
   patients = [
     {
@@ -55,7 +54,6 @@ export class PatientListPage {
     }
   ];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.profileData = this.navParams.get('data'); // data from the register form
   }
 
   ionViewDidLoad() {

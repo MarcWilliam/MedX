@@ -67,22 +67,10 @@ export class ConferenceApp {
     public statusBar: StatusBar,
   ) {
 
-    // Check if the user has already seen the tutorial
-    /*
-    this.storage.get('hasSeenTutorial')
-      .then((hasSeenTutorial) => {
-        if (hasSeenTutorial) {
-          this.rootPage = TabsPage;
-        } else {
-          this.rootPage = TutorialPage;
-        }
-        this.platformReady()
-      });
-*/
-
+    this.userData.hasLoggedIn().then(hasLoggedIn => {
+      this.rootPage = hasLoggedIn ? ProfilePage : LoginPage;
+    });
     this.platformReady();
-
-    this.rootPage = LoginPage;
 
     // reading test template from json
     var bloodTest = require('../json-templates/bloodTest.json');

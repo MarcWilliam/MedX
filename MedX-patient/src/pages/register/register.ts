@@ -106,8 +106,8 @@ export class RegisterPage {
       return;
     };
 
-    this.isReadyToRegister = false; // disable the submit button to prevent sending twice
     this.showLoading();
+    this.isReadyToRegister = false; // disable the submit button to prevent sending twice
 
     try {
       let medX = await this.medXProvider.getInstance();
@@ -123,7 +123,6 @@ export class RegisterPage {
       alert(err);
     }
   }
-
 
   showLoading() {
     this.loading = this.loadingCtrl.create({

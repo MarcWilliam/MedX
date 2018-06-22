@@ -5,67 +5,67 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Profile</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content no-bounce class="bg-modal">
-    <div class="header-image"></div>
-    <div class="main-content" text-wrap text-center>
-        <div class="circular"></div>
-        <h2>{{user.name}}</h2>
-        <p class="profile-description">{{user.specialization}}</p>
-        <hr>
+  <div class="header-image"></div>
+  <div class="main-content" text-wrap text-center>
+    <div class="circular"></div>
+    <h2>{{user.name}}</h2>
+    <p class="profile-description">{{user.specialization}}</p>
+    <hr>
 
-        <ion-row>
-            <ion-col col-3>
-                <img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=0x627306090abaB3A6e1400e9345bC60c78a8BEf57&amp;qzone=1&amp;margin=0&amp;size=250x250&amp;ecc=L"
-                    alt="qr code" />
-            </ion-col>
-            <ion-col>
+    <ion-row>
+      <ion-col col-3>
+        <img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=0x627306090abaB3A6e1400e9345bC60c78a8BEf57&amp;qzone=1&amp;margin=0&amp;size=250x250&amp;ecc=L"
+          alt="qr code" />
+      </ion-col>
+      <ion-col>
 
-                <ion-list no-lines>
-                    <ion-item>
-                        <ion-icon item-start name="mail" color="grey"></ion-icon>
-                        <ion-note>Email</ion-note>
-                        <p>{{user.email}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="call" color="grey"></ion-icon>
-                        <ion-note>Phone</ion-note>
-                        <p>123 456 7890</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="globe" color="grey"></ion-icon>
-                        <ion-note>Country</ion-note>
-                        <p>{{user.country}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="key" color="grey"></ion-icon>
-                        <ion-note>Public Key</ion-note>
-                        <p>{{user.publicKey}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="pin" color="grey"></ion-icon>
-                        <ion-note>Primary Consultation Location :</ion-note>
-                        <p>{{user.PCL}}</p>
-                    </ion-item>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-icon item-start name="mail" color="grey"></ion-icon>
+            <ion-note>Email</ion-note>
+            <p>{{user.telecom.email}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="call" color="grey"></ion-icon>
+            <ion-note>Phone</ion-note>
+            <p>{{user.telecom.phone}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="globe" color="grey"></ion-icon>
+            <ion-note>Country</ion-note>
+            <p>{{user.country}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="key" color="grey"></ion-icon>
+            <ion-note>Public Key</ion-note>
+            <p>{{user.publicKey}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="pin" color="grey"></ion-icon>
+            <ion-note>Primary Consultation Location :</ion-note>
+            <p>{{user.PCL}}</p>
+          </ion-item>
 
-                </ion-list>
-            </ion-col>
+        </ion-list>
+      </ion-col>
 
-        </ion-row>
+    </ion-row>
 
-    </div>
-  
-        <ion-fab bottom right #fab>
-            <button ion-fab>
-                <ion-icon name="md-create"></ion-icon>
-            </button>
-        </ion-fab>
-    
+  </div>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="md-create"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>

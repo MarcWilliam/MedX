@@ -3,17 +3,14 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 
+import { MedXProvider } from '../../providers/medx';
+
 /**
  * Generated class for the RecordListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
-export interface MockRecord {
-  title: string;
-  selected: boolean;
-}
 
 @IonicPage()
 @Component({
@@ -47,11 +44,12 @@ export class RecordListPage {
     { title: "test 17", date: new Date(), doctor: "Dr. John Smith", selected: false }
   ];
 
-  filteredRecords: MockRecord[] = this.records.slice(0, this.records.length);
+  filteredRecords: any[] = this.records.slice(0, this.records.length);
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController,
+    private medXProvider: MedXProvider
   ) {
     this.searchControl = new FormControl();
     this.office = this.navParams.get("office");
@@ -107,8 +105,16 @@ export class RecordListPage {
     })
   }
 
-  dismiss(content?: string | MockRecord[]) {
+  dismiss(content?) {
     this.viewCtrl.dismiss(content);
+  }
+
+  async ionViewWillLoad() {
+    let medX = await this.medXProvider.getInstance();
+    let keystore = await medX.KeystoreFactory.getKeyStore();
+    let records = (await keystore.getRecords());
+    this.records = (records.length > 0) ? records : this.records;
+    this.filteredRecords = this.records.slice(0, this.records.length);
   }
 
   ionViewDidLoad() {

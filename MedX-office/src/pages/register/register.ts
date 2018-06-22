@@ -1,6 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, AlertController, IonicPage, MenuController, LoadingController, Loading, Slides } from 'ionic-angular';
+import {
+  NavController,
+  AlertController,
+  IonicPage,
+  MenuController,
+  LoadingController,
+  Loading,
+  Slides,
+  ToastController
+} from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { UserData } from '../../providers/user-data';
+import { MedXProvider } from '../../providers/medx';
+
 import { PatientListPage } from '../patient-list/patient-list';
 
 @IonicPage()
@@ -37,7 +50,10 @@ export class RegisterPage {
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
-    public menu: MenuController
+    private toastCtrl: ToastController,
+    public menu: MenuController,
+    private userData: UserData,
+    private medXProvider: MedXProvider
   ) { }
 
   setPractitionerForm() {
@@ -90,7 +106,6 @@ export class RegisterPage {
     this.selectedRole = selectedRole;
     if (this.selectedRole == this.roles[0]) {
       this.setPractitionerForm();
-
       if (this.organizationForm || this.organizationFormValueChangeSub) {
         this.organizationFormValueChangeSub.unsubscribe();
         this.organizationForm = null;
@@ -98,7 +113,6 @@ export class RegisterPage {
     }
     else if (this.selectedRole == this.roles[1]) {
       this.setOrganizationForm();
-
       if (this.practitionerForm || this.practitionerFormValueChangeSub) {
         this.practitionerFormValueChangeSub.unsubscribe();
         this.practitionerForm = null;
@@ -125,13 +139,34 @@ export class RegisterPage {
     this.registerSlider.lockSwipes(true);
   }
 
-  public onRegister() {
-    this.nav.setRoot(PatientListPage, { data: this.selectedRole == this.roles[0] ? this.practitionerForm.value : this.organizationForm.value });
+  public async onRegister() {
+    let selectedForm = (this.selectedRole == this.roles[0]) ? this.practitionerForm : this.organizationForm;
+
+    if (!selectedForm.valid) {
+      return;
+    }
+
+    this.showLoading();
+    this.isReadyToRegister = false; // disable the submit button to prevent sending twice
+
+    try {
+      let medX = await this.medXProvider.getInstance();
+      let result = await medX.KeystoreFactory.create(selectedForm.value);
+      this.toastCtrl.create({
+        message: 'You have successfully registered and logged in.',
+        duration: 3000,
+        position: 'bottom'
+      }).present();
+      this.userData.login(selectedForm.get('name').value);
+      this.nav.setRoot(PatientListPage);
+    } catch (err) {
+      alert(err);
+    }
   }
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: 'Processing, Please Wait...',
       dismissOnPageChange: true
     });
     this.loading.present();

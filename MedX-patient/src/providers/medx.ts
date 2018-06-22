@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
 import Medx from "medx.js";
 import CONFIG from "../config";
-import { Config } from "ionic-angular";
 
 declare var TruffleContract;
 declare var lightwallet;

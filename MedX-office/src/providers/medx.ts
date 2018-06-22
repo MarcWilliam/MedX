@@ -16,7 +16,11 @@ declare var lightwallet;
 export class MedXProvider {
 	public Medx = null;
 
-	constructor() { }
+	constructor() {
+		Medx.SERVERS.LOCALHOST.STATISTICS_API = CONFIG.SERVER.STATISTICS_API;
+		Medx.SERVERS.LOCALHOST.HTTP_PROVIDER = CONFIG.SERVER.HTTP_PROVIDER;
+		Medx.SERVERS.LOCALHOST.CONTRACTS_URL = CONFIG.SERVER.CONTRACTS_URL;
+	}
 
 	private _init() {
 		Medx.setPasswordSetter(function () {

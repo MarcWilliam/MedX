@@ -1,5 +1,5 @@
-<!--<ion-header>
-  <ion-navbar>
+<!-- <ion-header>
+  <ion-navbar hideBackButton="true" color="dark">
     <ion-buttons start *ngIf="!registerSliderBegin">
       <button ion-button icon-left (click)="onPrevSlide()">
         <ion-icon name="arrow-back"></ion-icon> Prev</button>
@@ -9,8 +9,11 @@
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-title>Register
+      <span *ngIf="selectedRole">As {{ selectedRole?.title }}</span>
+    </ion-title>
   </ion-navbar>
-</ion-header>-->
+</ion-header> -->
 
 <ion-content class="login-content" padding>
 
@@ -70,7 +73,7 @@
       </ion-row>
 
       <div class="login-box">
-        <form *ngIf="practitionerForm" [formGroup]="practitionerForm" (ngSubmit)="onRegister()">
+        <form *ngIf="practitionerForm" [formGroup]="practitionerForm">
           <ion-row>
             <ion-col>
               <ion-list inset>
@@ -165,12 +168,12 @@
           </ion-row>
           <ion-row>
             <ion-col class="signup-col">
-              <button ion-button class="submit-btn" full type="submit" [disabled]="!isReadyToRegister">Register</button>
+              <button ion-button class="submit-btn" full type="submit" [disabled]="!isReadyToRegister" (click)="onRegister()">Register</button>
             </ion-col>
           </ion-row>
         </form>
 
-        <form *ngIf="organizationForm" [formGroup]="organizationForm" (ngSubmit)="onRegister()">
+        <form *ngIf="organizationForm" [formGroup]="organizationForm">
           <ion-row>
             <ion-col>
               <ion-list inset>
@@ -237,7 +240,7 @@
           </ion-row>
           <ion-row>
             <ion-col class="signup-col">
-              <button ion-button class="submit-btn" full type="submit" [disabled]="!isReadyToRegister">Register</button>
+              <button ion-button class="submit-btn" full type="submit" [disabled]="!isReadyToRegister" (click)="onRegister()">Register</button>
             </ion-col>
           </ion-row>
         </form>
