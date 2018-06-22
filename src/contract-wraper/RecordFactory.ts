@@ -35,7 +35,7 @@ export class RecordFactory extends Contract {
         var patientKey = "";
         var doctorsKey = "";
         let recordInfo = <EncryptedFileDat>{
-            filePath: record, // ipfsDataOpject.cypherText;
+            filePath: JSON.stringify(record), // ipfsDataOpject.cypherText;
             dataHash: "", // ipfsDataOpject.dataHash;
             hashMethod: "", // ipfsDataOpject.hashMethod;
             encriptionMethod: "", // ipfsDataOpject.encryptionMethod;
