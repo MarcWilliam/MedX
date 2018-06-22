@@ -4,6 +4,8 @@ import { Nav, Platform, Loading, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { UserData } from '../providers/user-data';
+
 import {
   LOGIN_PAGE,
   DEMOGRAPHICS_PAGE,
@@ -54,9 +56,12 @@ export class PatientApp {
     public splashScreen: SplashScreen,
     public statusBar: StatusBar,
     private loadingCtrl: LoadingController,
+    private userData: UserData,
   ) {
+    this.userData.hasLoggedIn().then(hasLoggedIn => {
+      this.rootPage = hasLoggedIn ? PROFILE_PAGE : LOGIN_PAGE;
+    });
     this.platformReady();
-    this.rootPage = LOGIN_PAGE;
   }
 
   showLoading() {

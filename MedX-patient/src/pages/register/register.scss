@@ -1,5 +1,4 @@
 page-register {
-  
   .login-content {
     background: color($colors, primary);
     background-image: url('/assets/img/background-login.jpg');
@@ -13,7 +12,7 @@ page-register {
       /*background: #238aea;*/
       padding: 20px 20px 0px 20px;
       margin-top: 10px;
-      margin:0 auto;
+      margin: 0 auto;
       max-width: 900px;
     }
     ion-row {
@@ -54,5 +53,14 @@ page-register {
       border: 1px solid #ffffff;
       height: 46px
     }
+  }
+}
+
+.platform-android {
+  page-register {
+    .login-content {
+      background-image: url('../../www/assets/img/background-login.jpg');
+    }
+
   }
 }

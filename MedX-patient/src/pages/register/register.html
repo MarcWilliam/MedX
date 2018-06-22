@@ -6,12 +6,12 @@
 
 <ion-content class="login-content" padding>
 
-    <ion-row class="logo-row">
-        <ion-col text-center>
-          <img alt="logo" style="height: 80px" height="80" src="assets/img/medx-logo.png" />
-          <h1 ion-text color="light" no-padding no-margin>Register</h1>
-        </ion-col>
-      </ion-row>
+  <ion-row class="logo-row">
+    <ion-col text-center>
+      <img alt="logo" style="height: 80px" height="80" src="assets/img/medx-logo.png" />
+      <h1 ion-text color="light" no-padding no-margin>Register</h1>
+    </ion-col>
+  </ion-row>
 
   <div class="login-box">
     <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="onRegister()">
@@ -59,6 +59,20 @@
                 <ion-avatar item-end>
                   <img src="{{photo64}}">
                 </ion-avatar>
+              </ion-item>
+            </ion-item-group>
+
+            <!-- TODO: expand to detail multi input (e.g. phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.). -->
+            <ion-item-group formGroupName="telecom">
+              <ion-item-divider color="dark" text-center>Your Telecom Info</ion-item-divider>
+              <ion-item>
+                <ion-label fixed>Phone</ion-label>
+                <ion-input type="tel" name="phone" formControlName="phone"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label fixed>Email</ion-label>
+                <ion-input type="email" name="email" formControlName="email"></ion-input>
               </ion-item>
             </ion-item-group>
 

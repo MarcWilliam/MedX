@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, MenuController, AlertController, LoadingController, Loading, IonicPage, ModalController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { REGISTER_PAGE, PROVIDERS_PAGE } from '../pages.constants';
-import { MedXProvider } from '../../providers/medx';
 import { GoogleDriveProvider } from '../../providers/google-drive';
 
 @IonicPage()
@@ -23,8 +22,7 @@ export class LoginPage {
     private loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     public menu: MenuController,
-    public googleDriveProvider: GoogleDriveProvider,
-    public medXProvider: MedXProvider
+    public googleDriveProvider: GoogleDriveProvider
   ) {
 
     this.loginForm = this.formBuilder.group({
@@ -66,10 +64,6 @@ export class LoginPage {
   }
 
   async ionViewDidLoad() {
-    let medX = await this.medXProvider.getInstance();
-    console.log(medX);
-    // let result = await medX.KeystoreFactory.create();
-    // console.log(result);
     // console.log(this.googleDriveProvider);
     // console.log(await this.googleDriveProvider.signIn(false, true));
     // console.log(await this.googleDriveProvider.createFile("test.txt", "IT WORKS!", "text/plain", true));

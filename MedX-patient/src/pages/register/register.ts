@@ -1,8 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, IonicPage, MenuController, LoadingController, Loading } from 'ionic-angular';
+import {
+  NavController,
+  AlertController,
+  IonicPage,
+  MenuController,
+  LoadingController,
+  Loading,
+  ToastController
+} from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
+
+import { UserData } from '../../providers/user-data';
+import { MedXProvider } from '../../providers/medx';
 
 import { PROVIDERS_PAGE } from '../pages.constants';
 
@@ -24,9 +36,12 @@ export class RegisterPage {
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
-    public menu: MenuController,
+    private toastCtrl: ToastController,
+    private menu: MenuController,
     private imagePicker: ImagePicker,
-    private base64: Base64
+    private base64: Base64,
+    private userData: UserData,
+    private medXProvider: MedXProvider
   ) {
 
     this.registerForm = this.formBuilder.group({
@@ -35,7 +50,11 @@ export class RegisterPage {
       birthDate: ['', [Validators.required]],
       address: ['', [Validators.required]],
       maritalStatus: ['', [Validators.required]],
-      photo: ['', [Validators.required]],
+      photo: ['', []],
+      telecom: formBuilder.group({
+        phone: ['', Validators.required],
+        email: ['', Validators.required]
+      }),
       contact: formBuilder.group({
         relationship: ['', Validators.required],
         name: ['', Validators.required],
@@ -73,7 +92,7 @@ export class RegisterPage {
           this.photo64 = photo64;
 
           this.base64.encodeFile(photo64).then((base64File: string) => {
-            this.registerForm.controls['photo'].setValue(base64File);
+            this.registerForm.get('photo').setValue(base64File);
           }, (err) => {
             console.log(err);
           });
@@ -82,13 +101,33 @@ export class RegisterPage {
     }, (err) => { });
   }
 
-  public onRegister() {
-    this.nav.setRoot(PROVIDERS_PAGE);
+  public async onRegister() {
+    if (!this.registerForm.valid) {
+      return;
+    };
+
+    this.isReadyToRegister = false; // disable the submit button to prevent sending twice
+    this.showLoading();
+
+    try {
+      let medX = await this.medXProvider.getInstance();
+      let result = await medX.KeystoreFactory.create(this.registerForm.value);
+      this.toastCtrl.create({
+        message: 'You have successfully registered and logged in.',
+        duration: 3000,
+        position: 'bottom'
+      }).present();
+      this.userData.login(this.registerForm.get('name').value);
+      this.nav.setRoot(PROVIDERS_PAGE);
+    } catch (err) {
+      alert(err);
+    }
   }
+
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: 'Processing, Please Wait...',
       dismissOnPageChange: true
     });
     this.loading.present();
