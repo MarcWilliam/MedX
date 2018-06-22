@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams, ModalController, AlertController, 
 //import { Doctor } from './doctor';
 import { SCANNER_PAGE, RECORD_LIST_PAGE } from '../pages.constants';
 
+import { MedXProvider } from '../../providers/medx';
+
 /**
  * Generated class for the ProvidersPage page.
  *
@@ -18,12 +20,13 @@ import { SCANNER_PAGE, RECORD_LIST_PAGE } from '../pages.constants';
 })
 
 export class ProvidersPage {
-
+  myInput: any;
   doctors = [{
     photo: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg?s=200",
     name: "Dr. John Smith",
     access: new Date("5/17/2018"),
-    expire: new Date("6/17/2018")
+    expire: new Date("6/17/2018"),
+    identifier: "1"
   }];
   testCheckboxOpen = false;
   testCheckboxResult: any;
@@ -33,7 +36,9 @@ export class ProvidersPage {
     public modalCtrl: ModalController,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    private medXProvider: MedXProvider
+  ) {
     //this.doctors.push(new Doctor("John Smith", new Date("17/5/2018"), new Date("17/6/2018")));
   }
 
@@ -62,14 +67,23 @@ export class ProvidersPage {
     })
   }
 
-  openRecordListModal(content?) {
+  async openRecordListModal(content?) {
     let office = content;
     let recordsListModal = this.modalCtrl.create(RECORD_LIST_PAGE, { 'office': office });
     recordsListModal.present();
-    recordsListModal.onDidDismiss(content => {
-      if (content) {
-       // this.doctors.push(new Doctor(office, content[0].title, content[1].title));
+    recordsListModal.onDidDismiss(async (content) => {
+      let medX = await this.medXProvider.getInstance();
+      let keystore = await medX.KeystoreFactory.getKeyStore();
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      loading.present();
+      if (content && content.length > 0) {
+        for (let i = 0; i > content.length; i++) {
+          (await keystore.add(content[i].address));
+        }
       }
+      loading.dismiss();
     })
   }
 

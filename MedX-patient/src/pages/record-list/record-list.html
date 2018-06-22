@@ -50,9 +50,9 @@
           <p>
             <ion-row>
               <ion-col>
-                <ion-note> by: </ion-note> {{ record.doctor }}</ion-col>
+                <ion-note> by: </ion-note> {{ record.doctorProfile?.name }}</ion-col>
               <ion-col>
-                <ion-note> at: </ion-note> {{record.date | date: 'dd MMMM yyyy'}}</ion-col>
+                <ion-note> at: </ion-note> {{record.createdAt | date: 'dd MMMM yyyy'}}</ion-col>
             </ion-row>
           </p>
         </ion-label>

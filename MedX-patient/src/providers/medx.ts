@@ -16,6 +16,10 @@ declare var lightwallet;
 export class MedXProvider {
 	public Medx = null;
 
+	public getAccount(index?): string {
+		return "0xf17f52151EbEF6C7334FAD080c5704D77216b732";
+	}
+
 	constructor() {
 		Medx.SERVERS.LOCALHOST.STATISTICS_API = CONFIG.SERVER.STATISTICS_API;
 		Medx.SERVERS.LOCALHOST.HTTP_PROVIDER = CONFIG.SERVER.HTTP_PROVIDER;
@@ -80,9 +84,10 @@ export class MedXProvider {
 		try {
 			if (!this.Medx) {
 				this.Medx = await this._init();
+				this.Medx.Web3Service.getAccount = this.getAccount;	
 			}
 		} catch (err) {
-			alert(err);
+			console.error(err);
 		}
 		return this.Medx;
 	}

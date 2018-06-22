@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ToastController } from 'ionic-angular';
-import {HistoryPage} from '../history/history';
+import { HistoryPage } from '../history/history';
+
+import { MedXProvider } from '../../providers/medx';
 
 /**
  * Generated class for the PrescriptionPage page.
@@ -27,8 +29,14 @@ export class PrescriptionPage {
 
   public test = { tests: [] };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams , public storage : Storage , public toastCtrl : ToastController) {
-    
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public storage: Storage,
+    public toastCtrl: ToastController,
+    private medXProvider: MedXProvider
+  ) {
+
     this.medications = { meds: new Array() };
     this.procedures = { proc: new Array() };
     this.test = { tests: new Array() };
@@ -49,7 +57,7 @@ export class PrescriptionPage {
     toast.onDidDismiss(() => {
       this.navCtrl.setRoot(HistoryPage);
     });
-  
+
     toast.present();
   }
 
@@ -58,7 +66,7 @@ export class PrescriptionPage {
       this.medications.meds[index].expand = !this.medications.meds[index].expand;
     } else if (id == 1) {
       this.procedures.proc[index].expand = !this.procedures.proc[index].expand;
-    } else if (id ==2) {
+    } else if (id == 2) {
       this.test.tests[index].expand = !this.test.tests[index].expand;
     }
   }
@@ -67,18 +75,18 @@ export class PrescriptionPage {
     if (type == 0) {
 
       let temp = { json: require('../../json-templates/medicationRequest.json'), expand: true }
-      temp.json.authoredOn=Date();
+      temp.json.authoredOn = Date();
       this.medications.meds.push(JSON.parse(JSON.stringify(temp)));
 
     } else if (type == 1) {
       let temp = { json: require('../../json-templates/procedureRequest.json'), expand: true }
-      temp.json.authoredOn= Date();
+      temp.json.authoredOn = Date();
       this.procedures.proc.push(JSON.parse(JSON.stringify(temp)));
 
 
     } else if (type == 2) {
       let temp = { json: require('../../json-templates/procedureRequest.json'), expand: true }
-      temp.json.authoredOn=Date();
+      temp.json.authoredOn = Date();
       this.test.tests.push(JSON.parse(JSON.stringify(temp)));
     }
   }
@@ -119,14 +127,38 @@ export class PrescriptionPage {
     }
   }
 
-  submit() {
-    this.all[0]=this.medications
-    this.all[1]=this.procedures
-    this.all[2]=this.test
-    this.storage.set("Records",this.all);
+  async submit() {
+    this.all[0] = this.medications;
+    this.all[1] = this.procedures;
+    this.all[2] = this.test;
+    this.storage.set("Records", this.all);
     this.presentToast();
-  
-    console.log(this.all)
+
+    console.log(this.all);
+
+    let medX = await this.medXProvider.getInstance();
+
+    if (this.medications.meds.length > 0) {
+      await medX.RecordFactory.create({
+        patient: "0xf17f52151EbEF6C7334FAD080c5704D77216b732",
+        record: this.medications.meds,
+        attachments: []
+      });
+    }
+    if (this.procedures.proc.length > 0) {
+      await medX.RecordFactory.create({
+        patient: "0xf17f52151EbEF6C7334FAD080c5704D77216b732",
+        record: this.procedures.proc,
+        attachments: []
+      });
+    }
+    if (this.test.tests.length > 0) {
+      await medX.RecordFactory.create({
+        patient: "0xf17f52151EbEF6C7334FAD080c5704D77216b732",
+        record: this.test.tests,
+        attachments: []
+      });
+    }
   }
 
 }

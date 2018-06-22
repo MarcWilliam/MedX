@@ -76,7 +76,12 @@ export class RecordListPage {
     // filter by keyWord/searchTerm
     else if (typeof searchTerm === 'string' || searchTerm instanceof String) {
       return this.records.filter((record) => {
-        return record.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+        if (typeof record.title !== 'undefined') {
+          return record.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+        }
+        else if (typeof record.doctorProfile !== 'undefined') {
+          return record.doctorProfile.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+        }
       })
     }
   }
@@ -109,12 +114,40 @@ export class RecordListPage {
     this.viewCtrl.dismiss(content);
   }
 
-  async ionViewWillLoad() {
+  async getRecords() {
     let medX = await this.medXProvider.getInstance();
     let keystore = await medX.KeystoreFactory.getKeyStore();
     let records = (await keystore.getRecords());
+
+    if (records && records.length > 0) {
+
+      for (const record in records) {
+        records[record] = {
+          ...records[record],
+          ...(await records[record].getAttribs())
+        };
+
+        let doctorKeyStore = await medX.KeystoreFactory.getKeyStore(records[record].doctor);
+        doctorKeyStore = {
+          ...doctorKeyStore,
+          ...(await doctorKeyStore.getAttribs()).profile
+        };
+
+        records[record] = {
+          ...records[record],
+          doctorProfile: doctorKeyStore,
+        }
+      }
+    };
+
+    return records;
+  }
+
+  async ionViewWillLoad() {
+    let records = await this.getRecords();
     this.records = (records.length > 0) ? records : this.records;
     this.filteredRecords = this.records.slice(0, this.records.length);
+    this.selectAll();
   }
 
   ionViewDidLoad() {
