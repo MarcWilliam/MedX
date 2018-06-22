@@ -14,7 +14,7 @@ export class IPFSservice {
     constructor() { }
     public async init(url = '/ip4/127.0.0.1/tcp/5001') {
         this.isInit = true;
-        
+
         this.encrServece = new EcnriptionHandler();
         this.node = new IPFS({
             start: true,
@@ -49,18 +49,18 @@ export class IPFSservice {
 
     public async readFile(file_Url) {
         try {
-            
-                return new Promise((resolve, reject) => {
-                    fs.readFile(file_Url, (err, data) => {
-                        if (err) {
-                            reject(err)
-                        } else {
-                            resolve(data);
-                        }
-                    });
 
+            return new Promise((resolve, reject) => {
+                fs.readFile(file_Url, (err, data) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        resolve(data);
+                    }
                 });
-            
+
+            });
+
         } catch (err) {
             console.error(err);
         }
