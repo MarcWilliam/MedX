@@ -1,32 +1,30 @@
 import { EcnriptionHandler } from './encription-handler';
-import { randomBytes } from 'crypto';
 
 import IPFS = require('ipfs');
 import fs = require('fs'); //Js File library
+import Config from './config';
 
 export class IPFSservice {
 
     node: any;
     encrServece: EcnriptionHandler;
-    isInit: boolean = false;
 
-    constructor() { }
+    private constructor() { }
 
-    public async init(url = '/ip4/127.0.0.1/tcp/5001') {
-        this.isInit = true;
+    public static async init() {
 
-        this.encrServece = new EcnriptionHandler();
-        this.node = new IPFS({
+        var ret = new IPFSservice();
+        ret.encrServece = new EcnriptionHandler();
+        ret.node = new IPFS({
             start: true,
 
             config: {
                 Addresses: {
-                    API: url,
+                    API: Config.server.IPFS_NODE,
 
                 }
             }
         })
-
 
     }
 

@@ -4,6 +4,7 @@ import { Keystore } from './contract-wraper/Keystore';
 import { KeystoreFactory } from './contract-wraper/KeystoreFactory';
 import { Record } from './contract-wraper/Record';
 import { RecordFactory } from './contract-wraper/RecordFactory';
+import { EcnriptionHandler } from './helpers/encription-handler';
 export default class MedX {
     private static _instance;
     Web3Service: any;
@@ -11,6 +12,8 @@ export default class MedX {
         LOCALHOST: ServerInfo;
         RINKEBY: ServerInfo;
     };
+    IPFSservice: any;
+    EcnriptionHandler: typeof EcnriptionHandler;
     EncryptedFile: typeof EncryptedFile;
     Keystore: typeof Keystore;
     KeystoreFactory: KeystoreFactory;
