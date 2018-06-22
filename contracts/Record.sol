@@ -18,7 +18,7 @@ contract Record {
         EncryptedFile[] _attachments
     ) public {
         patient = _patient;
-        doctor = msg.sender;
+        doctor = tx.origin;
         createdAt = now;
         record = _record;
         attachments = _attachments;

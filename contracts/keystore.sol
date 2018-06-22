@@ -22,6 +22,6 @@ contract Keystore is Ownable {
     function add(Record _record, string _encKey) public {
         //require(bytes(rec2key[_record]).length == 0); // to protect aggainst enpty keystore attak
         rec2key[_record] = _encKey;
-        emit added(_record, msg.sender);
+        emit added(_record, tx.origin);
     }
 }

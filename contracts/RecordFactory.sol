@@ -22,8 +22,8 @@ contract RecordFactory {
     ) public returns (Record rec) {
         rec = new Record(_patient, _record, _attachments);
         KSFactory.owners(_patient).add(rec, _patientKey);
-        KSFactory.owners(msg.sender).add(rec, _doctorsKey);
-        emit Created(_patient, msg.sender, rec);
+        KSFactory.owners(tx.origin).add(rec, _doctorsKey);
+        emit Created(_patient, tx.origin, rec);
     }
 
     function createQuick(
@@ -36,7 +36,7 @@ contract RecordFactory {
         string _record_encriptionMethod,
         EncryptedFile[] _attachments
     ) public returns (Record) {
-        /*EncryptedFile _record = new EncryptedFile(
+        EncryptedFile _record = new EncryptedFile(
             _record_filePath,
             _record_dataHash,
             _record_hashMethod,
@@ -49,7 +49,7 @@ contract RecordFactory {
             _doctorsKey,
             _record,
             _attachments
-        );*/
+        );
     }
 
 }
