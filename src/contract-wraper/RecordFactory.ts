@@ -51,7 +51,7 @@ export class RecordFactory extends Contract {
                 recordInfo.filePath,
                 recordInfo.dataHash,
                 recordInfo.hashMethod,
-                record.encriptionMethod,
+                recordInfo.encriptionMethod,
                 attachments
             ],
             extraParams: extraParams
