@@ -36,9 +36,9 @@ export class Keystore extends Contract {
         }
     }
 
-    public async add(record: string, encKey: string, extraParams?): Promise<any> {
+    public async add(record: string, encKey?: string, extraParams?): Promise<any> {
         return new Keystore(await this.genericCall("add", {
-            params: [record, encKey],
+            params: [record, await (this.getKey(record))],
             extraParams: extraParams
         }));
     }
