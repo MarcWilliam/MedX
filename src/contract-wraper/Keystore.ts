@@ -43,5 +43,8 @@ export class Keystore extends Contract {
         }));
     }
 
+    public async getRecords(record: string, extraParams?: { fromBlock?: any, toBlock?: any, filter?: { any } }): Promise<any> {
+        return await this.genericEvent("added", extraParams);
+    }
 
 }

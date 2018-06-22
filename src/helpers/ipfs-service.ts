@@ -1,17 +1,17 @@
 import { EcnriptionHandler } from './encription-handler';
 import { randomBytes } from 'crypto';
 
-const IPFS = require('ipfs');
-const fs = require('fs'); //Js File library
+import IPFS = require('ipfs');
+import fs = require('fs'); //Js File library
 
 export class IPFSservice {
+
     node: any;
-    ;
     encrServece: EcnriptionHandler;
     isInit: boolean = false;
 
-
     constructor() { }
+
     public async init(url = '/ip4/127.0.0.1/tcp/5001') {
         this.isInit = true;
 
@@ -44,7 +44,6 @@ export class IPFSservice {
             console.error(err);
         }
 
-
     }
 
     public async readFile(file_Url) {
@@ -69,16 +68,15 @@ export class IPFSservice {
 
 
     public async  retriveIpfs(dataOpject: any) {
-        try {
 
-            let dataPath = this.encrServece.decrypt(dataOpject.cypherText, dataOpject.encryptionMethod, new Buffer(dataOpject.encryptionKey));
+        return new Promise((resolve, reject) => {
+            try {
+                let dataPath = this.encrServece.decrypt(dataOpject.cypherText, dataOpject.encryptionMethod, new Buffer(dataOpject.encryptionKey));
 
-            return new Promise((resolve, reject) => {
                 this.node.files.get(dataPath, (err, data) => {
                     if (err) {
                         reject(err);
                     } else {
-
                         let hex = this.encrServece.bufferToHex(data[0].content);
 
                         if (dataOpject.dataHash == this.encrServece.hash(hex)) {
@@ -89,18 +87,12 @@ export class IPFSservice {
                     }
 
                 });
-
-            });
-
-        } catch (err) {
-            console.error(err);
-        }
-
-
+            } catch (err) {
+                console.error(err);
+                reject(err);
+            }
+        });
     }
-
-
-
 
     private async addToIpfs(bufferdData) {
         try {
@@ -129,9 +121,4 @@ export class IPFSservice {
     }
 
 
-
-
-
 }
-
-
