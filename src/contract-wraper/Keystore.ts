@@ -44,7 +44,14 @@ export class Keystore extends Contract {
     }
 
     public async getRecords(record: string, extraParams?: { fromBlock?: any, toBlock?: any, filter?: { any } }): Promise<any> {
-        return await this.genericEvent("added", extraParams);
+        let data = await this.genericEvent("added", extraParams);
+        let ret = <any>[];
+
+        for (const key in data) {
+            ret[key] = new Record(data[key].args.record);
+        }
+
+        return ret;
     }
 
 }
