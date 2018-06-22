@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { IonicStorageModule } from '@ionic/storage';
 
-import { GoogleDrive } from '../providers/google-drive';
+import { GoogleDriveProvider } from '../providers/google-drive';
 
 import { ConferenceApp } from './app.component';
 
@@ -98,7 +98,7 @@ import { MedXProvider } from '../providers/medx';
     SplashScreen,
     StatusBar,
     ResourcesProvider,
-    GoogleDrive,
+    GoogleDriveProvider,
     MedXProvider
   ]
 })
