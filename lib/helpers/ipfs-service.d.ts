@@ -7,6 +7,6 @@ export declare class IPFSservice {
     init(url?: string): Promise<void>;
     ipfsInsert(data: any, key?: string): Promise<{} | undefined>;
     readFile(file_Url: any): Promise<{} | undefined>;
-    retriveIpfs(dataOpject: any): Promise<{} | undefined>;
+    retriveIpfs(dataOpject: any): Promise<{}>;
     private addToIpfs;
 }

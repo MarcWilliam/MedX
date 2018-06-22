@@ -18,11 +18,10 @@ export class KeystoreFactory extends Contract {
             var contractInstance = await this.getContractInstance();
             var web3ServiceInstance = await (Web3Service.getInstance());
             var account = _account ? _account : (await web3ServiceInstance.getAccount());
+            var result = await contractInstance.owners(account);
 
-            var result = await contractInstance.owner(account);
-
-            console.log("getAttribs", result);
-            return result;
+            console.log("getKeyStore", result);
+            return new Keystore(result);
         } catch (err) {
             console.warn(err.message);
             throw err;
