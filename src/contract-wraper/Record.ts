@@ -15,7 +15,7 @@ export class Record extends Contract {
                 createdAt: new Date(await contractInstance.createdAt()),
 
                 record: new EncryptedFile(await contractInstance.record()),
-                attachments: (await contractInstance.attachments()).map(a => new EncryptedFile(a))
+                //attachments: (await contractInstance.attachments()).map(a => new EncryptedFile(a))
             };
 
             console.log("getAttribs", result);

@@ -7,7 +7,6 @@ export declare class Record extends Contract {
         doctor: any;
         createdAt: Date;
         record: EncryptedFile;
-        attachments: any;
     }>;
 }
 export interface RecordDat {
