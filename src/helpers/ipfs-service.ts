@@ -25,7 +25,7 @@ export class IPFSservice {
                 }
             }
         })
-
+        return ret;
     }
 
     public async ipfsInsert(data: any, key: string = "") {
