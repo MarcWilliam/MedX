@@ -129,7 +129,7 @@
         "id": 157,
         "nodeType": "ImportDirective",
         "scope": 203,
-        "sourceUnit": 378,
+        "sourceUnit": 440,
         "src": "28:63:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -385,7 +385,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 392,
+                        "referencedDeclaration": 454,
                         "src": "491:3:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -445,7 +445,7 @@
                       "name": "now",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 394,
+                      "referencedDeclaration": 456,
                       "src": "524:3:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -710,7 +710,7 @@
         "id": 157,
         "nodeType": "ImportDirective",
         "scope": 203,
-        "sourceUnit": 378,
+        "sourceUnit": 440,
         "src": "28:63:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -966,7 +966,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 392,
+                        "referencedDeclaration": 454,
                         "src": "491:3:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1026,7 +1026,7 @@
                       "name": "now",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 394,
+                      "referencedDeclaration": 456,
                       "src": "524:3:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1270,5 +1270,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-06-22T13:40:43.758Z"
+  "updatedAt": "2018-06-22T13:56:34.896Z"
 }

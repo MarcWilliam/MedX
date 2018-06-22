@@ -21,8 +21,8 @@ contract RecordFactory {
         EncryptedFile[] _attachments
     ) public returns (Record rec) {
         rec = new Record(_patient, _record, _attachments);
-        //KSFactory.owners(_patient).add(rec, _patientKey);
-        //KSFactory.owners(msg.sender).add(rec, _doctorsKey);
+        KSFactory.owners(_patient).add(rec, _patientKey);
+        KSFactory.owners(msg.sender).add(rec, _doctorsKey);
         emit Created(_patient, msg.sender, rec);
     }
 
@@ -36,14 +36,20 @@ contract RecordFactory {
         string _record_encriptionMethod,
         EncryptedFile[] _attachments
     ) public returns (Record) {
-        EncryptedFile _record = new EncryptedFile(
+        /*EncryptedFile _record = new EncryptedFile(
             _record_filePath,
             _record_dataHash,
             _record_hashMethod,
             _record_encriptionMethod
         );
         
-        return create(_patient, _patientKey, _doctorsKey, _record, _attachments);
+        return create(
+            _patient,
+            _patientKey,
+            _doctorsKey,
+            _record,
+            _attachments
+        );*/
     }
 
 }
