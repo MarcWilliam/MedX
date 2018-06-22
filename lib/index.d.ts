@@ -1,3 +1,4 @@
+import { ServerInfo } from './Servers';
 import { EncryptedFile } from './contract-wraper/EncryptedFile';
 import { Keystore } from './contract-wraper/Keystore';
 import { KeystoreFactory } from './contract-wraper/KeystoreFactory';

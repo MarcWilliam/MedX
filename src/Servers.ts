@@ -1,3 +1,11 @@
+export interface ServerInfo {
+	STATISTICS_API: string | null,
+	HTTP_PROVIDER: string,
+	CONTRACTS_URL: string | null,
+	NETWORK_ID: number | null,
+	HD_PATH: string | null
+}
+
 const SERVERS = {
 	LOCALHOST: <ServerInfo>{
 		STATISTICS_API: "http://localhost:8064/api/",

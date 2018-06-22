@@ -1,3 +1,4 @@
+import { ServerInfo } from '../Servers';
 export default class Config {
     static IsProduction: boolean;
     static DevMnemonic: string;
