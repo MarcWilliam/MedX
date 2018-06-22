@@ -30,6 +30,7 @@ import {PatientListPage} from '../pages/patient-list/patient-list';
 
 import { UserData } from '../providers/user-data';
 import { ResourcesProvider } from '../providers/resources/resources';
+import { MedXProvider } from '../providers/medx';
 
 
 @NgModule({
@@ -97,7 +98,8 @@ import { ResourcesProvider } from '../providers/resources/resources';
     SplashScreen,
     StatusBar,
     ResourcesProvider,
-    GoogleDrive
+    GoogleDrive,
+    MedXProvider
   ]
 })
 export class AppModule { }

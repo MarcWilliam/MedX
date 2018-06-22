@@ -3,6 +3,7 @@ import { NavController, MenuController, AlertController, LoadingController, Load
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterPage } from '../register/register';
 import { PatientListPage } from '../patient-list/patient-list';
+import { MedXProvider } from '../../providers/medx';
 
 @IonicPage()
 @Component({
@@ -21,7 +22,9 @@ export class LoginPage {
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
-    public menu: MenuController) {
+    public menu: MenuController,
+    public medXProvider: MedXProvider
+  ) {
 
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
@@ -59,6 +62,18 @@ export class LoginPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  async ionViewDidLoad() {
+    let medX = await this.medXProvider.getInstance();
+    console.log(medX);
+    // let result = await medX.KeystoreFactory.create();
+    // console.log(result);
+    // console.log(this.googleDriveProvider);
+    // console.log(await this.googleDriveProvider.signIn(false, true));
+    // console.log(await this.googleDriveProvider.createFile("test.txt", "IT WORKS!", "text/plain", true));
+    // let fileContents = await this.googleDriveProvider.retrieveFileContentsByTitle("test.txt", true);
+    // console.log(fileContents);
   }
 
   ionViewWillEnter() {

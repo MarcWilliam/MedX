@@ -66,8 +66,8 @@ export class LoginPage {
   }
 
   async ionViewDidLoad() {
-    // let medX = await this.medXProvider.getInstance();
-    // console.log(medX);
+    let medX = await this.medXProvider.getInstance();
+    console.log(medX);
     // let result = await medX.KeystoreFactory.create();
     // console.log(result);
     // console.log(this.googleDriveProvider);
