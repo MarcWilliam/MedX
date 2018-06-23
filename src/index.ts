@@ -7,8 +7,8 @@ import { Keystore } from './contract-wraper/Keystore';
 import { KeystoreFactory } from './contract-wraper/KeystoreFactory';
 import { Record } from './contract-wraper/Record';
 import { RecordFactory } from './contract-wraper/RecordFactory';
-import { IPFSservice } from './helpers/ipfs-service';
-import { EcnriptionHandler } from './helpers/encription-handler';
+//import { IPFSservice } from './helpers/ipfs-service';
+//import { EcnriptionHandler } from './helpers/encription-handler';
 
 import Config from './helpers/config';
 
@@ -18,8 +18,8 @@ export default class MedX {
 	public Web3Service;
 	public static SERVERS = SERVERS;
 
-	public IPFSservice;
-	public EcnriptionHandler = EcnriptionHandler;
+	//public IPFSservice;
+	//public EcnriptionHandler = EcnriptionHandler;
 
 	//public CONTRACT_NAME = CONTRACT_NAME;
 	public EncryptedFile = EncryptedFile;
@@ -49,7 +49,7 @@ export default class MedX {
 
 		if (!MedX._instance) { MedX._instance = new MedX(); }
 		MedX._instance.Web3Service = await Web3Service.getInstance();
-		MedX._instance.IPFSservice = await IPFSservice.init();
+		//MedX._instance.IPFSservice = await IPFSservice.init();
 
 		return MedX._instance;
 	}
