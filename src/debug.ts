@@ -1,3 +1,4 @@
+/*
 var TruffleContract = require("truffle-contract");
 var LightWallet = require("eth-lightwallet");
 import MedX from "./index";
@@ -14,3 +15,4 @@ async function t() {
     console.log(result);
 }
 t();
+*/

@@ -5,7 +5,7 @@ export declare class Record extends Contract {
     getAttribs(): Promise<{
         patient: any;
         doctor: any;
-        createdAt: any;
+        createdAt: Date;
         record: EncryptedFile;
     }>;
 }

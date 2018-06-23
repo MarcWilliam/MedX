@@ -12,7 +12,7 @@ export class Record extends Contract {
             var result = {
                 patient: await contractInstance.patient(),
                 doctor: await contractInstance.doctor(),
-                createdAt: new Date((await contractInstance.createdAt()).toNumber()),
+                createdAt: new Date((await contractInstance.createdAt()).toNumber() * 1000),
                 record: new EncryptedFile(await contractInstance.record()),
                 //attachments: (await contractInstance.attachments()).map(a => new EncryptedFile(a))
             };
