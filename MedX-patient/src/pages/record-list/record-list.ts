@@ -19,7 +19,7 @@ import { MedXProvider } from '../../providers/medx';
 })
 export class RecordListPage {
   selectedAll: boolean;
-  office: any;
+  doctor: any;
   searchTerm: string = '';
   searchControl: FormControl;
   searching: any = false;
@@ -52,11 +52,11 @@ export class RecordListPage {
     private medXProvider: MedXProvider
   ) {
     this.searchControl = new FormControl();
-    this.office = this.navParams.get("office");
+    this.doctor = this.navParams.get("doctor");
   }
 
   onGrantAccess() {
-    if (confirm(`Are you sure you want give ${this.office} access to these records.`)) {
+    if (confirm(`Are you sure you want give ${this.doctor.profile.name} access to these records.`)) {
       this.dismiss(this.getSelectedRecords());
     }
   }
@@ -120,26 +120,18 @@ export class RecordListPage {
     let records = (await keystore.getRecords());
 
     if (records && records.length > 0) {
-
       for (const record in records) {
         records[record] = {
           ...records[record],
           ...(await records[record].getAttribs())
         };
-
         let doctorKeyStore = await medX.KeystoreFactory.getKeyStore(records[record].doctor);
-        doctorKeyStore = {
-          ...doctorKeyStore,
-          ...(await doctorKeyStore.getAttribs()).profile
-        };
-
-        records[record] = {
-          ...records[record],
-          doctorProfile: doctorKeyStore,
+        records[record].doctor = {
+          accountAddress: records[record].doctor,
+          ...(await doctorKeyStore.getAttribs()),
         }
       }
     };
-
     return records;
   }
 

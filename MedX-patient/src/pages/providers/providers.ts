@@ -68,19 +68,27 @@ export class ProvidersPage {
   }
 
   async openRecordListModal(content?) {
-    let office = content;
-    let recordsListModal = this.modalCtrl.create(RECORD_LIST_PAGE, { 'office': office });
+
+    let doctor = { accountAddress: content || "0x627306090abaB3A6e1400e9345bC60c78a8BEf57" };
+
+    let medX = await this.medXProvider.getInstance();
+    let doctorKeyStore = await medX.KeystoreFactory.getKeyStore(doctor.accountAddress);
+    doctor = {
+      ...doctor,
+      ...(await doctorKeyStore.getAttribs()),
+    };
+
+    let recordsListModal = this.modalCtrl.create(RECORD_LIST_PAGE, { 'doctor': doctor });
     recordsListModal.present();
-    recordsListModal.onDidDismiss(async (content) => {
-      let medX = await this.medXProvider.getInstance();
-      let keystore = await medX.KeystoreFactory.getKeyStore();
+    recordsListModal.onDidDismiss(async (records) => {
       let loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
       loading.present();
-      if (content && content.length > 0) {
-        for (let i = 0; i > content.length; i++) {
-          (await keystore.add(content[i].address));
+
+      if (records && records.length > 0) {
+        for (let i = 0; i < records.length; i++) {
+          (await doctorKeyStore.add(records[i]._address));
         }
       }
       loading.dismiss();

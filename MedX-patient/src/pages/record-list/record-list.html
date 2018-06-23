@@ -31,7 +31,7 @@
     </ion-card-header>
     <ion-card-content>
       <p ion-text color="primary"> Select the records you want
-        <ion-note color="secondary">{{office}}</ion-note> to be able to access it from the list below. </p>
+        <ion-note color="secondary">{{doctor.profile?.name || 'doctor'}}</ion-note> to be able to access it from the list below. </p>
     </ion-card-content>
   </ion-card>
 
@@ -50,7 +50,7 @@
           <p>
             <ion-row>
               <ion-col>
-                <ion-note> by: </ion-note> {{ record.doctorProfile?.name }}</ion-col>
+                <ion-note> by: </ion-note> {{ record.doctor.profile?.name }}</ion-col>
               <ion-col>
                 <ion-note> at: </ion-note> {{record.createdAt | date: 'dd MMMM yyyy'}}</ion-col>
             </ion-row>
