@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, LoadingController, Loading } from 'ionic-angular';
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 
@@ -25,7 +25,7 @@ export class RecordListPage {
   searching: any = false;
 
   records: any[] = [
-    { title: "test 1", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    /*{ title: "test 1", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 2", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 3", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 4", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
@@ -41,14 +41,17 @@ export class RecordListPage {
     { title: "test 14", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 15", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 16", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 17", createdAt: new Date(), doctor: "Dr. John Smith", selected: false }
+    { title: "test 17", createdAt: new Date(), doctor: "Dr. John Smith", selected: false }*/
   ];
 
-  filteredRecords: any[] = this.records.slice(0, this.records.length);
+  filteredRecords: any[] = this.records.slice(0, this.records.length) || [];
+
+  loading: Loading;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController,
+    public loadingCtrl: LoadingController,
     private medXProvider: MedXProvider
   ) {
     this.searchControl = new FormControl();
@@ -111,7 +114,17 @@ export class RecordListPage {
   }
 
   dismiss(records?, doctor?) {
-    this.viewCtrl.dismiss({records: records, doctor: doctor});
+    this.viewCtrl.dismiss({ records: records, doctor: doctor });
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Loading, Please Wait...',
+    });
+    this.loading.present();
+  }
+  hideLoading() {
+    this.loading.dismiss();
   }
 
   async getRecords() {
@@ -125,6 +138,10 @@ export class RecordListPage {
           ...records[record],
           ...(await records[record].getAttribs())
         };
+        records[record].record = {
+          ...(await records[record].record.getAttribs()),
+        }
+        records[record].record.filePath = JSON.parse(records[record].record.filePath)[0].json;
         let doctorKeyStore = await medX.KeystoreFactory.getKeyStore(records[record].doctor);
         records[record].doctor = {
           accountAddress: records[record].doctor,
@@ -136,10 +153,13 @@ export class RecordListPage {
   }
 
   async ionViewWillLoad() {
+    this.showLoading();
     let records = await this.getRecords();
+    console.log(records);
     this.records = (records.length > 0) ? records : this.records;
     this.filteredRecords = this.records.slice(0, this.records.length);
     this.selectAll();
+    this.hideLoading();
   }
 
   ionViewDidLoad() {

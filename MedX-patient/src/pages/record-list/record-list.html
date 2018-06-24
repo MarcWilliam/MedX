@@ -46,7 +46,7 @@
       <ion-item *ngFor="let record of filteredRecords">
         <ion-checkbox [(ngModel)]="record.selected" (click)="checkIfAllSelected()"></ion-checkbox>
         <ion-label>
-          {{ record.title }}
+          {{ record.filePath?.medicationReference.refrance || record.filePath?.definition }}
           <p>
             <ion-row>
               <ion-col>

@@ -83,24 +83,26 @@ export class ProvidersPage {
     let recordsListModal = this.modalCtrl.create(RECORD_LIST_PAGE, { 'doctor': doctor });
     recordsListModal.present();
     recordsListModal.onDidDismiss(async (data) => {
-      let records = data.records;
-      let doctor = data.doctor;
-      doctor.profile.photo = "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg?s=200";
-      doctor.profile.access = new Date("6/24/2018");
-      doctor.profile.expire = new Date("9/24/2018");
-      doctor.profile.identifier = doctor.accountAddress;
-      this.doctors.push(doctor);
-      let loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-      });
-      loading.present();
+      if (data) {
+        let records = data.records;
+        let doctor = data.doctor;
+        doctor.profile.photo = "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg?s=200";
+        doctor.profile.access = new Date("6/24/2018");
+        doctor.profile.expire = new Date("9/24/2018");
+        doctor.profile.identifier = doctor.accountAddress;
+        this.doctors.push(doctor);
+        let loading = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+        loading.present();
 
-      if (records && records.length > 0) {
-        for (let i = 0; i < records.length; i++) {
-          (await doctorKeyStore.add(records[i]._address));
+        if (records && records.length > 0) {
+          for (let i = 0; i < records.length; i++) {
+            (await doctorKeyStore.add(records[i]._address));
+          }
         }
+        loading.dismiss();
       }
-      loading.dismiss();
     })
   }
 
