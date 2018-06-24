@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HistoryPage } from '../history/history';
+import { MedXProvider } from '../../providers/medx';
 
 /**
  * Generated class for the PatientListPage page.
@@ -53,7 +54,7 @@ export class PatientListPage {
       identifier: "1"
     }
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public medXProvider: MedXProvider) {
   }
 
   ionViewDidLoad() {
@@ -62,4 +63,16 @@ export class PatientListPage {
   patientClicked(identifier) {
     this.navCtrl.push(HistoryPage, { identifier: identifier });
   }
+
+  async listPatients() {
+
+    let medX = await this.medXProvider.getInstance();
+    let patientKeyStore = await medX.KeystoreFactory.getKeyStore("0xf17f52151EbEF6C7334FAD080c5704D77216b732");
+    patientKeyStore = {
+      ...patientKeyStore,
+      ...(await patientKeyStore.getAttribs()).profile,
+    };
+    this.patients.push(patientKeyStore);
+  }
+
 }

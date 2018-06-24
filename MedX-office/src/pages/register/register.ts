@@ -160,7 +160,9 @@ export class RegisterPage {
 
     try {
       let medX = await this.medXProvider.getInstance();
-      await this.googleDriveBackUp(medX);
+      if (this.platform.is('android')) {
+        await this.googleDriveBackUp(medX);
+      }
       let result = await medX.KeystoreFactory.create(selectedForm.value);
       this.toastCtrl.create({
         message: 'You have successfully registered and logged in.',
