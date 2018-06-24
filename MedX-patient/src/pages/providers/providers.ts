@@ -22,11 +22,13 @@ import { MedXProvider } from '../../providers/medx';
 export class ProvidersPage {
   myInput: any;
   doctors = [{
-    photo: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg?s=200",
-    name: "Dr. John Smith",
-    access: new Date("5/17/2018"),
-    expire: new Date("6/17/2018"),
-    identifier: "1"
+    profile: {
+      photo: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg?s=200",
+      name: "Dr. John Smith",
+      access: new Date("5/17/2018"),
+      expire: new Date("6/17/2018"),
+      identifier: "1"
+    }
   }];
   testCheckboxOpen = false;
   testCheckboxResult: any;
@@ -80,7 +82,14 @@ export class ProvidersPage {
 
     let recordsListModal = this.modalCtrl.create(RECORD_LIST_PAGE, { 'doctor': doctor });
     recordsListModal.present();
-    recordsListModal.onDidDismiss(async (records) => {
+    recordsListModal.onDidDismiss(async (data) => {
+      let records = data.records;
+      let doctor = data.doctor;
+      doctor.profile.photo = "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg?s=200";
+      doctor.profile.access = new Date("6/24/2018");
+      doctor.profile.expire = new Date("9/24/2018");
+      doctor.profile.identifier = doctor.accountAddress;
+      this.doctors.push(doctor);
       let loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });

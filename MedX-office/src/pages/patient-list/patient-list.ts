@@ -72,6 +72,7 @@ export class PatientListPage {
       ...patientKeyStore,
       ...(await patientKeyStore.getAttribs()).profile,
     };
+    patientKeyStore.identifier = "0xf17f52151EbEF6C7334FAD080c5704D77216b732";
     this.patients.push(patientKeyStore);
   }
 

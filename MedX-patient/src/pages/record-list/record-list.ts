@@ -25,23 +25,23 @@ export class RecordListPage {
   searching: any = false;
 
   records: any[] = [
-    { title: "test 1", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 2", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 3", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 4", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 5", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 6", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 7", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 8", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 9", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 10", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 11", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 12", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 13", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 14", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 15", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 16", date: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 17", date: new Date(), doctor: "Dr. John Smith", selected: false }
+    { title: "test 1", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 2", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 3", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 4", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 5", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 6", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 7", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 8", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 9", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 10", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 11", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 12", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 13", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 14", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 15", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 16", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 17", createdAt: new Date(), doctor: "Dr. John Smith", selected: false }
   ];
 
   filteredRecords: any[] = this.records.slice(0, this.records.length);
@@ -57,7 +57,7 @@ export class RecordListPage {
 
   onGrantAccess() {
     if (confirm(`Are you sure you want give ${this.doctor.profile.name} access to these records.`)) {
-      this.dismiss(this.getSelectedRecords());
+      this.dismiss(this.getSelectedRecords(), this.doctor);
     }
   }
 
@@ -110,8 +110,8 @@ export class RecordListPage {
     })
   }
 
-  dismiss(content?) {
-    this.viewCtrl.dismiss(content);
+  dismiss(records?, doctor?) {
+    this.viewCtrl.dismiss({records: records, doctor: doctor});
   }
 
   async getRecords() {

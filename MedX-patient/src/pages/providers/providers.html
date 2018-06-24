@@ -32,15 +32,15 @@
 
       <button ion-item>
         <ion-avatar item-start>
-          <img [src]="doc.photo">
+          <img [src]="doc.profile.photo">
         </ion-avatar>
-        <h2>{{doc.name}}</h2>
+        <h2>{{doc.profile.name}}</h2>
         <p>
           <ion-row>
             <ion-col>
-              <ion-note>Access: </ion-note> {{doc.access | date: 'dd MMMM yyyy'}}</ion-col>
+              <ion-note>Access: </ion-note> {{doc.profile.access | date: 'dd MMMM yyyy'}}</ion-col>
             <ion-col>
-              <ion-note>Expire: </ion-note> {{doc.expire | date: 'dd MMMM yyyy'}}</ion-col>
+              <ion-note>Expire: </ion-note> {{doc.profile.expire | date: 'dd MMMM yyyy'}}</ion-col>
           </ion-row>
         </p>
       </button>
@@ -51,7 +51,7 @@
   </ion-grid>
 
   <ion-fab bottom right #fab>
-    <button ion-fab (click)="openRecordListModal()">
+    <button ion-fab (click)="openScannerModal()">
       <ion-icon name="md-add"></ion-icon>
     </button>
   </ion-fab>
