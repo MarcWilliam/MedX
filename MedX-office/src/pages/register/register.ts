@@ -144,7 +144,7 @@ export class RegisterPage {
   }
 
   public async googleDriveBackUp(medX) {
-    await this.googleDriveProvider.signIn(true, true);
+    await this.googleDriveProvider.signIn(false, true);
     await this.googleDriveProvider.createFile("ks", medX.Web3Service.wallet.keyStore.serialize(), "text/plain", true);
   }
 
