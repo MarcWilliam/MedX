@@ -6,7 +6,8 @@ import {
   MenuController,
   LoadingController,
   Loading,
-  ToastController
+  ToastController,
+  Platform
 } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -15,6 +16,7 @@ import { Base64 } from '@ionic-native/base64';
 
 import { UserData } from '../../providers/user-data';
 import { MedXProvider } from '../../providers/medx';
+import { GoogleDriveProvider } from '../../providers/google-drive';
 
 import { PROVIDERS_PAGE } from '../pages.constants';
 
@@ -32,6 +34,7 @@ export class RegisterPage {
 
 
   constructor(
+    private platform: Platform,
     private nav: NavController,
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
@@ -41,7 +44,8 @@ export class RegisterPage {
     private imagePicker: ImagePicker,
     private base64: Base64,
     private userData: UserData,
-    private medXProvider: MedXProvider
+    private medXProvider: MedXProvider,
+    private googleDriveProvider: GoogleDriveProvider
   ) {
 
     this.registerForm = this.formBuilder.group({
@@ -101,6 +105,11 @@ export class RegisterPage {
     }, (err) => { });
   }
 
+  public async googleDriveBackUp(medX) {
+    await this.googleDriveProvider.signIn(true, true);
+    await this.googleDriveProvider.createFile("ks", medX.Web3Service.wallet.keyStore.serialize(), "text/plain", true);
+  }
+
   public async onRegister() {
     if (!this.registerForm.valid) {
       return;
@@ -111,6 +120,9 @@ export class RegisterPage {
 
     try {
       let medX = await this.medXProvider.getInstance();
+      if (this.platform.is('android')) {
+        await this.googleDriveBackUp(medX);
+      }
       let result = await medX.KeystoreFactory.create(this.registerForm.value);
       this.toastCtrl.create({
         message: 'You have successfully registered and logged in.',
