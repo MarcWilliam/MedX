@@ -1,0 +1,625 @@
+[
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 2
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 2
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 2
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 2
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 1
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 1
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 1
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 2
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 2
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 2
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 2
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Ferrofol"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2014-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2015-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2015-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2015-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2015-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2015-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2015-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  },
+  {
+    "medicationReference": {
+      "reference": "Augmentin"
+    },
+    "dosageInstruction": {
+      "timing": {
+        "repeat": {
+          "frequency": 3
+        }
+      }
+    },
+    "date": ISODate("2016-01-01T08:15:39.736Z")
+  }
+  
+]
