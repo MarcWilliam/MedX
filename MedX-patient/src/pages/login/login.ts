@@ -100,6 +100,9 @@ export class LoginPage {
   ionViewWillEnter() {
     this.menu.enable(false);
     this.menu.swipeEnable(false);
+
+    store.remove('ks');
+    this.userData.logout();
   }
 
   ionViewWillLeave() {
