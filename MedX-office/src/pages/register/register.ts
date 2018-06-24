@@ -15,6 +15,7 @@ import { UserData } from '../../providers/user-data';
 import { MedXProvider } from '../../providers/medx';
 
 import { PatientListPage } from '../patient-list/patient-list';
+import { GoogleDriveProvider } from '../../providers/google-drive';
 
 @IonicPage()
 @Component({
@@ -53,7 +54,8 @@ export class RegisterPage {
     private toastCtrl: ToastController,
     public menu: MenuController,
     private userData: UserData,
-    private medXProvider: MedXProvider
+    private medXProvider: MedXProvider,
+    private googleDriveProvider: GoogleDriveProvider
   ) { }
 
   setPractitionerForm() {
@@ -139,6 +141,11 @@ export class RegisterPage {
     this.registerSlider.lockSwipes(true);
   }
 
+  public async googleDriveBackUp(medX) {
+    await this.googleDriveProvider.signIn(true, true);
+    await this.googleDriveProvider.createFile("ks", medX.Web3Service.wallet.keyStore.serialize(), "text/plain", true);
+  }
+
   public async onRegister() {
     let selectedForm = (this.selectedRole == this.roles[0]) ? this.practitionerForm : this.organizationForm;
 
@@ -151,13 +158,14 @@ export class RegisterPage {
 
     try {
       let medX = await this.medXProvider.getInstance();
+      await this.googleDriveBackUp(medX);
       let result = await medX.KeystoreFactory.create(selectedForm.value);
       this.toastCtrl.create({
         message: 'You have successfully registered and logged in.',
         duration: 3000,
         position: 'bottom'
       }).present();
-      this.userData.login(selectedForm.get('name').value);
+      this.userData.login('username');
       this.nav.setRoot(PatientListPage);
     } catch (err) {
       alert(err);

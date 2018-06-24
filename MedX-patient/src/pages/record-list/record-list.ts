@@ -79,8 +79,8 @@ export class RecordListPage {
         if (typeof record.title !== 'undefined') {
           return record.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
         }
-        else if (typeof record.doctorProfile !== 'undefined') {
-          return record.doctorProfile.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+        else if (typeof record.doctor !== 'undefined') {
+          return record.doctor.profile.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
         }
       })
     }

@@ -3,6 +3,10 @@ import { NavController, MenuController, AlertController, LoadingController, Load
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterPage } from '../register/register';
 import { PatientListPage } from '../patient-list/patient-list';
+import { UserData } from '../../providers/user-data';
+import { MedXProvider } from '../../providers/medx';
+import { GoogleDriveProvider } from '../../providers/google-drive';
+import * as store from 'store';
 
 @IonicPage()
 @Component({
@@ -21,11 +25,13 @@ export class LoginPage {
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
-    public menu: MenuController
+    public menu: MenuController,
+    public userData: UserData,
+    public medXProvider: MedXProvider,
+    public googleDriveProvider: GoogleDriveProvider
   ) {
 
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
 
@@ -38,9 +44,19 @@ export class LoginPage {
     this.nav.push(RegisterPage);
   }
 
-  public onLogin() {
+  public async onLogin() {
     this.showLoading();
-    this.nav.setRoot(PatientListPage);
+    await this.googleDriveProvider.signIn(false, true);
+    let serialized_keystore = (await this.googleDriveProvider.retrieveFileContentsByTitle("ks", true));
+    if (serialized_keystore.contents) {
+      store.set('ks', serialized_keystore.contents);
+      this.userData.login('username');
+      this.nav.setRoot(PatientListPage);
+    }
+    else {
+      alert("Wrong associated google account, did you register first ?");
+      this.loading.dismiss();
+    }
   }
 
   showLoading() {
@@ -62,17 +78,12 @@ export class LoginPage {
     alert.present();
   }
 
-  async ionViewDidLoad() {
-    // console.log(this.googleDriveProvider);
-    // console.log(await this.googleDriveProvider.signIn(false, true));
-    // console.log(await this.googleDriveProvider.createFile("test.txt", "IT WORKS!", "text/plain", true));
-    // let fileContents = await this.googleDriveProvider.retrieveFileContentsByTitle("test.txt", true);
-    // console.log(fileContents);
-  }
-
   ionViewWillEnter() {
     this.menu.enable(false);
     this.menu.swipeEnable(false);
+
+    store.remove('ks');
+    this.userData.logout();
   }
 
   ionViewWillLeave() {

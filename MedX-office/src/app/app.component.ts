@@ -132,7 +132,7 @@ export class ConferenceApp {
       return;
     }
 
-    if (this.nav.getActive() && this.nav.getActive().name === page.name) {
+    if (this.nav.getActive() && this.nav.getActive().id === page.name) {
       return color;
     }
     return;
