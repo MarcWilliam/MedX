@@ -7,15 +7,16 @@ import {
   LoadingController,
   Loading,
   Slides,
-  ToastController
+  ToastController,
+  Platform
 } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UserData } from '../../providers/user-data';
 import { MedXProvider } from '../../providers/medx';
+import { GoogleDriveProvider } from '../../providers/google-drive';
 
 import { PatientListPage } from '../patient-list/patient-list';
-import { GoogleDriveProvider } from '../../providers/google-drive';
 
 @IonicPage()
 @Component({
@@ -47,6 +48,7 @@ export class RegisterPage {
   selectedRole: any;
 
   constructor(
+    private platform: Platform,
     private nav: NavController,
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
