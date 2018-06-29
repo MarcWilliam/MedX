@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "api-js"
+		},
+		{
+			"path": "smart-contracts"
+		},
+		{
+			"path": "api-rest"
+		},
+		{
+			"path": "app-developer"
+		},
+		{
+			"path": "app-office"
+		},
+		{
+			"path": "app-patient"
+		}
+	],
+	"settings": {}
+}
