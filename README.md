@@ -1,4 +1,4 @@
-<img src="https://scontent-cai1-1.xx.fbcdn.net/v/t1.15752-0/p480x480/34411275_10216645685038246_2935287233994817536_n.png?_nc_cat=0&oh=9531d3abfd6e9e8221e9166d42da9ae7&oe=5B7AA002" height="45px"/> MedX
+<div style="text-align:center"><img src="https://scontent-cai1-1.xx.fbcdn.net/v/t1.15752-9/s2048x2048/36436180_10216828631451792_5471489740387647488_n.png?_nc_cat=0&oh=1a0dff3b56f3cfb797352f6a4399b977&oe=5BB1038B" height="64px"/></div>
 =========================================================================================
 
 This repo consist of multiple apps please check each app readme separately
@@ -6,14 +6,9 @@ This repo consist of multiple apps please check each app readme separately
 
 ## Table of Contents
 
- - [Statistics REST API](https://github.com/MarcWafik/MedX/tree/master/Rest-Api)
- - [Office App](https://github.com/MarcWafik/MedX/tree/master/MedX-office)
- - [Patient App](https://github.com/MarcWafik/MedX/tree/master/MedX-patient)
- - [Developer App](https://github.com/MarcWafik/MedX/tree/master/MedX-developer)
-
-
-
-### you may also want to check our other repos
-
-- [MedX Javascript API](https://github.com/MarcWafik/MedX.js)
-- [MedX Smart Contracts](https://github.com/MarcWafik/MedX.sol)
+- [Office App](https://github.com/MarcWafik/MedX/tree/master/app-office)
+- [Patient App](https://github.com/MarcWafik/MedX/tree/master/app-patient)
+- [Developer App](https://github.com/MarcWafik/MedX/tree/master/app-developer)
+- [Statistics REST API](https://github.com/MarcWafik/MedX/tree/master/api-rest)
+- [Javascript API](https://github.com/MarcWafik/MedX/tree/master/api-js)
+- [Smart Contracts](https://github.com/MarcWafik/MedX/tree/master/smart-contracts)
