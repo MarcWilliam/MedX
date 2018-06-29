@@ -1,5 +1,6 @@
-<div style="text-align:center"><img src="https://scontent-cai1-1.xx.fbcdn.net/v/t1.15752-9/s2048x2048/36436180_10216828631451792_5471489740387647488_n.png?_nc_cat=0&oh=1a0dff3b56f3cfb797352f6a4399b977&oe=5BB1038B" height="64px"/></div>
-=========================================================================================
+<p align="center">
+<img src="https://scontent-cai1-1.xx.fbcdn.net/v/t1.15752-9/s2048x2048/36436180_10216828631451792_5471489740387647488_n.png?_nc_cat=0&oh=1a0dff3b56f3cfb797352f6a4399b977&oe=5BB1038B" height="64px"/>
+</p>
 
 This repo consist of multiple apps please check each app readme separately
 
