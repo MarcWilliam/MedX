@@ -14,7 +14,7 @@
     <ion-row>
       <ion-col col-12 col-lg-6 col-xl-4 *ngFor="let query of queries">
         <ion-card (click)="presentQueryModal(query)">
-          <img [src]="query.media.main" />
+          <img id="mainImg" [src]="query.media.main" />
           <ion-card-content>
             <ion-card-title>{{ query.name }}</ion-card-title>
             <ion-row>
