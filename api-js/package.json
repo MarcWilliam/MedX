@@ -35,7 +35,7 @@
     "ipfs": "^0.29.3",
     "ipfs-api": "^22.1.0",
     "jshashes": "^1.0.7",
-    "medx.sol": "git+https://github.com/MarcWafik/MedX.sol.git",
+    "medx.sol": "file:../smart-contracts",
     "request": "^2.83.0",
     "store": "^2.0.12",
     "truffle-contract": "^3.0.5",
