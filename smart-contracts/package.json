@@ -30,6 +30,7 @@
   "dependencies": {
     "lite-server": "^2.3.0",
     "openzeppelin-solidity": "git+https://git@github.com/OpenZeppelin/openzeppelin-solidity.git",
+    "scrypt": "^6.0.3",
     "truffle-hdwallet-provider": "0.0.5"
   },
   "devDependencies": {

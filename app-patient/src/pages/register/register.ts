@@ -119,11 +119,11 @@ export class RegisterPage {
     this.isReadyToRegister = false; // disable the submit button to prevent sending twice
 
     try {
-      let medX = await this.medXProvider.getInstance();
+      /*let medX = await this.medXProvider.getInstance();
       if (this.platform.is('android')) {
         await this.googleDriveBackUp(medX);
       }
-      let result = await medX.KeystoreFactory.create(this.registerForm.value);
+      let result = await medX.KeystoreFactory.create(this.registerForm.value);*/
       this.toastCtrl.create({
         message: 'You have successfully registered and logged in.',
         duration: 3000,
