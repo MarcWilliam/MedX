@@ -6,8 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { UserData } from '../providers/user-data';
 
-import { ProvidersPage } from '../pages/providers/providers'
-
 import {
   LOGIN_PAGE,
   DEMOGRAPHICS_PAGE,
@@ -41,7 +39,7 @@ export class PatientApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Access', name: PROVIDERS_PAGE, component: ProvidersPage, tabComponent: PROVIDERS_PAGE, index: 1, icon: 'key' },
+    { title: 'Access', name: PROVIDERS_PAGE, component: PROVIDERS_PAGE, tabComponent: PROVIDERS_PAGE, index: 1, icon: 'key' },
     { title: 'Summary', name: SUMMARY_PAGE, component: SUMMARY_PAGE, tabComponent: SUMMARY_PAGE, index: 2, icon: 'pulse' },
     { title: 'Records', name: OFFICE_VISITS_PAGE, component: OFFICE_VISITS_PAGE, tabComponent: OFFICE_VISITS_PAGE, index: 2, icon: 'clipboard' },
     //{ title: 'Records', name: RECORD_LIST_PAGE, component: RECORD_LIST_PAGE, tabComponent: RECORD_LIST_PAGE, index: 3, icon: 'medkit' }

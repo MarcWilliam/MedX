@@ -98,7 +98,7 @@ export class SummaryPage {
       inputs: [
         {
           name: 'date',
-          type: 'datetime'
+          type: 'date'
         },
         {
           name: 'systolic',
