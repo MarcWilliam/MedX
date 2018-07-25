@@ -5,83 +5,94 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Profile</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content no-bounce class="bg-modal">
-    <div class="header-image"></div>
-    <div class="main-content" text-wrap text-center>
-        <div class="circular"></div>
-        <h2>{{user.name}}</h2>
-        <hr>
+  <div class="header-image"></div>
+  <div class="main-content" text-wrap text-center>
+    <div class="circular"></div>
+    <h2>{{user.name}}</h2>
+    <hr>
 
-        <ion-row>
-            <ion-col col-3>
-                <img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=0xf17f52151EbEF6C7334FAD080c5704D77216b732&amp;qzone=1&amp;margin=0&amp;size=250x250&amp;ecc=L"
-                    alt="qr code" />
-            </ion-col>
-            <ion-col>
+    <ion-row>
+      <ion-col col-3>
+        <img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=0xf17f52151EbEF6C7334FAD080c5704D77216b732&amp;qzone=1&amp;margin=0&amp;size=250x250&amp;ecc=L"
+          alt="qr code" />
+      </ion-col>
+      <ion-col>
 
-                <ion-list no-lines>
-                    <ion-item>
-                        <ion-icon item-start name="mail" color="grey"></ion-icon>
-                        <ion-note>Email</ion-note>
-                        <p>{{user.telecom.email}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="call" color="grey"></ion-icon>
-                        <ion-note>Phone</ion-note>
-                        <p>{{user.telecom.phone}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="key" color="grey"></ion-icon>
-                        <ion-note>Public Key</ion-note>
-                        <p>{{user.publicKey}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="pin" color="grey"></ion-icon>
-                        <ion-note>Address :</ion-note>
-                        <p>{{user.address}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="globe" color="grey"></ion-icon>
-                        <ion-note>Language</ion-note>
-                        <p>{{user.communication.language}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="calendar" color="grey"></ion-icon>
-                        <ion-note>Birth Date</ion-note>
-                        <p>{{user.birthDate}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="" color="grey"></ion-icon>
-                        <ion-note>Gender</ion-note>
-                        <p>{{user.gender}}</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-icon item-start name="" color="grey"></ion-icon>
-                        <ion-note>Marital Status</ion-note>
-                        <p>{{user.maritalStatus}}</p>
-                    </ion-item>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-icon item-start name="mail" color="grey"></ion-icon>
+            <ion-note>Email</ion-note>
+            <p>{{user.telecom.email}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="call" color="grey"></ion-icon>
+            <ion-note>Phone</ion-note>
+            <p>{{user.telecom.phone}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="key" color="grey"></ion-icon>
+            <ion-note>Public Key</ion-note>
+            <p>{{user.publicKey}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="pin" color="grey"></ion-icon>
+            <ion-note>Address :</ion-note>
+            <p>{{user.address}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="globe" color="grey"></ion-icon>
+            <ion-note>Language</ion-note>
+            <p>{{user.communication.language}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="calendar" color="grey"></ion-icon>
+            <ion-note>Birth Date</ion-note>
+            <p>{{user.birthDate}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="" color="grey"></ion-icon>
+            <ion-note>Gender</ion-note>
+            <p>{{user.gender}}</p>
+          </ion-item>
+          <ion-item>
+            <ion-icon item-start name="" color="grey"></ion-icon>
+            <ion-note>Marital Status</ion-note>
+            <p>{{user.maritalStatus}}</p>
+          </ion-item>
 
 
 
-                </ion-list>
-            </ion-col>
+        </ion-list>
+      </ion-col>
 
-        </ion-row>
+    </ion-row>
 
-    </div>
+  </div>
 
-    <ion-fab bottom right #fab>
-        <button ion-fab>
-            <ion-icon name="md-create"></ion-icon>
-        </button>
-    </ion-fab>
+  <ion-fab top right #fab>
+    <button ion-fab>
+      <ion-icon name="md-create"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-footer no-shadow>
+    <ion-toolbar position="bottom">
+      <ion-buttons start left>
+        <button ion-button clear>Access</button>
+      </ion-buttons>
+      <ion-buttons end right>
+        <button ion-button clear>Medical Records</button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
 
 </ion-content>
