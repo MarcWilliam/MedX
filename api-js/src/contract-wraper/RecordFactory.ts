@@ -16,22 +16,21 @@ export class RecordFactory extends Contract {
     }, extraParams?): Promise<any> {
         //extraParams = extraParams || { gas: 5000000 };
         //extraParams.gas = extraParams.gas || extraParams.gas == 5000000;
-        /*
+        
         //>> get user anonymous pk
         //>> upload record to statistics DB using anonymous pk
 
-        let encHandler = new EcnriptionHandler();
-        let ipfsSevice = new IPFSservice();
-        ipfsSevice.init();
+        //let encHandler = new EcnriptionHandler();
+        //let ipfsSevice = new IPFSservice();
+        //let ipfsSevice =await IPFSservice.init();
 
-        let key = this.encHandler.GenKey_256();
-        let ipfsDataOpject = new IpfsDataOpject();
-        ipfsDataOpject = <IpfsDataOpject>await this.ipfsSevice.ipfsInsert(record);
+        //let key = encHandler.GenKey_256();
+        //let ipfsDataOpject = new IpfsDataOpject();
+        //ipfsDataOpject = <IpfsDataOpject>await ipfsSevice.ipfsInsert(record);
         //> record = encript files
         //> upload files to ipfs
         //> doctorsKey = gen enc key with dr public ( dr key is the one in account)
         //> patientKey = gen enc key with pattient public
-        */
 
         var patientKey = "";
         var doctorsKey = "";
