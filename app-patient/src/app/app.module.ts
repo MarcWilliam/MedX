@@ -18,7 +18,9 @@ import { PatientApp } from './app.component';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(PatientApp),
+    IonicModule.forRoot(PatientApp, {
+      preloadModules: true // DELETE DANGER AHEAD
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

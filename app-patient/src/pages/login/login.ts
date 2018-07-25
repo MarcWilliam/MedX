@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController, AlertController, LoadingController, Loading, IonicPage, ModalController, Platform } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { REGISTER_PAGE, PROVIDERS_PAGE } from '../pages.constants';
+import { REGISTER_PAGE, PROFILE_PAGE } from '../pages.constants';
 import { UserData } from '../../providers/user-data';
 import { GoogleDriveProvider } from '../../providers/google-drive';
 import * as store from 'store';
@@ -43,7 +43,7 @@ export class LoginPage {
   }
 
   public async onLogin() {
-    this.showLoading();
+    /*this.showLoading();
     if (this.platform.is('android')) {
       await this.googleDriveProvider.signIn(false, true);
       let serialized_keystore = (await this.googleDriveProvider.retrieveFileContentsByTitle("ks", true));
@@ -67,7 +67,9 @@ export class LoginPage {
         alert("Wrong associated google account, did you register first ?");
         this.loading.dismiss();
       }
-    }
+    }*/
+    this.userData.login('username');
+    this.nav.setRoot(PROFILE_PAGE);
   }
 
   showLoading() {

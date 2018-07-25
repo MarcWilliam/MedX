@@ -25,7 +25,7 @@ export class RecordListPage {
   searching: any = false;
 
   records: any[] = [
-    /*{ title: "test 1", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
+    { title: "test 1", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 2", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 3", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 4", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
@@ -41,7 +41,7 @@ export class RecordListPage {
     { title: "test 14", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 15", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
     { title: "test 16", createdAt: new Date(), doctor: "Dr. John Smith", selected: false },
-    { title: "test 17", createdAt: new Date(), doctor: "Dr. John Smith", selected: false }*/
+    { title: "test 17", createdAt: new Date(), doctor: "Dr. John Smith", selected: false }
   ];
 
   filteredRecords: any[] = this.records.slice(0, this.records.length) || [];
@@ -128,7 +128,7 @@ export class RecordListPage {
   }
 
   async getRecords() {
-    let medX = await this.medXProvider.getInstance();
+    /*let medX = await this.medXProvider.getInstance();
     let keystore = await medX.KeystoreFactory.getKeyStore();
     let records = (await keystore.getRecords());
 
@@ -149,7 +149,8 @@ export class RecordListPage {
         }
       }
     };
-    return records;
+    return records;*/
+    return [];
   }
 
   async ionViewWillLoad() {

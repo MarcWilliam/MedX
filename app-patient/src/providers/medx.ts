@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
-import Medx from "medx.js";
+/*import Medx from "medx.js";
 import CONFIG from "../config";
 
 declare var TruffleContract;
-declare var lightwallet;
+declare var lightwallet;*/
 
 /*
   Generated class for the MedXProvider provider.
@@ -14,7 +14,7 @@ declare var lightwallet;
 */
 @Injectable()
 export class MedXProvider {
-	public Medx = null;
+	/*public Medx = null;
 
 	public getAccount(index?): string {
 		return "0xf17f52151EbEF6C7334FAD080c5704D77216b732";
@@ -90,5 +90,5 @@ export class MedXProvider {
 			console.error(err);
 		}
 		return this.Medx;
-	}
+	}*/
 }

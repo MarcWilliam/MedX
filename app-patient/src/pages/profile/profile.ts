@@ -61,12 +61,12 @@ export class ProfilePage {
   }
 
   async ionViewWillLoad() {
-    let medX = await this.medXProvider.getInstance();
+    /*let medX = await this.medXProvider.getInstance();
     let keystore = await medX.KeystoreFactory.getKeyStore();
     let profile = (await keystore.getAttribs()).profile;
     if (profile) {
       Object.assign(this.user, profile);
-    }
+    }*/
   }
 
   ionViewDidLoad() {
