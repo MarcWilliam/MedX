@@ -1,0 +1,83 @@
+{
+  "menu":{
+    "patients": "Patients",
+    "profile": "Profile",
+    "logOut": "LogOut"
+  },
+  "loginPage": {
+    "title": "Login",
+    "loginWithGoogle": "Login with Google",
+    "createNewAcc": "Create New Account"
+  },
+  "addDrugsPage": {
+    "title": "add-drug",
+    "addButton": "Add"
+  },
+  "chooseTemplatePage": {
+    "title": "choose-template",
+    "openModalButton": "Open Modal"
+  },
+  "patientListPage": {
+    "title": "Patients",
+    "gender": "Gender",
+    "birthDate": "Birth date"
+  },
+  "historyPage": {
+    "infoSegmet": {
+      "title": "Info",
+      "name": "Name",
+      "address": "Address",
+      "phone": "Phone",
+      "eMail": "E-mail",
+      "gender": "Gender",
+      "birthDate": "Birth date",
+      "maritalStatus": "Marital Status",
+      "language": "Language",
+      "allergiesTable": {
+            "allergies": "Allergies",
+            "category": "Category",
+            "age": "onset Age",
+            "occurrence": "Last Occurrence",
+            "substance": "Substance",
+            "severity": "Severity"
+      },
+      "familyHestoryTable":{
+          "familyHistory": "Family History",
+          "relative": "Relative",
+          "relationship": "Relationship",
+          "gender": "Gender",
+          "birthDate": "BirthDate",
+          "deceasedAge": "DeceasedAge",
+          "condition": "Condition",
+          "onsetAge": "Onset Age"
+      },
+      "emergencyContactTable":{
+          "title": "Emergency Contact",
+          "name": "Name",
+          "address": "Address",
+          "phone": "Phone",
+          "gender": "Gender",
+          "relationship": "Relationship"
+      },
+      "vitalsTable":{
+          "vitals": "Vitals",
+          "bloodType": "Blood Type",
+          "height": "Height",
+          "weight": "Weight"
+
+      }
+
+
+
+    },
+    "recordSegment": {
+        "title": "Records"
+    },
+    "fabButton": {
+        "prescription": "Prescription",
+        "template": "Template"
+    }
+  }
+
+
+}

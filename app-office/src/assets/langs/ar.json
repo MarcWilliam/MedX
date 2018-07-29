@@ -1,0 +1,85 @@
+{
+
+    "menu":{
+        "patients": "المرضي",
+        "profile": "الملف الشخصي",
+        "logOut": "تسجيل خروج"
+    },
+    "loginPage":{
+
+        "title" : "تسجيل دخول",
+        "loginWithGoogle": "سجل الدخول بحساب جوجل",
+        "CreateNewAcc" : "سجل حساب جديد"
+    },
+    "addDrugsPage":{
+        "title": "اضافه دواء",
+        "addButton": "اضف"
+    },
+    "chooseTemplatePage": {
+        "title": "اختر التحليل",
+        "openModalButton": "افتح الصفحه"
+      },
+      "patientListPage": {
+        "title": "المرضي",
+        "gender": "النوع",
+        "birthDate": "تاريخ الميلاد"
+      },
+      "historyPage": {
+        "infoSegmet": {
+          "title": "معلومات",
+          "name": "الاسم",
+          "address": "العنوان",
+          "phone": "رقم الهاتف ",
+          "eMail": "البريد",
+          "gender": "النوع",
+          "birthDate": "تاريخ الميلاد",
+          "maritalStatus": "الحاله الاجتماعيه",
+          "language": "اللغه",
+          "allergiesTable": {
+                "allergies": "الحساسية",
+                "category": "الفئه",
+                "age": "سن الاكتشاف",
+                "occurrence": "اخر حدوث",
+                "substance": "الماده",
+                "severity": "الخطوره"
+          },
+          "familyHestoryTable":{
+              "familyHistory": "تاريخ العائله",
+              "relative": "الاقارب",
+              "relationship": "العلاقه",
+              "gender": "النوع",
+              "birthDate": "تاريخ الميلاد",
+              "deceasedAge": "العمر عند الوفاه",
+              "condition": "الحاله",
+              "onsetAge": "سن التسجيل"
+          },
+          "emergencyContactTable":{
+              "title": "للاتصال في حاله الطوارئ",
+              "name": "الاسم",
+              "address": "العنوان",
+              "phone": "الهاتف",
+              "gender": "النوع",
+              "relationship": "العلاقه"
+          },
+          "vitalsTable":{
+              "vitals": "معلومات المريض",
+              "bloodType": "فئه الدم",
+              "height": "الطول",
+              "weight": "الوزن"
+    
+          }
+    
+    
+    
+        },
+        "recordSegment": {
+            "title": "المسجلات"
+        },
+        "fabButton": {
+            "prescription": "",
+            "template": ""
+        }
+      }
+    
+    
+}

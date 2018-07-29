@@ -4,11 +4,11 @@
 <ion-content class="ion-content">
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="page">
-            <ion-segment-button value="info">
-                Info
+            <ion-segment-button value="info" translate>
+               {{'historyPage.infoSegmet.title'}}
             </ion-segment-button>
-            <ion-segment-button value="record">
-                Records
+            <ion-segment-button value="record" translate>
+                {{'historyPage.recordSegment.title'}}
             </ion-segment-button>
         </ion-segment>
     </ion-toolbar>
@@ -31,35 +31,35 @@
 
                         <div style="max-width: 1000px; margin: 0 auto;">
                             <ion-row class="data-item">
-                                <span> Name:</span>
+                                <span translate> {{'historyPage.infoSegmet.name'}}</span>
                                 <span> Roland Mendel</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span> Address:</span>
+                                <span translate> {{'historyPage.infoSegmet.address'}}</span>
                                 <span> 120 Hanover Sq. London</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span> Phone:</span>
+                                <span translate> {{'historyPage.infoSegmet.phone'}}</span>
                                 <span> +20 012 345 6789</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span> E-mail:</span>
+                                <span translate> {{'historyPage.infoSegmet.eMail'}}</span>
                                 <span> RolandMendel@gmail.com</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span> Gender:</span>
+                                <span translate> {{'historyPage.infoSegmet.gender'}}</span>
                                 <span> Male</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span> Birth Date:</span>
+                                <span translate> {{'historyPage.infoSegmet.birthDate'}}</span>
                                 <span> 4/16/1992</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span> Marital Status:</span>
+                                <span translate> {{'historyPage.infoSegmet.maritalStatus'}}</span>
                                 <span> single</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span> Language:</span>
+                                <span translate> {{'historyPage.infoSegmet.language'}}</span>
                                 <span> English, French, Arabic</span>
                             </ion-row>
                         </div>
@@ -71,24 +71,24 @@
 
                 <ion-row no-padding>
                     <ion-col>
-                        <h4 bold padding-left ion-text color="">Allergies</h4>
+                        <h4 bold padding-left ion-text color="" translate>{{'historyPage.infoSegmet.allergiesTable.allergies'}}</h4>
                         <ion-card padding>
 
                             <ion-row>
                                 <ion-col>
-                                    <ion-note>category</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.allergiesTable.category'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>onset Age</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.allergiesTable.age'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>last Occurrence</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.allergiesTable.occurrence'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>substance</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.allergiesTable.substance'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>severity</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.allergiesTable.severity'}}</ion-note>
                                 </ion-col>
                             </ion-row>
 
@@ -108,30 +108,30 @@
 
                 <ion-row no-padding>
                     <ion-col>
-                        <h4 bold padding-left ion-text color="">Family History</h4>
+                        <h4 bold padding-left ion-text color="" translate>{{'historyPage.infoSegmet.familyHestoryTable.familyHistory'}}</h4>
                         <ion-card padding>
 
                             <ion-row>
                                 <ion-col>
-                                    <ion-note>Relative</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.familyHestoryTable.relative'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>relationship</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.familyHestoryTable.relationship'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>Gender</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.familyHestoryTable.gender'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>BirthDate</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.familyHestoryTable.birthDate'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>deceasedAge</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.familyHestoryTable.deceasedAge'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>Condition</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.familyHestoryTable.condition'}}</ion-note>
                                 </ion-col>
                                 <ion-col>
-                                    <ion-note>onset Age</ion-note>
+                                    <ion-note translate>{{'historyPage.infoSegmet.familyHestoryTable.onsetAge'}}</ion-note>
                                 </ion-col>
                             </ion-row>
                             <br>
@@ -165,27 +165,27 @@
                 <ion-row no-padding>
 
                     <ion-col col-12 col-lg-6>
-                        <h4 bold padding-left ion-text color="">Emergency Contact</h4>
+                        <h4 bold padding-left ion-text color="" translate>{{'historyPage.infoSegmet.emergencyContactTable.title'}}</h4>
                         <ion-card padding>
 
                             <ion-row class="data-item">
-                                <span>Name:</span>
+                                <span translate>{{'historyPage.infoSegmet.emergencyContactTable.name'}}</span>
                                 <span>Rolanda Mendel</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>Address:</span>
+                                <span translate>{{'historyPage.infoSegmet.emergencyContactTable.address'}}</span>
                                 <span>120 Hanover Sq. London</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>Phone:</span>
+                                <span translate>{{'historyPage.infoSegmet.emergencyContactTable.phone'}}</span>
                                 <span>+20 012 345 6789</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>Gender:</span>
+                                <span translate>{{'historyPage.infoSegmet.emergencyContactTable.gender'}}</span>
                                 <span>Female</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>Relationship:</span>
+                                <span translate>{{'historyPage.infoSegmet.emergencyContactTable.relationship'}}</span>
                                 <span>Spouse</span>
                             </ion-row>
 
@@ -193,20 +193,20 @@
                     </ion-col>
 
                     <ion-col>
-                        <h4 bold padding-left ion-text color="">Vitals</h4>
+                        <h4 bold padding-left ion-text color="" translate>{{'historyPage.infoSegmet.vitalsTable.vitals'}}</h4>
                         <ion-card padding>
                             <ion-grid>
                                 <ion-row class="data-item">
-                                    <span>
-                                        Blood Type:
+                                    <span translate>
+                                        {{'historyPage.infoSegmet.vitalsTable.bloodType'}}
                                     </span>
                                     <span>
                                         A+
                                     </span>
                                 </ion-row>
                                 <ion-row class="data-item">
-                                    <span>
-                                        Height:
+                                    <span translate>
+                                        {{'historyPage.infoSegmet.vitalsTable.height'}}
                                     </span>
                                     <span>
                                         179 cm
@@ -214,8 +214,8 @@
                                 </ion-row>
 
                                 <ion-row class="data-item">
-                                    <span>
-                                        Weight:
+                                    <span translate>
+                                        {{'historyPage.infoSegmet.vitalsTable.weight'}}
                                     </span>
                                     <span>
                                         76 kg
@@ -247,31 +247,31 @@
 
                         <div padding *ngIf="this.medications.meds[j].expand" style="transition: visibility 0s, opacity 0.5s linear;">
                             <ion-row class="data-item">
-                                <span>name/ID: </span>
+                                <span translate>name/ID: </span>
                                 <span>{{this.medications.meds[j].json.medicationReference.refrance}}</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>method: </span>
+                                <span translate>method: </span>
                                 <span>{{this.medications.meds[j].json.dosageInstruction[0].method.display}}</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>instruction: </span>
+                                <span translate> instruction: </span>
                                 <span>{{this.medications.meds[j].json.dosageInstruction[0].patientInstruction}}</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>frequency: </span>
+                                <span translate>frequency: </span>
                                 <span>{{this.medications.meds[j].json.dosageInstruction[0].timing.repeat.frequency}}</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>period: </span>
+                                <span translate>period: </span>
                                 <span>{{this.medications.meds[j].json.dosageInstruction[0].timing.repeat.period}}</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>periodMax: </span>
+                                <span translate>periodMax: </span>
                                 <span>{{this.medications.meds[j].json.dosageInstruction[0].timing.repeat.periodMax}}</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>periodUnit: </span>
+                                <span translate>periodUnit: </span>
                                 <span>{{this.medications.meds[j].json.dosageInstruction[0].timing.repeat.periodUnit}}</span>
                             </ion-row>
                         </div>
@@ -294,15 +294,15 @@
 
                         <div padding *ngIf="this.procedures.proc[j].expand">
                             <ion-row class="data-item">
-                                <span>ID: </span>
+                                <span translate>ID: </span>
                                 <span>{{this.procedures.proc[j].json.identifier}}</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>Name: </span>
+                                <span translate>Name: </span>
                                 <span>{{this.procedures.proc[j].json.definition}}</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span>description: </span>
+                                <span translate>description: </span>
                                 <span>{{this.procedures.proc[j].json.context}}</span>
                             </ion-row>
 

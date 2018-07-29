@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
+import {TranslateService} from "@ngx-translate/core";
+
+
 import { ListTemplatesPage } from '../list-templates/list-templates';
 import { PrescriptionPage } from '../prescription/prescription';
 import { Storage } from '@ionic/storage';
@@ -16,7 +19,7 @@ export class HistoryPage {
   public procedures = { proc: [] };
   public test = { tests: [] };
   public medications = { meds: [] };
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController,public storage : Storage) {
+  constructor(public translate : TranslateService ,public navCtrl: NavController, public modalCtrl: ModalController,public storage : Storage) {
     this.templatesModal = this.modalCtrl.create(ListTemplatesPage);
     this.medications = { meds: new Array() };
     this.procedures = { proc: new Array() };

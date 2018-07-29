@@ -55,9 +55,9 @@
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
-    <engine name="browser" spec="5.0.3" />
     <engine name="ios" spec="^4.5.2" />
     <engine name="android" spec="7.1.0" />
     <plugin name="cordova-plugin-device" spec="^1.1.7" />
     <plugin name="cordova-plugin-googledrive" spec="https://github.com/AbdelrhmanAbdelhamed/cordova-plugin-googledrive.git" />
+    <engine name="browser" spec="~5.0.3" />
 </widget>

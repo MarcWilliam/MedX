@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { ProfilePage } from '../pages/profile/profile';
 //import {HistoryPage} from '../pages/history/history';
@@ -65,11 +67,14 @@ export class ConferenceApp {
     public storage: Storage,
     public splashScreen: SplashScreen,
     public statusBar: StatusBar,
+    public translateSerive: TranslateService,
   ) {
-
+/*
     this.userData.hasLoggedIn().then(hasLoggedIn => {
       this.rootPage = hasLoggedIn ? ProfilePage : LoginPage;
     });
+    */
+    this.rootPage = PatientListPage;
     this.platformReady();
 
     // reading test template from json
@@ -118,6 +123,7 @@ export class ConferenceApp {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.initTranslate();
     });
   }
 
@@ -137,4 +143,18 @@ export class ConferenceApp {
     }
     return;
   }
+
+
+  initTranslate() {
+    // Set the default language for translation strings, and the current language.
+    this.translateSerive.setDefaultLang('ar');
+
+
+    //if (this.translateSerive.getBrowserLang() !== undefined) {
+    //    this.translateSerive.use(this.translateSerive.getBrowserLang());
+    //} else {
+        this.translateSerive.use('ar'); // Set your language here
+    //}
+
+}
 }

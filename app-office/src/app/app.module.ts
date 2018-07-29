@@ -9,6 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader"
+
 import { GoogleDriveProvider } from '../providers/google-drive';
 
 import { ConferenceApp } from './app.component';
@@ -33,6 +37,10 @@ import { ResourcesProvider } from '../providers/resources/resources';
 import { MedXProvider } from '../providers/medx';
 
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/langs/', '.json');
+}
+
 @NgModule({
   declarations: [
     ConferenceApp,
@@ -54,6 +62,14 @@ import { MedXProvider } from '../providers/medx';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: (HttpLoaderFactory),
+            deps: [HttpClient]
+        }
+    }),
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: PatientListPage, name: 'PatientListPage', segment: 'patients'},
