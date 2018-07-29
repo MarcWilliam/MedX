@@ -19,10 +19,14 @@
 
     <ion-content class="outer-content">
       <ion-list style="padding-top: 3px">
-        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)" [color]="isActive(p,'light')">
+        <button ion-item menuClose *ngFor="let p of appPages" (tap)="openPage(p)" [color]="isActive(p,'light')">
           <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-          <p ion-text [color]="isActive(p)">{{p.title}}</p>
+          <p *ngIf="lang == 'ar'" ion-text [color]="isActive(p)" translate>{{p.titleAr}}</p>
+          <p *ngIf="lang == 'en'" ion-text [color]="isActive(p)" translate>{{p.titleEn}}</p>
         </button>
+
+        <ion-item *ngIf="lang == 'en'"  (tap)="changLang('ar')" translate="yes">{{'menu.change'}}</ion-item>
+        <ion-item *ngIf="lang == 'ar'"  (tap)="changLang('en')" translate="yes">{{'menu.change'}}</ion-item>
       </ion-list>
     </ion-content>
 

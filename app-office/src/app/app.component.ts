@@ -22,8 +22,9 @@ import { LoginPage } from '../pages/login/login';
 declare var require: any
 
 export interface PageInterface {
-  title: string;
+  titleEn: string;
   name: string;
+  titleAr: string;
   component: any;
   icon: string;
   logsOut?: boolean;
@@ -45,12 +46,12 @@ export class ConferenceApp {
   // the login page disables the left menu
   appPages: PageInterface[] = [
 
-    { title: 'Patients', name: 'PatientListPage', component: PatientListPage, icon: 'people' },
+    { titleEn: 'Patients', name: 'PatientListPage' ,titleAr: 'المرضي', component: PatientListPage, icon: 'people' },
     //{ title: 'History Page', name: 'HistoryPage', component: HistoryPage , icon: 'information-circle' },
     //{ title: 'Drugs List' , name: 'DrugsListPage',component: DrugsListPage , icon: 'information-circle'},
     //{ title: 'Create New Test' , name: 'CreateTestPage' , component: CreateTestPage , icon: 'information-circle'},
-    { title: 'Profile', name: 'ProfilePage', component: ProfilePage, icon: 'person' },
-    { title: 'Log out', name: 'LoginPage', component: LoginPage, index: 5, icon: 'log-out' }
+    { titleEn: 'Profile', name: 'ProfilePage',titleAr:'الملف الشخصي', component: ProfilePage, icon: 'person' },
+    { titleEn: 'Log out', name: 'LoginPage',titleAr:'تسجيل خروج' , component: LoginPage, index: 5, icon: 'log-out' }
 
   ];
   loggedInPages: PageInterface[] = [
@@ -58,6 +59,8 @@ export class ConferenceApp {
   loggedOutPages: PageInterface[] = [
   ];
   rootPage: any;
+
+  lang = "";
 
   constructor(
     public events: Events,
@@ -147,14 +150,25 @@ export class ConferenceApp {
 
   initTranslate() {
     // Set the default language for translation strings, and the current language.
-    this.translateSerive.setDefaultLang('ar');
+    this.translateSerive.setDefaultLang('en');
+    
+    this.changLang('en');
+    
+    //this.platform.setDir("ltr",true);
+    //this.storage.set('dir','ltr');
+  
 
 
     //if (this.translateSerive.getBrowserLang() !== undefined) {
     //    this.translateSerive.use(this.translateSerive.getBrowserLang());
     //} else {
-        this.translateSerive.use('ar'); // Set your language here
+        // Set your language here
     //}
 
 }
+ changLang(lang : string){
+   this.lang=lang;
+   this.lang == 'ar' ?  this.platform.setDir('rtl', true) : this.platform.setDir("ltr",true);
+    this.translateSerive.use(this.lang);
+ }
 }

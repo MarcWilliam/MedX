@@ -2,7 +2,8 @@
   "menu":{
     "patients": "Patients",
     "profile": "Profile",
-    "logOut": "LogOut"
+    "logOut": "LogOut",
+    "change": "Change To Arabic"
   },
   "loginPage": {
     "title": "Login",

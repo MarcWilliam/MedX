@@ -19,11 +19,17 @@ export class HistoryPage {
   public procedures = { proc: [] };
   public test = { tests: [] };
   public medications = { meds: [] };
+  public dir : string;
+  public ready =false;
   constructor(public translate : TranslateService ,public navCtrl: NavController, public modalCtrl: ModalController,public storage : Storage) {
     this.templatesModal = this.modalCtrl.create(ListTemplatesPage);
     this.medications = { meds: new Array() };
     this.procedures = { proc: new Array() };
     this.test = { tests: new Array() };
+    this.storage.get('dir').then(dir=>{
+      this.dir=dir;
+      this.ready=true;
+    });
     this.storage.get("Records").then(data=>{
       this.records = data
       this.medications=this.records[0];

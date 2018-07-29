@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
 import Medx from "medx.js";
-import CONFIG from "../config";
+//import CONFIG from "../config";
 
 declare var TruffleContract;
 declare var lightwallet;
@@ -17,9 +17,9 @@ export class MedXProvider {
 	public Medx = null;
 
 	constructor() {
-		Medx.SERVERS.LOCALHOST.STATISTICS_API = CONFIG.SERVER.STATISTICS_API;
-		Medx.SERVERS.LOCALHOST.HTTP_PROVIDER = CONFIG.SERVER.HTTP_PROVIDER;
-		Medx.SERVERS.LOCALHOST.CONTRACTS_URL = CONFIG.SERVER.CONTRACTS_URL;
+		Medx.SERVERS.LOCALHOST.STATISTICS_API = "CONFIG.SERVER.STATISTICS_API";
+		Medx.SERVERS.LOCALHOST.HTTP_PROVIDER = "CONFIG.SERVER.HTTP_PROVIDER";
+		Medx.SERVERS.LOCALHOST.CONTRACTS_URL = "CONFIG.SERVER.CONTRACTS_URL";
 	}
 
 	private _init() {

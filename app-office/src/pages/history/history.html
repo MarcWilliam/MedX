@@ -14,7 +14,7 @@
     </ion-toolbar>
 
 
-    <div [ngSwitch]="page">
+    <div [ngSwitch]="page" *ngIf="ready">
 
         <ion-list *ngSwitchCase="'info'">
             <ion-grid>
@@ -31,35 +31,35 @@
 
                         <div style="max-width: 1000px; margin: 0 auto;">
                             <ion-row class="data-item">
-                                <span translate> {{'historyPage.infoSegmet.name'}}</span>
+                                <span [class]="dir" translate> {{'historyPage.infoSegmet.name'}}</span>
                                 <span> Roland Mendel</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span translate> {{'historyPage.infoSegmet.address'}}</span>
+                                <span [class]="dir" translate> {{'historyPage.infoSegmet.address'}}</span>
                                 <span> 120 Hanover Sq. London</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span translate> {{'historyPage.infoSegmet.phone'}}</span>
+                                <span [class]="dir" translate> {{'historyPage.infoSegmet.phone'}}</span>
                                 <span> +20 012 345 6789</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span translate> {{'historyPage.infoSegmet.eMail'}}</span>
+                                <span [class]="dir" translate> {{'historyPage.infoSegmet.eMail'}}</span>
                                 <span> RolandMendel@gmail.com</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span translate> {{'historyPage.infoSegmet.gender'}}</span>
+                                <span [class]="dir" translate> {{'historyPage.infoSegmet.gender'}}</span>
                                 <span> Male</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span translate> {{'historyPage.infoSegmet.birthDate'}}</span>
+                                <span [class]="dir" translate> {{'historyPage.infoSegmet.birthDate'}}</span>
                                 <span> 4/16/1992</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span translate> {{'historyPage.infoSegmet.maritalStatus'}}</span>
+                                <span [class]="dir" translate> {{'historyPage.infoSegmet.maritalStatus'}}</span>
                                 <span> single</span>
                             </ion-row>
                             <ion-row class="data-item">
-                                <span translate> {{'historyPage.infoSegmet.language'}}</span>
+                                <span [class]="dir" translate> {{'historyPage.infoSegmet.language'}}</span>
                                 <span> English, French, Arabic</span>
                             </ion-row>
                         </div>

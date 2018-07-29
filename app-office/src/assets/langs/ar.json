@@ -3,7 +3,8 @@
     "menu":{
         "patients": "المرضي",
         "profile": "الملف الشخصي",
-        "logOut": "تسجيل خروج"
+        "logOut": "تسجيل خروج",
+        "change": "للانجليزيه"
     },
     "loginPage":{
 
