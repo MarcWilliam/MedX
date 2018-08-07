@@ -7,7 +7,7 @@ contract Keystore is Ownable {
 
     string public profile;
 
-    constructor ( string _profile) public {
+    constructor(string _profile) public {
         profile = _profile;
     }
 

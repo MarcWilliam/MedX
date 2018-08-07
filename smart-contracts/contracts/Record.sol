@@ -10,12 +10,17 @@ contract Record {
     uint256 public createdAt;
 
     EncryptedFile public record;
-    EncryptedFile[] public attachments;
+    
+    struct EncryptedFile {
+        string filePath;
+        string dataHash;
+        string hashMethod;
+        string encriptionMethod;
+    }
 
     constructor(
         address _patient,
-        EncryptedFile _record,
-        EncryptedFile[] _attachments
+        EncryptedFile _record
     ) public {
         patient = _patient;
         doctor = tx.origin;
@@ -23,4 +28,6 @@ contract Record {
         record = _record;
         attachments = _attachments;
     }
+
+
 }
