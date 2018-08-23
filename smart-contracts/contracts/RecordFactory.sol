@@ -1,8 +1,6 @@
 pragma solidity ^0.4.24;
 
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
-import "./Record.sol";
-import "./KeystoreFactory.sol";
+import "./Ownable.sol";
 
 contract RecordFactory is Ownable {
 
@@ -23,16 +21,15 @@ contract RecordFactory is Ownable {
         address _doctor,
         uint _record,
         uint[] _attachments
-    ) public onlyOwner returns (uint index, Record rec) {
+    ) public onlyOwner returns (uint index) {
 
-        rec = Record({
+        index = records.push(Record({
             patient: _patient,
             doctor: _doctor,
             record: _record,
             attachments: _attachments
-        });
-
-        index = records.push(rec) - 1;
+        }));
+        index --;
         emit Created(_patient, msg.sender, index);
     }
 

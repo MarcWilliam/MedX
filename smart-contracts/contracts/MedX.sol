@@ -1,7 +1,7 @@
 pragma solidity ^0.4.24;
+pragma experimental ABIEncoderV2;
 
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
-import "./KeystoreFactory.sol";
+import "./Ownable.sol";
 import "./RecordFactory.sol";
 import "./EncryptedFileFactory.sol";
 
@@ -17,29 +17,32 @@ contract MedX is Ownable{
 
     function createRecordFull(
         address _patient,
-        string _patientKey,
+        string _patientsKey,
         string _doctorsKey,
         string _record_filePath,
         string _record_dataHash,
         uint _record_hashMethod,
         uint _record_encriptionMethod,
         uint[] _attachments
-    ) public returns (Record) {
-        EncryptedFile _record = new EncryptedFile(
-            _record_filePath,
-            _record_dataHash,
-            _record_hashMethod,
-            _record_encriptionMethod
-        );
-        KSFactory.owners(_patient).add(index, _patientKey);
-        KSFactory.owners(msg.sender).add(index, _doctorsKey);
+    ) public returns (uint index) {
 
-        return create(
-            _patient,
-            _patientKey,
-            _doctorsKey,
-            _record,
-            _attachments
+        string[] memory keys;
+        keys[0] = _doctorsKey;
+        keys[1] = _patientsKey;
+
+        address[] memory owners;
+        owners[0] = msg.sender;
+        owners[1] = msg.sender;
+
+
+        uint recFileIndex = encyptedFileFactory.create(
+            msg.sender, owners, keys,
+            _record_filePath, _record_dataHash, _record_hashMethod, _record_encriptionMethod
+        );
+
+        index = recordFactory.create(
+            _patient, msg.sender,
+            recFileIndex, new uint[](0)
         );
     }
 }

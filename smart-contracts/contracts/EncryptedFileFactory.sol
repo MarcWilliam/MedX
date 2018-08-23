@@ -1,19 +1,19 @@
 pragma solidity ^0.4.24;
+pragma experimental ABIEncoderV2;
 
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
-import "./KeystoreFactory.sol";
+import "./Ownable.sol";
 
 contract EncryptedFileFactory is Ownable {
 
-    bytes32[] public HashMethods = ["SHA-512"]; 
-    bytes32[] public EncryptionMethods = ["AES"];
+    string[] public HashMethods = ["SHA-512"]; 
+    string[] public EncryptionMethods = ["AES"];
 
     struct EncryptedFile {
         string filePath;
         string dataHash;
         uint hashMethod;
         uint encriptionMethod;
-        mapping(address=>uint) keys;
+        mapping(address=>string) keys;
     }
 
     EncryptedFile[] public encryptedFiles;
@@ -24,31 +24,31 @@ contract EncryptedFileFactory is Ownable {
     function create(
         address _by,
         address[] _keysOwners,
-        string[] _Keys,
+        string[] _keys,
         string _filePath,
         string _dataHash,
         uint _hashMethod,
-        uint _encriptionMethod,
-    ) public onlyOwner returns (uint index, EncryptedFile encryptedFile) {
+        uint _encriptionMethod
+    ) public onlyOwner returns (uint index) {
 
-        EncryptedFile _encryptedFile = EncryptedFile({
+        index = encryptedFiles.push(EncryptedFile({
             filePath: _filePath,
             dataHash: _dataHash,
             hashMethod: _hashMethod,
             encriptionMethod: _encriptionMethod
-        });
-
-        for (var i = 0; i < _keys.length; i++) {
-            _encryptedFile.keys[_keysOwners[i]] = _key[i];
-            emit GivenAccess(_by, _keysOwners[i]);
+        }));
+        index --;
+        EncryptedFile storage _encryptedFile = encryptedFiles[i];
+        
+        for (uint i = 0; i < _keys.length; i++) {
+            _encryptedFile.keys[_keysOwners[i]] = _keys[i];
+            emit GivenAccess(_by, _keysOwners[i],index);
         }
-
-        index = EncryptedFiles.push(_encryptedFile) - 1;
     }
 
     function giveAccess(uint _index, address _to, address _by, string _key) public onlyOwner {
         encryptedFiles[_index].keys[_to] = _key;
-        emit GivenAccess(_by, _keysOwners[i]);
+        emit GivenAccess(_by, _to, _index);
     }
 
 }
