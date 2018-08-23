@@ -2,7 +2,7 @@ import { EcnriptionHandler } from './encription-handler';
 
 import IPFS = require('ipfs');
 import fs = require('fs'); //Js File library
-import Config from './config';
+import CONFIG from './config';
 
 export class IPFSservice {
 
@@ -20,7 +20,7 @@ export class IPFSservice {
 
             config: {
                 Addresses: {
-                    API: Config.server.IPFS_NODE,
+                    API: CONFIG.SERVER.IPFS_NODE,
 
                 }
             }

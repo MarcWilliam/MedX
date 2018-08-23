@@ -8,25 +8,15 @@ export interface GenericCallArgs {
 
 export abstract class Contract {
 
+    static ABI;
+    static ADDRESS;
+
     protected _address: string;
 
     public get address(): string { return this._address; }
 
     constructor(address?: string) {
         this._address = <any>address;
-    }
-
-	/**
-	 * @return {string} the contract name
-	 */
-    public abstract get contractName(): string
-
-	/**
-	 * @return {TruffleContract} the contract
-	 */
-    public async getContract() {
-        var web3ServiceInstance = await (Web3Service.getInstance());
-        return web3ServiceInstance.getContract(this.contractName);
     }
 
 	/**
@@ -66,8 +56,7 @@ export abstract class Contract {
             let extraParams = (args && args.extraParams) ? args.extraParams : {};
 
             if (extraParams.from == null) {
-                let web3ServiceInstance = await (Web3Service.getInstance());
-                extraParams.from = await web3ServiceInstance.getAccount();
+                extraParams.from = await Web3Service.getAccount();
             }
 
             if (extraParams.gas == null) {
@@ -87,8 +76,7 @@ export abstract class Contract {
     protected async genericEvent(eventName: string, extraParams?: { fromBlock?: any, toBlock?: any, filter?: { any } }): Promise<any[]> {
         try {
             var contractInstance = await this.getContractInstance();
-            var web3ServiceInstance = await (Web3Service.getInstance());
-            var account = await web3ServiceInstance.getAccount();
+            var account = await Web3Service.getAccount();
 
             extraParams = extraParams || {};
             extraParams.fromBlock = extraParams.fromBlock || 0;

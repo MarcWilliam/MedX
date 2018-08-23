@@ -1,9 +1,10 @@
 /* Auto generated password length */
 export const generatedPasswordLength = 12;
-/*
+
+/**
  * "Secure" password generator
  *  from: https://github.com/PaulLaux/eth-hot-wallet/blob/master/app/utils/crypto.js
-*/
+ */
 export function generateString(len) {
     const MAXLEN = len; /* tweak this */
     const MINLEN = len;
