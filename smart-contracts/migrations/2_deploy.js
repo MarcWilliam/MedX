@@ -1,8 +1,6 @@
-const RecordFactory = artifacts.require("RecordFactory");
-const KeystoreFactory = artifacts.require("KeystoreFactory");
-
+const MedX = artifacts.require("MedX");
 
 module.exports = function (deployer) {
-    deployer.deploy(KeystoreFactory)
-        .then(() => deployer.deploy(RecordFactory, KeystoreFactory.address))
+    deployer.deploy(MedX);
+        //.then(() => deployer.deploy(RecordFactory, KeystoreFactory.address))
 };
