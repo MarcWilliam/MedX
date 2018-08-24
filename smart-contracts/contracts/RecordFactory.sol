@@ -7,8 +7,6 @@ contract RecordFactory is Ownable {
     struct Record {
         address patient;
         address doctor;
-
-        uint record;
         uint[] attachments;
     }
 
@@ -19,14 +17,13 @@ contract RecordFactory is Ownable {
     function create(
         address _patient,
         address _doctor,
-        uint _record,
         uint[] _attachments
     ) public onlyOwner returns (uint index) {
+        require(_attachments.length > 0);
 
         index = records.push(Record({
             patient: _patient,
             doctor: _doctor,
-            record: _record,
             attachments: _attachments
         }));
         index --;

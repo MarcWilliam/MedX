@@ -1,5 +1,4 @@
 pragma solidity ^0.4.24;
-pragma experimental ABIEncoderV2;
 
 import "./Ownable.sol";
 import "./RecordFactory.sol";
@@ -15,34 +14,33 @@ contract MedX is Ownable{
         recordFactory = new RecordFactory();
     }
 
-    function createRecordFull(
+    function createRecord(
         address _patient,
-        string _patientsKey,
-        string _doctorsKey,
-        string _record_filePath,
-        string _record_dataHash,
-        uint _record_hashMethod,
-        uint _record_encriptionMethod,
-        uint[] _attachments
+        address[] _keysOwners,
+        bytes32[4][] _keys,
+        bytes32[] _filePath_digest,
+        uint8[] _filePath_hashFunction,
+        uint8[] _filePath_size,
+        bytes32[] _dataHash_digest,
+        uint8[] _dataHash_hashFunction,
+        uint8[] _dataHash_size,
+        uint[] _encriptionMethod
     ) public returns (uint index) {
+        uint[] memory attachments;
 
-        string[] memory keys;
-        keys[0] = _doctorsKey;
-        keys[1] = _patientsKey;
+        for (uint i = 0; i < _encriptionMethod.length; i++) {
+            attachments[i] = encyptedFileFactory.create(
+                msg.sender, _keysOwners, _keys,
+                _filePath_digest[i],
+                _filePath_hashFunction[i],
+                _filePath_size[i],
+                _dataHash_digest[i],
+                _dataHash_hashFunction[i],
+                _dataHash_size[i],
+                _encriptionMethod[i]
+            );
+        }
 
-        address[] memory owners;
-        owners[0] = msg.sender;
-        owners[1] = msg.sender;
-
-
-        uint recFileIndex = encyptedFileFactory.create(
-            msg.sender, owners, keys,
-            _record_filePath, _record_dataHash, _record_hashMethod, _record_encriptionMethod
-        );
-
-        index = recordFactory.create(
-            _patient, msg.sender,
-            recFileIndex, new uint[](0)
-        );
+        index = recordFactory.create(_patient, msg.sender, attachments);
     }
 }
